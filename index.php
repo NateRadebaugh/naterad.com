@@ -1,3 +1,1 @@
-<?php
-Header('Location: http://naterad.com');
-
+<meta HTTP-EQUIV="REFRESH" content="0; url=http://naterad.com">
