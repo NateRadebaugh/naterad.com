@@ -1,3 +1,31 @@
+<?
+ob_start();
+
+$links["my resume"] = "resume";
+$links["my blog"] = "blog";
+$links["my android apps"] = "android";
+$links["my portfolio"] = "portfolio";
+//$links["contact me"] = "blog/contact";
+
+
+$colors["yellow"] = "ffb515";
+	$color_strings[] = 'yellow';
+$colors["orange"] = "ff5c00";
+	$color_strings[] = 'orange';
+$colors["magenta"] = "a9014b";
+	$color_strings[] = 'magenta';
+$colors["red"] = "e33100";
+	$color_strings[] = 'red';
+$colors["blue"] = "2daebf";
+	$color_strings[] = 'blue';
+$colors["green"] = "91bd09";
+	$color_strings[] = 'green';
+
+$colorsArray = array();
+foreach ($colors as $thisColor => $hex){
+	$colorsArray[] = $thisColor;
+}
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
   "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -50,43 +78,19 @@
 				margin: 0px;
 			}
 
-			.bg-yellow {
-				background-color: #ffb515;
+			<?
+			foreach ($color_strings as $color)
+			{
+			?>.bg-<?=$color?> {
+				background-color: #<?=$colors[$color]?>;
 			}
-			.fg-yellow {
-				color: #ffb515;
+			.fg-<?=$color?> {
+				color: #<?=$colors[$color]?>;
 			}
-			.bg-orange {
-				background-color: #ff5c00;
+			<?
 			}
-			.fg-orange {
-				color: #ff5c00;
-			}
-			.bg-magenta {
-				background-color: #a9014b;
-			}
-			.fg-magenta {
-				color: #a9014b;
-			}
-			.bg-red {
-				background-color: #e33100;
-			}
-			.fg-red {
-				color: #e33100;
-			}
-			.bg-blue {
-				background-color: #2daebf;
-			}
-			.fg-blue {
-				color: #2daebf;
-			}
-			.bg-green {
-				background-color: #91bd09;
-			}
-			.fg-green {
-				color: #91bd09;
-			}
-			
+			?>
+
 			#header {
 				margin-bottom: 1px;
 			}
@@ -151,47 +155,31 @@
 	<body>
 		<center>
 		<div id="header">
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
+<?
+			for ($i = 0; $i < 15; $i++)
+			{
+				echo "\t\t\t<div>&nbsp;</div>\n";
+			}
+		?>
 		</div>
 		<div id="name">
 			<center>Hi, I'm Nate.</center>
 			<ul id="links">
-				<li><a href='resume'>my resume</a></li>
-<li><a href='blog'>my blog</a></li>
-<li><a href='android'>my android apps</a></li>
-<li><a href='portfolio'>my portfolio</a></li>
+				<?
+				foreach ($links as $name => $destination)
+				{
+					echo "<li><a href='$destination'>$name</a></li>\n";
+				}
+				?>
 			</ul>
 		</div>
 		<div id="footer">
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
+<?
+			for ($i = 0; $i < 15; $i++)
+			{
+				echo "\t\t\t<div>&nbsp;</div>\n";
+			}
+		?>
 		</div>	
 		</center>
 		<div id="watermark">
@@ -200,14 +188,15 @@
 
 		<script type="text/javascript">
 			var colors = new Array();
-			colors[0] = "yellow";
-			colors[1] = "orange";
-			colors[2] = "magenta";
-			colors[3] = "red";
-			colors[4] = "blue";
-			colors[5] = "green";
+<?
+			$i=0;
+			foreach ($color_strings as $color)
+			{
+				echo "\t\t\t".'colors['.$i++.'] = "'.$color.'";'."\n";
+			}
+			?>
 			
-			var color = colors[Math.floor(Math.random()*6)];
+			var color = colors[Math.floor(Math.random()*<?=count($colors)?>)];
 
 			$('#header > div:nth-child(4n+1)').addClass('bg-'+color);
 			$('#footer > div:nth-child(4n+3)').addClass('bg-'+color);
@@ -222,3 +211,10 @@
 	</body>
 </html>
 
+<?
+$page_contents = ob_get_contents();
+ob_end_flush();
+
+$fh = fopen('index.html', 'w') or die('can\'t open index.html for writing');
+fwrite($fh, $page_contents);
+fclose($fh);
