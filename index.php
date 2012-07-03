@@ -165,10 +165,10 @@ foreach ($colors as $thisColor => $hex){
 		<div id="name">
 			<center>Hi, I'm Nate.</center>
 			<ul id="links">
-				<?
+<?
 				foreach ($links as $name => $destination)
 				{
-					echo "<li><a href='$destination'>$name</a></li>\n";
+					echo "\t\t\t\t<li><a href='$destination'>$name</a></li>\n";
 				}
 				?>
 			</ul>
@@ -195,7 +195,7 @@ foreach ($colors as $thisColor => $hex){
 				echo "\t\t\t".'colors['.$i++.'] = "'.$color.'";'."\n";
 			}
 			?>
-			
+
 			var color = colors[Math.floor(Math.random()*<?=count($colors)?>)];
 
 			$('#header > div:nth-child(4n+1)').addClass('bg-'+color);
