@@ -1,4 +1,4 @@
-<?
+<?php
 ob_start();
 
 $links["my resume"] = "resume";
@@ -78,16 +78,16 @@ foreach ($colors as $thisColor => $hex){
 				margin: 0px;
 			}
 
-			<?
+			<?php
 			foreach ($color_strings as $color)
 			{
-			?>.bg-<?=$color?> {
-				background-color: #<?=$colors[$color]?>;
+			?>.bg-<?php echo $color?> {
+				background-color: #<?php echo $colors[$color]?>;
 			}
-			.fg-<?=$color?> {
-				color: #<?=$colors[$color]?>;
+			.fg-<?php echo $color?> {
+				color: #<?php echo $colors[$color]?>;
 			}
-			<?
+			<?php
 			}
 			?>
 
@@ -155,7 +155,7 @@ foreach ($colors as $thisColor => $hex){
 	<body>
 		<center>
 		<div id="header">
-<?
+<?php
 			for ($i = 0; $i < 15; $i++)
 			{
 				echo "\t\t\t<div>&nbsp;</div>\n";
@@ -165,7 +165,7 @@ foreach ($colors as $thisColor => $hex){
 		<div id="name">
 			<center>Hi, I'm Nate.</center>
 			<ul id="links">
-<?
+<?php
 				foreach ($links as $name => $destination)
 				{
 					echo "\t\t\t\t<li><a href='$destination'>$name</a></li>\n";
@@ -174,7 +174,7 @@ foreach ($colors as $thisColor => $hex){
 			</ul>
 		</div>
 		<div id="footer">
-<?
+<?php
 			for ($i = 0; $i < 15; $i++)
 			{
 				echo "\t\t\t<div>&nbsp;</div>\n";
@@ -188,7 +188,7 @@ foreach ($colors as $thisColor => $hex){
 
 		<script type="text/javascript">
 			var colors = new Array();
-<?
+<?php
 			$i=0;
 			foreach ($color_strings as $color)
 			{
@@ -196,7 +196,7 @@ foreach ($colors as $thisColor => $hex){
 			}
 			?>
 
-			var color = colors[Math.floor(Math.random()*<?=count($colors)?>)];
+			var color = colors[Math.floor(Math.random()*<?php echo count($colors)?>)];
 
 			$('#header > div:nth-child(4n+1)').addClass('bg-'+color);
 			$('#footer > div:nth-child(4n+3)').addClass('bg-'+color);
@@ -211,7 +211,7 @@ foreach ($colors as $thisColor => $hex){
 	</body>
 </html>
 
-<?
+<?php
 $page_contents = ob_get_contents();
 ob_end_flush();
 
