@@ -1,0 +1,139 @@
+/* BrandColors curated by [Galen Gidman](http://twitter.com/galengidman) */
+/* http://galengidman.com/brandcolors/ */
+@android: #a4c639;
+@bitbucket: #003366;
+@deviantart: #4e6252;
+@ebay: #89c507;
+@facebook: #3b5998;
+@foursquare: #25a0ca;
+@github: #4183c4;
+@googleplus: #db4a39;
+@grooveshark: #f77f00;
+@imdb: #f3ce13;
+@lastfm: #c3000d;
+@linkedin: #0e76a8;
+@nokia: #183693;
+@paypal: #3b7bbf;
+@skype: #00aff0;
+@spotify: #64b41a;
+@stumbleupon: #f74425;
+@twitter: #00a0d1;
+@yelp: #c41200;
+@youtube: #c4302b;
+@resume: #E15227;
+@portfolio: #5D39BE;
+
+.bgcolor (@color) {
+    opacity: 1;
+    background-color: @color !important;
+    color: lighten(@color, 90%) !important;
+    &:hover {
+        background-color: darken(@color, 2%) !important;
+        color: lighten(@color, 80%) !important;
+    }
+}
+
+.thumbnails img, .img-placeholder {
+    height: 100px;
+    padding-bottom: 1em;
+}
+
+.thumbnails a {
+    position: relative;
+}
+.thumbnails a > span {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left: 0;
+    z-index: 1;
+}
+
+.bgcolor-android {
+    .bgcolor(@android);
+}
+
+.bgcolor-bitbucket {
+    .bgcolor(@bitbucket);
+}
+
+.bgcolor-deviantart {
+    .bgcolor(@deviantart);
+}
+
+.bgcolor-ebay {
+    .bgcolor(@ebay);
+}
+
+.bgcolor-facebook {
+    .bgcolor(@facebook);
+}
+
+.bgcolor-foursquare {
+    .bgcolor(@foursquare);
+}
+
+.bgcolor-github {
+    .bgcolor(@github);
+}
+
+.bgcolor-googleplus {
+    .bgcolor(@googleplus);
+}
+
+.bgcolor-grooveshark {
+    .bgcolor(@grooveshark);
+}
+
+.bgcolor-imdb {
+    .bgcolor(@imdb);
+}
+
+.bgcolor-lastfm {
+    .bgcolor(@lastfm);
+}
+
+.bgcolor-linkedin {
+    .bgcolor(@linkedin);
+}
+
+.bgcolor-nokia {
+    .bgcolor(@nokia);
+}
+
+.bgcolor-paypal {
+    .bgcolor(@paypal);
+}
+
+.bgcolor-skype {
+    .bgcolor(@skype);
+}
+
+.bgcolor-spotify {
+    .bgcolor(@spotify);
+}
+
+.bgcolor-stumbleupon {
+    .bgcolor(@stumbleupon);
+}
+
+.bgcolor-twitter {
+    .bgcolor(@twitter);
+}
+
+.bgcolor-yelp {
+    .bgcolor(@yelp);
+}
+
+.bgcolor-youtube {
+    .bgcolor(@youtube);
+}
+
+.bgcolor-resume {
+    .bgcolor(@resume);
+}
+
+.bgcolor-portfolio {
+    .bgcolor(@portfolio);
+}
