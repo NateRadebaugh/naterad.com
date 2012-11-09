@@ -198,5 +198,21 @@
   background-color: #5937b6 !important;
   color: #ffffff !important;
 }
-
-/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
+.bgcolor-windows8 {
+  opacity: 1;
+  background-color: #00adef !important;
+  color: #ffffff !important;
+}
+.bgcolor-windows8:hover {
+  background-color: #00a6e5 !important;
+  color: #ffffff !important;
+}
+.bgcolor-wp8 {
+  opacity: 1;
+  background-color: #e91224 !important;
+  color: #ffffff !important;
+}
+.bgcolor-wp8:hover {
+  background-color: #e01123 !important;
+  color: #ffffff !important;
+}
