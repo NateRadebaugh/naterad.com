@@ -3,14 +3,13 @@
     padding-bottom: 1em;
 }
 
+.thumbnails .fa {
+	font-size: 100px;
+	padding-top: 6px;
+	padding-bottom: 12px;
+}
+
 .thumbnails a {
     position: relative;
-}
-.thumbnails a > span {
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left: 0;
-    z-index: 1;
+	color: white;
 }
