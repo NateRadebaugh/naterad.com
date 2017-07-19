@@ -1,1 +1,225 @@
-.bgcolor-android{opacity:1;background-color:#a4c639!important;color:#fff!important}.bgcolor-android:hover{background-color:#9dbe37!important;color:#fff!important}.bgcolor-bitbucket{opacity:1;background-color:#036!important;color:#fff!important}.bgcolor-bitbucket:hover{background-color:#002e5c!important;color:#fff!important}.bgcolor-deviantart{opacity:1;background-color:#4e6252!important;color:#fff!important}.bgcolor-deviantart:hover{background-color:#495c4d!important;color:#fff!important}.bgcolor-ebay{opacity:1;background-color:#89c507!important;color:#fff!important}.bgcolor-ebay:hover{background-color:#82bb07!important;color:#fff!important}.bgcolor-facebook{opacity:1;background-color:#3b5998!important;color:#fff!important}.bgcolor-facebook:hover{background-color:#385591!important;color:#fff!important}.bgcolor-foursquare{opacity:1;background-color:#25a0ca!important;color:#fff!important}.bgcolor-foursquare:hover{background-color:#2399c1!important;color:#fff!important}.bgcolor-github{opacity:1;background-color:#4183c4!important;color:#fff!important}.bgcolor-github:hover{background-color:#3b7ebf!important;color:#fff!important}.bgcolor-googleplus{opacity:1;background-color:#db4a39!important;color:#fff!important}.bgcolor-googleplus:hover{background-color:#d94230!important;color:#fff!important}.bgcolor-grooveshark{opacity:1;background-color:#f77f00!important;color:#fff!important}.bgcolor-grooveshark:hover{background-color:#ed7a00!important;color:#fff!important}.bgcolor-imdb{opacity:1;background-color:#f3ce13!important;color:#fff!important}.bgcolor-imdb:hover{background-color:#f0ca0c!important;color:#fff!important}.bgcolor-lastfm{opacity:1;background-color:#c3000d!important;color:#fff!important}.bgcolor-lastfm:hover{background-color:#b9000c!important;color:#fff!important}.bgcolor-linkedin{opacity:1;background-color:#0e76a8!important;color:#fff!important}.bgcolor-linkedin:hover{background-color:#0d6f9f!important;color:#fff!important}.bgcolor-nokia{opacity:1;background-color:#183693!important;color:#fff!important}.bgcolor-nokia:hover{background-color:#17338a!important;color:#fff!important}.bgcolor-paypal{opacity:1;background-color:#3b7bbf!important;color:#fff!important}.bgcolor-paypal:hover{background-color:#3976b7!important;color:#fff!important}.bgcolor-skype{opacity:1;background-color:#00aff0!important;color:#fff!important}.bgcolor-skype:hover{background-color:#00a8e6!important;color:#fff!important}.bgcolor-spotify{opacity:1;background-color:#64b41a!important;color:#fff!important}.bgcolor-spotify:hover{background-color:#5fab19!important;color:#fff!important}.bgcolor-stumbleupon{opacity:1;background-color:#f74425!important;color:#fff!important}.bgcolor-stumbleupon:hover{background-color:#f73c1b!important;color:#fff!important}.bgcolor-twitter{opacity:1;background-color:#00a0d1!important;color:#fff!important}.bgcolor-twitter:hover{background-color:#0098c7!important;color:#fff!important}.bgcolor-yelp{opacity:1;background-color:#c41200!important;color:#fff!important}.bgcolor-yelp:hover{background-color:#ba1100!important;color:#fff!important}.bgcolor-youtube{opacity:1;background-color:#c4302b!important;color:#fff!important}.bgcolor-youtube:hover{background-color:#bc2e29!important;color:#fff!important}.bgcolor-resume{opacity:1;background-color:#e15227!important;color:#fff!important}.bgcolor-resume:hover{background-color:#df4b1f!important;color:#fff!important}.bgcolor-photosynth{opacity:1;background-color:#78a300!important;color:#fff!important}.bgcolor-photosynth:hover{background-color:#709900!important;color:#fff!important}.bgcolor-portfolio{opacity:1;background-color:#5d39be!important;color:#fff!important}.bgcolor-portfolio:hover{background-color:#5937b6!important;color:#fff!important}.bgcolor-windows8{opacity:1;background-color:#00adef!important;color:#fff!important}.bgcolor-windows8:hover{background-color:#00a6e5!important;color:#fff!important}.bgcolor-wp8{opacity:1;background-color:#68217a!important;color:#fff!important}.bgcolor-wp8:hover{background-color:#611f72!important;color:#fff!important}
+.bgcolor-android {
+    opacity: 1;
+    background-color: #a4c639 !important;
+    color: #fff !important;
+}
+.bgcolor-android:hover {
+    background-color: #9dbe37 !important;
+    color: #fff !important;
+}
+.bgcolor-bitbucket {
+    opacity: 1;
+    background-color: #036 !important;
+    color: #fff !important;
+}
+.bgcolor-bitbucket:hover {
+    background-color: #002e5c !important;
+    color: #fff !important;
+}
+.bgcolor-deviantart {
+    opacity: 1;
+    background-color: #4e6252 !important;
+    color: #fff !important;
+}
+.bgcolor-deviantart:hover {
+    background-color: #495c4d !important;
+    color: #fff !important;
+}
+.bgcolor-ebay {
+    opacity: 1;
+    background-color: #89c507 !important;
+    color: #fff !important;
+}
+.bgcolor-ebay:hover {
+    background-color: #82bb07 !important;
+    color: #fff !important;
+}
+.bgcolor-facebook {
+    opacity: 1;
+    background-color: #3b5998 !important;
+    color: #fff !important;
+}
+.bgcolor-facebook:hover {
+    background-color: #385591 !important;
+    color: #fff !important;
+}
+.bgcolor-foursquare {
+    opacity: 1;
+    background-color: #25a0ca !important;
+    color: #fff !important;
+}
+.bgcolor-foursquare:hover {
+    background-color: #2399c1 !important;
+    color: #fff !important;
+}
+.bgcolor-github {
+    opacity: 1;
+    background-color: #4183c4 !important;
+    color: #fff !important;
+}
+.bgcolor-github:hover {
+    background-color: #3b7ebf !important;
+    color: #fff !important;
+}
+.bgcolor-googleplus {
+    opacity: 1;
+    background-color: #db4a39 !important;
+    color: #fff !important;
+}
+.bgcolor-googleplus:hover {
+    background-color: #d94230 !important;
+    color: #fff !important;
+}
+.bgcolor-grooveshark {
+    opacity: 1;
+    background-color: #f77f00 !important;
+    color: #fff !important;
+}
+.bgcolor-grooveshark:hover {
+    background-color: #ed7a00 !important;
+    color: #fff !important;
+}
+.bgcolor-imdb {
+    opacity: 1;
+    background-color: #f3ce13 !important;
+    color: #fff !important;
+}
+.bgcolor-imdb:hover {
+    background-color: #f0ca0c !important;
+    color: #fff !important;
+}
+.bgcolor-lastfm {
+    opacity: 1;
+    background-color: #c3000d !important;
+    color: #fff !important;
+}
+.bgcolor-lastfm:hover {
+    background-color: #b9000c !important;
+    color: #fff !important;
+}
+.bgcolor-linkedin {
+    opacity: 1;
+    background-color: #0e76a8 !important;
+    color: #fff !important;
+}
+.bgcolor-linkedin:hover {
+    background-color: #0d6f9f !important;
+    color: #fff !important;
+}
+.bgcolor-nokia {
+    opacity: 1;
+    background-color: #183693 !important;
+    color: #fff !important;
+}
+.bgcolor-nokia:hover {
+    background-color: #17338a !important;
+    color: #fff !important;
+}
+.bgcolor-paypal {
+    opacity: 1;
+    background-color: #3b7bbf !important;
+    color: #fff !important;
+}
+.bgcolor-paypal:hover {
+    background-color: #3976b7 !important;
+    color: #fff !important;
+}
+.bgcolor-skype {
+    opacity: 1;
+    background-color: #00aff0 !important;
+    color: #fff !important;
+}
+.bgcolor-skype:hover {
+    background-color: #00a8e6 !important;
+    color: #fff !important;
+}
+.bgcolor-spotify {
+    opacity: 1;
+    background-color: #64b41a !important;
+    color: #fff !important;
+}
+.bgcolor-spotify:hover {
+    background-color: #5fab19 !important;
+    color: #fff !important;
+}
+.bgcolor-stumbleupon {
+    opacity: 1;
+    background-color: #f74425 !important;
+    color: #fff !important;
+}
+.bgcolor-stumbleupon:hover {
+    background-color: #f73c1b !important;
+    color: #fff !important;
+}
+.bgcolor-twitter {
+    opacity: 1;
+    background-color: #00a0d1 !important;
+    color: #fff !important;
+}
+.bgcolor-twitter:hover {
+    background-color: #0098c7 !important;
+    color: #fff !important;
+}
+.bgcolor-yelp {
+    opacity: 1;
+    background-color: #c41200 !important;
+    color: #fff !important;
+}
+.bgcolor-yelp:hover {
+    background-color: #ba1100 !important;
+    color: #fff !important;
+}
+.bgcolor-youtube {
+    opacity: 1;
+    background-color: #c4302b !important;
+    color: #fff !important;
+}
+.bgcolor-youtube:hover {
+    background-color: #bc2e29 !important;
+    color: #fff !important;
+}
+.bgcolor-resume {
+    opacity: 1;
+    background-color: #e15227 !important;
+    color: #fff !important;
+}
+.bgcolor-resume:hover {
+    background-color: #df4b1f !important;
+    color: #fff !important;
+}
+.bgcolor-photosynth {
+    opacity: 1;
+    background-color: #78a300 !important;
+    color: #fff !important;
+}
+.bgcolor-photosynth:hover {
+    background-color: #709900 !important;
+    color: #fff !important;
+}
+.bgcolor-portfolio {
+    opacity: 1;
+    background-color: #5d39be !important;
+    color: #fff !important;
+}
+.bgcolor-portfolio:hover {
+    background-color: #5937b6 !important;
+    color: #fff !important;
+}
+.bgcolor-windows8 {
+    opacity: 1;
+    background-color: #00adef !important;
+    color: #fff !important;
+}
+.bgcolor-windows8:hover {
+    background-color: #00a6e5 !important;
+    color: #fff !important;
+}
+.bgcolor-wp8 {
+    opacity: 1;
+    background-color: #68217a !important;
+    color: #fff !important;
+}
+.bgcolor-wp8:hover {
+    background-color: #611f72 !important;
+    color: #fff !important;
+}
