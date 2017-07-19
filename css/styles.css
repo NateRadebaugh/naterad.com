@@ -1,15 +1,16 @@
-.thumbnails img, .img-placeholder {
+.thumbnails img,
+.img-placeholder {
     height: 100px;
     padding-bottom: 1em;
 }
 
 .thumbnails .fa {
-	font-size: 100px;
-	padding-top: 6px;
-	padding-bottom: 12px;
+    font-size: 100px;
+    padding-top: 6px;
+    padding-bottom: 12px;
 }
 
 .thumbnails a {
     position: relative;
-	color: white;
+    color: white;
 }
