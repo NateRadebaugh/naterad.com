@@ -94,7 +94,7 @@ const TileText = styled.h3`
 const Resume = styled(Tile)`
   background-color: #e15227;
 
-  &:hover {
+  :hover {
     background-color: #df4b1f;
   }
 `;
@@ -102,7 +102,7 @@ const Resume = styled(Tile)`
 const LinkedIn = styled(Tile)`
   background-color: #0e76a8;
 
-  &:hover {
+  :hover {
     background-color: #0d6f9f;
   }
 `;
@@ -110,7 +110,7 @@ const LinkedIn = styled(Tile)`
 const GitHub = styled(Tile)`
   background-color: #4183c4;
 
-  &:hover {
+  :hover {
     background-color: #3b7ebf;
   }
 `;
@@ -118,7 +118,7 @@ const GitHub = styled(Tile)`
 const Twitter = styled(Tile)`
   background-color: #00a0d1;
 
-  &:hover {
+  :hover {
     background-color: #0098c7;
   }
 `;
@@ -126,7 +126,7 @@ const Twitter = styled(Tile)`
 const Facebook = styled(Tile)`
   background-color: #3b5998;
 
-  &:hover {
+  :hover {
     background-color: #385591;
   }
 `;
@@ -136,13 +136,12 @@ export default function Index() {
     <Wrapper>
       <Head>
         <title>nate radebaugh</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header>
         <Title>nate radebaugh</Title>
         <IntroText>
           <strong>Software Consultant</strong> at SWC Technology Partners in the
-          Western Chicago Suburbs. Graduate of Purdue University. Past intern at
+          western Chicago Suburbs. Graduate of Purdue University. Past intern at
           Qualcomm. Past employee at Microsoft.
         </IntroText>
       </header>
