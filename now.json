@@ -1,5 +1,6 @@
 {
   "version": 2,
   "name": "naterad",
-  "alias": "naterad.now.sh"
+  "alias": "naterad.now.sh",
+  "builds": [{ "src": "package.json", "use": "@now/next" }]
 }
