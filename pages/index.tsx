@@ -141,8 +141,8 @@ export default function Index() {
         <Title>nate radebaugh</Title>
         <IntroText>
           <strong>Software Consultant</strong> at SWC Technology Partners in the
-          western Chicago Suburbs. Graduate of Purdue University. Past intern at
-          Qualcomm. Past employee at Microsoft.
+          western Chicago Suburbs. Graduate of Purdue University. Past employee
+          at Microsoft. Past intern at Qualcomm.
         </IntroText>
       </header>
 
