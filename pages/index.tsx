@@ -151,15 +151,15 @@ export default function Index() {
         <FontAwesomeIcon size="6x" icon={faFileAlt} />
         <TileText>my resume</TileText>
       </Resume>
-      <LinkedIn href="https://www.linkedin.com/in/nathanradebaugh">
+      <LinkedIn href="https://www.linkedin.com/in/nateradebaugh/">
         <FontAwesomeIcon size="6x" icon={faLinkedin} />
         <TileText>linkedin</TileText>
       </LinkedIn>
-      <GitHub href="https://github.com/nateradebaugh">
+      <GitHub href="https://github.com/NateRadebaugh">
         <FontAwesomeIcon size="6x" icon={faGithub} />
         <TileText>github</TileText>
       </GitHub>
-      <Twitter href="https://twitter.com/nathanwithann">
+      <Twitter href="https://twitter.com/nateradebaugh">
         <FontAwesomeIcon size="6x" icon={faTwitter} />
         <TileText>twitter</TileText>
       </Twitter>
