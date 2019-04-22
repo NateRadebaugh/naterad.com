@@ -136,6 +136,11 @@ export default function Index() {
     <Wrapper>
       <Head>
         <title>nate radebaugh</title>
+        <meta
+          name="Description"
+          content="Hi I'm Nate Radebaugh. Software Consultant at SWC Technology Partners in the western Chicago Suburbs. Graduate of Purdue University. Past employee at Microsoft. Past intern at Qualcomm."
+        />
+        <meta name="theme-color" content="#317EFB" />
       </Head>
       <header>
         <Title>nate radebaugh</Title>

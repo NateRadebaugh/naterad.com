@@ -38,11 +38,6 @@ export default class MyDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <meta
-            name="Description"
-            content="Hi I'm Nate Radebaugh. Software Consultant at SWC Technology Partners in the western Chicago Suburbs. Graduate of Purdue University. Past intern at Qualcomm. Past employee at Microsoft."
-          />
-          <meta name="theme-color" content="#317EFB" />
         </Head>
         <body>
           <Main />
