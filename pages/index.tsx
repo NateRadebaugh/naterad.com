@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styled from "styled-components";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -152,10 +153,12 @@ export default function Index() {
       </header>
 
       <SubTitle>contact me</SubTitle>
-      <Resume href="http://naterad.com/resume">
-        <FontAwesomeIcon size="6x" icon={faFileAlt} />
-        <TileText>my resume</TileText>
-      </Resume>
+      <Link href="/resume" prefetch>
+        <Resume href="/resume">
+          <FontAwesomeIcon size="6x" icon={faFileAlt} />
+          <TileText>my resume</TileText>
+        </Resume>
+      </Link>
       <LinkedIn href="https://www.linkedin.com/in/nateradebaugh/">
         <FontAwesomeIcon size="6x" icon={faLinkedin} />
         <TileText>linkedin</TileText>
