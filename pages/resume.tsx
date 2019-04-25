@@ -70,6 +70,8 @@ const Address = styled.div`
   }
 
   @media print, (min-width: 800px) {
+    font-size: 1rem;
+    margin-top: 0;
     display: inline-block;
     float: right;
     text-align: right;
@@ -87,12 +89,14 @@ const Position = styled.h3`
     margin-top: 0.3rem;
     margin-bottom: 0.3rem;
   }
+
+  @media print, (min-width: 800px) {
+    font-size: 1rem;
+    margin: 0;
+  }
 `;
 
 const LabelCol = styled.h2`
-  float: left;
-  clear: left;
-
   @media (max-width: 800px) {
     margin-top: 0.7rem;
     padding-top: 0.7rem;
@@ -105,6 +109,14 @@ const LabelCol = styled.h2`
   }
 
   @media print, (min-width: 800px) {
+    padding-top: 0;
+    margin-bottom: 0;
+
+    border-top: none;
+
+    float: left;
+    clear: left;
+
     margin-top: 10px;
     font-size: 1rem;
     font-weight: bold;
@@ -124,6 +136,8 @@ const ContentCol = styled.div`
 
   @media print, (min-width: 800px) {
     width: 6.5in;
+    float: left;
+    clear: right;
   }
 `;
 
