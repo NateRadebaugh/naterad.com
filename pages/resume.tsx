@@ -1,28 +1,35 @@
 import Head from "next/head";
+import NextLink from "next/link";
 import styled, { createGlobalStyle } from "styled-components";
+
+function Link(props: any) {
+  const { href, prefetch, ...rest } = props;
+
+  return (
+    <NextLink href={href} prefetch={prefetch}>
+      <a href={href} {...rest} />
+    </NextLink>
+  );
+}
 
 const GlobalStyle = createGlobalStyle`
 table,
 html {
-  font-size: 90%;
+  font-size: .9rem;
   font-family: "Helvetica Neue", Arial;
 }`;
 
 const Wrapper = styled.div`
-  width: 8in;
+  @media print, (min-width: 800px) {
+    width: 8in;
+  }
 
-  table {
-    width: 100%;
+  a {
+    color: #343a40;
 
-    td {
-      vertical-align: top;
-      padding: 1 0 0 0;
-      width: 300px;
-
-      :last-child {
-        text-align: right;
-        white-space: nowrap;
-      }
+    :hover,
+    :focus {
+      color: #121416;
     }
   }
 
@@ -45,20 +52,117 @@ const Wrapper = styled.div`
   }
 `;
 
-const LabelCol = styled.div`
-  margin-top: 10px;
+const Name = styled.h1`
+  font-size: 3em;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+`;
+
+const Address = styled.div`
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: 800px) {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  @media print, (min-width: 800px) {
+    display: inline-block;
+    float: right;
+    text-align: right;
+  }
+`;
+
+const Position = styled.h3`
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  display: inline-block;
+
+  @media (max-width: 800px) {
+    font-size: 1.3rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+`;
+
+const LabelCol = styled.h2`
   float: left;
   clear: left;
-  font-weight: bold;
-  width: 1.5in;
+
+  @media (max-width: 800px) {
+    margin-top: 0.7rem;
+    padding-top: 0.7rem;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+
+    border-top: 1px solid #dee2e6;
+
+    float: none;
+  }
+
+  @media print, (min-width: 800px) {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 1.5in;
+  }
 `;
 
 const ContentCol = styled.div`
   margin-top: 10px;
   float: left;
-  width: 6.5in;
   clear: right;
+
+  @media (max-width: 800px) {
+    float: none;
+    clear: none;
+  }
+
+  @media print, (min-width: 800px) {
+    width: 6.5in;
+  }
 `;
+
+interface EducationProps {
+  degree: string;
+  major: string;
+  school: string;
+  dates: string;
+  location: string;
+}
+
+function Education({ degree, major, school, dates, location }: EducationProps) {
+  return (
+    <>
+      <div
+        css={`
+          padding-bottom: 0.25em;
+        `}
+      >
+        <strong>{school}</strong>, {location}
+        <span
+          css={`
+            float: right;
+          `}
+        >
+          {dates}
+        </span>
+        <br />
+        <span
+          css={`
+            padding-left: 1.5em;
+          `}
+        >
+          {degree}, <em>{major}</em>
+        </span>
+      </div>
+    </>
+  );
+}
 
 interface EmploymentProps {
   position: string;
@@ -67,6 +171,7 @@ interface EmploymentProps {
   location: string;
   details: string[];
 }
+
 function Employment({
   position,
   dates,
@@ -81,7 +186,6 @@ function Employment({
           padding-bottom: 0.25em;
         `}
       >
-        <strong>{company}</strong>, {location}
         <span
           css={`
             float: right;
@@ -89,8 +193,11 @@ function Employment({
         >
           {dates}
         </span>
-        <br />
-        <em>{position}</em>
+        <div>
+          <Position>{position}</Position>
+          <br />
+          <strong>{company}</strong>, {location}
+        </div>
       </div>
 
       <ul
@@ -120,29 +227,16 @@ export default function Resume() {
       <GlobalStyle />
 
       <div>
-        <div
-          css={`
-            font-size: 3em;
-            font-weight: bold;
-            display: inline-block;
-          `}
-        >
-          Nate Radebaugh
-        </div>
-        <div
-          css={`
-            display: inline-block;
-            float: right;
-            text-align: right;
-          `}
-        >
+        <Name>Nate Radebaugh</Name>
+        <Address>
           530-628-3723 (mobile)
           <br />
           nate.radebaugh@outlook.com
           <br />
-          www.naterad.com
-          <br />
-        </div>
+          <Link href="/" prefetch>
+            <a href="/">www.naterad.com</a>
+          </Link>
+        </Address>
       </div>
 
       <LabelCol>Software Skills:</LabelCol>
@@ -153,35 +247,13 @@ export default function Resume() {
 
       <LabelCol>Education:</LabelCol>
       <ContentCol>
-        <table>
-          <tbody>
-            <tr>
-              <td
-                css={`
-                  width: 90%;
-                `}
-              >
-                <strong>Purdue University</strong>, West Lafayette, IN
-              </td>
-              <td>May 2013</td>
-            </tr>
-            <tr>
-              <td
-                colSpan={2}
-                css={`
-                  text-align: left !important;
-                  padding-left: 1.5em;
-                `}
-              >
-                B.S.,{" "}
-                <i>
-                  Computer Science, concentrations in Software Engineering and
-                  Programming Languages
-                </i>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <Education
+          degree="B.S."
+          major="Computer Science, focus on Software Engineering and Programming Languages"
+          dates="May 2013"
+          location="West Lafayette, IN"
+          school="Purdue University"
+        />
       </ContentCol>
 
       <LabelCol>Work Experience:</LabelCol>
