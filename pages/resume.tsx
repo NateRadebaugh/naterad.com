@@ -64,7 +64,7 @@ const Address = styled.div`
   margin: 0;
   padding: 0;
 
-  @media (max-width: 800px) {
+  @media (max-width: 799px) {
     font-size: 1.2rem;
     margin-top: 1rem;
   }
@@ -83,7 +83,7 @@ const Company = styled.h3`
   padding: 0;
   display: inline-block;
 
-  @media (max-width: 800px) {
+  @media (max-width: 799px) {
     font-size: 1.3rem;
     margin-top: 0.3rem;
   }
@@ -100,7 +100,7 @@ const Position = styled.h3`
   display: inline-block;
   font-style: italic;
 
-  @media (max-width: 800px) {
+  @media (max-width: 799px) {
     font-size: 1.3rem;
     margin-bottom: 0.3rem;
     margin-left: 0.6rem;
@@ -113,7 +113,7 @@ const Position = styled.h3`
 `;
 
 const LabelCol = styled.h2`
-  @media (max-width: 800px) {
+  @media (max-width: 799px) {
     margin-top: 0.7rem;
     padding-top: 0.7rem;
     font-size: 1.8rem;
@@ -145,7 +145,7 @@ const ContentCol = styled.div`
   float: left;
   clear: right;
 
-  @media (max-width: 800px) {
+  @media (max-width: 799px) {
     float: none;
     clear: none;
   }
@@ -158,8 +158,8 @@ const ContentCol = styled.div`
 `;
 
 const Location = styled.span`
-  @media (max-width: 800px) {
-    display: inline-block;
+  @media (max-width: 799px) {
+    display: inline;
 
     &:before {
       content: ", ";
@@ -172,8 +172,8 @@ const Location = styled.span`
 `;
 
 const Dates = styled.span`
-  @media (max-width: 800px) {
-    display: inline-block;
+  @media (max-width: 799px) {
+    display: inline;
 
     &:before {
       content: ", ";
