@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   ul {
     margin: 0;
     padding: 0;
-    margin-left: 20px;
+    margin-left: 1.4rem;
     text-align: left;
     white-space: normal;
   }
@@ -78,16 +78,32 @@ const Address = styled.div`
   }
 `;
 
-const Position = styled.h3`
+const Company = styled.h3`
   margin: 0;
   padding: 0;
-  font-size: 1rem;
   display: inline-block;
 
   @media (max-width: 800px) {
     font-size: 1.3rem;
     margin-top: 0.3rem;
+  }
+
+  @media print, (min-width: 800px) {
+    font-size: 1rem;
+    margin: 0;
+  }
+`;
+
+const Position = styled.h3`
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-style: italic;
+
+  @media (max-width: 800px) {
+    font-size: 1.3rem;
     margin-bottom: 0.3rem;
+    margin-left: 0.6rem;
   }
 
   @media print, (min-width: 800px) {
@@ -141,12 +157,46 @@ const ContentCol = styled.div`
   }
 `;
 
+const Location = styled.span`
+  @media (max-width: 800px) {
+    display: inline-block;
+
+    &:before {
+      content: ", ";
+    }
+  }
+
+  @media print, (min-width: 800px) {
+    float: right;
+  }
+`;
+
+const Dates = styled.span`
+  @media (max-width: 800px) {
+    display: inline-block;
+
+    &:before {
+      content: ", ";
+    }
+  }
+
+  @media print, (min-width: 800px) {
+    float: right;
+  }
+`;
+
+const Details = styled.ul`
+  &&& {
+    padding-bottom: 0.6em;
+  }
+`;
+
 interface EducationProps {
-  degree: string;
-  major: string;
-  school: string;
-  dates: string;
-  location: string;
+  degree: string | JSX.Element;
+  major: string | JSX.Element;
+  school: string | JSX.Element;
+  dates: string | JSX.Element;
+  location: string | JSX.Element;
 }
 
 function Education({ degree, major, school, dates, location }: EducationProps) {
@@ -157,14 +207,9 @@ function Education({ degree, major, school, dates, location }: EducationProps) {
           padding-bottom: 0.25em;
         `}
       >
-        <strong>{school}</strong>, {location}
-        <span
-          css={`
-            float: right;
-          `}
-        >
-          {dates}
-        </span>
+        <strong>{school}</strong>
+        <Location>{location}</Location>
+        <Dates>{dates}</Dates>
         <br />
         <span
           css={`
@@ -179,11 +224,11 @@ function Education({ degree, major, school, dates, location }: EducationProps) {
 }
 
 interface EmploymentProps {
-  position: string;
-  dates: string;
-  company: string;
-  location: string;
-  details: string[];
+  position: string | JSX.Element;
+  dates: string | JSX.Element;
+  company: string | JSX.Element;
+  location: string | JSX.Element;
+  details: (string | JSX.Element)[];
 }
 
 function Employment({
@@ -200,29 +245,18 @@ function Employment({
           padding-bottom: 0.25em;
         `}
       >
-        <span
-          css={`
-            float: right;
-          `}
-        >
-          {dates}
-        </span>
-        <div>
-          <Position>{position}</Position>
-          <br />
-          <strong>{company}</strong>, {location}
-        </div>
+        <Company>{company}</Company>
+        <Location>{location}</Location>
+        <br />
+        <Position>{position}</Position>
+        <Dates>{dates}</Dates>
       </div>
 
-      <ul
-        css={`
-          padding-bottom: 0.5em !important;
-        `}
-      >
+      <Details>
         {details.map(detail => (
           <li>{detail}</li>
         ))}
-      </ul>
+      </Details>
     </>
   );
 }
@@ -255,19 +289,14 @@ export default function Resume() {
 
       <LabelCol>Software Skills:</LabelCol>
       <ContentCol>
-        React, HTML, CSS, Angular, PHP, and SQL. C#, Java, and C/C++/CX. Git,
-        and SVN.
-      </ContentCol>
-
-      <LabelCol>Education:</LabelCol>
-      <ContentCol>
-        <Education
-          degree="B.S."
-          major="Computer Science, focus on Software Engineering and Programming Languages"
-          dates="May 2013"
-          location="West Lafayette, IN"
-          school="Purdue University"
-        />
+        <strong>Front</strong> JavaScript/TypeScript, React, HTML, CSS, Angular.
+        <br />
+        <strong>Back</strong> C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
+        <br />
+        <strong>Cloud</strong> Azure (App Service, DB, Blob Storage, Functions),
+        AWS (Lambda, Connect), Now.
+        <br />
+        <strong>Manage</strong> Azure DevOps, Atlassian Suite.
       </ContentCol>
 
       <LabelCol>Work Experience:</LabelCol>
@@ -278,9 +307,9 @@ export default function Resume() {
           company="SWC Technology Partners"
           location="Oak Brook, IL"
           details={[
-            "Technical lead on multiple client projects at a time.",
-            "Project planning and delegation for a variety of enterprise web products using .NET MVC, Java Spring, MSSQL/Oracle.",
-            "Writing front ends using a mixture of JQuery and React."
+            "Shaping the company's strategy for front-end solutions and architecting internal React design systems.",
+            "Technical lead on multiple client projects at a time, mentoring and teaching junior team members.",
+            "Project planning, delegation of tasks, and code reviews for teams with smooth handoff for a variety of enterprise web products using .NET MVC, Java Spring, MSSQL/Oracle."
           ]}
         />
         <Employment
@@ -289,7 +318,8 @@ export default function Resume() {
           company="SWC Technology Partners"
           location="Oak Brook, IL"
           details={[
-            "Worked with clients on large scale enterprise web products in a variety of technologies including .NET MVC and Java Spring Boot."
+            "Delivered large scale enterprise web projects to numerous clients full stack using .NET MVC, Spring Boot, SQL, JQuery, and React.",
+            "Active presenter of technical presentations in .NET and Front End internal communities."
           ]}
         />
         <Employment
@@ -298,8 +328,9 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            "Worked with a team of about 20 developers to rearchitect how Windows UI is created for different products (Phone, Desktop, etc.) Led architectural decisions for componentization of Windows for future shells, mentoring new team members.",
-            "Became subject matter expert at XAML UI markup and efficient data binding through the MVVM pattern. Led team through decisions about performance and memory optimizations and improvements in back end and front end."
+            "Led architectural decisions for the windows team and its direction for building windows phone, desktop, and surface UIs.",
+            "Mentored new team members.",
+            "Became subject matter expert at XAML UI markup and efficient data binding through the MVVM pattern. Led team through decisions about performance and memory optimizations and improvements in back end and front end in C++/CX."
           ]}
         />
         <Employment
@@ -308,8 +339,7 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            "Implemented home page of Cortana app including personalized welcome text and help tips UI.",
-            'Owned the first-run experience, configuration, and virtual touchpad application for a new "Desktop-like" experience on Windows Phones.'
+            "Owned a variety of UX features on Windows Phone including Cortana, Wallet, and Continuum apps, collaborating with designers, PMs, and senior developers to ensure quality product and experiences using C++."
           ]}
         />
         <Employment
@@ -327,7 +357,7 @@ export default function Resume() {
           company="Qualcomm"
           location="San Diego, CA"
           details={[
-            "Wrote tools using Batch, Perl, Visual C++, and the MFC framework to automate running tests, generating regression reports, and sending email reports."
+            "Drastically improved team productivity and tool performance using Batch, Perl, C++, and the MFC framework to automate running tests, generating regression reports, and sending email reports."
           ]}
         />
         <Employment
@@ -336,10 +366,26 @@ export default function Resume() {
           company="Purdue University ResNet"
           location="West Lafayette, IN"
           details={[
-            "Led a team of 8 student developers in the development and maintenance of a PHP/MySQL driven management tool using the open source PHP MVC framework FuelPHP and open source Bootstrap, including Perl scripts to help monitor data usage across the network.",
+            "Led a team of 8 student developers in the development and maintenance of a PHP/MySQL driven management tool using the open source PHP MVC framework FuelPHP and Bootstrap, including Perl scripts to help monitor data usage across the network.",
             "Administered multiple Linux web and database servers used for development, test, and production environments.",
-            "Active role in interviewing, hiring, and training of new  employees."
+            "Active role in interviewing, hiring, and training of new employees."
           ]}
+        />
+      </ContentCol>
+
+      <LabelCol>Education:</LabelCol>
+      <ContentCol>
+        <Education
+          degree="B.S."
+          major={
+            <>
+              <strong>Computer Science</strong>, focus on Software Engineering
+              and Programming Languages
+            </>
+          }
+          dates="May 2013"
+          location="West Lafayette, IN"
+          school="Purdue University"
         />
       </ContentCol>
     </Wrapper>
