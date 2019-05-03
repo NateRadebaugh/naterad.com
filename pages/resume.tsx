@@ -168,6 +168,10 @@ const Location = styled.span`
 
   @media print, (min-width: 800px) {
     float: right;
+
+    &:before {
+      content: "";
+    }
   }
 `;
 
@@ -182,6 +186,10 @@ const Dates = styled.span`
 
   @media print, (min-width: 800px) {
     float: right;
+
+    &:before {
+      content: "";
+    }
   }
 `;
 
