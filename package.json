@@ -22,7 +22,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0",
-    "typescript": "^3.4.3"
+    "typescript": "^3.4.5"
   },
   "devDependencies": {
     "@types/next": "^8.0.3",
