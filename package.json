@@ -28,6 +28,6 @@
     "@types/next": "^8.0.5",
     "@types/react": "^16.8.20",
     "@types/styled-components": "^4.1.16",
-    "babel-plugin-styled-components": "^1.10.0"
+    "babel-plugin-styled-components": "^1.10.1"
   }
 }
