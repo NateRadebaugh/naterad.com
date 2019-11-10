@@ -3,10 +3,10 @@ import NextLink from "next/link";
 import styled, { createGlobalStyle } from "styled-components";
 
 function Link(props: any) {
-  const { href, prefetch, ...rest } = props;
+  const { href, ...rest } = props;
 
   return (
-    <NextLink href={href} prefetch={prefetch}>
+    <NextLink href={href}>
       <a href={href} {...rest} />
     </NextLink>
   );
@@ -289,7 +289,7 @@ export default function Resume() {
           <br />
           nate.radebaugh@outlook.com
           <br />
-          <Link href="/" prefetch>
+          <Link href="/">
             <a href="/">www.naterad.com</a>
           </Link>
         </Address>
