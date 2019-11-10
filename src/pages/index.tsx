@@ -8,8 +8,7 @@ import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedin,
   faGithub,
-  faTwitter,
-  faFacebook
+  faTwitter
 } from "@fortawesome/free-brands-svg-icons";
 
 const Wrapper = styled.div`
@@ -124,14 +123,6 @@ const Twitter = styled(Tile)`
   }
 `;
 
-const Facebook = styled(Tile)`
-  background-color: #3b5998;
-
-  :hover {
-    background-color: #385591;
-  }
-`;
-
 export default function Index() {
   return (
     <Wrapper>
@@ -146,14 +137,13 @@ export default function Index() {
       <header>
         <Title>nate radebaugh</Title>
         <IntroText>
-          <strong>Software Consultant</strong> at SWC Technology Partners in the
-          western Chicago Suburbs. Graduate of Purdue University. Past employee
-          at Microsoft. Past intern at Qualcomm.
+          <strong>Senior Software Consultant</strong> at SWC Technology Partners
+          in the western Chicago Suburbs. Graduate of Purdue University.
         </IntroText>
       </header>
 
       <SubTitle>contact me</SubTitle>
-      <Link href="/resume" prefetch>
+      <Link href="/resume">
         <Resume href="/resume">
           <FontAwesomeIcon size="6x" icon={faFileAlt} />
           <TileText>my resume</TileText>
@@ -171,10 +161,6 @@ export default function Index() {
         <FontAwesomeIcon size="6x" icon={faTwitter} />
         <TileText>twitter</TileText>
       </Twitter>
-      <Facebook href="https://facebook.com/nate.radebaugh">
-        <FontAwesomeIcon size="6x" icon={faFacebook} />
-        <TileText>facebook</TileText>
-      </Facebook>
     </Wrapper>
   );
 }

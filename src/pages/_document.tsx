@@ -39,8 +39,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="shortcut icon" href="/static/favicon.ico" />
-          <link rel="manifest" href="/static/manifest.json" />
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="manifest" href="/manifest.json" />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
