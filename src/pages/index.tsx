@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
+import { darken } from "polished";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faFileAlt, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedin,
   faGithub,
@@ -68,16 +69,34 @@ const SubTitle = styled.h2`
   text-rendering: optimizelegibility;
 `;
 
-const Tile = styled.a`
+interface TileProps {
+  colspan?: number;
+  color?: string;
+}
+
+const Tile = styled.a<TileProps>`
   display: inline-block;
   padding: 5px;
   text-align: center;
   color: #fff;
   border-radius: 8px;
-  width: 125px;
-  margin-right: 1vw;
+  margin-right: 8px;
+  margin-bottom: 8px;
   padding-top: 16px;
   padding-bottom: 16px;
+
+  ${(props: TileProps) => {
+    const multiplier = props.colspan || 1;
+    return `width: ${multiplier * 125 + (multiplier - 1) * 16}px;`;
+  }}
+
+  ${(props: TileProps) =>
+    props.color
+      ? `background-color: ${props.color};
+  :hover {
+    background-color: ${darken(0.02, props.color)};
+  }`
+      : null}
 `;
 
 const TileText = styled.h3`
@@ -89,38 +108,6 @@ const TileText = styled.h3`
     sans-serif;
   font-weight: 100;
   text-rendering: optimizelegibility;
-`;
-
-const Resume = styled(Tile)`
-  background-color: #e15227;
-
-  :hover {
-    background-color: #df4b1f;
-  }
-`;
-
-const LinkedIn = styled(Tile)`
-  background-color: #0e76a8;
-
-  :hover {
-    background-color: #0d6f9f;
-  }
-`;
-
-const GitHub = styled(Tile)`
-  background-color: #4183c4;
-
-  :hover {
-    background-color: #3b7ebf;
-  }
-`;
-
-const Twitter = styled(Tile)`
-  background-color: #00a0d1;
-
-  :hover {
-    background-color: #0098c7;
-  }
 `;
 
 export default function Index() {
@@ -142,25 +129,36 @@ export default function Index() {
         </IntroText>
       </header>
 
+      <SubTitle>open source</SubTitle>
+      <Tile
+        href="https://react-datetime.naterad.com"
+        target="_blank"
+        color="teal"
+        colspan={4}
+      >
+        <FontAwesomeIcon size="6x" icon={faCalendarAlt} />
+        <TileText>@nateradebaugh/react-datetime</TileText>
+      </Tile>
+
       <SubTitle>contact me</SubTitle>
       <Link href="/resume">
-        <Resume href="/resume">
+        <Tile href="/resume" color="#e15227">
           <FontAwesomeIcon size="6x" icon={faFileAlt} />
           <TileText>my resume</TileText>
-        </Resume>
+        </Tile>
       </Link>
-      <LinkedIn href="https://www.linkedin.com/in/nateradebaugh/">
+      <Tile href="https://www.linkedin.com/in/nateradebaugh/" color="#0e76a8">
         <FontAwesomeIcon size="6x" icon={faLinkedin} />
         <TileText>linkedin</TileText>
-      </LinkedIn>
-      <GitHub href="https://github.com/NateRadebaugh">
+      </Tile>
+      <Tile href="https://github.com/NateRadebaugh" color="#4183c4">
         <FontAwesomeIcon size="6x" icon={faGithub} />
         <TileText>github</TileText>
-      </GitHub>
-      <Twitter href="https://twitter.com/nateradebaugh">
+      </Tile>
+      <Tile href="https://twitter.com/nateradebaugh" color="#00a0d1">
         <FontAwesomeIcon size="6x" icon={faTwitter} />
         <TileText>twitter</TileText>
-      </Twitter>
+      </Tile>
     </Wrapper>
   );
 }
