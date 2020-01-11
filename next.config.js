@@ -1,10 +1,6 @@
 const withOffline = require("next-offline");
-const withMDX = require("@zeit/next-mdx")({
-  extension: /\.mdx?$/,
-  options: {
-    mdPlugins: [],
-    hastPlugins: []
-  }
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/
 });
 
 module.exports = withOffline(
