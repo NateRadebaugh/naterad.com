@@ -322,7 +322,7 @@ export default function Resume() {
         <Employment
           position="Senior Consultant"
           dates="December 2018 - January 2020"
-          company="SWC Technology Partners"
+          company="SWC Technology Partners (Aquired by BDO USA)"
           location="Oak Brook, IL"
           details={[
             "Technical lead on multiple client projects at a time, including project planning, delegation, technical oversight, and code reviews for teams creating a variety of enterprise products using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle."
