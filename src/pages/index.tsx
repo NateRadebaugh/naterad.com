@@ -117,15 +117,16 @@ export default function Index() {
         <title>nate radebaugh</title>
         <meta
           name="Description"
-          content="Hi I'm Nate Radebaugh. Software Consultant at SWC Technology Partners in the western Chicago Suburbs. Graduate of Purdue University. Past employee at Microsoft. Past intern at Qualcomm."
+          content="Hi I'm Nate Radebaugh. Senior Associate, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
         />
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <header>
         <Title>nate radebaugh</Title>
         <IntroText>
-          <strong>Senior Software Consultant</strong> at SWC Technology Partners
-          in the western Chicago Suburbs. Graduate of Purdue University.
+          <strong>Senior Senior Associate, Software Solutions</strong> at{" "}
+          <strong>BDO Digital</strong> in the western Chicago Suburbs. Graduate
+          of Purdue University.
         </IntroText>
       </header>
 
