@@ -276,7 +276,7 @@ export default function Resume() {
         <title>Resume for Nate Radebaugh</title>
         <meta
           name="Description"
-          content="Hi I'm Nate Radebaugh. Software Consultant at SWC Technology Partners in the western Chicago Suburbs. Graduate of Purdue University. Past employee at Microsoft. Past intern at Qualcomm."
+          content="Hi I'm Nate Radebaugh. Senior Associate at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University. Past employee at Microsoft."
         />
         <meta name="theme-color" content="#e15227" />
       </Head>
@@ -301,23 +301,31 @@ export default function Resume() {
         <br />
         <strong>Back</strong> C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
         <br />
-        <strong>Cloud</strong> Azure (App Service, DB, Blob Storage, Functions),
-        AWS (Lambda, Connect), Now.
+        <strong>Cloud</strong> Azure (DevOps, App Service, DB, Functions), AWS
+        (Lambda, Connect), Now.
         <br />
-        <strong>Manage</strong> Azure DevOps, Atlassian Suite.
       </ContentCol>
 
       <LabelCol>Work Experience:</LabelCol>
       <ContentCol>
         <Employment
+          position="Senior Associate, Software Solutions"
+          dates="January 2020 - Present"
+          company="BDO Digital"
+          location="Oak Brook, IL"
+          details={[
+            "Shaping the company's strategy for internal design systems and component libraries.",
+            "Technical lead on multiple client projects at a time, mentoring and teaching junior team members.",
+            "Project planning, delegation of tasks, and code reviews for teams with smooth handoff for a variety of enterprise web products and technologies."
+          ]}
+        />
+        <Employment
           position="Senior Consultant"
-          dates="December 2018 - Present"
+          dates="December 2018 - January 2020"
           company="SWC Technology Partners"
           location="Oak Brook, IL"
           details={[
-            "Shaping the company's strategy for front-end solutions and architecting internal React design systems.",
-            "Technical lead on multiple client projects at a time, mentoring and teaching junior team members.",
-            "Project planning, delegation of tasks, and code reviews for teams with smooth handoff for a variety of enterprise web products using .NET MVC, Java Spring, MSSQL/Oracle."
+            "Technical lead on multiple client projects at a time, including project planning, delegation, technical oversight, and code reviews for teams creating a variety of enterprise products using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle."
           ]}
         />
         <Employment
@@ -326,8 +334,7 @@ export default function Resume() {
           company="SWC Technology Partners"
           location="Oak Brook, IL"
           details={[
-            "Delivered large scale enterprise web projects to numerous clients full stack using .NET MVC, Spring Boot, SQL, JQuery, and React.",
-            "Active presenter of technical presentations in .NET and Front End internal communities."
+            "Delivered large scale enterprise web projects to numerous clients full stack using .NET MVC, Spring Boot, SQL, JQuery, and React."
           ]}
         />
         <Employment
