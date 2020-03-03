@@ -8,7 +8,7 @@
     "now-build": "next build",
     "dev": "next",
     "build": "next build",
-    "start": "next",
+    "start": "set NODE_ENV=production&&next start",
     "export": "next export"
   },
   "dependencies": {
@@ -22,8 +22,11 @@
     "next": "^9.2.2",
     "next-offline": "^5.0.0",
     "polished": "^3.4.4",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "preact": "^10.2.1",
+    "preact-render-to-string": "^5.1.4",
+    "react": "github:preact-compat/react#1.0.0",
+    "react-dom": "github:preact-compat/react-dom#1.0.0",
+    "react-ssr-prepass": "npm:preact-ssr-prepass@^1.0.1",
     "styled-components": "^5.0.1",
     "typescript": "^3.8.3"
   },

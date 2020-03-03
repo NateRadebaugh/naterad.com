@@ -31,6 +31,40 @@ module.exports = withOffline(
           }
         }
       ]
+    },
+
+    //
+    // Enable tiny builds by using some
+    // beautiful _developit tricks
+    // as demo'd here: https://github.com/developit/nextjs-preact-demo
+    //
+    // 1. Enable experimental nextjs features
+    experimental: {
+      modern: true,
+      polyfillsOptimization: true
+    },
+    // 2. Use preact instead of react for smaller bundle sizes
+    webpack(config) {
+      const splitChunks =
+        config.optimization && config.optimization.splitChunks;
+      if (splitChunks) {
+        const cacheGroups = splitChunks.cacheGroups;
+        const preactModules = /[\\/]node_modules[\\/](preact|preact-render-to-string|preact-context-provider)[\\/]/;
+        if (cacheGroups.framework) {
+          cacheGroups.preact = Object.assign({}, cacheGroups.framework, {
+            test: preactModules
+          });
+          cacheGroups.commons.name = "framework";
+        } else {
+          cacheGroups.preact = {
+            name: "commons",
+            chunks: "all",
+            test: preactModules
+          };
+        }
+      }
+
+      return config;
     }
   })
 );
