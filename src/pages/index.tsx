@@ -134,6 +134,7 @@ export default function Index() {
       <Tile
         href="https://react-datetime.naterad.com"
         target="_blank"
+        rel="noreferrer"
         color="teal"
         colspan={4}
       >
