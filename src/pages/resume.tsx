@@ -7,7 +7,8 @@ function Link(props: any) {
 
   return (
     <NextLink href={href}>
-      <a href={href} {...rest} />
+      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+      <a {...rest} />
     </NextLink>
   );
 }
@@ -136,7 +137,7 @@ const LabelCol = styled.h2`
     margin-top: 10px;
     font-size: 1rem;
     font-weight: bold;
-    width: 1.5in;
+    width: 1.3in;
   }
 `;
 
@@ -151,7 +152,7 @@ const ContentCol = styled.div`
   }
 
   @media print, (min-width: 800px) {
-    width: 6.5in;
+    width: 6.7in;
     float: left;
     clear: right;
   }
@@ -200,11 +201,11 @@ const Details = styled.ul`
 `;
 
 interface EducationProps {
-  degree: string | JSX.Element;
-  major: string | JSX.Element;
-  school: string | JSX.Element;
-  dates: string | JSX.Element;
-  location: string | JSX.Element;
+  degree: React.ReactNode;
+  major: React.ReactNode;
+  school: React.ReactNode;
+  dates: React.ReactNode;
+  location: React.ReactNode;
 }
 
 function Education({ degree, major, school, dates, location }: EducationProps) {
@@ -232,11 +233,11 @@ function Education({ degree, major, school, dates, location }: EducationProps) {
 }
 
 interface EmploymentProps {
-  position: string | JSX.Element;
-  dates: string | JSX.Element;
-  company: string | JSX.Element;
-  location: string | JSX.Element;
-  details: (string | JSX.Element)[];
+  position: React.ReactNode;
+  dates: React.ReactNode;
+  company: React.ReactNode;
+  location: React.ReactNode;
+  details: React.ReactNode[];
 }
 
 function Employment({
@@ -289,20 +290,18 @@ export default function Resume() {
           <br />
           nate.radebaugh@outlook.com
           <br />
-          <Link href="/">
-            <a href="/">www.naterad.com</a>
-          </Link>
+          <Link href="/">www.naterad.com</Link>
         </Address>
       </div>
 
       <LabelCol>Software Skills:</LabelCol>
       <ContentCol>
-        <strong>Front</strong> JavaScript/TypeScript, React, HTML, CSS, Angular.
+        <strong>Front</strong> React, Angular, JQuery, HTML, CSS.
         <br />
         <strong>Back</strong> C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
         <br />
         <strong>Cloud</strong> Azure (DevOps, App Service, DB, Functions), AWS
-        (Lambda, Connect), Now.
+        (Lambda, Connect), Atlassin Suite, Zeit Now.
         <br />
       </ContentCol>
 
@@ -314,7 +313,6 @@ export default function Resume() {
           company="BDO Digital"
           location="Oak Brook, IL"
           details={[
-            "Shaping the company's strategy for internal design systems and component libraries.",
             "Technical lead on multiple client projects at a time, mentoring and teaching junior team members.",
             "Project planning, delegation of tasks, and code reviews for teams with smooth handoff for a variety of enterprise web products and technologies."
           ]}
@@ -343,7 +341,7 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            "Led architectural decisions for the windows team and its direction for building windows phone, desktop, and surface UIs.",
+            "Led architectural decisions for the Windows team and its direction for building windows phone, desktop, and surface UIs.",
             "Mentored new team members.",
             "Became subject matter expert at XAML UI markup and efficient data binding through the MVVM pattern. Led team through decisions about performance and memory optimizations and improvements in back end and front end in C++/CX."
           ]}
