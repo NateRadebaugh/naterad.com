@@ -2,7 +2,7 @@
 slug: intro-to-prettier
 title: Intro to Prettier code formatter
 description: Use prettier to **focus on the code** and **not on the formatting**.
-date: "2020-04-01T05:35:07.322Z"
+date: "2020-04-05T21:45:35.815Z"
 ---
 
 [Prettier](https://prettier.io/) is a great tool for automatically formatting your code in a consistent way across your codebases, regardless of individual contributor preferences.
@@ -10,16 +10,23 @@ date: "2020-04-01T05:35:07.322Z"
 Prettier can take something like:
 
 ```
-<Stack align="center" gap={2}><Avatar size="small" src="https://github.com/siddharthkp.png"/><Text>Siddharth</Text></Stack>
+function HelloWorld({greeting = "hello", greeted = 'World'}) {
+if(!greeting){return null};
+
+return greeting+" "+greeted;
+}
 ```
 
 and format it beautifully like
 
-```jsx
-<Stack align="center" gap={2}>
-  <Avatar size="small" src="https://github.com/siddharthkp.png" />
-  <Text>Siddharth</Text>
-</Stack>
+```js
+function HelloWorld({ greeting = "hello", greeted = "World" }) {
+  if (!greeting) {
+    return null;
+  }
+
+  return greeting + " " + greeted;
+}
 ```
 
 ## What is Prettier?

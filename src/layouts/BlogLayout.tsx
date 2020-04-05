@@ -8,8 +8,7 @@ import {
   Breadcrumb,
   Stack,
   Avatar,
-  Button,
-  Card
+  Button
 } from "react-ui";
 import { tokens, components } from "react-ui/themes/light";
 import styles from "./base.module.scss";
@@ -119,7 +118,7 @@ function BlogLayout(props: BlogLayoutProps) {
             <Heading size="page">{title}</Heading>
 
             {date && (
-              <Text variant="subtle">
+              <Text variant="subtle" size={3}>
                 {dayjs(date).format("MMMM D, YYYY h:mm A")}
               </Text>
             )}

@@ -1,34 +1,55 @@
-import dayjs from "dayjs";
 import { Heading, Stack, Text } from "react-ui";
+import marked from "marked";
 import BlogLayout from "../../layouts/BlogLayout";
 import { BlogPost, getPosts } from "../../utils/posts";
 import Link from "../../components/Link";
+import dayjs from "dayjs";
 
 export async function getStaticProps() {
   const posts = await getPosts();
 
   // Sort
-  posts.sort((a, b) => a.date.localeCompare(b.date));
+  posts.sort((a, b) => {
+    const aDate = dayjs(a.date);
+    const bDate = dayjs(b.date);
 
-  return { props: { posts } };
+    return aDate.isBefore(bDate) ? 1 : -1;
+  });
+
+  return {
+    props: {
+      posts: posts.map(p => ({
+        ...p,
+        description: marked(p.description)
+      }))
+    }
+  };
 }
 
 function BlogIndexPage({ posts }: { posts: BlogPost[] }) {
   return (
     <BlogLayout title="Blog Posts">
-      {posts.map(post => (
-        <div key={post.slug}>
-          <Heading size="section">
-            <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <a>{post.title}</a>
-            </Link>
-          </Heading>
-          <Text variant="subtle" size={4}>
-            {dayjs(post.date).format("MMMM D, YYYY h:mm A")}
-          </Text>
-        </div>
-      ))}
+      <Stack direction="vertical" gap={3}>
+        {posts.map(post => (
+          <div key={post.slug}>
+            <Heading size="section">
+              <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a>{post.title}</a>
+              </Link>
+            </Heading>
+            <Text variant="subtle" size={3}>
+              {dayjs(post.date).format("MMMM D, YYYY h:mm A")}
+            </Text>
+            {post.description && (
+              <Text
+                variant="subtle"
+                dangerouslySetInnerHTML={{ __html: post.description }}
+              />
+            )}
+          </div>
+        ))}
+      </Stack>
     </BlogLayout>
   );
 }
