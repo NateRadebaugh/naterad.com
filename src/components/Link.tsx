@@ -5,14 +5,16 @@ export type LinkProps = NextLinkProps & {
   children: React.ReactNode;
 } & any;
 
-function Link({ children, href, as = undefined, ...rest }: LinkProps) {
-  return (
-    <NextLink href={href} as={as} {...rest}>
-      <ReactUiLink href={as || href} {...rest}>
-        {children}
-      </ReactUiLink>
-    </NextLink>
-  );
-}
+const Link = React.forwardRef(
+  ({ children, href, as = undefined, ...rest }: LinkProps, ref) => {
+    return (
+      <NextLink {...{ href, as }}>
+        <ReactUiLink ref={ref} href={as || href} {...rest}>
+          {children}
+        </ReactUiLink>
+      </NextLink>
+    );
+  }
+);
 
 export default Link;

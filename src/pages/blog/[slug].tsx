@@ -116,8 +116,7 @@ function BlogPage(props: BlogPostProps) {
           {hasPrev ? (
             <strong>
               <Link href="/blog/[slug]" as={`/blog/${prevSlug}`}>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a>&laquo; {prevTitle}</a>
+                &laquo; {prevTitle}
               </Link>
             </strong>
           ) : (
@@ -127,8 +126,7 @@ function BlogPage(props: BlogPostProps) {
           {hasNext ? (
             <strong>
               <Link href="/blog/[slug]" as={`/blog/${nextSlug}`}>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a>{nextTitle} &raquo;</a>
+                {nextTitle} &raquo;
               </Link>
             </strong>
           ) : (

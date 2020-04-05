@@ -34,8 +34,7 @@ function BlogIndexPage({ posts }: { posts: BlogPost[] }) {
           <div key={post.slug}>
             <Heading size="section">
               <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a>{post.title}</a>
+                {post.title}
               </Link>
             </Heading>
             <Text variant="subtle" size={3}>

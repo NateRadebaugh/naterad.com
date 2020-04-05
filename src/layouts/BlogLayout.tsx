@@ -13,6 +13,7 @@ import {
 import { tokens, components } from "react-ui/themes/light";
 import styles from "./base.module.scss";
 import Link from "../components/Link";
+import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
 
 export interface BlogLayoutProps {
   slug?: string;
@@ -32,6 +33,7 @@ function BlogLayout(props: BlogLayoutProps) {
         <meta name="Description" content={description || title} />
         <meta name="theme-color" content="#317EFB" />
       </Head>
+      <SkipNavLink />
       <Stack direction="vertical" className={styles.base}>
         <Stack
           direction="horizontal"
@@ -107,6 +109,8 @@ function BlogLayout(props: BlogLayoutProps) {
             backgroundColor: "gray"
           }}
         />
+
+        <SkipNavContent />
 
         <Stack direction="horizontal" justify="center" marginTop={2}>
           <Stack
