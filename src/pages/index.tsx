@@ -5,7 +5,11 @@ import { darken } from "polished";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileAlt, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFileAlt,
+  faCalendarAlt,
+  faCommentAlt
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedin,
   faGithub,
@@ -130,13 +134,19 @@ export default function Index() {
         </IntroText>
       </header>
 
-      <SubTitle>open source</SubTitle>
+      <Link href="/blog">
+        <Tile href="/blog" color="purple">
+          <FontAwesomeIcon size="6x" icon={faCommentAlt} />
+          <TileText>blog</TileText>
+        </Tile>
+      </Link>
+
       <Tile
         href="https://react-datetime.naterad.com"
         target="_blank"
         rel="noreferrer"
         color="teal"
-        colspan={4}
+        colspan={3}
       >
         <FontAwesomeIcon size="6x" icon={faCalendarAlt} />
         <TileText>@nateradebaugh/react-datetime</TileText>

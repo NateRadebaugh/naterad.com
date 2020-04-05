@@ -1,0 +1,18 @@
+.base {
+  font-family: sans-serif;
+  margin: 0;
+
+  pre,
+  code {
+    font-family: monospace;
+  }
+
+  &,
+  * {
+    box-sizing: border-box;
+  }
+
+  ol {
+    margin: 0;
+  }
+}
