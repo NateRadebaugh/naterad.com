@@ -44,6 +44,7 @@ function BlogLayout(props: BlogLayoutProps) {
             <Avatar
               size="large"
               src="https://www.gravatar.com/avatar/80d317a74bc928d8520879fdeefc6303"
+              alt="Nate Radebaugh"
             />
             <Stack direction="vertical">
               <Text>Nate Radebaugh</Text>
@@ -69,6 +70,7 @@ function BlogLayout(props: BlogLayoutProps) {
               as={Link}
               href="https://github.com/NateRadebaugh"
               target="_blank"
+              rel="noopener noreferrer"
               variant="secondary"
             >
               GitHub
@@ -77,6 +79,7 @@ function BlogLayout(props: BlogLayoutProps) {
               as={Link}
               href="https://twitter.com/nateradebaugh"
               target="_blank"
+              rel="noopener noreferrer"
               variant="secondary"
             >
               Twitter
@@ -85,6 +88,7 @@ function BlogLayout(props: BlogLayoutProps) {
               as={Link}
               href="https://www.linkedin.com/in/nateradebaugh/"
               target="_blank"
+              rel="noopener noreferrer"
               variant="secondary"
             >
               LinkedIn
