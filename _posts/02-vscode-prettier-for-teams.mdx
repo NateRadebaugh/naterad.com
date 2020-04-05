@@ -64,7 +64,9 @@ Prettier (and its VSCode extension supports) a number of [configuration files](h
 - A `.prettierrc.js` or `prettier.config.js` file that exports an object.
 - A `.prettierrc.toml` file, written in TOML (the `.toml` extension is required).
 
-I recommend using all the prettier defaults, and creating a `.prettierrc` file in the topmost directory in your project you want to use prettier with
+### I recommend...
+
+**I recommend** using all the prettier defaults, and creating a `.prettierrc` file in the topmost directory in your project you want to use prettier with
 
 An empty `.prettierrc` file will do the trick to enable auto-formatting.
 
@@ -72,4 +74,6 @@ An empty `.prettierrc` file will do the trick to enable auto-formatting.
 {}
 ```
 
-**Note:** If you're working with a large project that hasn't fully been migrated to use prettier for the whole setup, adding directory-level configuration files enables granular migration to prettier.
+### Gradually migrating large projects to prettier
+
+Once added benefit to the `Prettier: Require Config` setting in VSCode if you're working with a large project that hasn't fully been migrated to use prettier for the whole setup, adding directory-level configuration files enables granular migration to prettier.
