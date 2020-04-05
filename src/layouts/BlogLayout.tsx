@@ -38,6 +38,7 @@ function BlogLayout(props: BlogLayoutProps) {
           justify="space-between"
           align="center"
           as="header"
+          marginBottom={2}
         >
           <Stack direction="horizontal" align="center" gap={2}>
             <Avatar
