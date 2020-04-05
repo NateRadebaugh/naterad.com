@@ -8,8 +8,7 @@
     "now-build": "next build",
     "dev": "next",
     "build": "next build",
-    "start": "next",
-    "export": "next export"
+    "start": "next"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",

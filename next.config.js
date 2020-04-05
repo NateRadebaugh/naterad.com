@@ -1,13 +1,6 @@
 const withOffline = require("next-offline");
 
 module.exports = withOffline({
-  target: "serverless",
-  pageExtensions: ["tsx", "js", "jsx", "md", "mdx"],
-  exportPathMap: function() {
-    return {
-      "/": { page: "/" }
-    };
-  },
   workboxOpts: {
     swDest: "static/service-worker.js",
     runtimeCaching: [
