@@ -117,7 +117,8 @@ function BlogLayout(props: BlogLayoutProps) {
             direction="vertical"
             gap={1}
             css={{
-              width: "600px"
+              width: "600px",
+              maxWidth: "90vw"
             }}
           >
             <Heading size="page">{title}</Heading>
