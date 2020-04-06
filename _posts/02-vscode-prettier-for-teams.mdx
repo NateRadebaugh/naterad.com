@@ -1,0 +1,79 @@
+---
+slug: vscode-prettier-for-teams
+title: Configuring VSCode for Prettier
+description: VSCode has great support for prettier. Learn how to configure it to maximize using pretter across your company's projects and teams.
+date: "2020-04-05T21:46:19.277Z"
+---
+
+Hit the ground running with [Visual Studio Code](https://code.visualstudio.com/) (VSCode) by installing the best extensions to make you productive.
+
+While **Visual Studio 2019** is a great IDE, its support for modern web development front-end toolkits is lacking. One such integration that is fairly incomplete in Visual Studio 2019 is integration with is the [Prettier](https://prettier.io/) code formatter.
+
+## Installation
+
+Install through VS Code extensions. Search for `Prettier - Code formatter`
+
+Visual Studio Code Market Place: `Prettier - Code formatter`
+
+Can also be installed in VS Code:
+
+1. Launch VS Code Quick Open (Ctrl+P)
+2. Paste the following command
+   ```sh
+   ext install esbenp.prettier-vscode
+   ```
+3. Press enter.
+
+## Configuration
+
+- Format on Save
+
+  1. From VSCode, open "File > Preferences > Settings"
+  2. Choose the level of setting you'd like to manage:
+
+  - `User` (applies to all workspaces on this machine)
+  - OR `Workspace` (applies to just this workspace)
+
+  3. Search for `format on save`
+
+  - Check "Editor: Format on Save" if it isn't already checked
+
+- Require Prettier config to avoid mistakenly formatting files that are not explicitly opted in to using prettier.
+
+  1. From VSCode, open "File > Preferences > Settings"
+  2. Choose the level of setting you'd like to manage:
+
+  - `User` (applies to all workspaces on this machine)
+  - OR `Workspace` (applies to just this workspace)
+
+  3. Search for `prettier`
+
+  - Scroll down and find `Prettier: Require Config`
+  - Check `Prettier: Require Config` if it isn't already checked
+
+## Explanation
+
+Visual Studio will now look for a prettier config and, if it finds one, will format the file any time you save! Don't worry about tabbing or semicolons again -- prettier will handle all the heavy lifting.
+
+### Prettier Configuration files
+
+Prettier (and its VSCode extension supports) a number of [configuration files](https://prettier.io/docs/en/configuration.html):
+
+- A `"prettier"` key in your `package.json` file.
+- A `.prettierrc` file, written in JSON or YAML, with optional extensions: `.json/.yaml/.yml` (without extension takes precedence).
+- A `.prettierrc.js` or `prettier.config.js` file that exports an object.
+- A `.prettierrc.toml` file, written in TOML (the `.toml` extension is required).
+
+### I recommend...
+
+**I recommend** using all the prettier defaults, and creating a `.prettierrc` file in the topmost directory in your project you want to use prettier with
+
+An empty `.prettierrc` file will do the trick to enable auto-formatting.
+
+```json
+{}
+```
+
+### Gradually migrating large projects to prettier
+
+Once added benefit to the `Prettier: Require Config` setting in VSCode if you're working with a large project that hasn't fully been migrated to use prettier for the whole setup, adding directory-level configuration files enables granular migration to prettier.

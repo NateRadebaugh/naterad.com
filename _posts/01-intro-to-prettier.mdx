@@ -1,0 +1,100 @@
+---
+slug: intro-to-prettier
+title: Intro to Prettier code formatter
+description: Use prettier to **focus on the code** and **not on the formatting**.
+date: "2020-04-05T21:45:35.815Z"
+---
+
+[Prettier](https://prettier.io/) is a great tool for automatically formatting your code in a consistent way across your codebases, regardless of individual contributor preferences.
+
+Prettier can take something like:
+
+```
+function HelloWorld({greeting = "hello", greeted = 'World'}) {
+if(!greeting){return null};
+
+return greeting+" "+greeted;
+}
+```
+
+and format it beautifully like
+
+```js
+function HelloWorld({ greeting = "hello", greeted = "World" }) {
+  if (!greeting) {
+    return null;
+  }
+
+  return greeting + " " + greeted;
+}
+```
+
+## What is Prettier?
+
+- An opinionated code formatter
+- Supports many languages
+- Integrates with most editors
+- Has few options
+
+## Why?
+
+- You save and code is formatted
+- No need to discuss style in code review
+- Saves you time and energy
+- [And more](https://prettier.io/docs/en/why-prettier.html):
+  - Helping Newcomers
+  - Writing code
+  - Easy to adopt
+  - Clean up an existing codebase
+
+## Supported Languages
+
+- JavaScript
+  - JSX
+  - TypeScript
+  - JSON
+- CSS
+  - SCSS
+- HTML
+  - Vue
+  - Angular
+- Markdown
+- YAML
+
+## Text Editor Support
+
+- VSCode
+- Atom
+- Sublime
+
+## Get Started
+
+1. Add prettier to your project
+
+   ```sh
+   npm install prettier --save-dev --save-exact
+   ```
+
+2. Run against all your files
+
+   ```sh
+   npx prettier --write src/**/*
+   ```
+
+3. Run prettier automatically when committing files
+
+   ```sh
+   npm install --save-dev pretty-quick husky
+   ```
+
+   Then add this config to `package.json`:
+
+   ```json
+   {
+     "husky": {
+       "hooks": {
+         "pre-commit": "pretty-quick --staged"
+       }
+     }
+   }
+   ```
