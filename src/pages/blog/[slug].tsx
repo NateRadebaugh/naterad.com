@@ -8,7 +8,7 @@ import Link from "../../components/Link";
 const renderer = new marked.Renderer();
 
 // Override function
-renderer.image = function(href, title, text) {
+renderer.image = function (href, title, text) {
   return `<img src=${href} alt=${title} style="max-width: 400px"/>`;
 };
 
@@ -30,20 +30,20 @@ type BlogPostProps = {
 
 export async function getStaticPaths() {
   return {
-    paths: (await getPosts()).map(p => `/blog/${p.slug}`),
-    fallback: false
+    paths: (await getPosts()).map((p) => `/blog/${p.slug}`),
+    fallback: false,
   };
 }
 
 export async function getStaticProps({
-  params
+  params,
 }: {
   params: { slug: string };
 }): Promise<{ props: BlogPostProps }> {
   const { slug } = params;
 
   const allPosts = await getPosts();
-  const postIndex = allPosts.findIndex(p => p.slug === slug)!;
+  const postIndex = allPosts.findIndex((p) => p.slug === slug)!;
   const post = allPosts[postIndex];
   const { title, description, date, content } = post;
 
@@ -58,13 +58,13 @@ export async function getStaticProps({
       date,
       html: marked(content, {
         renderer,
-        highlight: function(code: string, lang: string) {
+        highlight: function (code: string, lang: string) {
           if (lang) {
             return hl.highlight(lang, code).value;
           }
 
           return code;
-        }
+        },
       }),
       hasPrev: !!prevPost,
       prevSlug: prevPost?.slug ?? null,
@@ -72,8 +72,8 @@ export async function getStaticProps({
 
       hasNext: !!nextPost,
       nextSlug: nextPost?.slug ?? null,
-      nextTitle: nextPost?.title ?? null
-    }
+      nextTitle: nextPost?.title ?? null,
+    },
   };
 }
 
@@ -89,7 +89,7 @@ function BlogPage(props: BlogPostProps) {
     prevTitle,
     hasNext,
     nextSlug,
-    nextTitle
+    nextTitle,
   } = props;
 
   return (
@@ -103,7 +103,7 @@ function BlogPage(props: BlogPostProps) {
           marginBottom: 16,
           width: "100%",
           height: 1,
-          backgroundColor: "lightgray"
+          backgroundColor: "lightgray",
         }}
       />
 

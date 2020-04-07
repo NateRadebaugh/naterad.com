@@ -3,7 +3,7 @@ import Document, {
   Head,
   Main,
   NextScript,
-  DocumentContext
+  DocumentContext,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App: any) => (props: any) =>
-            sheet.collectStyles(<App {...props} />)
+            sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        )
+        ),
       };
       return documentInitialProps;
     } finally {
@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/icons-192.png"></link>
+          <link rel="apple-touch-icon" href="/icons-192.png" />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"

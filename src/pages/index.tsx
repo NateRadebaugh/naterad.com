@@ -8,12 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFileAlt,
   faCalendarAlt,
-  faCommentAlt
+  faCommentAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedin,
   faGithub,
-  faTwitter
+  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
 const Wrapper = styled.div`

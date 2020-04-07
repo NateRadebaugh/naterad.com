@@ -245,7 +245,7 @@ function Employment({
   dates,
   company,
   location,
-  details = []
+  details = [],
 }: EmploymentProps) {
   return (
     <>
@@ -262,7 +262,7 @@ function Employment({
       </div>
 
       <Details>
-        {details.map(detail => (
+        {details.map((detail) => (
           <li>{detail}</li>
         ))}
       </Details>
@@ -314,7 +314,7 @@ export default function Resume() {
           location="Oak Brook, IL"
           details={[
             "Technical lead on multiple client projects at a time, mentoring and teaching junior team members.",
-            "Project planning, delegation of tasks, and code reviews for teams with smooth handoff for a variety of enterprise web products and technologies."
+            "Project planning, delegation of tasks, and code reviews for teams with smooth handoff for a variety of enterprise web products and technologies.",
           ]}
         />
         <Employment
@@ -323,7 +323,7 @@ export default function Resume() {
           company="SWC Technology Partners (Aquired by BDO USA)"
           location="Oak Brook, IL"
           details={[
-            "Technical lead on multiple client projects at a time, including project planning, delegation, technical oversight, and code reviews for teams creating a variety of enterprise products using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle."
+            "Technical lead on multiple client projects at a time, including project planning, delegation, technical oversight, and code reviews for teams creating a variety of enterprise products using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle.",
           ]}
         />
         <Employment
@@ -332,7 +332,7 @@ export default function Resume() {
           company="SWC Technology Partners"
           location="Oak Brook, IL"
           details={[
-            "Delivered large scale enterprise web projects to numerous clients full stack using .NET MVC, Spring Boot, SQL, JQuery, and React."
+            "Delivered large scale enterprise web projects to numerous clients full stack using .NET MVC, Spring Boot, SQL, JQuery, and React.",
           ]}
         />
         <Employment
@@ -343,7 +343,7 @@ export default function Resume() {
           details={[
             "Led architectural decisions for the Windows team and its direction for building windows phone, desktop, and surface UIs.",
             "Mentored new team members.",
-            "Became subject matter expert at XAML UI markup and efficient data binding through the MVVM pattern. Led team through decisions about performance and memory optimizations and improvements in back end and front end in C++/CX."
+            "Became subject matter expert at XAML UI markup and efficient data binding through the MVVM pattern. Led team through decisions about performance and memory optimizations and improvements in back end and front end in C++/CX.",
           ]}
         />
         <Employment
@@ -352,7 +352,7 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            "Owned a variety of UX features on Windows Phone including Cortana, Wallet, and Continuum apps, collaborating with designers, PMs, and senior developers to ensure quality product and experiences using C++."
+            "Owned a variety of UX features on Windows Phone including Cortana, Wallet, and Continuum apps, collaborating with designers, PMs, and senior developers to ensure quality product and experiences using C++.",
           ]}
         />
         <Employment
@@ -361,7 +361,7 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            "Worked the Microsoft Wallet team, within Windows Phone division. Ported barcode generation functionality from Microsoft Office apps to be available to apps on Windows Phone."
+            "Worked the Microsoft Wallet team, within Windows Phone division. Ported barcode generation functionality from Microsoft Office apps to be available to apps on Windows Phone.",
           ]}
         />
         <Employment
@@ -370,7 +370,7 @@ export default function Resume() {
           company="Qualcomm"
           location="San Diego, CA"
           details={[
-            "Drastically improved team productivity and tool performance using Batch, Perl, C++, and the MFC framework to automate running tests, generating regression reports, and sending email reports."
+            "Drastically improved team productivity and tool performance using Batch, Perl, C++, and the MFC framework to automate running tests, generating regression reports, and sending email reports.",
           ]}
         />
         <Employment
@@ -381,7 +381,7 @@ export default function Resume() {
           details={[
             "Led a team of 8 student developers in the development and maintenance of a PHP/MySQL driven management tool using the open source PHP MVC framework FuelPHP and Bootstrap, including Perl scripts to help monitor data usage across the network.",
             "Administered multiple Linux web and database servers used for development, test, and production environments.",
-            "Active role in interviewing, hiring, and training of new employees."
+            "Active role in interviewing, hiring, and training of new employees.",
           ]}
         />
       </ContentCol>
