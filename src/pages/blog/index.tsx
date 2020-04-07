@@ -18,11 +18,11 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: posts.map(p => ({
+      posts: posts.map((p) => ({
         ...p,
-        description: marked(p.description)
-      }))
-    }
+        description: marked(p.description),
+      })),
+    },
   };
 }
 
@@ -30,7 +30,7 @@ function BlogIndexPage({ posts }: { posts: BlogPost[] }) {
   return (
     <BlogLayout title="Blog Posts">
       <Stack direction="vertical" gap={3}>
-        {posts.map(post => (
+        {posts.map((post) => (
           <div key={post.slug}>
             <Heading size="section">
               <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>

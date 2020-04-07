@@ -8,7 +8,7 @@ import {
   Breadcrumb,
   Stack,
   Avatar,
-  Button
+  Button,
 } from "react-ui";
 import { tokens, components } from "react-ui/themes/light";
 import styles from "./base.module.scss";
@@ -106,7 +106,7 @@ function BlogLayout(props: BlogLayoutProps) {
           css={{
             width: "100%",
             height: 1,
-            backgroundColor: "gray"
+            backgroundColor: "gray",
           }}
         />
 
@@ -118,7 +118,7 @@ function BlogLayout(props: BlogLayoutProps) {
             gap={1}
             css={{
               width: "600px",
-              maxWidth: "90vw"
+              maxWidth: "90vw",
             }}
           >
             <Heading size="page">{title}</Heading>
@@ -135,7 +135,7 @@ function BlogLayout(props: BlogLayoutProps) {
                 marginTop: 8,
                 width: "100%",
                 height: 1,
-                backgroundColor: "lightgray"
+                backgroundColor: "lightgray",
               }}
             />
 

@@ -16,12 +16,12 @@ export async function getPosts(): Promise<BlogPost[]> {
   const postFiles = fs.readdirSync(postsDirectory);
 
   // Prepare posts off file system
-  const posts = postFiles.map(fileName => {
+  const posts = postFiles.map((fileName) => {
     const fullPath = path.join(postsDirectory, fileName);
     const bytes = fs.readFileSync(fullPath, "utf8");
     const {
       data: { slug, title, description, date },
-      content
+      content,
     } = matter(bytes);
     return { slug, title, description, date, content };
   });
