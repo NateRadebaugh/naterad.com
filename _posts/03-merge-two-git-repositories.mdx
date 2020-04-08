@@ -1,0 +1,124 @@
+---
+slug: merge-two-git-repositories
+title: How to Merge Two Git Repositories into a Monorepo (without losing history)
+description: Monorepos are all the rage. If you already have two git repositories but want to switch to a monorepo without losing history, look no further.
+date: "2020-04-08T17:27:52.175Z"
+---
+
+# Monorepos are great.
+
+Monorepos let us version our back-end with our front-end, making compability easy with combined builds and deployments using a shared CI/CD pipeline. They also let us make assumptions about relative relationships between folders during development.
+
+# How to Merge Two Git Repositories into a Monorepo (without losing history)
+
+It is easier than you think to merge two separate repositories into one.
+
+Say you have `RepositoryA` and `RepositoryB`, which you want to merge to create `RepositoryC:`
+
+`RepositoryA`:
+
+```
+\
+    \.gitginore
+    \webpack.config.js
+    \tslint.json
+```
+
+`RepositoryB`:
+
+```
+\
+    \.gitginore
+    \Program.cs
+```
+
+New `RepositoryC`:
+
+```
+\
+    \.gitginore
+    \RepositoryA
+        \webpack.config.js
+        \tslint.json
+    \RepositoryB
+        \Program.cs
+```
+
+You'll notice from the above differences that we have a few steps required:
+
+1.  In `RepositoryA`,
+    1. Move the contents of `RepositoryA` into a sub-directory `RepositoryA` (except `.gitignore`)
+       - Check this into a new branch for `RepositoryA`
+       - **Note:** This should show as every file being a `RENAME` in git.
+    2. Push to origin:
+       - `git push -u origin HEAD`
+2.  In `RepositoryB`,
+    1. Move the contents of `RepositoryB` into a sub-directory `RepositoryB` (except `.gitignore`)
+       - Check this into a new branch for `RepositoryB`
+       - **Note:** This should show as every file being a `RENAME` in git.
+    2. Push to origin:
+       - `git push -u origin HEAD`
+3.  In `RepositoryC`,
+
+    1.  Initialize your new repository (maybe clone an existing empty repository)
+        ```
+        c:\RepositoryC>  git remote -v
+        origin  https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryC (fetch)
+        origin  https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryC (push)
+        ```
+    2.  Create an initial commit (maybe add a `README.md` file)
+    3.  Add `RepositoryA` and `RepositoryB` as remotes
+
+        - Run:
+
+          ```
+          c:\RepositoryC>  git remote add repository-a https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryA
+          c:\RepositoryC>  git remote add repository-b https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryA
+          ```
+
+        - After:
+
+          ```
+          c:\RepositoryC>  git remote -v
+          repository-a     https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryA (fetch)
+          repository-a     https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryA (push)
+          repository-b     https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryB (fetch)
+          repository-b     https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryB (push)
+          origin  https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryC (fetch)
+          origin  https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryC (push)
+          ```
+
+    4.  Fetch the latest from these newly references remotes
+
+        ```
+        c:\RepositoryC>  git fetch repository-a
+        * [new branch]      master     -> repository-a/master
+
+        c:\RepositoryC>  git fetch repository-b
+        * [new branch]      master     -> repository-b/master
+        ```
+
+    5.  Merge each of these new branches into your repository
+
+        ```
+        c:\RepositoryC>  git merge repository-a/master --allow-unrelated-histories
+        ```
+
+        - **Note:** You may need to manually merge and commit your merge at this point, depending on what you initial commit to `RepositoryC` contained.
+
+        ```
+        c:\RepositoryC>  git merge repository-b/master --allow-unrelated-histories
+        ```
+
+        - **Note:** You may need to manually merge and commit your merge at this point, depending on what you initial commit to `RepositoryC` contained.
+
+        > `--allow-unrelated-histories` is the magic sauce. [Read the docs](https://git-scm.com/docs/git-merge#Documentation/git-merge.txt---allow-unrelated-histories)
+
+    6.  At this point, you should have your new file structure containing the full history of both repositories into one. 🎉
+    7.  Push your new remote
+        ```
+        c:\RepositoryC>  git push -u origin HEAD
+        ```
+    8.  You did it!
+
+        # 🥳
