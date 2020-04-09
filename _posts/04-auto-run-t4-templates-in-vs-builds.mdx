@@ -1,0 +1,51 @@
+---
+slug: auto-run-t4-templates-in-vs-builds
+title: How to Auto-Run T4 Templates in Visual Studio Builds
+description: T4 templates can be used to auto-generate code, such as creating TypeScript types from C# class/enums. Remove the manual step by automatically running your templates as part of the build process.
+date: "2020-04-09T14:59:06.304Z"
+---
+
+## Set up your T4 template in your project
+
+1. Add reference to your T4 templates in your `.csproj` file:
+
+   ```xml
+   <ItemGroup>
+        <Content Include="Models\Model.tt">
+            <Generator>TextTemplatingFileGenerator</Generator>
+            <LastGenOutput>Model.ts</LastGenOutput>
+        </Content>
+   </ItemGroup>
+   ```
+
+   - Note: This is not supported in your `.njsproj`, so this needs to live in your `.csproj`
+
+1. Write your T4 Templates to write the output that you want.
+
+   - Test this by right-clicking the `.tt` file in Visual Studio and choosing `Run Custom Tool`
+
+## Automate it
+
+This is great, but requiring manual intervention for code generation is so 2019.
+
+1. Install NuGet package `Mono.TextTransform`
+
+   - https://www.nuget.org/packages/Mono.TextTransform/
+
+1. Run your T4 Text Transforms after the C# code builds:
+
+   - Add the following `PostBuildEvent` `BackEnd.csproj`:
+
+   ```xml
+   <PropertyGroup>
+       <PostBuildEvent>"$(SolutionDir)packages\Mono.TextTransform.1.0.0\tools\TextTransform.exe" "$(ProjectDir)Models\Model.tt" -a=outDir!"$(TargetDir)$(ConfigurationName)\"</PostBuildEvent>
+   </PropertyGroup>
+   ```
+
+## Success!
+
+Now when you build, your generated output will be re-generated after the build succeeds. Whew! 😅
+
+### What about pre-build events?
+
+If you need to run your T4 template before the build, such as for T4 MVC, you'll want to use a `<PreBuildEvent>` instead of the `<PostBuildEvent>` above in your `.csproj` file.
