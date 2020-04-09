@@ -114,7 +114,7 @@ function BlogPage(props: BlogPostProps) {
 
         <Stack justify="space-between">
           {hasPrev ? (
-            <strong>
+            <strong style={{ width: "50%" }}>
               <Link href="/blog/[slug]" as={`/blog/${prevSlug}`}>
                 &laquo; {prevTitle}
               </Link>
@@ -124,7 +124,7 @@ function BlogPage(props: BlogPostProps) {
           )}
 
           {hasNext ? (
-            <strong>
+            <strong style={{ width: "50%" }}>
               <Link href="/blog/[slug]" as={`/blog/${nextSlug}`}>
                 {nextTitle} &raquo;
               </Link>
