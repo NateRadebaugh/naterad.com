@@ -15,16 +15,8 @@ import styles from "./base.module.scss";
 import Link from "../components/Link";
 import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
 
-export interface BlogLayoutProps {
-  slug?: string;
-  title: string;
-  description?: string;
-  date?: string;
-  children: React.ReactNode;
-}
-
-function BlogLayout(props: BlogLayoutProps) {
-  const { slug, title, description, date = undefined, children } = props;
+function BlogLayout(props) {
+  const { isPost, title, description, date = undefined, children } = props;
 
   return (
     <ThemeProvider tokens={tokens} components={components}>
@@ -50,7 +42,7 @@ function BlogLayout(props: BlogLayoutProps) {
             />
             <Stack direction="vertical">
               <Text>Nate Radebaugh</Text>
-              {slug ? (
+              {isPost ? (
                 <Breadcrumb>
                   <Link href="/">Home</Link>
                   <Link href="/blog">Blog</Link>

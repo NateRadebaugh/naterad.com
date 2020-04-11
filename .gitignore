@@ -85,3 +85,6 @@ typings/
 
 # nextjs build output
 out
+
+# Ignore next-mdx-enhanced cache directory
+.mdx-data
