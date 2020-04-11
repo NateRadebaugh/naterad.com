@@ -49,8 +49,6 @@ function PostLayout(frontMatter) {
   return ({ children }) => {
     return (
       <BlogLayout {...frontMatter} isPost>
-        {slug}
-
         {children}
 
         <Element
