@@ -13,6 +13,7 @@ import {
 import { tokens, components } from "react-ui/themes/light";
 import styles from "./base.module.scss";
 import Link from "../components/Link";
+import Divider from "../components/Divider";
 import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
 
 function BlogLayout(props) {
@@ -42,18 +43,17 @@ function BlogLayout(props) {
             />
             <Stack direction="vertical">
               <Text>Nate Radebaugh</Text>
-              {isPost ? (
-                <Breadcrumb>
-                  <Link href="/">Home</Link>
-                  <Link href="/blog">Blog</Link>
-                  <Text variant="subtle">{title}</Text>
-                </Breadcrumb>
-              ) : (
-                <Breadcrumb>
-                  <Link href="/">Home</Link>
+              <Breadcrumb className={styles.breadcrumb}>
+                <Link href="/">Home</Link>
+                {isPost ? (
+                  <>
+                    <Link href="/blog">Blog</Link>
+                    <Text variant="subtle">{title}</Text>
+                  </>
+                ) : (
                   <Text variant="subtle">Blog</Text>
-                </Breadcrumb>
-              )}
+                )}
+              </Breadcrumb>
             </Stack>
           </Stack>
           <Stack direction="horizontal" gap={2}>
@@ -121,28 +121,25 @@ function BlogLayout(props) {
               </Text>
             )}
 
-            <Element
-              as="span"
-              css={{
-                marginTop: 8,
-                width: "100%",
-                height: 1,
-                backgroundColor: "lightgray",
-              }}
-            />
-
             <Stack
               direction="vertical"
               justify="stretch"
               css={{ width: "100%" }}
             >
+              <Divider marginTop={3} marginBottom={3} />
+
               {description && (
-                <Text variant="subtle">
-                  <em dangerouslySetInnerHTML={{ __html: description }} />
-                </Text>
+                <>
+                  <Text variant="subtle">
+                    <em dangerouslySetInnerHTML={{ __html: description }} />
+                  </Text>
+                  <Divider marginTop={3} marginBottom={3} />
+                </>
               )}
 
               {children}
+
+              <Divider marginTop={3} marginBottom={3} />
             </Stack>
           </Stack>
         </Stack>

@@ -1,11 +1,12 @@
 const withOffline = require("next-offline");
 const withMdxEnhanced = require("next-mdx-enhanced");
+const remarkA11yEmoji = require("@fec/remark-a11y-emoji");
 
 module.exports = withMdxEnhanced({
   layoutPath: "src/layouts",
   defaultLayout: false,
   fileExtensions: ["mdx"],
-  remarkPlugins: [],
+  remarkPlugins: [remarkA11yEmoji],
   rehypePlugins: [],
   extendFrontMatter: {
     process: (mdxContent, frontMatter) => {},

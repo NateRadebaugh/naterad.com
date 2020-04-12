@@ -1,0 +1,25 @@
+.syntax {
+  pre,
+  code[class^="language-"] {
+    font-size: 15px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    background-color: #011627;
+    color: #d6deeb;
+  }
+
+  code {
+    display: inline-block;
+    padding: 4px 6px;
+    font-size: 15px;
+    border-radius: 4px;
+    color: #011627;
+    background-color: #e8e8e8;
+    margin-bottom: 2px;
+  }
+
+  pre {
+    padding: 0 11px 8px 11px;
+    overflow-x: auto;
+  }
+}

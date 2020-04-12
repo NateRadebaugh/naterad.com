@@ -15,34 +15,34 @@ It is easier than you think to merge two separate repositories into one.
 
 Say you have `RepositoryA` and `RepositoryB`, which you want to merge to create `RepositoryC:`
 
-`RepositoryA`:
+- `RepositoryA`:
 
-```
-\
-    \.gitginore
-    \webpack.config.js
-    \tslint.json
-```
+  ```dir
+  \
+      \.gitignore
+      \webpack.config.js
+      \tslint.json
+  ```
 
-`RepositoryB`:
+- `RepositoryB`:
 
-```
-\
-    \.gitginore
-    \Program.cs
-```
+  ```dir
+  \
+      \.gitignore
+      \Program.cs
+  ```
 
-New `RepositoryC`:
+- New `RepositoryC`:
 
-```
-\
-    \.gitginore
-    \RepositoryA
-        \webpack.config.js
-        \tslint.json
-    \RepositoryB
-        \Program.cs
-```
+  ```dir {2,3,6}
+  \
+      \.gitignore
+      \RepositoryA
+          \webpack.config.js
+          \tslint.json
+      \RepositoryB
+          \Program.cs
+  ```
 
 You'll notice from the above differences that we have a few steps required:
 
@@ -61,7 +61,7 @@ You'll notice from the above differences that we have a few steps required:
 3.  In `RepositoryC`,
 
     1.  Initialize your new repository (maybe clone an existing empty repository)
-        ```
+        ```shell
         c:\RepositoryC>  git remote -v
         origin  https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryC (fetch)
         origin  https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryC (push)
@@ -71,14 +71,14 @@ You'll notice from the above differences that we have a few steps required:
 
         - Run:
 
-          ```
+          ```shell
           c:\RepositoryC>  git remote add repository-a https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryA
           c:\RepositoryC>  git remote add repository-b https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryA
           ```
 
         - After:
 
-          ```
+          ```shell
           c:\RepositoryC>  git remote -v
           repository-a     https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryA (fetch)
           repository-a     https://some-example@dev.azure.com/some-example/some-example/_git/RepositoryA (push)
@@ -90,7 +90,7 @@ You'll notice from the above differences that we have a few steps required:
 
     4.  Fetch the latest from these newly references remotes
 
-        ```
+        ```shell
         c:\RepositoryC>  git fetch repository-a
         * [new branch]      master     -> repository-a/master
 
@@ -100,13 +100,13 @@ You'll notice from the above differences that we have a few steps required:
 
     5.  Merge each of these new branches into your repository
 
-        ```
+        ```shell
         c:\RepositoryC>  git merge repository-a/master --allow-unrelated-histories
         ```
 
         - **Note:** You may need to manually merge and commit your merge at this point, depending on what you initial commit to `RepositoryC` contained.
 
-        ```
+        ```shell
         c:\RepositoryC>  git merge repository-b/master --allow-unrelated-histories
         ```
 
@@ -116,7 +116,7 @@ You'll notice from the above differences that we have a few steps required:
 
     6.  At this point, you should have your new file structure containing the full history of both repositories into one. 🎉
     7.  Push your new remote
-        ```
+        ```shell
         c:\RepositoryC>  git push -u origin HEAD
         ```
     8.  You did it!

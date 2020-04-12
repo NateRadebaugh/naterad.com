@@ -12,7 +12,19 @@
     box-sizing: border-box;
   }
 
+  p + ul,
+  p + ol {
+    margin-top: -0.5em;
+  }
+}
+
+.breadcrumb {
   ol {
     margin: 0;
+  }
+
+  li,
+  span {
+    display: inline;
   }
 }

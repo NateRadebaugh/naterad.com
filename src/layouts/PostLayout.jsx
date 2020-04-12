@@ -1,8 +1,38 @@
-import { Element, Stack, Heading, Text } from "react-ui";
+import { Element, Stack, Heading, Text, Image } from "react-ui";
 import BlogLayout from "./BlogLayout";
 import Link from "../components/Link";
+import Code from "../components/Code";
 import { frontMatter as docsPages } from "../pages/blog/*.mdx";
 import dayjs from "dayjs";
+import { MDXProvider } from "@mdx-js/react";
+import styles from "../styles/syntax.module.scss";
+
+const components = {
+  pre: (props) => <div {...props} />,
+  code: Code,
+  a: Link,
+  img: Image,
+  h1: (props) => <Heading as="h1" size={7} {...props} />,
+  h2: (props) => <Heading as="h2" size="section" {...props} />,
+  h3: (props) => <Heading as="h3" size="paragraph" {...props} />,
+  h4: (props) => (
+    <Heading as="h4" size="paragraph">
+      <Text variant="subtle" {...props} />
+    </Heading>
+  ),
+  h5: (props) => <Heading as="h5" size={3} {...props} />,
+  h6: (props) => (
+    <Heading as="h6" size={3}>
+      <Text variant="subtle" {...props} />
+    </Heading>
+  ),
+  blockquote: (props) => (
+    <blockquote
+      css={{ margin: "0 0 1rem", marginBottom: "1rem", fontSize: "1.25rem" }}
+      {...props}
+    />
+  ),
+};
 
 function getSlug(resourcePath) {
   const matches = resourcePath.match(/([^\\/]+)(\.\w+)$/);
@@ -49,7 +79,9 @@ function PostLayout(frontMatter) {
   return ({ children }) => {
     return (
       <BlogLayout {...frontMatter} isPost>
-        {children}
+        <MDXProvider components={components}>
+          <div className={styles.syntax}>{children}</div>
+        </MDXProvider>
 
         <Element
           as="span"
@@ -83,7 +115,7 @@ function PostLayout(frontMatter) {
             )}
 
             {hasNext ? (
-              <strong style={{ width: "50%" }}>
+              <strong style={{ width: "50%", textAlign: "right" }}>
                 <Link href="/blog/[slug]" as={`/blog/${nextSlug}`}>
                   {nextTitle} &raquo;
                   <br />

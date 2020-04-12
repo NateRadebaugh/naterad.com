@@ -23,6 +23,9 @@
     "next-mdx-enhanced": "^2.4.0",
     "next-offline": "^5.0.0",
     "polished": "^3.5.1",
+    "prism-react-renderer": "^1.0.2",
+    "prism-themes": "^1.4.0",
+    "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-ui": "^1.0.0-beta.22",
@@ -31,6 +34,7 @@
     "typescript": "^3.8.3"
   },
   "devDependencies": {
+    "@fec/remark-a11y-emoji": "^1.0.0",
     "@types/next": "^9.0.0",
     "@types/node": "^13.11.1",
     "@types/react": "^16.9.34",
