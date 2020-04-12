@@ -43,17 +43,18 @@ function BlogLayout(props) {
             />
             <Stack direction="vertical">
               <Text>Nate Radebaugh</Text>
-              <Breadcrumb className={styles.breadcrumb}>
-                <Link href="/">Home</Link>
-                {isPost ? (
-                  <>
-                    <Link href="/blog">Blog</Link>
-                    <Text variant="subtle">{title}</Text>
-                  </>
-                ) : (
+              {isPost ? (
+                <Breadcrumb className={styles.breadcrumb}>
+                  <Link href="/">Home</Link>
+                  <Link href="/blog">Blog</Link>
+                  <Text variant="subtle">{title}</Text>
+                </Breadcrumb>
+              ) : (
+                <Breadcrumb className={styles.breadcrumb}>
+                  <Link href="/">Home</Link>
                   <Text variant="subtle">Blog</Text>
-                )}
-              </Breadcrumb>
+                </Breadcrumb>
+              )}
             </Stack>
           </Stack>
           <Stack direction="horizontal" gap={2}>
