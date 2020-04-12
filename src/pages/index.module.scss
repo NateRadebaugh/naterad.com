@@ -1,0 +1,72 @@
+.wrapper {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Segoe WP", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  color: #333;
+  background-color: #fff;
+}
+
+h1.title {
+  font-size: 56px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  text-transform: lowercase;
+  line-height: 40px;
+  margin: 12.5px 0;
+  font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP",
+    sans-serif;
+  font-weight: 100;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+
+h2.subTitle {
+  font-size: 28px;
+  margin: 0;
+  text-transform: lowercase;
+  line-height: 40px;
+  font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP",
+    sans-serif;
+  font-weight: 100;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+
+h3.tileText {
+  font-size: 1.75em;
+  text-transform: lowercase;
+  line-height: 40px;
+  margin: 0;
+  font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP",
+    sans-serif;
+  font-weight: 100;
+  text-rendering: optimizelegibility;
+}
+
+p.introText {
+  margin: 0 0 12.5px;
+}
+
+a.tile {
+  display: inline-block;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+svg.tileIcon {
+  display: inline-block;
+  font-size: 6em;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}

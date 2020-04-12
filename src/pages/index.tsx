@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import styled from "styled-components";
 import { darken } from "polished";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -15,108 +14,52 @@ import {
   faGithub,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-
-const Wrapper = styled.div`
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", "Segoe WP", "Helvetica Neue", sans-serif;
-  font-size: 14px;
-  line-height: 25px;
-  color: #333;
-  background-color: #fff;
-
-  a {
-    text-decoration: none;
-  }
-
-  svg:not(:root).svg-inline--fa {
-    overflow: visible;
-  }
-
-  .svg-inline--fa {
-    display: inline-block;
-    font-size: 6em;
-    height: 1em;
-    overflow: visible;
-    vertical-align: -0.125em;
-  }
-`;
-
-const Title = styled.h1`
-  font-size: 56px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-bottom: 10px;
-  text-transform: lowercase;
-  line-height: 40px;
-  margin: 12.5px 0;
-  font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP",
-    sans-serif;
-  font-weight: 100;
-  color: inherit;
-  text-rendering: optimizelegibility;
-`;
-
-const IntroText = styled.p`
-  margin: 0 0 12.5px;
-`;
-
-const SubTitle = styled.h2`
-  font-size: 28px;
-  margin: 0;
-  text-transform: lowercase;
-  line-height: 40px;
-  font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP",
-    sans-serif;
-  font-weight: 100;
-  color: inherit;
-  text-rendering: optimizelegibility;
-`;
+import styles from "./index.module.scss";
 
 interface TileProps {
   colspan?: number;
   color?: string;
+  icon: any;
+  text: string;
+  href: string;
+  [x: string]: any;
 }
 
-const Tile = styled.a<TileProps>`
-  display: inline-block;
-  padding: 5px;
-  text-align: center;
-  color: #fff;
-  border-radius: 8px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+function Tile({ icon, text, ...props }: TileProps) {
+  const isInternal = props.href?.startsWith("http");
 
-  ${(props: TileProps) => {
-    const multiplier = props.colspan || 1;
-    return `width: ${multiplier * 125 + (multiplier - 1) * 16}px;`;
-  }}
+  const multiplier = props.colspan || 1;
+  const width = multiplier * 125 + (multiplier - 1) * 16;
+  const hoverColor = props.color && darken(0.02, props.color);
 
-  ${(props: TileProps) =>
-    props.color
-      ? `background-color: ${props.color};
-  :hover {
-    background-color: ${darken(0.02, props.color)};
-  }`
-      : null}
-`;
+  const content = (
+    <a
+      className={styles.tile}
+      css={`
+        width: ${width}px;
 
-const TileText = styled.h3`
-  font-size: 1.75em;
-  text-transform: lowercase;
-  line-height: 40px;
-  margin: 0;
-  font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP",
-    sans-serif;
-  font-weight: 100;
-  text-rendering: optimizelegibility;
-`;
+        background-color: ${props.color};
+        &:hover {
+          background-color: ${hoverColor};
+        }
+      `}
+      {...props}
+    >
+      <FontAwesomeIcon size="6x" icon={icon} className={styles.tileIcon} />
+      <h3 className={styles.tileText}>{text}</h3>
+    </a>
+  );
+
+  if (isInternal) {
+    return <Link href={props.href}>{content}</Link>;
+  }
+
+  return content;
+}
 
 export default function Index() {
   return (
-    <Wrapper>
+    <div className={styles.wrapper}>
       <Head>
         <title>nate radebaugh</title>
         <meta
@@ -126,20 +69,15 @@ export default function Index() {
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <header>
-        <Title>nate radebaugh</Title>
-        <IntroText>
+        <h1 className={styles.title}>nate radebaugh</h1>
+        <p className={styles.introText}>
           <strong>Senior Senior Associate, Software Solutions</strong> at{" "}
           <strong>BDO Digital</strong> in the western Chicago Suburbs. Graduate
           of Purdue University.
-        </IntroText>
+        </p>
       </header>
 
-      <Link href="/blog">
-        <Tile href="/blog" color="purple">
-          <FontAwesomeIcon size="6x" icon={faCommentAlt} />
-          <TileText>blog</TileText>
-        </Tile>
-      </Link>
+      <Tile href="/blog" color="purple" icon={faCommentAlt} text="blog" />
 
       <Tile
         href="https://react-datetime.naterad.com"
@@ -147,30 +85,30 @@ export default function Index() {
         rel="noopener noreferrer"
         color="teal"
         colspan={3}
-      >
-        <FontAwesomeIcon size="6x" icon={faCalendarAlt} />
-        <TileText>@nateradebaugh/react-datetime</TileText>
-      </Tile>
+        icon={faCalendarAlt}
+        text="@nateradebaugh/react-datetime"
+      />
 
-      <SubTitle>contact me</SubTitle>
-      <Link href="/resume">
-        <Tile href="/resume" color="#e15227">
-          <FontAwesomeIcon size="6x" icon={faFileAlt} />
-          <TileText>my resume</TileText>
-        </Tile>
-      </Link>
-      <Tile href="https://www.linkedin.com/in/nateradebaugh/" color="#0e76a8">
-        <FontAwesomeIcon size="6x" icon={faLinkedin} />
-        <TileText>linkedin</TileText>
-      </Tile>
-      <Tile href="https://github.com/NateRadebaugh" color="#4183c4">
-        <FontAwesomeIcon size="6x" icon={faGithub} />
-        <TileText>github</TileText>
-      </Tile>
-      <Tile href="https://twitter.com/nateradebaugh" color="#00a0d1">
-        <FontAwesomeIcon size="6x" icon={faTwitter} />
-        <TileText>twitter</TileText>
-      </Tile>
-    </Wrapper>
+      <h2 className={styles.subTitle}>contact me</h2>
+      <Tile href="/resume" color="#e15227" icon={faFileAlt} text="my resume" />
+      <Tile
+        href="https://www.linkedin.com/in/nateradebaugh/"
+        color="#0e76a8"
+        icon={faLinkedin}
+        text="linkedin"
+      />
+      <Tile
+        href="https://github.com/NateRadebaugh"
+        color="#4183c4"
+        icon={faGithub}
+        text="github"
+      />
+      <Tile
+        href="https://twitter.com/nateradebaugh"
+        color="#00a0d1"
+        icon={faTwitter}
+        text="twitter"
+      />
+    </div>
   );
 }
