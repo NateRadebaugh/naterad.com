@@ -1,4 +1,3 @@
-import Head from "next/head";
 import dayjs from "dayjs";
 import {
   ThemeProvider,
@@ -12,6 +11,7 @@ import {
 } from "react-ui";
 import { tokens, components } from "react-ui/themes/light";
 import styles from "./base.module.scss";
+import Head from "../components/Head";
 import Link from "../components/Link";
 import Divider from "../components/Divider";
 import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
