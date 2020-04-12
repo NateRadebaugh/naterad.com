@@ -103,11 +103,13 @@ function PostLayout(frontMatter) {
             {hasPrev ? (
               <strong style={{ width: "50%" }}>
                 <Link href="/blog/[slug]" as={`/blog/${prevSlug}`}>
-                  &laquo; {prevTitle}
-                  <br />
-                  <Text variant="subtle" size={2}>
-                    {prevDate.format("MMMM D, YYYY h:mm A")}
-                  </Text>
+                  <div css="display: inline-block">
+                    &laquo; {prevTitle}
+                    <br />
+                    <Text variant="subtle" size={2}>
+                      {prevDate.format("MMMM D, YYYY h:mm A")}
+                    </Text>
+                  </div>
                 </Link>
               </strong>
             ) : (
@@ -117,11 +119,13 @@ function PostLayout(frontMatter) {
             {hasNext ? (
               <strong style={{ width: "50%", textAlign: "right" }}>
                 <Link href="/blog/[slug]" as={`/blog/${nextSlug}`}>
-                  {nextTitle} &raquo;
-                  <br />
-                  <Text size={2} variant="subtle">
-                    {nextDate.format("MMMM D, YYYY h:mm A")}
-                  </Text>
+                  <div css="display: inline-block">
+                    {nextTitle} &raquo;
+                    <br />
+                    <Text size={2} variant="subtle">
+                      {nextDate.format("MMMM D, YYYY h:mm A")}
+                    </Text>
+                  </div>
                 </Link>
               </strong>
             ) : (
