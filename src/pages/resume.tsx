@@ -1,6 +1,6 @@
 import Head from "next/head";
 import NextLink from "next/link";
-import styled, { createGlobalStyle } from "styled-components";
+import styles from "./resume.module.scss";
 
 function Link(props: any) {
   const { href, ...rest } = props;
@@ -8,197 +8,19 @@ function Link(props: any) {
   return (
     <NextLink href={href}>
       {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-      <a {...rest} />
+      <a className={styles.link} {...rest} />
     </NextLink>
   );
 }
 
-const GlobalStyle = createGlobalStyle`
-table,
-html {
-  font-size: .9rem;
-  font-family: "Helvetica Neue", Arial;
-}`;
-
-const Wrapper = styled.div`
-  @media print, (min-width: 800px) {
-    width: 8in;
-  }
-
-  a {
-    color: #343a40;
-
-    :hover,
-    :focus {
-      color: #121416;
-    }
-  }
-
-  p,
-  li {
-    margin: 0;
-    padding: 0;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    margin-left: 1.4rem;
-    text-align: left;
-    white-space: normal;
-  }
-
-  br {
-    clear: both;
-  }
-`;
-
-const Name = styled.h1`
-  font-size: 3em;
-  font-weight: bold;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-`;
-
-const Address = styled.div`
-  margin: 0;
-  padding: 0;
-
-  @media (max-width: 799px) {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-  }
-
-  @media print, (min-width: 800px) {
-    font-size: 1rem;
-    margin-top: 0;
-    display: inline-block;
-    float: right;
-    text-align: right;
-  }
-`;
-
-const Company = styled.h3`
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-
-  @media (max-width: 799px) {
-    font-size: 1.3rem;
-    margin-top: 0.3rem;
-  }
-
-  @media print, (min-width: 800px) {
-    font-size: 1rem;
-    margin: 0;
-  }
-`;
-
-const Position = styled.h3`
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  font-style: italic;
-
-  @media (max-width: 799px) {
-    font-size: 1.3rem;
-    margin-bottom: 0.3rem;
-    margin-left: 0.6rem;
-  }
-
-  @media print, (min-width: 800px) {
-    font-size: 1rem;
-    margin: 0;
-  }
-`;
-
-const LabelCol = styled.h2`
-  @media (max-width: 799px) {
-    margin-top: 0.7rem;
-    padding-top: 0.7rem;
-    font-size: 1.8rem;
-    margin-bottom: 0;
-
-    border-top: 1px solid #dee2e6;
-
-    float: none;
-  }
-
-  @media print, (min-width: 800px) {
-    padding-top: 0;
-    margin-bottom: 0;
-
-    border-top: none;
-
-    float: left;
-    clear: left;
-
-    margin-top: 10px;
-    font-size: 1rem;
-    font-weight: bold;
-    width: 1.3in;
-  }
-`;
-
-const ContentCol = styled.div`
-  margin-top: 10px;
-  float: left;
-  clear: right;
-
-  @media (max-width: 799px) {
-    float: none;
-    clear: none;
-  }
-
-  @media print, (min-width: 800px) {
-    width: 6.7in;
-    float: left;
-    clear: right;
-  }
-`;
-
-const Location = styled.span`
-  @media (max-width: 799px) {
-    display: inline;
-
-    &:before {
-      content: ", ";
-    }
-  }
-
-  @media print, (min-width: 800px) {
-    float: right;
-
-    &:before {
-      content: "";
-    }
-  }
-`;
-
-const Dates = styled.span`
-  @media (max-width: 799px) {
-    display: inline;
-
-    &:before {
-      content: ", ";
-    }
-  }
-
-  @media print, (min-width: 800px) {
-    float: right;
-
-    &:before {
-      content: "";
-    }
-  }
-`;
-
-const Details = styled.ul`
-  &&& {
-    padding-bottom: 0.6em;
-  }
-`;
+function ContentGroup({ label, children }) {
+  return (
+    <>
+      <h2 className={styles.contentGroupLabel}>{label}</h2>
+      <div className={styles.contentGroupContent}>{children}</div>
+    </>
+  );
+}
 
 interface EducationProps {
   degree: React.ReactNode;
@@ -210,25 +32,16 @@ interface EducationProps {
 
 function Education({ degree, major, school, dates, location }: EducationProps) {
   return (
-    <>
-      <div
-        css={`
-          padding-bottom: 0.25em;
-        `}
-      >
-        <strong>{school}</strong>
-        <Location>{location}</Location>
-        <Dates>{dates}</Dates>
-        <br />
-        <span
-          css={`
-            padding-left: 1.5em;
-          `}
-        >
-          {degree}, <em>{major}</em>
-        </span>
-      </div>
-    </>
+    <div className={styles.education}>
+      <strong>{school}</strong>
+      <span className={styles.location}>
+        {location}, {dates}
+      </span>
+      <br />
+      <span className={styles.educationDegrees}>
+        {degree}, <em>{major}</em>
+      </span>
+    </div>
   );
 }
 
@@ -249,30 +62,26 @@ function Employment({
 }: EmploymentProps) {
   return (
     <>
-      <div
-        css={`
-          padding-bottom: 0.25em;
-        `}
-      >
-        <Company>{company}</Company>
-        <Location>{location}</Location>
+      <div className={styles.employment}>
+        <h3 className={styles.companyName}>{company}</h3>
+        <span className={styles.location}>{location}</span>
         <br />
-        <Position>{position}</Position>
-        <Dates>{dates}</Dates>
+        <h3 className={styles.position}>{position}</h3>
+        <span className={styles.dates}>{dates}</span>
       </div>
 
-      <Details>
+      <ul className={styles.details}>
         {details.map((detail) => (
-          <li>{detail}</li>
+          <li className={styles.detail}>{detail}</li>
         ))}
-      </Details>
+      </ul>
     </>
   );
 }
 
 export default function Resume() {
   return (
-    <Wrapper>
+    <div className={styles.resume}>
       <Head>
         <title>Resume for Nate Radebaugh</title>
         <meta
@@ -281,32 +90,28 @@ export default function Resume() {
         />
         <meta name="theme-color" content="#e15227" />
       </Head>
-      <GlobalStyle />
 
       <div>
-        <Name>Nate Radebaugh</Name>
-        <Address>
+        <div className={styles.name}>Nate Radebaugh</div>
+        <div className={styles.contact}>
           530-628-3723 (mobile)
           <br />
           nate.radebaugh@outlook.com
           <br />
           <Link href="/">www.naterad.com</Link>
-        </Address>
+        </div>
       </div>
 
-      <LabelCol>Software Skills:</LabelCol>
-      <ContentCol>
+      <ContentGroup label="Software Skills:">
         <strong>Front</strong> React, Angular, JQuery, HTML, CSS.
         <br />
         <strong>Back</strong> C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
         <br />
         <strong>Cloud</strong> Azure (DevOps, App Service, DB, Functions), AWS
         (Lambda, Connect), Atlassin Suite, Zeit Now.
-        <br />
-      </ContentCol>
+      </ContentGroup>
 
-      <LabelCol>Work Experience:</LabelCol>
-      <ContentCol>
+      <ContentGroup label="Work Experience:">
         <Employment
           position="Senior Associate, Software Solutions"
           dates="January 2020 - Present"
@@ -384,10 +189,9 @@ export default function Resume() {
             "Active role in interviewing, hiring, and training of new employees.",
           ]}
         />
-      </ContentCol>
+      </ContentGroup>
 
-      <LabelCol>Education:</LabelCol>
-      <ContentCol>
+      <ContentGroup label="Education:">
         <Education
           degree="B.S."
           major={
@@ -400,7 +204,7 @@ export default function Resume() {
           location="West Lafayette, IN"
           school="Purdue University"
         />
-      </ContentCol>
-    </Wrapper>
+      </ContentGroup>
+    </div>
   );
 }
