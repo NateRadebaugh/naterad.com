@@ -1,12 +1,13 @@
 import { Heading, Stack, Text } from "react-ui";
 import marked from "marked";
 import BlogLayout from "../../layouts/BlogLayout";
-import { BlogPost, getPosts } from "../../utils/posts";
 import Link from "../../components/Link";
 import dayjs from "dayjs";
+import { frontMatter as docsPages } from "./*.mdx";
+import path from "path";
 
 export async function getStaticProps() {
-  const posts = await getPosts();
+  const posts = docsPages;
 
   // Sort
   posts.sort((a, b) => {
@@ -18,32 +19,38 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: posts.map((p) => ({
-        ...p,
-        description: marked(p.description),
-      })),
+      posts: posts.map((p) => {
+        const { name: slug } = path.parse(p.__resourcePath);
+
+        return {
+          slug,
+          title: p.title || "",
+          date: p.date || "",
+          description: marked(p.description || ""),
+        };
+      }),
     },
   };
 }
 
-function BlogIndexPage({ posts }: { posts: BlogPost[] }) {
+function BlogIndexPage({ posts }) {
   return (
     <BlogLayout title="Blog Posts">
       <Stack direction="vertical" gap={3}>
-        {posts.map((post) => (
-          <div key={post.slug}>
+        {posts.map(({ slug, title, date, description }) => (
+          <div key={slug}>
             <Heading size="section">
-              <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
-                {post.title}
+              <Link href="/blog/[slug]" as={`/blog/${slug}`}>
+                {title}
               </Link>
             </Heading>
             <Text variant="subtle" size={3}>
-              {dayjs(post.date).format("MMMM D, YYYY h:mm A")}
+              {dayjs(date).format("MMMM D, YYYY h:mm A")}
             </Text>
-            {post.description && (
+            {description && (
               <Text
                 variant="subtle"
-                dangerouslySetInnerHTML={{ __html: post.description }}
+                dangerouslySetInnerHTML={{ __html: description }}
               />
             )}
           </div>

@@ -1,5 +1,5 @@
 ---
-slug: intro-to-prettier
+layout: PostLayout
 title: Intro to Prettier code formatter
 description: Use prettier to **focus on the code** and **not on the formatting**.
 date: "2020-04-05T21:45:35.815Z"
@@ -71,25 +71,25 @@ function HelloWorld({ greeting = "hello", greeted = "World" }) {
 
 1. Add prettier to your project
 
-   ```sh
+   ```shell
    npm install prettier --save-dev --save-exact
    ```
 
 2. Run against all your files
 
-   ```sh
+   ```shell
    npx prettier --write src/**/*
    ```
 
 3. Run prettier automatically when committing files
 
-   ```sh
+   ```shell
    npm install --save-dev pretty-quick husky
    ```
 
    Then add this config to `package.json`:
 
-   ```json
+   ```json title=package.json
    {
      "husky": {
        "hooks": {

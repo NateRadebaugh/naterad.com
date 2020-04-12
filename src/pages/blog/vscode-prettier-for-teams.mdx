@@ -1,5 +1,5 @@
 ---
-slug: vscode-prettier-for-teams
+layout: PostLayout
 title: Configuring VSCode for Prettier
 description: VSCode has great support for prettier. Learn how to configure it to maximize using pretter across your company's projects and teams.
 date: "2020-04-05T21:46:19.277Z"
@@ -19,7 +19,7 @@ Can also be installed in VS Code:
 
 1. Launch VS Code Quick Open (Ctrl+P)
 2. Paste the following command
-   ```sh
+   ```shell
    ext install esbenp.prettier-vscode
    ```
 3. Press enter.
@@ -28,28 +28,28 @@ Can also be installed in VS Code:
 
 - Format on Save
 
-  1. From VSCode, open "File > Preferences > Settings"
+  1. From VSCode, open **"File > Preferences > Settings"**
   2. Choose the level of setting you'd like to manage:
 
-  - `User` (applies to all workspaces on this machine)
-  - OR `Workspace` (applies to just this workspace)
+     - `User` (applies to all workspaces on this machine)
+     - OR `Workspace` (applies to just this workspace)
 
   3. Search for `format on save`
 
-  - Check "Editor: Format on Save" if it isn't already checked
+     - Check **`Editor: Format on Save`** if it isn't already checked
 
 - Require Prettier config to avoid mistakenly formatting files that are not explicitly opted in to using prettier.
 
-  1. From VSCode, open "File > Preferences > Settings"
+  1. From VSCode, open **"File > Preferences > Settings"**
   2. Choose the level of setting you'd like to manage:
 
-  - `User` (applies to all workspaces on this machine)
-  - OR `Workspace` (applies to just this workspace)
+     - `User` (applies to all workspaces on this machine)
+     - OR `Workspace` (applies to just this workspace)
 
   3. Search for `prettier`
 
-  - Scroll down and find `Prettier: Require Config`
-  - Check `Prettier: Require Config` if it isn't already checked
+     - Scroll down and find `Prettier: Require Config`
+     - Check **`Prettier: Require Config`** if it isn't already checked
 
 ## Explanation
 
