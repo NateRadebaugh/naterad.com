@@ -6906,10 +6906,10 @@ react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-ui@^1.0.0-beta.22:
-  version "1.0.0-beta.22"
-  resolved "https://registry.yarnpkg.com/react-ui/-/react-ui-1.0.0-beta.22.tgz#b7f9b3b6e44f1e4b14ea20ecefb4041348a84a90"
-  integrity sha512-CEaLK9peVkwPKPFFj92QvtG2CWBpR8NLhq13wNczmtYW+pAQ+pioyEy+z1STYOOU79bEWN/Q68lgA+Ou8I8qyw==
+react-ui@^1.0.0-beta.24:
+  version "1.0.0-beta.24"
+  resolved "https://registry.yarnpkg.com/react-ui/-/react-ui-1.0.0-beta.24.tgz#a10bd442a3386e6cf5e03b53df80a15515bfe08f"
+  integrity sha512-CeYmsNqoNnpA61gWc3UP2G+KFVqd9Wmak5AnoFsk2e17beftrhnpl1zClWbJLiFbzgpLmzMB1W5Jpq1MmliWrw==
   dependencies:
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
