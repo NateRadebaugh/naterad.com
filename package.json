@@ -8,7 +8,8 @@
     "now-build": "next build",
     "dev": "next",
     "build": "next build",
-    "start": "set NODE_ENV=production&&next start"
+    "start": "set NODE_ENV=production&&next start",
+    "format": "prettier --write src/**"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",

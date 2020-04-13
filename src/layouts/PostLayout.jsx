@@ -82,7 +82,9 @@ function PostLayout(frontMatter) {
     return (
       <BlogLayout {...frontMatter} isPost>
         <MDXProvider components={components}>
-          <div className={styles.syntax}><div className={postStyles.post}>{children}</div></div>
+          <div className={styles.syntax}>
+            <div className={postStyles.post}>{children}</div>
+          </div>
         </MDXProvider>
 
         <Stack direction="vertical" gap={3}>
