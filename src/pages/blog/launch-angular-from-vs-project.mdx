@@ -1,0 +1,46 @@
+---
+layout: PostLayout
+title: How to Launch Angular for Development from Visual Studio Projects
+description: It can a bit tricky to configure Visual Studio `.njsproj` projects to work well with front-end applications for development. Wire up your `<StartupFile>` and `<ScriptArguments>` for guarenteed success.
+date: "2020-04-13T14:58:25.285Z"
+---
+
+1. You'll want to make sure these settings are only going to apply when you're working with a Debug configuration, so it won't apply in production.
+
+   ```xml
+   <PropertyGroup>
+       <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+       // ...
+   </PropertyGroup>
+   ```
+
+2. `.njsproj` doesn't know how to use your "start" or "dev" scripts from you `package.json`, so you'll need to explicitly list out the path to your CLI in the `<StartupFile>` tag.
+
+   ```xml
+   <StartupFile>node_modules\@angular\cli\bin\ng</StartupFile>
+   ```
+
+3. Adding arguments via `<StartupFile>` doesn't work, so you'll have to explicitly list them in the `<ScriptArguments>` tag instead.
+
+   ```xml
+   <ScriptArguments>serve --aot --open=true</ScriptArguments>
+   ```
+
+4. To avoid race conditions where VS tries to launch your app's server before the CLI is finished getting it started, you'll want to use the CLI's `--open=true` setting directly (instead of `<StartWebBrowser>`).
+
+   ```xml
+   <StartWebBrowser>false</StartWebBrowser>
+   ```
+
+Putting it all together, you'll end up with a `.njsproj` with something like this:
+
+```xml title=FrontEnd.njsproj {4-6}
+<PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    // ...
+    <StartupFile>node_modules\@angular\cli\bin\ng</StartupFile>
+    <ScriptArguments>serve --aot --open=true</ScriptArguments>
+    <StartWebBrowser>false</StartWebBrowser>
+    // ...
+  </PropertyGroup>
+```
