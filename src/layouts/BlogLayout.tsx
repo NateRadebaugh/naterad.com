@@ -95,11 +95,9 @@ function BlogLayout(props) {
         </Stack>
 
         <Element
-          as="span"
           css={{
-            width: "100%",
-            height: 1,
-            backgroundColor: "gray",
+            height: "1px",
+            backgroundColor: "grays.400",
           }}
         />
 
@@ -139,8 +137,6 @@ function BlogLayout(props) {
               )}
 
               {children}
-
-              <Divider marginTop={3} marginBottom={3} />
             </Stack>
           </Stack>
         </Stack>

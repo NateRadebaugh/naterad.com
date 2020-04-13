@@ -5,8 +5,8 @@ function Divider(props) {
     <Element
       css={{
         width: "100%",
-        height: 1,
-        backgroundColor: "lightgray",
+        height: "2px",
+        backgroundColor: "grays.400",
       }}
       {...props}
     />

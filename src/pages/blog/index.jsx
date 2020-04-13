@@ -1,4 +1,4 @@
-import { Heading, Stack, Text } from "react-ui";
+import { Element, Heading, Stack, Text } from "react-ui";
 import marked from "marked";
 import BlogLayout from "../../layouts/BlogLayout";
 import Link from "../../components/Link";
@@ -53,6 +53,14 @@ function BlogIndexPage({ posts }) {
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             )}
+
+            <Element
+              marginTop={3}
+              css={{
+                height: "1px",
+                backgroundColor: "grays.300",
+              }}
+            />
           </div>
         ))}
       </Stack>
