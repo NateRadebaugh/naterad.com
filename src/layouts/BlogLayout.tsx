@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import marked from "marked";
 import {
   ThemeProvider,
   Element,
@@ -10,7 +11,7 @@ import {
   Button,
 } from "react-ui";
 import { tokens, components } from "react-ui/themes/light";
-import styles from "./base.module.scss";
+import styles from "./BlogLayout.module.scss";
 import Head from "../components/Head";
 import Link from "../components/Link";
 import Divider from "../components/Divider";
@@ -130,7 +131,9 @@ function BlogLayout(props) {
               {description && (
                 <>
                   <Text variant="subtle">
-                    <em dangerouslySetInnerHTML={{ __html: description }} />
+                    <em
+                      dangerouslySetInnerHTML={{ __html: marked(description) }}
+                    />
                   </Text>
                   <Divider marginTop={3} marginBottom={3} />
                 </>

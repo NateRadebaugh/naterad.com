@@ -7,6 +7,7 @@ import { frontMatter as docsPages } from "../pages/blog/*.mdx";
 import dayjs from "dayjs";
 import { MDXProvider } from "@mdx-js/react";
 import styles from "../styles/syntax.module.scss";
+import postStyles from "./PostLayout.module.scss";
 
 const components = {
   pre: (props) => <div {...props} />,
@@ -81,7 +82,7 @@ function PostLayout(frontMatter) {
     return (
       <BlogLayout {...frontMatter} isPost>
         <MDXProvider components={components}>
-          <div className={styles.syntax}>{children}</div>
+          <div className={styles.syntax}><div className={postStyles.post}>{children}</div></div>
         </MDXProvider>
 
         <Stack direction="vertical" gap={3}>
