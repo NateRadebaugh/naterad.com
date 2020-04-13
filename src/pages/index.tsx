@@ -17,34 +17,17 @@ import {
 import styles from "./index.module.scss";
 
 interface TileProps {
-  colspan?: number;
-  color?: string;
   icon: any;
   text: string;
   href: string;
   [x: string]: any;
 }
 
-function Tile({ icon, text, ...props }: TileProps) {
+function Tile({ icon, text, colspan, color, ...props }: TileProps) {
   const isInternal = props.href?.startsWith("http");
 
-  const multiplier = props.colspan || 1;
-  const width = multiplier * 125 + (multiplier - 1) * 16;
-  const hoverColor = props.color && darken(0.02, props.color);
-
   const content = (
-    <a
-      className={styles.tile}
-      css={`
-        width: ${width}px;
-
-        background-color: ${props.color};
-        &:hover {
-          background-color: ${hoverColor};
-        }
-      `}
-      {...props}
-    >
+    <a {...props}>
       <FontAwesomeIcon size="6x" icon={icon} className={styles.tileIcon} />
       <h3 className={styles.tileText}>{text}</h3>
     </a>
@@ -77,35 +60,44 @@ export default function Index() {
         </p>
       </header>
 
-      <Tile href="/blog" color="purple" icon={faCommentAlt} text="blog" />
+      <Tile
+        className={styles.blogTile}
+        href="/blog"
+        icon={faCommentAlt}
+        text="blog"
+      />
 
       <Tile
+        className={styles.datetimeTile}
         href="https://react-datetime.naterad.com"
         target="_blank"
         rel="noopener noreferrer"
-        color="teal"
-        colspan={3}
         icon={faCalendarAlt}
         text="@nateradebaugh/react-datetime"
       />
 
       <h2 className={styles.subTitle}>contact me</h2>
-      <Tile href="/resume" color="#e15227" icon={faFileAlt} text="my resume" />
       <Tile
+        className={styles.resumeTile}
+        href="/resume"
+        icon={faFileAlt}
+        text="my resume"
+      />
+      <Tile
+        className={styles.linkedinTile}
         href="https://www.linkedin.com/in/nateradebaugh/"
-        color="#0e76a8"
         icon={faLinkedin}
         text="linkedin"
       />
       <Tile
+        className={styles.githubTile}
         href="https://github.com/NateRadebaugh"
-        color="#4183c4"
         icon={faGithub}
         text="github"
       />
       <Tile
+        className={styles.twitterTile}
         href="https://twitter.com/nateradebaugh"
-        color="#00a0d1"
         icon={faTwitter}
         text="twitter"
       />

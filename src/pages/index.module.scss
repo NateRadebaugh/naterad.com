@@ -50,7 +50,7 @@ p.introText {
   margin: 0 0 12.5px;
 }
 
-a.tile {
+.tile {
   display: inline-block;
   padding: 5px;
   text-align: center;
@@ -63,10 +63,60 @@ a.tile {
   padding-bottom: 16px;
 }
 
+@mixin tileWidth($colspan) {
+  width: $colspan * 125 + ($colspan - 1) * 16px;
+}
+
+@for $colspan from 1 through 3 {
+  .tile-#{$colspan} {
+    @extend .tile;
+
+    @include tileWidth($colspan);
+  }
+}
+
 svg.tileIcon {
   display: inline-block;
   font-size: 6em;
   height: 1em;
   overflow: visible;
   vertical-align: -0.125em;
+}
+
+@mixin tileColors($color) {
+  background-color: $color;
+
+  &:hover {
+    background-color: darken($color, 2%);
+  }
+}
+
+@mixin tile($colspan, $color) {
+  @extend .tile;
+  @include tileWidth($colspan);
+  @include tileColors($color);
+}
+
+.blogTile {
+  @include tile(1, purple);
+}
+
+.datetimeTile {
+  @include tile(3, teal);
+}
+
+.resumeTile {
+  @include tile(1, #e15227);
+}
+
+.linkedinTile {
+  @include tile(1, #0e76a8);
+}
+
+.githubTile {
+  @include tile(1, #4183c4);
+}
+
+.twitterTile {
+  @include tile(1, #00a0d1);
 }
