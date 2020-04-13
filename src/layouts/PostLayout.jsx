@@ -1,5 +1,6 @@
-import { Element, Stack, Heading, Text, Image } from "react-ui";
+import { Stack, Heading, Text, Image } from "react-ui";
 import BlogLayout from "./BlogLayout";
+import Divider from "../components/Divider";
 import Link from "../components/Link";
 import Code from "../components/Code";
 import { frontMatter as docsPages } from "../pages/blog/*.mdx";
@@ -83,18 +84,9 @@ function PostLayout(frontMatter) {
           <div className={styles.syntax}>{children}</div>
         </MDXProvider>
 
-        <Element
-          as="span"
-          css={{
-            marginTop: 8,
-            marginBottom: 16,
-            width: "100%",
-            height: 1,
-            backgroundColor: "lightgray",
-          }}
-        />
-
         <Stack direction="vertical" gap={3}>
+          <Divider />
+
           <Heading size="paragraph">
             <Text variant="subtle">Further reading...</Text>
           </Heading>
@@ -132,6 +124,8 @@ function PostLayout(frontMatter) {
               <div />
             )}
           </Stack>
+
+          <Divider marginTop={1} marginBottom={3} />
         </Stack>
       </BlogLayout>
     );
