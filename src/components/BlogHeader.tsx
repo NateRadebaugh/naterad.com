@@ -11,15 +11,22 @@ function BlogHeader({ isPost, title }) {
         align="center"
         as="header"
         marginBottom={2}
+        css={{
+          overflow: "auto",
+        }}
       >
         <Stack direction="horizontal" align="center" gap={2}>
-          <Avatar
-            size="large"
-            src="https://www.gravatar.com/avatar/80d317a74bc928d8520879fdeefc6303"
-            alt="Nate Radebaugh"
-          />
+          <Link href="/">
+            <Avatar
+              size="large"
+              src="https://www.gravatar.com/avatar/80d317a74bc928d8520879fdeefc6303"
+              alt="Nate Radebaugh"
+            />
+          </Link>
           <Stack direction="vertical">
-            <Text>Nate Radebaugh</Text>
+            <Link href="/" color="text.body">
+              Nate Radebaugh
+            </Link>
             {isPost ? (
               <Breadcrumb className={styles.breadcrumb}>
                 <Link href="/">Home</Link>
@@ -35,7 +42,12 @@ function BlogHeader({ isPost, title }) {
           </Stack>
         </Stack>
         <Stack direction="horizontal" gap={2}>
-          <Button as={Link} href="/" variant="secondary">
+          <Button
+            as={Link}
+            href="/"
+            variant="secondary"
+            css={{ display: ["none", "none", "flex"] }}
+          >
             Home
           </Button>
           <Button
@@ -44,6 +56,7 @@ function BlogHeader({ isPost, title }) {
             target="_blank"
             rel="noopener noreferrer"
             variant="secondary"
+            css={{ display: ["none", "flex", "flex"] }}
           >
             GitHub
           </Button>
@@ -53,6 +66,7 @@ function BlogHeader({ isPost, title }) {
             target="_blank"
             rel="noopener noreferrer"
             variant="secondary"
+            css={{ display: ["none", "flex", "flex"] }}
           >
             Twitter
           </Button>
@@ -62,6 +76,7 @@ function BlogHeader({ isPost, title }) {
             target="_blank"
             rel="noopener noreferrer"
             variant="secondary"
+            css={{ display: ["none", "flex", "flex"] }}
           >
             LinkedIn
           </Button>
