@@ -43,37 +43,43 @@ function Code(props) {
       language={language}
       theme={theme}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className={styles.wrapper}>
-          <pre className={className} style={style}>
-            {showTitle ? (
-              <div className={styles.title}>{title || language}</div>
-            ) : (
-              // Spacer
-              <div css={{ height: "8px" }} />
-            )}
+      {({ className, style, tokens: lines, getLineProps, getTokenProps }) => {
+        const numLines = lines.length;
 
-            {tokens.map((line, i) => (
-              <div
-                key={i}
-                {...getLineProps({
-                  line,
-                  key: i,
-                  className: shouldHighlightLine(i) ? styles.highlightLine : "",
-                })}
-              >
-                {showLineNumbers && (
-                  <span className={styles.lineNumber}>{i + 1}</span>
-                )}
+        return (
+          <div className={styles.wrapper}>
+            <pre className={className} style={style}>
+              {showTitle ? (
+                <div className={styles.title}>{title || language}</div>
+              ) : (
+                // Spacer
+                <div css={{ height: "8px" }} />
+              )}
 
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        </div>
-      )}
+              {lines.map((line, i) => (
+                <div
+                  key={i}
+                  {...getLineProps({
+                    line,
+                    key: i,
+                    className: shouldHighlightLine(i)
+                      ? styles.highlightLine
+                      : "",
+                  })}
+                >
+                  {numLines > 2 && showLineNumbers && (
+                    <span className={styles.lineNumber}>{i + 1}</span>
+                  )}
+
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          </div>
+        );
+      }}
     </Highlight>
   );
 }
