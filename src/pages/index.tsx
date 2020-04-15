@@ -1,20 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
-import { darken } from "polished";
-import { config } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false;
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFileAlt,
-  faCalendarAlt,
-  faCommentAlt,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faLinkedin,
-  faGithub,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 import styles from "./index.module.scss";
+import ReactDateTimeIcon from "../components/ReactDateTimeIcon";
+import ResumeIcon from "../components/ResumeIcon";
+import LinkedInIcon from "../components/LinkedInIcon";
+import GitHubIcon from "../components/GitHubIcon";
+import TwitterIcon from "../components/TwitterIcon";
+import BlogIcon from "../components/BlogIcon";
 
 interface TileProps {
   icon: any;
@@ -28,7 +20,7 @@ function Tile({ icon, text, colspan, color, ...props }: TileProps) {
 
   const content = (
     <a {...props}>
-      <FontAwesomeIcon size="6x" icon={icon} className={styles.tileIcon} />
+      {icon}
       <h3 className={styles.tileText}>{text}</h3>
     </a>
   );
@@ -63,7 +55,7 @@ export default function Index() {
       <Tile
         className={styles.blogTile}
         href="/blog"
-        icon={faCommentAlt}
+        icon={<BlogIcon size={6} />}
         text="blog"
       />
 
@@ -72,7 +64,7 @@ export default function Index() {
         href="https://react-datetime.naterad.com"
         target="_blank"
         rel="noopener noreferrer"
-        icon={faCalendarAlt}
+        icon={<ReactDateTimeIcon size={6} />}
         text="@nateradebaugh/react-datetime"
       />
 
@@ -80,25 +72,25 @@ export default function Index() {
       <Tile
         className={styles.resumeTile}
         href="/resume"
-        icon={faFileAlt}
+        icon={<ResumeIcon size={6} />}
         text="my resume"
       />
       <Tile
         className={styles.linkedinTile}
         href="https://www.linkedin.com/in/nateradebaugh/"
-        icon={faLinkedin}
+        icon={<LinkedInIcon size={6} />}
         text="linkedin"
       />
       <Tile
         className={styles.githubTile}
         href="https://github.com/NateRadebaugh"
-        icon={faGithub}
+        icon={<GitHubIcon size={6} />}
         text="github"
       />
       <Tile
         className={styles.twitterTile}
         href="https://twitter.com/nateradebaugh"
-        icon={faTwitter}
+        icon={<TwitterIcon size={6} />}
         text="twitter"
       />
     </div>
