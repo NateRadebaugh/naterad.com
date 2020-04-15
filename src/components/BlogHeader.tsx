@@ -1,6 +1,10 @@
 import { Element, Text, Breadcrumb, Stack, Avatar, Button } from "react-ui";
 import styles from "../layouts/BlogLayout.module.scss";
 import Link from "../components/Link";
+import TwitterIcon from "./TwitterIcon";
+import LinkedInIcon from "./LinkedInIcon";
+import ResumeIcon from "./ResumeIcon";
+import GitHubIcon from "./GitHubIcon";
 
 function BlogHeader({ isPost, title }) {
   return (
@@ -58,7 +62,10 @@ function BlogHeader({ isPost, title }) {
             variant="secondary"
             css={{ display: ["none", "flex", "flex"] }}
           >
-            GitHub
+            <Stack direction="horizontal" gap={1} align="center">
+              <GitHubIcon size="normal" />
+              <Text>GitHub</Text>
+            </Stack>
           </Button>
           <Button
             as={Link}
@@ -68,7 +75,10 @@ function BlogHeader({ isPost, title }) {
             variant="secondary"
             css={{ display: ["none", "flex", "flex"] }}
           >
-            Twitter
+            <Stack direction="horizontal" gap={1} align="center">
+              <TwitterIcon size="normal" />
+              <Text>Twitter</Text>
+            </Stack>
           </Button>
           <Button
             as={Link}
@@ -78,10 +88,16 @@ function BlogHeader({ isPost, title }) {
             variant="secondary"
             css={{ display: ["none", "flex", "flex"] }}
           >
-            LinkedIn
+            <Stack direction="horizontal" gap={1} align="center">
+              <LinkedInIcon size="normal" />
+              <Text>LinkedIn</Text>
+            </Stack>
           </Button>
           <Button as={Link} href="/resume" variant="secondary">
-            Resume
+            <Stack direction="horizontal" gap={1} align="center">
+              <ResumeIcon size="normal" />
+              <Text>Resume</Text>
+            </Stack>
           </Button>
         </Stack>
       </Stack>

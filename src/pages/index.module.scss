@@ -75,14 +75,6 @@ p.introText {
   }
 }
 
-svg.tileIcon {
-  display: inline-block;
-  font-size: 6em;
-  height: 1em;
-  overflow: visible;
-  vertical-align: -0.125em;
-}
-
 @mixin tileColors($color) {
   background-color: $color;
 
