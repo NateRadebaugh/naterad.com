@@ -11,7 +11,7 @@ import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
 tokens.colors.text = {
   subtle: "grays.800",
   body: "grays.900",
-  link: "blues.600",
+  link: "blues.700",
   linkHover: "blues.800",
 };
 

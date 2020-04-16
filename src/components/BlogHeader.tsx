@@ -18,6 +18,7 @@ function BlogHeader({ isPost, title }) {
         css={{
           overflow: "auto",
         }}
+        gap={2}
       >
         <Stack direction="horizontal" align="center" gap={2}>
           <Link href="/">
