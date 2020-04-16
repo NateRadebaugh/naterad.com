@@ -26,14 +26,12 @@ function Code(props) {
   const {
     children: codeString = "",
     title,
+    showLineNumbers: shouldShowLineNumbers = undefined,
     metastring = "",
     className = "",
   } = props;
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const language = className.replace(/language-/, "");
-  const showLineNumbers = !["", "txt", "text", "shell", "bash", "dir"].includes(
-    language
-  );
   const showTitle = title || ![""].includes(language);
 
   return (
@@ -45,6 +43,15 @@ function Code(props) {
     >
       {({ className, style, tokens: lines, getLineProps, getTokenProps }) => {
         const numLines = lines.length;
+        const showLineNumbers: boolean =
+          typeof shouldShowLineNumbers === "boolean"
+            ? shouldShowLineNumbers
+            : shouldShowLineNumbers === "true"
+            ? true
+            : shouldShowLineNumbers === "false"
+            ? false
+            : numLines > 2 &&
+              !["", "txt", "text", "shell", "bash", "dir"].includes(language);
 
         return (
           <div className={styles.wrapper}>
@@ -67,7 +74,7 @@ function Code(props) {
                       : "",
                   })}
                 >
-                  {numLines > 2 && showLineNumbers && (
+                  {showLineNumbers && (
                     <span className={styles.lineNumber}>{i + 1}</span>
                   )}
 
