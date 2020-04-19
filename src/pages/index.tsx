@@ -46,9 +46,9 @@ export default function Index() {
       <header>
         <h1 className={styles.title}>nate radebaugh</h1>
         <p className={styles.introText}>
-          <strong>Senior Senior Associate, Software Solutions</strong> at{" "}
-          <strong>BDO Digital</strong> in the western Chicago Suburbs. Graduate
-          of Purdue University.
+          <strong>Senior Associate, Software Solutions</strong> at{" "}
+          <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
+          Graduate of Purdue University.
         </p>
       </header>
 
