@@ -7,6 +7,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v2
+        env:
+          ENVIRONMENT_URL: "https://naterad.com"
         with:
           urls: |
             $ENVIRONMENT_URL/
