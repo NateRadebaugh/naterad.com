@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@fec/remark-a11y-emoji": "^1.0.0",
-    "@types/node": "^13.13.2",
+    "@types/node": "^13.13.3",
     "@types/react": "^16.9.34",
     "@typescript-eslint/eslint-plugin": "2.29.0",
     "@typescript-eslint/parser": "2.29.0",
