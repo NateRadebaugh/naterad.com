@@ -18,7 +18,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@reach/skip-nav": "^0.10.1",
     "@zeit/next-typescript": "^1.1.1",
-    "dayjs": "^1.8.25",
+    "dayjs": "^1.8.26",
     "marked": "^1.0.0",
     "next": "^9.3.5",
     "next-mdx-enhanced": "^2.5.0",
