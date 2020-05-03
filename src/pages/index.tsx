@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Link from "next/link";
+import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import styles from "./index.module.scss";
 import ReactDateTimeIcon from "../components/ReactDateTimeIcon";
 import ResumeIcon from "../components/ResumeIcon";
@@ -15,22 +15,25 @@ interface TileProps {
   [x: string]: any;
 }
 
-function Tile({ icon, text, colspan, color, ...props }: TileProps) {
-  const isInternal = props.href?.startsWith("http");
+const Tile = React.forwardRef(function Tile(
+  { icon, text, colspan, color, href, as = href, ...rest }: TileProps,
+  ref: any
+) {
+  const isExternal = href?.startsWith("http");
 
-  const content = (
-    <a {...props}>
+  const component = (
+    <a ref={ref} href={as} {...rest}>
       {icon}
       <h3 className={styles.tileText}>{text}</h3>
     </a>
   );
 
-  if (isInternal) {
-    return <Link href={props.href}>{content}</Link>;
+  if (isExternal) {
+    return component;
   }
 
-  return content;
-}
+  return <NextLink {...{ href, as }}>{component}</NextLink>;
+});
 
 export default function Index() {
   return (
