@@ -1,7 +1,8 @@
 import Head from "next/head";
-import NextLink, { LinkProps as NextLinkProps } from "next/link";
+import NextLink from "next/link";
 import styles from "./index.module.scss";
 import ReactDateTimeIcon from "../components/ReactDateTimeIcon";
+import BundlephobiaInlineIcon from "../components/BundlephobiaInlineIcon";
 import ResumeIcon from "../components/ResumeIcon";
 import LinkedInIcon from "../components/LinkedInIcon";
 import GitHubIcon from "../components/GitHubIcon";
@@ -39,7 +40,7 @@ export default function Index() {
   return (
     <div className={styles.wrapper}>
       <Head>
-        <title>nate radebaugh</title>
+        <title>Nate Radebaugh</title>
         <meta
           name="Description"
           content="Hi I'm Nate Radebaugh. Senior Associate, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
@@ -55,23 +56,14 @@ export default function Index() {
         </p>
       </header>
 
+      <Bundlephobia packageName="react-query" />
+
       <Tile
         className={styles.blogTile}
         href="/blog"
         icon={<BlogIcon size={6} />}
         text="blog"
       />
-
-      <Tile
-        className={styles.datetimeTile}
-        href="https://react-datetime.naterad.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        icon={<ReactDateTimeIcon size={6} />}
-        text="@nateradebaugh/react-datetime"
-      />
-
-      <h2 className={styles.subTitle}>contact me</h2>
       <Tile
         className={styles.resumeTile}
         href="/resume"
@@ -90,11 +82,33 @@ export default function Index() {
         icon={<GitHubIcon size={6} />}
         text="github"
       />
+
+      <br />
+
+      <Tile
+        className={styles.datetimeTile}
+        href="https://react-datetime.naterad.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        icon={<ReactDateTimeIcon size={6} />}
+        text="@nateradebaugh/react-datetime"
+      />
       <Tile
         className={styles.twitterTile}
         href="https://twitter.com/nateradebaugh"
         icon={<TwitterIcon size={6} />}
         text="twitter"
+      />
+
+      <br />
+
+      <Tile
+        className={styles.bundlephobiaTile}
+        href="https://bundlephobia-inline.naterad.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        icon={<BundlephobiaInlineIcon size={6} />}
+        text="bundlephobia-inline"
       />
     </div>
   );
