@@ -97,6 +97,10 @@ p.introText {
   @include tile(3, teal);
 }
 
+.bundlephobiaTile {
+  @include tile(2, #880000);
+}
+
 .resumeTile {
   @include tile(1, #e15227);
 }
