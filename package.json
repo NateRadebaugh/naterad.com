@@ -31,7 +31,7 @@
     "react-dom": "^16.13.1",
     "react-ui": "^1.0.0-beta.25",
     "sass": "^1.26.5",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.2"
   },
   "devDependencies": {
     "@fec/remark-a11y-emoji": "^1.0.0",
