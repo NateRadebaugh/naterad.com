@@ -56,8 +56,6 @@ export default function Index() {
         </p>
       </header>
 
-      <Bundlephobia packageName="react-query" />
-
       <Tile
         className={styles.blogTile}
         href="/blog"
