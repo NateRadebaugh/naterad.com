@@ -16,7 +16,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
-    "@reach/skip-nav": "^0.10.1",
+    "@reach/skip-nav": "^0.10.2",
     "@zeit/next-typescript": "^1.1.1",
     "bundlephobia-inline": "^0.1.3",
     "dayjs": "^1.8.27",
