@@ -48,7 +48,7 @@ export default function Index() {
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <header>
-        <h1 className={styles.title}>nate radebaugh</h1>
+        <h1 className={styles.title}>Nate Radebaugh</h1>
         <p className={styles.introText}>
           <strong>Senior Associate, Software Solutions</strong> at{" "}
           <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
