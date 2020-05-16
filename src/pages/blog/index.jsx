@@ -2,6 +2,7 @@ import { Element, Heading, Stack, Text } from "react-ui";
 import marked from "marked";
 import BlogLayout from "../../layouts/BlogLayout";
 import Link from "../../components/Link";
+import ButtonLink from "../../components/ButtonLink";
 import dayjs from "dayjs";
 import { frontMatter as docsPages } from "./*.mdx";
 import path from "path";
@@ -53,6 +54,10 @@ function BlogIndexPage({ posts }) {
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             )}
+
+            <ButtonLink href="/blog/[slug]" as={`/blog/${slug}`}>
+              Read more
+            </ButtonLink>
 
             <Element
               marginTop={3}
