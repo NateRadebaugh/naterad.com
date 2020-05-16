@@ -36,11 +36,11 @@ function Code(props) {
   const showTitle = title || ![""].includes(language);
 
   if (["bundlephobia"].includes(language)) {
-    const lines = codeString.trim().split(/[\n\r]+/);
+    const lines: string[] = codeString.trim().split(/[\n\r]+/);
     return (
       <>
         {lines.map((line) => (
-          <div>
+          <div key={line}>
             <Bundlephobia key={line} packageName={line} />
           </div>
         ))}
