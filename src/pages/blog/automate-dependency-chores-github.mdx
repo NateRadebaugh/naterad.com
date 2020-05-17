@@ -1,0 +1,26 @@
+---
+layout: PostLayout
+title: Automate away your dependency chores using GitHub Actions
+description: Keeping dependencies up to date is critical to avoiding security vulnerabilities and keeping your codebase modern and maintainable. However, many modern applications and libraries are built on the shoulders of giants. Instead of manually keeping your dependencies up to date, delegate that task to GitHub Actions!
+date: "2020-05-17T15:23:00.871Z"
+---
+
+Some days our JS can feel like a house of cards stacked on top of thousands of NPM dependencies. Maintaining all the latest dependencies can be a daunting task. A combination of GitHub integrations make this much easier, so we can focus on writing features our customers love and focus less on keeping our dependencies up to date.
+
+GitHub Actions provide a robust ecosystem of SaaS integrations to let us automate the chores of:
+
+1. Automatically **open pull requests** with a single dependency update
+   - [Dependabot](https://dependabot.com/)
+2. Automatically **tag pull requests** based on which files are touched
+   - [Labeler GitHub Action](https://github.com/actions/labeler)
+3. Automatically **validate against regressions**
+   - [Vercel](https://vercel.com/) deployments for every commit
+   - [Chromatic](https://www.chromatic.com/) automatic UI regression tests using [Storybook](https://storybook.js.org/) stories
+   - [Travis](https://travis-ci.org/)/[CircleCI](https://circleci.com/) unit tests with Jest
+   - Double-check `dist` file sizes don't change
+     - [compressed-size-action](https://github.com/preactjs/compressed-size-action)
+4. Automatically **merge pull requests** with passing checks (based on configured tags like `dependencies`)
+   - [Kodiak](https://kodiakhq.com/)
+5. Automatically **enforce required checks** using [GitHub branch protections](https://help.github.com/en/articles/configuring-protected-branches)
+
+With the above set of actions and the right set of automated tests, we can safely be on the latest version of all dependencies with confidence that our application or library is fully functionally and is free of all resolved security vulnerabilities in our dependencies.
