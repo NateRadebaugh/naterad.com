@@ -3,22 +3,17 @@ import BlogLayout from "./BlogLayout";
 import Divider from "../components/Divider";
 import Link from "../components/Link";
 import mdxComponents from "../components/mdxComponents";
+import getSlug from "../lib/getSlug";
 import { frontMatter as docsPages } from "../pages/blog/*.mdx";
+import { frontMatter as nestedDocsPage } from "../pages/blog/**/index.mdx";
 import dayjs from "dayjs";
 import { MDXProvider } from "@mdx-js/react";
 import styles from "../styles/syntax.module.scss";
 import postStyles from "./PostLayout.module.scss";
 
-function getSlug(resourcePath) {
-  const matches = resourcePath.match(/([^\\/]+)(\.\w+)$/);
-  const slug = matches[1];
-
-  return slug;
-}
-
 function PostLayout(frontMatter) {
   const slug = getSlug(frontMatter.__resourcePath);
-  const posts = docsPages;
+  const posts = [...docsPages, ...nestedDocsPage];
 
   const pageInfo = posts.map((d) => {
     return {

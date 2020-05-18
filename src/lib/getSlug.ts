@@ -1,6 +1,6 @@
-function getSlug(resourcePath) {
+function getSlug(resourcePath: string) {
   {
-    const matches = resourcePath.match(/([^\\/]+)\/index\.mdx$/);
+    const matches = resourcePath.match(/([^\\/]+)[\\/]+index\.mdx$/);
     if (matches) {
       const slug = matches[1];
 

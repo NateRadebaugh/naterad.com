@@ -3,12 +3,13 @@ import marked from "marked";
 import BlogLayout from "../../layouts/BlogLayout";
 import Link from "../../components/Link";
 import ButtonLink from "../../components/ButtonLink";
+import getSlug from "../../lib/getSlug";
 import dayjs from "dayjs";
 import { frontMatter as docsPages } from "./*.mdx";
-import path from "path";
+import { frontMatter as nestedDocsPage } from "./**/index.mdx";
 
 export async function getStaticProps() {
-  const posts = docsPages;
+  const posts = [...docsPages, ...nestedDocsPage];
 
   // Sort
   posts.sort((a, b) => {
@@ -21,7 +22,7 @@ export async function getStaticProps() {
   return {
     props: {
       posts: posts.map((p) => {
-        const { name: slug } = path.parse(p.__resourcePath);
+        const slug = getSlug(p.__resourcePath);
 
         return {
           slug,
