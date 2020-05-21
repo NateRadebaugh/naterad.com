@@ -6,10 +6,9 @@ import ButtonLink from "../../components/ButtonLink";
 import getSlug from "../../lib/getSlug";
 import dayjs from "dayjs";
 import { frontMatter as docsPages } from "./*.mdx";
-import { frontMatter as nestedDocsPage } from "./**/index.mdx";
 
 export async function getStaticProps() {
-  const posts = [...docsPages, ...nestedDocsPage];
+  const posts = docsPages;
 
   // Sort
   posts.sort((a, b) => {

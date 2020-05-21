@@ -5,7 +5,6 @@ import Link from "../components/Link";
 import mdxComponents from "../components/mdxComponents";
 import getSlug from "../lib/getSlug";
 import { frontMatter as docsPages } from "../pages/blog/*.mdx";
-import { frontMatter as nestedDocsPage } from "../pages/blog/**/index.mdx";
 import dayjs from "dayjs";
 import { MDXProvider } from "@mdx-js/react";
 import styles from "../styles/syntax.module.scss";
@@ -13,7 +12,7 @@ import postStyles from "./PostLayout.module.scss";
 
 function PostLayout(frontMatter) {
   const slug = getSlug(frontMatter.__resourcePath);
-  const posts = [...docsPages, ...nestedDocsPage];
+  const posts = docsPages;
 
   const pageInfo = posts.map((d) => {
     return {
