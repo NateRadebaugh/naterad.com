@@ -4,11 +4,17 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - name: Wait for Vercel preview deployment to be ready
+        uses: patrickedqvist/wait-for-vercel-preview@master
+        id: waitForVercelPreviewDeployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 60
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v2
+        uses: treosh/lighthouse-ci-action@v3
         env:
-          ENVIRONMENT_URL: "https://naterad.com"
+          ENVIRONMENT_URL: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
         with:
           urls: |
             $ENVIRONMENT_URL/
