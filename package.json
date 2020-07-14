@@ -48,7 +48,7 @@
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "4.0.6",
+    "eslint-plugin-react-hooks": "4.0.8",
     "rimraf": "^3.0.2"
   }
 }
