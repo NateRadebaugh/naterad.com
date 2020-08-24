@@ -30,7 +30,7 @@
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-ui": "^1.0.0-beta.27",
+    "react-ui": "^1.0.0-beta.29",
     "sass": "^1.26.10",
     "typescript": "^4.0.2"
   },

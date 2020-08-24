@@ -6706,10 +6706,10 @@ react-style-singleton@^2.1.0:
     invariant "^2.2.4"
     tslib "^1.0.0"
 
-react-ui@^1.0.0-beta.27:
-  version "1.0.0-beta.27"
-  resolved "https://registry.yarnpkg.com/react-ui/-/react-ui-1.0.0-beta.27.tgz#0cf0e8f364f391b3d00cdc694ced2dbf0c5cbdf6"
-  integrity sha512-EJBcIbSSVxV4+r2E9HYmhR73gPfGQY6kBIyulCuCZCpP3/d2wmOnMPPGUiR///otmzG7BapIzGEnOZgVeLLm8Q==
+react-ui@^1.0.0-beta.29:
+  version "1.0.0-beta.29"
+  resolved "https://registry.yarnpkg.com/react-ui/-/react-ui-1.0.0-beta.29.tgz#388490fbd416ea34586b1c22b80940ab7f277b64"
+  integrity sha512-YnVTMF2UwOoeto79DfGspG1VwRF4AgTn3SkH4B0xqqhCr1TM14VsiuOeJ4RvBAJSlNWQNnEELVbT6pN2t8m7Jw==
   dependencies:
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
