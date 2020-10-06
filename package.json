@@ -15,7 +15,7 @@
     "@babel/helper-call-delegate": "^7.11.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.0",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@reach/skip-nav": "^0.11.2",
     "@zeit/next-typescript": "^1.1.1",
