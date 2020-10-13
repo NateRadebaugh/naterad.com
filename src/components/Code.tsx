@@ -6,7 +6,7 @@ import Bundlephobia from "bundlephobia-inline";
 
 const RE = /{([\d,-]+)}/;
 
-function calculateLinesToHighlight(meta) {
+function calculateLinesToHighlight(meta: string) {
   if (RE.test(meta)) {
     const lineNumbers = RE.exec(meta)![1]
       .split(",")
@@ -23,7 +23,7 @@ function calculateLinesToHighlight(meta) {
   }
 }
 
-function Code(props) {
+function Code(props: { [x: string]: any }) {
   const {
     children: codeString = "",
     title,

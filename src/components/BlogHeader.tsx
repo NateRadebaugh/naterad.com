@@ -5,6 +5,7 @@ import TwitterIcon from "./TwitterIcon";
 import LinkedInIcon from "./LinkedInIcon";
 import ResumeIcon from "./ResumeIcon";
 import GitHubIcon from "./GitHubIcon";
+import ThemePicker from "./ThemePicker";
 
 function BlogHeader({ isPost, title }) {
   return (
@@ -14,9 +15,9 @@ function BlogHeader({ isPost, title }) {
         justify="space-between"
         align="center"
         as="header"
-        marginBottom={2}
         css={{
           overflow: "auto",
+          padding: "8px",
         }}
         gap={2}
       >
@@ -47,6 +48,8 @@ function BlogHeader({ isPost, title }) {
           </Stack>
         </Stack>
         <Stack direction="horizontal" gap={2}>
+          <ThemePicker />
+
           <Button
             as={Link}
             href="/"

@@ -1,9 +1,13 @@
 :root {
-  color: #333;
-  background-color: #fff;
+  color: #212121;
+  background-color: #f8f9fa;
+}
+
+body {
+  margin: 0;
 }
 
 [data-theme="dark"] {
   color: #f8f9fa;
-  background-color: rgb(29, 29, 29);
+  background-color: #212121;
 }

@@ -9,7 +9,7 @@ import GitHubIcon from "../components/GitHubIcon";
 import TwitterIcon from "../components/TwitterIcon";
 import BlogIcon from "../components/BlogIcon";
 import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
-import { useTheme } from "next-themes";
+import ThemePicker from "../components/ThemePicker";
 
 interface TileProps {
   icon: any;
@@ -37,32 +37,6 @@ const Tile = React.forwardRef(function Tile(
 
   return <NextLink {...{ href, as }}>{component}</NextLink>;
 });
-
-function ThemePicker() {
-  const { resolvedTheme, setTheme } = useTheme();
-
-  function toggle() {
-    if (resolvedTheme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
-  }
-
-  return (
-    <button className={styles.themePicker} onClick={() => toggle()}>
-      {resolvedTheme === "dark" ? (
-        <>
-          🌙 <span>Set light theme</span>
-        </>
-      ) : (
-        <>
-          ☀️ <span>Set dark theme</span>
-        </>
-      )}
-    </button>
-  );
-}
 
 export default function Index() {
   return (
