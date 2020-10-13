@@ -8,6 +8,8 @@ import LinkedInIcon from "../components/LinkedInIcon";
 import GitHubIcon from "../components/GitHubIcon";
 import TwitterIcon from "../components/TwitterIcon";
 import BlogIcon from "../components/BlogIcon";
+import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
+import { useTheme } from "next-themes";
 
 interface TileProps {
   icon: any;
@@ -36,6 +38,32 @@ const Tile = React.forwardRef(function Tile(
   return <NextLink {...{ href, as }}>{component}</NextLink>;
 });
 
+function ThemePicker() {
+  const { resolvedTheme, setTheme } = useTheme();
+
+  function toggle() {
+    if (resolvedTheme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+  }
+
+  return (
+    <button className={styles.themePicker} onClick={() => toggle()}>
+      {resolvedTheme === "dark" ? (
+        <>
+          🌙 <span>Set light theme</span>
+        </>
+      ) : (
+        <>
+          ☀️ <span>Set dark theme</span>
+        </>
+      )}
+    </button>
+  );
+}
+
 export default function Index() {
   return (
     <div className={styles.wrapper}>
@@ -47,14 +75,22 @@ export default function Index() {
         />
         <meta name="theme-color" content="#317EFB" />
       </Head>
+
+      <SkipNavLink />
+
       <header>
-        <h1 className={styles.title}>Nate Radebaugh</h1>
+        <div className={styles.headerRow}>
+          <h1 className={styles.title}>Nate Radebaugh</h1>
+          <ThemePicker />
+        </div>
         <p className={styles.introText}>
           <strong>Senior Associate, Software Solutions</strong> at{" "}
           <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
           Graduate of Purdue University.
         </p>
       </header>
+
+      <SkipNavContent />
 
       <Tile
         className={styles.blogTile}
