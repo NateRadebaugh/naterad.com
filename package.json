@@ -29,7 +29,7 @@
     "prism-react-renderer": "^1.1.1",
     "prism-themes": "^1.4.1",
     "prismjs": "^1.22.0",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.13.1",
     "react-ui": "^1.0.0-beta.30",
     "sass": "^1.27.0",
