@@ -11,3 +11,10 @@ body {
   color: #f8f9fa;
   background-color: #212121;
 }
+
+@media print {
+  :root {
+    color: #212121;
+    background-color: #f8f9fa;
+  }
+}

@@ -1,6 +1,8 @@
 .resume {
   font-size: 14.4px;
   font-family: "Helvetica Neue", Arial;
+  margin-left: auto;
+  margin-right: auto;
 
   @media print, (min-width: 800px) {
     width: 8in;
@@ -17,6 +19,17 @@ a.link {
   &:hover,
   &:focus {
     color: black;
+  }
+}
+
+[data-theme="dark"] {
+  a.link {
+    color: #f8f9fa;
+
+    &:hover,
+    &:focus {
+      color: white;
+    }
   }
 }
 

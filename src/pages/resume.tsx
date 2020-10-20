@@ -71,8 +71,10 @@ function Employment({
       </div>
 
       <ul className={styles.details}>
-        {details.map((detail) => (
-          <li className={styles.detail}>{detail}</li>
+        {details.map((detail, i) => (
+          <li key={i} className={styles.detail}>
+            {detail}
+          </li>
         ))}
       </ul>
     </>
