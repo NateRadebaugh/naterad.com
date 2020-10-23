@@ -5286,10 +5286,10 @@ next-offline@^5.0.2:
     fs-extra "~8.1.0"
     workbox-webpack-plugin "^5.0.0"
 
-next-themes@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/next-themes/-/next-themes-0.0.4.tgz#fb06a9d03887201dd8fdd75fc1c84f406988f61e"
-  integrity sha512-j0bJJ6INanFsniCL31j1ZhjNaoqIFOaTeiUakbGpGxDz4+318Zp2ZfaorSjpUhzDWbXBKA3ZDE0DSUVWJ/8EsA==
+next-themes@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/next-themes/-/next-themes-0.0.5.tgz#de2d1d9c82bc7f01039134ee1ca1c2b71189f6be"
+  integrity sha512-rCg4CeEh30zsbTsAKgGv0FIAr9sx9lfQTFis22MT4bNijcBHJ1rNd3qw7VpHKNOzeA+IlSPjMcOXN3bpKKU3bQ==
 
 next-tick@~1.0.0:
   version "1.0.0"
