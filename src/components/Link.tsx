@@ -1,11 +1,12 @@
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
+import { forwardRef } from "react";
 import { Link as ReactUiLink } from "react-ui";
 
 export type LinkProps = NextLinkProps & {
   children: React.ReactNode;
 } & any;
 
-const Link = React.forwardRef(function Link(
+const Link = forwardRef(function Link(
   { children, href, as = href, ...rest }: LinkProps,
   ref
 ) {

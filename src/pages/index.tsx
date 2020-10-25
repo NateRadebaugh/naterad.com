@@ -10,6 +10,7 @@ import TwitterIcon from "../components/TwitterIcon";
 import BlogIcon from "../components/BlogIcon";
 import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
 import ThemePicker from "../components/ThemePicker";
+import { forwardRef } from "react";
 
 interface TileProps {
   icon: any;
@@ -18,7 +19,7 @@ interface TileProps {
   [x: string]: any;
 }
 
-const Tile = React.forwardRef(function Tile(
+const Tile = forwardRef(function Tile(
   { icon, text, colspan, color, href, as = href, ...rest }: TileProps,
   ref: any
 ) {

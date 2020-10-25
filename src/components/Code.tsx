@@ -1,4 +1,3 @@
-import React from "react";
 import theme from "prism-react-renderer/themes/nightOwl";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import styles from "./Code.module.scss";
