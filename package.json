@@ -23,7 +23,7 @@
     "dayjs": "^1.9.4",
     "marked": "^1.2.2",
     "next": "^9.5.5",
-    "next-mdx-enhanced": "^4.0.0",
+    "next-mdx-enhanced": "^5.0.0",
     "next-offline": "^5.0.2",
     "next-themes": "^0.0.6",
     "prism-react-renderer": "^1.1.1",
