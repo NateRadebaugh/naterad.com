@@ -5,7 +5,7 @@
     "node": "12.x"
   },
   "scripts": {
-    "now-build": "rimraf .mdx-data&&next build",
+    "now-build": "next build",
     "dev": "next",
     "build": "next build",
     "start": "set NODE_ENV=production&&next start",
@@ -49,7 +49,6 @@
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "rimraf": "^3.0.2"
+    "eslint-plugin-react-hooks": "4.2.0"
   }
 }

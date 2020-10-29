@@ -88,6 +88,3 @@ out
 
 # now build output
 .now
-
-# Ignore next-mdx-enhanced cache directory
-.mdx-data
