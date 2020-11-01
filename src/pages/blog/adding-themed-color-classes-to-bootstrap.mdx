@@ -1,0 +1,69 @@
+---
+layout: PostLayout
+title: How to Add Themed Color Classes to Bootstrap
+description: Bootstrap provides a ton of great utility classes for styling primary, danger, etc. but what if we want to support more themed colors? SASS to the rescue!
+date: "2020-11-01T21:20:39.660Z"
+---
+
+I had this same question, and ended up on this StackOverflow Question/Answer
+
+> https://stackoverflow.com/questions/38541526/adding-a-color-class-to-bootstrap/64637065
+
+## ❓ Question
+
+> I have looked into Bootstrap, and noticed that there are few "color classes" included (primary, success, danger etc.) I would like to know if there is a way to add more classes like those mentioned in easy way.
+>
+> For example: "primary" can be used with many elements, and will apply the defined color, and so does the other color classes. Can I create a class named "important", define its colors and apply it everywhere just like the included classes, without making a version of it for each element individually (using plain css or any of the preprocessors )
+
+## 👾 Accepted answer
+
+The main accepted answer suggests manually writing raw CSS to explicitly implement each new class yourself. This can work, and I've certainly used hacks like this myself on a variety of projects. However, there are obvious downsides to this approach, including duplicate code, manually calculating color codes for various states, and the dreaded `!important` hammer!
+
+```css
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
+
+.important,
+.important a {
+  color: #fff !important;
+  background-color: #ffc107 !important;
+  border-color: #ff9800 !important;
+}
+.important:active,
+.important.active,
+.important:focus,
+.important.focus,
+.important:hover,
+.important a:hover {
+  background-color: #ff9800 !important;
+  border-color: #ff5722 !important;
+}
+```
+
+## ✔️ A Better Way
+
+This is an older question but the accepted answer isn't the most complete and/or future-proof. Here's what I'd recommend if you've got SASS compilation as part of your build step.
+
+For example, if you want to add a new "tertiary" color to the generated CSS classes, eg `.text-tertiary`, `.bg-tertiary`, `.alert-tertiary`, etc. we can use the following steps:
+
+1. Set up a `.scss` file that will contain all of your SCSS and bootstrap overrides.
+
+```
+@import "_variables";
+@import "~bootstrap/scss/bootstrap.scss";
+```
+
+2. Create your `_variables.scss` file for your bootstrap variable configurations/overrides:
+
+```scss
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+
+$tertiary: #218f8b;
+
+// Add "tertiary" styles to the generated classes
+$theme-colors: (
+  "tertiary": $tertiary,
+);
+```
+
+**Further reading:** See the official bootstrap documentation for more on theming: https://getbootstrap.com/docs/4.0/getting-started/theming/#add-to-map
