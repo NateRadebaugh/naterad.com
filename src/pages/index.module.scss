@@ -61,12 +61,19 @@ p.introText {
   padding: 5px;
   text-align: center;
   text-decoration: none;
-  color: #fff;
+  color: #eee;
   border-radius: 8px;
   margin-right: 8px;
   margin-bottom: 8px;
   padding-top: 16px;
   padding-bottom: 16px;
+}
+
+@media print {
+  .tile {
+    color: black;
+    border: 1px solid black;
+  }
 }
 
 @mixin tileWidth($colspan) {
@@ -96,7 +103,7 @@ p.introText {
 @mixin tile($colspan, $color) {
   @extend .tile;
   @include tileWidth($colspan);
-  @include tileColors($color);
+  @include tileColors(darken($color, 8%));
 }
 
 .blogTile {
@@ -125,41 +132,4 @@ p.introText {
 
 .bundlephobiaTile {
   @include tile(2, #880000);
-}
-
-[data-theme="dark"] {
-  .blogTile {
-    @include tile(1, darken(purple, 8%));
-    color: #eeeeee;
-  }
-
-  .resumeTile {
-    @include tile(1, darken(#e15227, 8%));
-    color: #eeeeee;
-  }
-
-  .linkedinTile {
-    @include tile(1, darken(#0e76a8, 8%));
-    color: #eeeeee;
-  }
-
-  .githubTile {
-    @include tile(1, darken(#4183c4, 8%));
-    color: #eeeeee;
-  }
-
-  .datetimeTile {
-    @include tile(3, darken(teal, 8%));
-    color: #eeeeee;
-  }
-
-  .twitterTile {
-    @include tile(1, darken(#00a0d1, 8%));
-    color: #eeeeee;
-  }
-
-  .bundlephobiaTile {
-    @include tile(2, darken(#880000, 8%));
-    color: #eeeeee;
-  }
 }
