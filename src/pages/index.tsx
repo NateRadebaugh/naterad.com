@@ -9,7 +9,6 @@ import GitHubIcon from "../components/GitHubIcon";
 import TwitterIcon from "../components/TwitterIcon";
 import BlogIcon from "../components/BlogIcon";
 import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
-import ThemePicker from "../components/ThemePicker";
 import { forwardRef } from "react";
 
 interface TileProps {
@@ -56,7 +55,6 @@ export default function Index() {
       <header>
         <div className={styles.headerRow}>
           <h1 className={styles.title}>Nate Radebaugh</h1>
-          <ThemePicker />
         </div>
         <p className={styles.introText}>
           <strong>Senior Associate, Software Solutions</strong> at{" "}

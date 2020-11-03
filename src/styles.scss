@@ -1,15 +1,10 @@
 :root {
-  color: #212121;
-  background-color: #f8f9fa;
+  color: #f8f9fa;
+  background-color: #212121;
 }
 
 body {
   margin: 0;
-}
-
-[data-theme="dark"] {
-  color: #f8f9fa;
-  background-color: #212121;
 }
 
 @media print {

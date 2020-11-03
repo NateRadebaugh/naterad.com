@@ -1,22 +1,16 @@
+import { SkipNavContent, SkipNavLink } from "@reach/skip-nav";
 import dayjs from "dayjs";
-import { ThemeProvider, Heading, Text, Stack } from "react-ui";
+import { Heading, Stack, Text, ThemeProvider } from "react-ui";
 import {
-  tokens as lightTokens,
-  components as lightComponents,
-} from "react-ui/themes/light";
-import {
-  tokens as darkTokens,
   components as darkComponents,
+  tokens as darkTokens,
 } from "react-ui/themes/dark";
-import styles from "./BlogLayout.module.scss";
 import BlogHeader from "../components/BlogHeader";
-import Head from "../components/Head";
 import Divider from "../components/Divider";
-import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import Head from "../components/Head";
+import styles from "./BlogLayout.module.scss";
 
-lightTokens.colors.grays = {
+darkTokens.colors.grays = {
   100: "#f8f9fa",
   200: "#EEEEEE",
   300: "#E0E0E0",
@@ -29,32 +23,11 @@ lightTokens.colors.grays = {
   1000: "#000000",
 };
 
-darkTokens.colors.grays = lightTokens.colors.grays;
-
 function BlogLayout(props) {
   const { isPost, title, description, date = undefined, children } = props;
 
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme } = useTheme();
-  const [tokens, setTokens] = useState(undefined);
-  const [components, setComponents] = useState(undefined);
-
-  useEffect(() => {
-    if (resolvedTheme === "dark") {
-      setTokens(darkTokens);
-      setComponents(darkComponents);
-    } else {
-      setTokens(lightTokens);
-      setComponents(lightComponents);
-    }
-  }, [resolvedTheme]);
-
-  // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
   return (
-    <ThemeProvider tokens={tokens} components={components}>
+    <ThemeProvider tokens={darkTokens} components={darkComponents}>
       <Head>
         <title>{title} - Nate Radebaugh's Blog</title>
         <meta name="Description" content={description || title} />
