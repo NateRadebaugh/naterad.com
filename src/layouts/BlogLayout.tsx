@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import marked from "marked";
 import { ThemeProvider, Heading, Text, Stack } from "react-ui";
 import {
   tokens as lightTokens,
@@ -88,9 +87,7 @@ function BlogLayout(props) {
               {description && (
                 <>
                   <Text variant="subtle">
-                    <em
-                      dangerouslySetInnerHTML={{ __html: marked(description) }}
-                    />
+                    <em>{description}</em>
                   </Text>
                   <Divider marginTop={3} marginBottom={3} />
                 </>
