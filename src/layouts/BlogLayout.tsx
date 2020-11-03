@@ -33,6 +33,8 @@ darkTokens.colors.grays = lightTokens.colors.grays;
 
 function BlogLayout(props) {
   const { isPost, title, description, date = undefined, children } = props;
+
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
   const [tokens, setTokens] = useState(undefined);
   const [components, setComponents] = useState(undefined);
@@ -46,6 +48,10 @@ function BlogLayout(props) {
       setComponents(lightComponents);
     }
   }, [resolvedTheme]);
+
+  // When mounted on client, now we can show the UI
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   return (
     <ThemeProvider tokens={tokens} components={components}>
