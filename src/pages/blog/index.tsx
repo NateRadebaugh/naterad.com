@@ -45,9 +45,7 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
           return (
             <div key={slug}>
               <Heading size="section">
-                <Link href="/blog/[slug]" as={`/blog/${slug}`}>
-                  {title}
-                </Link>
+                <Link href={`/blog/${slug}`}>{title}</Link>
               </Heading>
               <Text variant="subtle" size={3}>
                 {dayjs(date).format("MMMM D, YYYY h:mm A")}
@@ -56,9 +54,7 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
                 <Text variant="subtle">{descriptionContent}</Text>
               )}
 
-              <ButtonLink href="/blog/[slug]" as={`/blog/${slug}`}>
-                Read more
-              </ButtonLink>
+              <ButtonLink href={`/blog/${slug}`}>Read more</ButtonLink>
 
               <Element
                 marginTop={3}

@@ -7,13 +7,13 @@ export type LinkProps = NextLinkProps & {
 } & any;
 
 const Link = forwardRef(function Link(
-  { children, href, as = href, ...rest }: LinkProps,
+  { children, href, ...rest }: LinkProps,
   ref
 ) {
   const isExternal = href?.startsWith("http");
 
   const component = (
-    <ReactUiLink ref={ref} href={as} {...rest}>
+    <ReactUiLink ref={ref} href={href} {...rest}>
       {children}
     </ReactUiLink>
   );
@@ -22,7 +22,7 @@ const Link = forwardRef(function Link(
     return component;
   }
 
-  return <NextLink {...{ href, as }}>{component}</NextLink>;
+  return <NextLink href={href}>{component}</NextLink>;
 });
 
 export default Link;
