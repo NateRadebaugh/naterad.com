@@ -1,6 +1,9 @@
 const withOffline = require("next-offline");
 
 module.exports = withOffline({
+  images: {
+    domains: ["www.gravatar.com"],
+  },
   workboxOpts: {
     swDest: "static/service-worker.js",
     runtimeCaching: [

@@ -1,6 +1,5 @@
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import { forwardRef } from "react";
-import { Button as ReactUiLink } from "react-ui";
 
 export type LinkProps = NextLinkProps & {
   children: React.ReactNode;
@@ -13,9 +12,15 @@ const ButtonLink = forwardRef(function ButtonLink(
   const isExternal = href?.startsWith("http");
 
   const component = (
-    <ReactUiLink type="button" ref={ref} href={href} {...rest}>
+    <button
+      type="button"
+      ref={ref}
+      href={href}
+      style={{ pointer: "cursor" }}
+      {...rest}
+    >
       {children}
-    </ReactUiLink>
+    </button>
   );
 
   if (isExternal) {

@@ -1,6 +1,15 @@
+$body-bg: #212121;
+$body-color: #f8f9fa;
+
+$link-color: rgb(102, 184, 255);
+$code-color: #f8f9fa;
+
+@import "~@reach/skip-nav/styles.css";
+@import "~bootstrap/scss/bootstrap.scss";
+
 :root {
-  color: #f8f9fa;
-  background-color: #212121;
+  color: $body-color;
+  background-color: $body-bg;
 }
 
 body {
@@ -9,7 +18,7 @@ body {
 
 @media print {
   :root {
-    color: #212121;
-    background-color: #f8f9fa;
+    color: $body-bg;
+    background-color: $body-color;
   }
 }

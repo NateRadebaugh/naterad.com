@@ -1,115 +1,102 @@
-import { Element, Text, Breadcrumb, Stack, Avatar, Button } from "react-ui";
-import styles from "../layouts/BlogLayout.module.scss";
 import Link from "../components/Link";
 import TwitterIcon from "./TwitterIcon";
 import LinkedInIcon from "./LinkedInIcon";
 import ResumeIcon from "./ResumeIcon";
 import GitHubIcon from "./GitHubIcon";
+import ButtonLink from "./ButtonLink";
+import Image from "next/image";
 
 function BlogHeader({ isPost, title }) {
   return (
-    <>
-      <Stack
-        direction="horizontal"
-        justify="space-between"
-        align="center"
-        as="header"
-        css={{
-          overflow: "auto",
-          padding: "8px",
-        }}
-        gap={2}
-      >
-        <Stack direction="horizontal" align="center" gap={2}>
-          <Link href="/">
-            <Avatar
-              size="large"
-              src="https://www.gravatar.com/avatar/80d317a74bc928d8520879fdeefc6303"
-              alt="Nate Radebaugh"
-            />
+    <header
+      className="d-flex justify-content-between align-items-center border-bottom p-1"
+      style={{
+        overflow: "auto",
+      }}
+    >
+      <div className="d-flex align-items-center">
+        <Link href="/" className="mr-2">
+          <Image
+            src="https://www.gravatar.com/avatar/80d317a74bc928d8520879fdeefc6303"
+            alt="Nate Radebaugh"
+            height={60}
+            width={60}
+            className="rounded-circle border"
+          />
+        </Link>
+        <div>
+          <Link href="/" className="text-light">
+            Nate Radebaugh
           </Link>
-          <Stack direction="vertical">
-            <Link href="/" color="text.body">
-              Nate Radebaugh
-            </Link>
-            {isPost ? (
-              <Breadcrumb className={styles.breadcrumb}>
-                <Link href="/">Home</Link>
-                <Link href="/blog">Blog</Link>
-                <Text variant="subtle">{title}</Text>
-              </Breadcrumb>
-            ) : (
-              <Breadcrumb className={styles.breadcrumb}>
-                <Link href="/">Home</Link>
-                <Text variant="subtle">Blog</Text>
-              </Breadcrumb>
-            )}
-          </Stack>
-        </Stack>
-        <Stack direction="horizontal" gap={2}>
-          <Button
-            as={Link}
-            href="/"
-            variant="secondary"
-            css={{ display: ["none", "none", "flex"] }}
-          >
-            Home
-          </Button>
-          <Button
-            as={Link}
-            href="https://github.com/NateRadebaugh"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="secondary"
-            css={{ display: ["none", "flex", "flex"] }}
-          >
-            <Stack direction="horizontal" gap={1} align="center">
-              <GitHubIcon size="normal" />
-              <Text>GitHub</Text>
-            </Stack>
-          </Button>
-          <Button
-            as={Link}
-            href="https://twitter.com/nateradebaugh"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="secondary"
-            css={{ display: ["none", "flex", "flex"] }}
-          >
-            <Stack direction="horizontal" gap={1} align="center">
-              <TwitterIcon size="normal" />
-              <Text>Twitter</Text>
-            </Stack>
-          </Button>
-          <Button
-            as={Link}
-            href="https://www.linkedin.com/in/nateradebaugh/"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="secondary"
-            css={{ display: ["none", "flex", "flex"] }}
-          >
-            <Stack direction="horizontal" gap={1} align="center">
-              <LinkedInIcon size="normal" />
-              <Text>LinkedIn</Text>
-            </Stack>
-          </Button>
-          <Button as={Link} href="/resume" variant="secondary">
-            <Stack direction="horizontal" gap={1} align="center">
-              <ResumeIcon size="normal" />
-              <Text>Resume</Text>
-            </Stack>
-          </Button>
-        </Stack>
-      </Stack>
-
-      <Element
-        css={{
-          height: "1px",
-          backgroundColor: "grays.400",
-        }}
-      />
-    </>
+          {isPost ? (
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb bg-transparent p-0 m-0">
+                <li className="breadcrumb-item">
+                  <Link href="/">Home</Link>
+                </li>
+                <li className="breadcrumb-item">
+                  <Link href="/blog">Blog</Link>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  {title}
+                </li>
+              </ol>
+            </nav>
+          ) : (
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb bg-transparent p-0 m-0">
+                <li className="breadcrumb-item">
+                  <Link href="/">Home</Link>
+                </li>
+                <span className="text-muted">{title}</span>
+                <li className="breadcrumb-item active" aria-current="page">
+                  Blog
+                </li>
+              </ol>
+            </nav>
+          )}
+        </div>
+      </div>
+      <div className="d-flex align-items-center">
+        <ButtonLink href="/" className="btn btn-dark ml-1">
+          Home
+        </ButtonLink>
+        <ButtonLink
+          href="https://github.com/NateRadebaugh"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-dark ml-1"
+          css={{ display: ["none", "flex", "flex"] }}
+        >
+          <GitHubIcon size="normal" className="mr-1" />
+          GitHub
+        </ButtonLink>
+        <ButtonLink
+          href="https://twitter.com/nateradebaugh"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-dark ml-1"
+          css={{ display: ["none", "flex", "flex"] }}
+        >
+          <TwitterIcon size="normal" className="mr-1" />
+          Twitter
+        </ButtonLink>
+        <ButtonLink
+          href="https://www.linkedin.com/in/nateradebaugh/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-dark ml-1"
+          css={{ display: ["none", "flex", "flex"] }}
+        >
+          <LinkedInIcon size="normal" className="mr-1" />
+          LinkedIn
+        </ButtonLink>
+        <ButtonLink href="/resume" className="btn btn-dark ml-1">
+          <ResumeIcon size="normal" className="mr-1" />
+          Resume
+        </ButtonLink>
+      </div>
+    </header>
   );
 }
 
