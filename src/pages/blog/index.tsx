@@ -53,7 +53,7 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
               <p className="text-muted">{descriptionContent}</p>
             )}
 
-            <ButtonLink href={`/blog/${slug}`} className="btn btn-success">
+            <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
               Read more
             </ButtonLink>
 

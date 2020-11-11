@@ -1,5 +1,6 @@
 $body-bg: #212121;
 $body-color: #f8f9fa;
+$primary: #28a745;
 
 $link-color: rgb(102, 184, 255);
 $code-color: #f8f9fa;
@@ -32,7 +33,7 @@ $code-color: #f8f9fa;
   clip: auto;
 }
 
-@import "~bootstrap/scss/bootstrap.scss";
+@import "_bootstrap.scss";
 
 :root {
   color: $body-color;
