@@ -19,13 +19,13 @@ interface TileProps {
 }
 
 const Tile = forwardRef(function Tile(
-  { icon, text, colspan, color, href, as = href, ...rest }: TileProps,
+  { icon, text, colspan, color, href, ...rest }: TileProps,
   ref: any
 ) {
   const isExternal = href?.startsWith("http");
 
   const component = (
-    <a ref={ref} href={as} {...rest}>
+    <a ref={ref} href={href} {...rest}>
       {icon}
       <h3 className={styles.tileText}>{text}</h3>
     </a>
@@ -35,7 +35,7 @@ const Tile = forwardRef(function Tile(
     return component;
   }
 
-  return <NextLink {...{ href, as }}>{component}</NextLink>;
+  return <NextLink href={href}>{component}</NextLink>;
 });
 
 export default function Index() {
