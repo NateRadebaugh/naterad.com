@@ -48,7 +48,6 @@ function BlogHeader({ isPost, title }) {
                 <li className="breadcrumb-item">
                   <Link href="/">Home</Link>
                 </li>
-                <span className="text-muted">{title}</span>
                 <li className="breadcrumb-item active" aria-current="page">
                   Blog
                 </li>
