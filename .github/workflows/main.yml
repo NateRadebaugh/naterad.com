@@ -20,6 +20,9 @@ jobs:
             $ENVIRONMENT_URL/
             $ENVIRONMENT_URL/resume
             $ENVIRONMENT_URL/blog
+            $ENVIRONMENT_URL/blog/adding-themed-color-classes-to-bootstrap
+            $ENVIRONMENT_URL/blog/launch-angular-from-vs-project
+            $ENVIRONMENT_URL/blog/mdx-custom-fenced-codeblocks
           runs: 3
           uploadArtifacts: true # save results as an action artifacts
           temporaryPublicStorage: true # upload lighthouse report to the temporary storage
