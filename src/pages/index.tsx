@@ -10,6 +10,7 @@ import TwitterIcon from "../components/TwitterIcon";
 import BlogIcon from "../components/BlogIcon";
 import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
 import { forwardRef } from "react";
+import clsx from "clsx";
 
 interface TileProps {
   icon: any;
@@ -19,13 +20,18 @@ interface TileProps {
 }
 
 const Tile = forwardRef(function Tile(
-  { icon, text, colspan, color, href, ...rest }: TileProps,
+  { icon, text, colspan, color, href, className, ...rest }: TileProps,
   ref: any
 ) {
   const isExternal = href?.startsWith("http");
 
   const component = (
-    <a ref={ref} href={href} {...rest}>
+    <a
+      ref={ref}
+      href={href}
+      className={clsx(className, "text-light text-decoration-none")}
+      {...rest}
+    >
       {icon}
       <h3 className={styles.tileText}>{text}</h3>
     </a>

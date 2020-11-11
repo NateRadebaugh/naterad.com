@@ -37,7 +37,10 @@ function BlogHeader({ isPost, title }) {
                 <li className="breadcrumb-item">
                   <Link href="/blog">Blog</Link>
                 </li>
-                <li className="breadcrumb-item active" aria-current="page">
+                <li
+                  className="breadcrumb-item active d-none d-sm-inline"
+                  aria-current="page"
+                >
                   {title}
                 </li>
               </ol>
@@ -48,7 +51,10 @@ function BlogHeader({ isPost, title }) {
                 <li className="breadcrumb-item">
                   <Link href="/">Home</Link>
                 </li>
-                <li className="breadcrumb-item active" aria-current="page">
+                <li
+                  className="breadcrumb-item active d-none d-sm-inline"
+                  aria-current="page"
+                >
                   Blog
                 </li>
               </ol>
@@ -57,15 +63,17 @@ function BlogHeader({ isPost, title }) {
         </div>
       </div>
       <div className="d-flex align-items-center">
-        <ButtonLink href="/" className="btn btn-dark ml-1">
+        <ButtonLink
+          href="/"
+          className="btn btn-dark ml-1 d-none d-md-inline-block"
+        >
           Home
         </ButtonLink>
         <ButtonLink
           href="https://github.com/NateRadebaugh"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-dark ml-1"
-          css={{ display: ["none", "flex", "flex"] }}
+          className="btn btn-dark ml-1 d-none d-md-inline-block"
         >
           <GitHubIcon size="normal" className="mr-1" />
           GitHub
@@ -74,8 +82,7 @@ function BlogHeader({ isPost, title }) {
           href="https://twitter.com/nateradebaugh"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-dark ml-1"
-          css={{ display: ["none", "flex", "flex"] }}
+          className="btn btn-dark ml-1 d-none d-md-inline-block"
         >
           <TwitterIcon size="normal" className="mr-1" />
           Twitter
@@ -84,8 +91,7 @@ function BlogHeader({ isPost, title }) {
           href="https://www.linkedin.com/in/nateradebaugh/"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-dark ml-1"
-          css={{ display: ["none", "flex", "flex"] }}
+          className="btn btn-dark ml-1 d-none d-sm-inline-block"
         >
           <LinkedInIcon size="normal" className="mr-1" />
           LinkedIn
