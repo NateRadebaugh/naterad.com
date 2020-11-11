@@ -33,7 +33,7 @@ const Tile = forwardRef(function Tile(
       {...rest}
     >
       {icon}
-      <h3 className={styles.tileText}>{text}</h3>
+      <span className={styles.tileText}>{text}</span>
     </a>
   );
 
@@ -51,7 +51,7 @@ export default function Index() {
         <title>Nate Radebaugh</title>
         <meta
           name="Description"
-          content="Hi I'm Nate Radebaugh. Senior Associate, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
+          content="Hi I'm Nate Radebaugh. Experienced Senior Associate, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
         />
         <meta name="theme-color" content="#317EFB" />
       </Head>
@@ -63,7 +63,7 @@ export default function Index() {
           <h1 className={styles.title}>Nate Radebaugh</h1>
         </div>
         <p className={styles.introText}>
-          <strong>Senior Associate, Software Solutions</strong> at{" "}
+          <strong>Experienced Senior Associate, Software Solutions</strong> at{" "}
           <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
           Graduate of Purdue University.
         </p>

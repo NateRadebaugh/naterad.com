@@ -15,7 +15,7 @@
   align-items: flex-end;
 }
 
-h1.title {
+.title {
   font-size: 56px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -29,7 +29,7 @@ h1.title {
   text-rendering: optimizelegibility;
 }
 
-h2.subTitle {
+.subTitle {
   font-size: 28px;
   margin: 0;
   text-transform: lowercase;
@@ -41,7 +41,8 @@ h2.subTitle {
   text-rendering: optimizelegibility;
 }
 
-h3.tileText {
+.tileText {
+  display: block;
   font-size: 1.75em;
   text-transform: lowercase;
   line-height: 40px;
@@ -52,7 +53,7 @@ h3.tileText {
   text-rendering: optimizelegibility;
 }
 
-p.introText {
+.introText {
   margin: 0 0 12.5px;
 }
 
@@ -77,7 +78,7 @@ p.introText {
 }
 
 @mixin tileWidth($colspan) {
-  width: $colspan * 125 + ($colspan - 1) * 16px;
+  width: $colspan * 125 + ($colspan - 1) * 8px;
 }
 
 @for $colspan from 1 through 3 {
