@@ -1,6 +1,5 @@
 import Head from "next/head";
-import "@reach/skip-nav/styles.css";
-import "../styles.scss";
+import "../styles/styles.scss";
 
 export default function App({ Component, pageProps }) {
   return (

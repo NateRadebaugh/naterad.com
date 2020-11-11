@@ -23,6 +23,10 @@ a.link {
 }
 
 @media print {
+  .resume {
+    color: black;
+  }
+
   a.link {
     color: #343a40;
 
@@ -83,7 +87,7 @@ h2.contentGroupLabel {
     margin-top: 10px;
     font-size: 1em;
     font-weight: bold;
-    width: 1.3in;
+    width: 1.4in;
   }
 }
 
@@ -98,7 +102,7 @@ div.contentGroupContent {
   }
 
   @media print, (min-width: 800px) {
-    width: 6.7in;
+    width: 6.6in;
     float: left;
     clear: right;
   }

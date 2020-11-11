@@ -10,6 +10,7 @@ import TwitterIcon from "../components/TwitterIcon";
 import BlogIcon from "../components/BlogIcon";
 import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
 import { forwardRef } from "react";
+import clsx from "clsx";
 
 interface TileProps {
   icon: any;
@@ -19,15 +20,20 @@ interface TileProps {
 }
 
 const Tile = forwardRef(function Tile(
-  { icon, text, colspan, color, href, as = href, ...rest }: TileProps,
+  { icon, text, colspan, color, href, className, ...rest }: TileProps,
   ref: any
 ) {
   const isExternal = href?.startsWith("http");
 
   const component = (
-    <a ref={ref} href={as} {...rest}>
+    <a
+      ref={ref}
+      href={href}
+      className={clsx(className, "text-light text-decoration-none")}
+      {...rest}
+    >
       {icon}
-      <h3 className={styles.tileText}>{text}</h3>
+      <span className={styles.tileText}>{text}</span>
     </a>
   );
 
@@ -35,7 +41,7 @@ const Tile = forwardRef(function Tile(
     return component;
   }
 
-  return <NextLink {...{ href, as }}>{component}</NextLink>;
+  return <NextLink href={href}>{component}</NextLink>;
 });
 
 export default function Index() {
@@ -45,7 +51,7 @@ export default function Index() {
         <title>Nate Radebaugh</title>
         <meta
           name="Description"
-          content="Hi I'm Nate Radebaugh. Senior Associate, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
+          content="Hi I'm Nate Radebaugh. Experienced Senior Associate, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
         />
         <meta name="theme-color" content="#317EFB" />
       </Head>
@@ -57,7 +63,7 @@ export default function Index() {
           <h1 className={styles.title}>Nate Radebaugh</h1>
         </div>
         <p className={styles.introText}>
-          <strong>Senior Associate, Software Solutions</strong> at{" "}
+          <strong>Experienced Senior Associate, Software Solutions</strong> at{" "}
           <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
           Graduate of Purdue University.
         </p>

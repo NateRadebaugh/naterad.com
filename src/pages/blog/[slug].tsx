@@ -9,7 +9,6 @@ import postStyles from "../../layouts/PostLayout.module.scss";
 import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
-import { Stack, Heading, Text } from "react-ui";
 import Divider from "../../components/Divider";
 import dayjs from "dayjs";
 import Link from "../../components/Link";
@@ -58,49 +57,45 @@ export default function BlogPost({
         <div className={postStyles.post}>{pageContent}</div>
       </div>
 
-      <Stack direction="vertical" gap={3}>
-        <Divider />
+      <Divider />
 
-        <Heading size="paragraph">
-          <Text variant="subtle">Further reading...</Text>
-        </Heading>
+      <p className="font-weight-bold text-muted">Further reading...</p>
 
-        <Stack justify="space-between">
-          {hasPrev ? (
-            <strong style={{ width: "50%" }}>
-              <Link href={`/blog/${prevSlug}`}>
-                <div css="display: inline-block">
-                  &laquo; {prevTitle}
-                  <br />
-                  <Text variant="subtle" size={2}>
-                    {dayjs(prevDate).format("MMMM D, YYYY h:mm A")}
-                  </Text>
-                </div>
-              </Link>
-            </strong>
-          ) : (
-            <div />
-          )}
+      <div className="d-flex justify-content-between">
+        {hasPrev ? (
+          <strong style={{ width: "50%" }}>
+            <Link href={`/blog/${prevSlug}`}>
+              <div css="display: inline-block">
+                &laquo; {prevTitle}
+                <br />
+                <small className="font-weight-bold text-muted">
+                  {dayjs(prevDate).format("MMMM D, YYYY h:mm A")}
+                </small>
+              </div>
+            </Link>
+          </strong>
+        ) : (
+          <div />
+        )}
 
-          {hasNext ? (
-            <strong style={{ width: "50%", textAlign: "right" }}>
-              <Link href={`/blog/${nextSlug}`}>
-                <div css="display: inline-block">
-                  {nextTitle} &raquo;
-                  <br />
-                  <Text size={2} variant="subtle">
-                    {dayjs(nextDate).format("MMMM D, YYYY h:mm A")}
-                  </Text>
-                </div>
-              </Link>
-            </strong>
-          ) : (
-            <div />
-          )}
-        </Stack>
+        {hasNext ? (
+          <strong style={{ width: "50%", textAlign: "right" }}>
+            <Link href={`/blog/${nextSlug}`}>
+              <div css="display: inline-block">
+                {nextTitle} &raquo;
+                <br />
+                <small className="font-weight-bold text-muted">
+                  {dayjs(nextDate).format("MMMM D, YYYY h:mm A")}
+                </small>
+              </div>
+            </Link>
+          </strong>
+        ) : (
+          <div />
+        )}
+      </div>
 
-        <Divider marginTop={1} marginBottom={3} />
-      </Stack>
+      <Divider />
     </BlogLayout>
   );
 }

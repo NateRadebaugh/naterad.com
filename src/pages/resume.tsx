@@ -50,7 +50,7 @@ interface EmploymentProps {
   dates: React.ReactNode;
   company: React.ReactNode;
   location: React.ReactNode;
-  details: React.ReactNode[];
+  details?: React.ReactNode[];
 }
 
 function Employment({
@@ -88,7 +88,7 @@ export default function Resume() {
         <title>Resume for Nate Radebaugh</title>
         <meta
           name="Description"
-          content="Hi I'm Nate Radebaugh. Senior Associate at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University. Past employee at Microsoft."
+          content="Hi I'm Nate Radebaugh. Experienced Senior Associate at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University. Past employee at Microsoft."
         />
         <meta name="theme-color" content="#e15227" />
       </Head>
@@ -105,18 +105,28 @@ export default function Resume() {
       </div>
 
       <ContentGroup label="Software Skills:">
-        <strong>Front</strong> React, Angular, JQuery, HTML, CSS.
+        <strong>Front</strong> React, Angular, JQuery, HTML, CSS. Bootstrap.
         <br />
         <strong>Back</strong> C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
         <br />
         <strong>Cloud</strong> Azure (DevOps, App Service, DB, Functions), AWS
-        (Lambda, Connect), Atlassin Suite, Zeit Now.
+        (Lambda, Connect, Lex), Atlassin Suite, Vercel Now.
       </ContentGroup>
 
       <ContentGroup label="Work Experience:">
         <Employment
+          position="Experienced Senior Associate, Software Solutions"
+          dates="November 2020 - Present"
+          company="BDO Digital, BDO USA"
+          location="Oak Brook, IL"
+          details={[
+            "Estimating, release planning, and delegation for multiple concurrent large-scale enterprise web applications for clients. Work with clients, BAs, and PMs to set expectations and meet budgets and deadlines.",
+            "Shaping firm-wide best practices for front-end development and solutions architecture for scalability and product confidence.",
+          ]}
+        />
+        <Employment
           position="Senior Associate, Software Solutions"
-          dates="January 2020 - Present"
+          dates="January 2020 - November 2020"
           company="BDO Digital, BDO USA"
           location="Oak Brook, IL"
           details={[
@@ -139,7 +149,7 @@ export default function Resume() {
           company="SWC Technology Partners"
           location="Oak Brook, IL"
           details={[
-            'Individual contributor on for multiple large scale enterprise "full stack" web projects at a time using .NET MVC, Spring Boot, SQL, JQuery, and React.',
+            'Individual contributor on multiple large scale enterprise "full stack" web projects at a time using .NET MVC, Spring Boot, SQL, JQuery, and React.',
           ]}
         />
         <Employment
@@ -162,33 +172,22 @@ export default function Resume() {
           ]}
         />
         <Employment
-          position="Intern"
+          position="Intern, Windows Phone"
           dates="Summer 2012"
           company="Microsoft"
           location="Redmond, WA"
-          details={[
-            "Worked the Microsoft Wallet team, within Windows Phone division.",
-          ]}
         />
         <Employment
           position="Intern"
           dates="Summer 2011"
           company="Qualcomm"
           location="San Diego, CA"
-          details={[
-            "Worked on tooling regarding test automation and report generation using Batch, Perl, C++, and the MFC framework.",
-          ]}
         />
         <Employment
           position="Senior Software Developer"
           dates="Fall 2010 - Spring 2013"
           company="Purdue University ResNet (ISP)"
           location="West Lafayette, IN"
-          details={[
-            "Technical lead for team of student developers in the development and maintenance of a PHP/MySQL driven management tool, including Perl scripts to help monitor aggregate internet usage.",
-            "Web server and database administration.",
-            "Interviewed, hired, and trained new employees.",
-          ]}
         />
       </ContentGroup>
 

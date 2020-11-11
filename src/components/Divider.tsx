@@ -1,16 +1,5 @@
-import { Element } from "react-ui";
-
-function Divider(props) {
-  return (
-    <Element
-      css={{
-        width: "100%",
-        height: "2px",
-        backgroundColor: "grays.400",
-      }}
-      {...props}
-    />
-  );
+function Divider() {
+  return <hr className="bg-light" />;
 }
 
 export default Divider;

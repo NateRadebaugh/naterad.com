@@ -1,7 +1,7 @@
+import Divider from "components/Divider";
 import dayjs from "dayjs";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
-import { Element, Heading, Stack, Text } from "react-ui";
 import ButtonLink from "../../components/ButtonLink";
 import Link from "../../components/Link";
 import BlogLayout from "../../layouts/BlogLayout";
@@ -39,34 +39,28 @@ interface BlogIndexPageProps {
 function BlogIndexPage({ posts }: BlogIndexPageProps) {
   return (
     <BlogLayout title="Blog Posts">
-      <Stack direction="vertical" gap={3}>
-        {posts.map(({ slug, title, date, descriptionSource }) => {
-          const descriptionContent = hydrate(descriptionSource, mdxConfig);
-          return (
-            <div key={slug}>
-              <Heading size="section">
-                <Link href={`/blog/${slug}`}>{title}</Link>
-              </Heading>
-              <Text variant="subtle" size={3}>
-                {dayjs(date).format("MMMM D, YYYY h:mm A")}
-              </Text>
-              {descriptionContent && (
-                <Text variant="subtle">{descriptionContent}</Text>
-              )}
+      {posts.map(({ slug, title, date, descriptionSource }) => {
+        const descriptionContent = hydrate(descriptionSource, mdxConfig);
+        return (
+          <div key={slug}>
+            <h2>
+              <Link href={`/blog/${slug}`}>{title}</Link>
+            </h2>
+            <p className="font-weight-bold text-muted">
+              {dayjs(date).format("MMMM D, YYYY h:mm A")}
+            </p>
+            {descriptionContent && (
+              <p className="text-muted">{descriptionContent}</p>
+            )}
 
-              <ButtonLink href={`/blog/${slug}`}>Read more</ButtonLink>
+            <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
+              Read more
+            </ButtonLink>
 
-              <Element
-                marginTop={3}
-                css={{
-                  height: "1px",
-                  backgroundColor: "grays.300",
-                }}
-              />
-            </div>
-          );
-        })}
-      </Stack>
+            <Divider />
+          </div>
+        );
+      })}
     </BlogLayout>
   );
 }

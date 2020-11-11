@@ -1,0 +1,52 @@
+$body-bg: #212121;
+$body-color: #f8f9fa;
+$primary: #28a745;
+
+$link-color: rgb(102, 184, 255);
+$code-color: #f8f9fa;
+
+:root {
+  --reach-skip-nav: 1;
+}
+
+[data-reach-skip-nav-link] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+[data-reach-skip-nav-link]:focus {
+  padding: 1rem;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: $body-bg;
+  color: $link-color;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  clip: auto;
+}
+
+@import "_bootstrap.scss";
+
+:root {
+  color: $body-color;
+  background-color: $body-bg;
+}
+
+body {
+  margin: 0;
+}
+
+@media print {
+  :root {
+    color: $body-bg;
+    background-color: $body-color;
+  }
+}
