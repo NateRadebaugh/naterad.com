@@ -2,7 +2,6 @@ import matter from "gray-matter";
 import { totalist } from "totalist/sync";
 import fs from "fs";
 import path from "path";
-import dayjs from "dayjs";
 
 const root = process.cwd();
 
