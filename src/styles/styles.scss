@@ -1,9 +1,11 @@
-$body-bg: #212121;
-$body-color: #f8f9fa;
-$primary: #28a745;
+$body-bg: #121212;
+$body-color: rgba(255, 255, 255, 0.87);
+$primary: #388e3c;
+
+$gray-600: rgba(255, 255, 255, 0.6);
 
 $link-color: rgb(102, 184, 255);
-$code-color: #f8f9fa;
+$code-color: #c5e1a5;
 
 :root {
   --reach-skip-nav: 1;

@@ -9,10 +9,8 @@ import Image from "next/image";
 function BlogHeader({ isPost, title }) {
   return (
     <header
-      className="d-flex justify-content-between align-items-center border-bottom p-1"
-      style={{
-        overflow: "auto",
-      }}
+      className="d-flex justify-content-between align-items-center overflow-auto px-1 pt-1 mb-3"
+      style={{ backgroundColor: "#212121", borderBottom: "3px solid #616161" }}
     >
       <div className="d-flex align-items-center">
         <Link href="/" className="mr-2">

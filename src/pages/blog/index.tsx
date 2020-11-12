@@ -46,9 +46,7 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
               <Link href={`/blog/${slug}`}>{title}</Link>
             </h2>
             <p className="font-weight-bold text-muted">{date}</p>
-            {descriptionContent && (
-              <p className="text-muted">{descriptionContent}</p>
-            )}
+            {descriptionContent && <p>{descriptionContent}</p>}
 
             <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
               Read more
