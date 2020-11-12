@@ -58,14 +58,13 @@
 }
 
 .tile {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   padding: 5px;
   text-align: center;
   text-decoration: none;
   color: #eee;
   border-radius: 8px;
-  margin-right: 8px;
-  margin-bottom: 8px;
   padding-top: 16px;
   padding-bottom: 16px;
 }
@@ -74,18 +73,6 @@
   .tile {
     color: black;
     border: 1px solid black;
-  }
-}
-
-@mixin tileWidth($colspan) {
-  width: $colspan * 125 + ($colspan - 1) * 8px;
-}
-
-@for $colspan from 1 through 3 {
-  .tile-#{$colspan} {
-    @extend .tile;
-
-    @include tileWidth($colspan);
   }
 }
 
@@ -101,36 +88,35 @@
   }
 }
 
-@mixin tile($colspan, $color) {
+@mixin tile($color) {
   @extend .tile;
-  @include tileWidth($colspan);
   @include tileColors(darken($color, 8%));
 }
 
 .blogTile {
-  @include tile(1, purple);
+  @include tile(purple);
 }
 
 .resumeTile {
-  @include tile(1, #e15227);
+  @include tile(#e15227);
 }
 
 .linkedinTile {
-  @include tile(1, #0e76a8);
+  @include tile(#0e76a8);
 }
 
 .githubTile {
-  @include tile(1, #4183c4);
+  @include tile(#4183c4);
 }
 
 .datetimeTile {
-  @include tile(3, teal);
+  @include tile(teal);
 }
 
 .twitterTile {
-  @include tile(1, #00a0d1);
+  @include tile(#00a0d1);
 }
 
 .bundlephobiaTile {
-  @include tile(2, #880000);
+  @include tile(#880000);
 }

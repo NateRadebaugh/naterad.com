@@ -58,71 +58,83 @@ export default function Index() {
 
       <SkipNavLink />
 
-      <header>
-        <div className={styles.headerRow}>
-          <h1 className={styles.title}>Nate Radebaugh</h1>
+      <div className="container-fluid">
+        <header>
+          <div className={styles.headerRow}>
+            <h1 className={styles.title}>Nate Radebaugh</h1>
+          </div>
+          <p className={styles.introText}>
+            <strong>Experienced Senior Associate, Software Solutions</strong> at{" "}
+            <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
+            Graduate of Purdue University.
+          </p>
+        </header>
+
+        <SkipNavContent />
+
+        <div className="row">
+          <div className="col-6 col-sm-4 col-md-3 mb-3">
+            <Tile
+              className={styles.blogTile}
+              href="/blog"
+              icon={<BlogIcon size={6} />}
+              text="blog"
+            />
+          </div>
+          <div className="col-6 col-sm-4 col-md-3 mb-3">
+            <Tile
+              className={styles.resumeTile}
+              href="/resume"
+              icon={<ResumeIcon size={6} />}
+              text="my resume"
+            />
+          </div>
+          <div className="col-6 col-sm-4 col-md-3 mb-3">
+            <Tile
+              className={styles.linkedinTile}
+              href="https://www.linkedin.com/in/nateradebaugh/"
+              icon={<LinkedInIcon size={6} />}
+              text="linkedin"
+            />
+          </div>
+          <div className="col-6 col-sm-4 col-md-3 mb-3">
+            <Tile
+              className={styles.githubTile}
+              href="https://github.com/NateRadebaugh"
+              icon={<GitHubIcon size={6} />}
+              text="github"
+            />
+          </div>
+          <div className="col-12 col-sm-8 col-md-6 mb-3">
+            <Tile
+              className={styles.datetimeTile}
+              href="https://react-datetime.naterad.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              icon={<ReactDateTimeIcon size={6} />}
+              text="@nateradebaugh/react-datetime"
+            />
+          </div>
+          <div className="col-6 col-sm-4 col-md-3 mb-3">
+            <Tile
+              className={styles.twitterTile}
+              href="https://twitter.com/nateradebaugh"
+              icon={<TwitterIcon size={6} />}
+              text="twitter"
+            />
+          </div>
+          <div className="col-12 col-sm-8 col-md-6 mb-3">
+            <Tile
+              className={styles.bundlephobiaTile}
+              href="https://bundlephobia-inline.naterad.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              icon={<BundlephobiaInlineIcon size={6} />}
+              text="bundlephobia-inline"
+            />
+          </div>
         </div>
-        <p className={styles.introText}>
-          <strong>Experienced Senior Associate, Software Solutions</strong> at{" "}
-          <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
-          Graduate of Purdue University.
-        </p>
-      </header>
-
-      <SkipNavContent />
-
-      <Tile
-        className={styles.blogTile}
-        href="/blog"
-        icon={<BlogIcon size={6} />}
-        text="blog"
-      />
-      <Tile
-        className={styles.resumeTile}
-        href="/resume"
-        icon={<ResumeIcon size={6} />}
-        text="my resume"
-      />
-      <Tile
-        className={styles.linkedinTile}
-        href="https://www.linkedin.com/in/nateradebaugh/"
-        icon={<LinkedInIcon size={6} />}
-        text="linkedin"
-      />
-      <Tile
-        className={styles.githubTile}
-        href="https://github.com/NateRadebaugh"
-        icon={<GitHubIcon size={6} />}
-        text="github"
-      />
-
-      <br />
-
-      <Tile
-        className={styles.datetimeTile}
-        href="https://react-datetime.naterad.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        icon={<ReactDateTimeIcon size={6} />}
-        text="@nateradebaugh/react-datetime"
-      />
-      <Tile
-        className={styles.twitterTile}
-        href="https://twitter.com/nateradebaugh"
-        icon={<TwitterIcon size={6} />}
-        text="twitter"
-      />
-
-      <br />
-
-      <Tile
-        className={styles.bundlephobiaTile}
-        href="https://bundlephobia-inline.naterad.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        icon={<BundlephobiaInlineIcon size={6} />}
-        text="bundlephobia-inline"
-      />
+      </div>
     </div>
   );
 }
