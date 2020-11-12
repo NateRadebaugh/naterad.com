@@ -1,5 +1,4 @@
 import Divider from "components/Divider";
-import dayjs from "dayjs";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import ButtonLink from "../../components/ButtonLink";
@@ -14,9 +13,9 @@ interface Post extends BlogPostDetails {
   descriptionSource: string;
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   const posts: Post[] = [];
-  const blogPostDetailsList = getBlogPostDetails();
+  const blogPostDetailsList = getBlogPostDetails({ locale });
   for (const post of blogPostDetailsList) {
     const descriptionSource = await renderToString(post.description, mdxConfig);
     posts.push({
@@ -46,9 +45,7 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
             <h2>
               <Link href={`/blog/${slug}`}>{title}</Link>
             </h2>
-            <p className="font-weight-bold text-muted">
-              {dayjs(date).format("MMMM D, YYYY h:mm A")}
-            </p>
+            <p className="font-weight-bold text-muted">{date}</p>
             {descriptionContent && (
               <p className="text-muted">{descriptionContent}</p>
             )}

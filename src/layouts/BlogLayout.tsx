@@ -1,5 +1,4 @@
 import { SkipNavContent, SkipNavLink } from "@reach/skip-nav";
-import dayjs from "dayjs";
 import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
 import Head from "../components/Head";
@@ -30,11 +29,7 @@ function BlogLayout(props) {
         >
           <h1>{title}</h1>
 
-          {date && (
-            <p className="font-weight-bold text-muted">
-              {dayjs(date).format("MMMM D, YYYY h:mm A")}
-            </p>
-          )}
+          {date && <p className="font-weight-bold text-muted">{date}</p>}
 
           <Divider />
 

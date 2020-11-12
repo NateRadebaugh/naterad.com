@@ -14,7 +14,7 @@ export interface BlogPostDetails {
   description: string;
 }
 
-export default function getBlogPostDetails() {
+export default function getBlogPostDetails({ locale }) {
   const detailsList: BlogPostDetails[] = [];
 
   totalist("src/_posts", (name, abs, stats) => {
@@ -46,10 +46,20 @@ export default function getBlogPostDetails() {
 
   // Sort
   detailsList.sort((a, b) => {
-    const aDate = dayjs(a.date);
-    const bDate = b.date;
+    const aDate = new Date(a.date);
+    const bDate = new Date(b.date);
 
-    return aDate.isBefore(bDate) ? 1 : -1;
+    return aDate < bDate ? 1 : -1;
+  });
+
+  // format dates
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  detailsList.forEach((x) => {
+    x.date = new Intl.DateTimeFormat(locale, options).format(new Date(x.date));
   });
 
   return detailsList;

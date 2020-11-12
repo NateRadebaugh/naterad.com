@@ -10,7 +10,6 @@ import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
 import Divider from "../../components/Divider";
-import dayjs from "dayjs";
 import Link from "../../components/Link";
 import mdxConfig from "../../lib/mdxConfig";
 
@@ -69,7 +68,7 @@ export default function BlogPost({
                 &laquo; {prevTitle}
                 <br />
                 <small className="font-weight-bold text-muted">
-                  {dayjs(prevDate).format("MMMM D, YYYY h:mm A")}
+                  {prevDate}
                 </small>
               </div>
             </Link>
@@ -85,7 +84,7 @@ export default function BlogPost({
                 {nextTitle} &raquo;
                 <br />
                 <small className="font-weight-bold text-muted">
-                  {dayjs(nextDate).format("MMMM D, YYYY h:mm A")}
+                  {nextDate}
                 </small>
               </div>
             </Link>
@@ -100,8 +99,8 @@ export default function BlogPost({
   );
 }
 
-export async function getStaticPaths() {
-  const paths = getBlogPostDetails().map((x) => x.path);
+export async function getStaticPaths({ locale }) {
+  const paths = getBlogPostDetails({ locale }).map((x) => x.path);
 
   return {
     fallback: false,
@@ -109,28 +108,29 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const slug = params.slug;
 
   const source = fs.readFileSync(
     path.join(root, "src", "_posts", `${slug}.mdx`),
     "utf8"
   );
-
-  const { data, content } = matter(source);
+  const { content } = matter(source);
   const mdxSource = await renderToString(content, mdxConfig);
-  const descriptionSource = await renderToString(data.description, mdxConfig);
 
-  const pageInfo = getBlogPostDetails();
+  const pageInfo = getBlogPostDetails({ locale });
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
   const prevPost = pageInfo[postIndex + 1] || null;
   const nextPost = pageInfo[postIndex - 1] || null;
 
+  const post = pageInfo[postIndex] || null;
+  const descriptionSource = await renderToString(post.description, mdxConfig);
+
   const props: BlogPostProps = {
     mdxSource,
     descriptionSource,
-    frontMatter: (data as unknown) as FrontMatterProps,
+    frontMatter: post,
 
     nextPost,
     prevPost,
