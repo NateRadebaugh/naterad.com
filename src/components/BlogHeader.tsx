@@ -60,10 +60,10 @@ function BlogHeader({ isPost, title }) {
           )}
         </div>
       </div>
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-stretch">
         <ButtonLink
           href="/"
-          className="btn btn-dark ml-1 d-none d-md-inline-block"
+          className="btn btn-dark ml-1 d-none d-lg-inline-block"
         >
           Home
         </ButtonLink>

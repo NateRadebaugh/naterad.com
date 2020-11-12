@@ -72,7 +72,7 @@ export default function Index() {
 
         <SkipNavContent />
 
-        <div className="row">
+        <div className="row align-items-stretch">
           <div className="col-6 col-sm-4 col-md-3 mb-3">
             <Tile
               className={styles.blogTile}

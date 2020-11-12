@@ -60,9 +60,12 @@
 .tile {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 100%;
   padding: 5px;
   text-align: center;
   text-decoration: none;
+  word-break: break-word;
   color: #eee;
   border-radius: 8px;
   padding-top: 16px;
