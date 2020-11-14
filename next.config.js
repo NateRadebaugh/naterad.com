@@ -9,7 +9,7 @@ module.exports = withOffline({
     domains: ["www.gravatar.com"],
   },
   workboxOpts: {
-    swDest: "public/service-worker.js",
+    swDest: "service-worker.js",
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
