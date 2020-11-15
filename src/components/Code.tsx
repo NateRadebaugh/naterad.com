@@ -69,11 +69,8 @@ function Code(props: { [x: string]: any }) {
         return (
           <div className={styles.wrapper}>
             <pre className={className} style={style}>
-              {showTitle ? (
+              {showTitle && (
                 <div className={styles.title}>{title || language}</div>
-              ) : (
-                // Spacer
-                <div css={{ height: "8px" }} />
               )}
 
               {lines.map((line, i) => (

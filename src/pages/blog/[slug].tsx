@@ -5,7 +5,6 @@ import fs from "fs";
 import path from "path";
 import BlogLayout from "../../layouts/BlogLayout";
 import syntaxStyles from "../../styles/syntax.module.scss";
-import postStyles from "../../layouts/PostLayout.module.scss";
 import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
@@ -52,19 +51,17 @@ export default function BlogPost({
 
   return (
     <BlogLayout {...frontMatter} description={descriptionContent} isPost>
-      <div className={syntaxStyles.syntax}>
-        <div className={postStyles.post}>{pageContent}</div>
-      </div>
+      <div className={syntaxStyles.syntax}>{pageContent}</div>
 
       <Divider />
 
       <p className="font-weight-bold text-muted">Further reading...</p>
 
-      <div className="d-flex justify-content-between">
-        {hasPrev ? (
-          <strong style={{ width: "50%" }}>
+      <div className="row  font-weight-bold">
+        <div className="col">
+          {hasPrev && (
             <Link href={`/blog/${prevSlug}`}>
-              <div css="display: inline-block">
+              <div>
                 &laquo; {prevTitle}
                 <br />
                 <small className="font-weight-bold text-muted">
@@ -72,15 +69,13 @@ export default function BlogPost({
                 </small>
               </div>
             </Link>
-          </strong>
-        ) : (
-          <div />
-        )}
+          )}
+        </div>
 
-        {hasNext ? (
-          <strong style={{ width: "50%", textAlign: "right" }}>
+        <div className="col text-right">
+          {hasNext && (
             <Link href={`/blog/${nextSlug}`}>
-              <div css="display: inline-block">
+              <div>
                 {nextTitle} &raquo;
                 <br />
                 <small className="font-weight-bold text-muted">
@@ -88,10 +83,8 @@ export default function BlogPost({
                 </small>
               </div>
             </Link>
-          </strong>
-        ) : (
-          <div />
-        )}
+          )}
+        </div>
       </div>
 
       <Divider />
@@ -121,8 +114,8 @@ export async function getStaticProps({ params, locale }) {
   const pageInfo = getBlogPostDetails({ locale });
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
-  const prevPost = pageInfo[postIndex + 1] || null;
-  const nextPost = pageInfo[postIndex - 1] || null;
+  const prevPost = pageInfo[postIndex - 1] || null;
+  const nextPost = pageInfo[postIndex + 1] || null;
 
   const post = pageInfo[postIndex] || null;
   const descriptionSource = await renderToString(post.description, mdxConfig);

@@ -1,8 +1,8 @@
-import Icon from "./Icon";
+import Icon, { IconProps } from "./Icon";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-function GitHubIcon({ size, ...rest }) {
-  return <Icon {...rest} size={size} icon={faGithub} />;
+function GitHubIcon(props: Omit<IconProps, "icon">) {
+  return <Icon icon={faGithub} {...props} />;
 }
 
 export default GitHubIcon;

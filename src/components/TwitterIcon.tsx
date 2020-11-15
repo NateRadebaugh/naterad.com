@@ -1,8 +1,8 @@
-import Icon from "./Icon";
+import Icon, { IconProps } from "./Icon";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-function TwitterIcon({ size, ...rest }) {
-  return <Icon {...rest} size={size} icon={faTwitter} />;
+function TwitterIcon(props: Omit<IconProps, "icon">) {
+  return <Icon icon={faTwitter} {...props} />;
 }
 
 export default TwitterIcon;

@@ -1,8 +1,8 @@
-import Icon from "./Icon";
+import Icon, { IconProps } from "./Icon";
 import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
 
-function ResumeIcon({ size, ...rest }) {
-  return <Icon {...rest} size={size} icon={faFileAlt} />;
+function ResumeIcon(props: Omit<IconProps, "icon">) {
+  return <Icon icon={faFileAlt} {...props} />;
 }
 
 export default ResumeIcon;
