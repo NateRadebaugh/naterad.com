@@ -2,6 +2,7 @@ import { SkipNavContent, SkipNavLink } from "@reach/skip-nav";
 import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
 import Head from "../components/Head";
+import styles from "./BlogLayout.module.scss";
 
 function BlogLayout(props) {
   const { isPost, title, description, date = undefined, children } = props;
@@ -19,14 +20,7 @@ function BlogLayout(props) {
 
         <SkipNavContent />
 
-        <div
-          style={{
-            width: "600px",
-            maxWidth: "90vw",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
+        <div className={styles.pageContent}>
           <h1>{title}</h1>
 
           {date && <p className="font-weight-bold text-muted">{date}</p>}

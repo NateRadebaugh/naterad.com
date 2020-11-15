@@ -12,13 +12,7 @@ const ButtonLink = forwardRef(function ButtonLink(
   const isExternal = href?.startsWith("http");
 
   const component = (
-    <button
-      type="button"
-      ref={ref}
-      href={href}
-      style={{ pointer: "cursor" }}
-      {...rest}
-    >
+    <button type="button" ref={ref} href={href} {...rest}>
       {children}
     </button>
   );

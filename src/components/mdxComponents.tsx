@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "../components/Link";
 import Code from "../components/Code";
+import blockquoteStyles from "./BlockQuote.module.scss";
+import clsx from "clsx";
 
 const mdxComponents = {
   pre: (props) => <div {...props} />,
@@ -9,8 +11,7 @@ const mdxComponents = {
   img: Image,
   blockquote: ({ style, ...props }) => (
     <blockquote
-      className="pl-3 pt-1"
-      style={{ borderLeft: "3px solid #f8f9fa", ...style }}
+      className={clsx("pl-3 pt-1", blockquoteStyles.blockquote)}
       {...props}
     />
   ),

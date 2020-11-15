@@ -5,12 +5,16 @@ import ResumeIcon from "./ResumeIcon";
 import GitHubIcon from "./GitHubIcon";
 import ButtonLink from "./ButtonLink";
 import Image from "next/image";
+import styles from "./BlogHeader.module.scss";
+import clsx from "clsx";
 
 function BlogHeader({ isPost, title }) {
   return (
     <header
-      className="d-flex justify-content-between align-items-center overflow-auto px-1 pt-1 mb-3"
-      style={{ backgroundColor: "#212121", borderBottom: "3px solid #616161" }}
+      className={clsx(
+        "d-flex justify-content-between align-items-center overflow-auto px-1 pt-1 mb-3",
+        styles.header
+      )}
     >
       <div className="d-flex align-items-center">
         <Link href="/" className="mr-2">
@@ -73,7 +77,7 @@ function BlogHeader({ isPost, title }) {
           rel="noopener noreferrer"
           className="btn btn-dark ml-1 d-none d-md-inline-block"
         >
-          <GitHubIcon size="normal" className="mr-1" />
+          <GitHubIcon className="mr-1" />
           GitHub
         </ButtonLink>
         <ButtonLink
@@ -82,7 +86,7 @@ function BlogHeader({ isPost, title }) {
           rel="noopener noreferrer"
           className="btn btn-dark ml-1 d-none d-md-inline-block"
         >
-          <TwitterIcon size="normal" className="mr-1" />
+          <TwitterIcon className="mr-1" />
           Twitter
         </ButtonLink>
         <ButtonLink
@@ -91,11 +95,11 @@ function BlogHeader({ isPost, title }) {
           rel="noopener noreferrer"
           className="btn btn-dark ml-1 d-none d-sm-inline-block"
         >
-          <LinkedInIcon size="normal" className="mr-1" />
+          <LinkedInIcon className="mr-1" />
           LinkedIn
         </ButtonLink>
         <ButtonLink href="/resume" className="btn btn-dark ml-1">
-          <ResumeIcon size="normal" className="mr-1" />
+          <ResumeIcon className="mr-1" />
           Resume
         </ButtonLink>
       </div>
