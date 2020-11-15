@@ -1,6 +1,5 @@
 name: Test Lighthouse Check
-on: [pull_request]
-
+on: pull_request
 jobs:
   lighthouse-check:
     runs-on: ubuntu-latest
@@ -15,12 +14,14 @@ jobs:
       - run: mkdir /tmp/artifacts
       - name: Run Lighthouse
         uses: foo-software/lighthouse-check-action@master
+        env:
+          ENVIRONMENT_URL: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
         with:
           accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
           author: ${{ github.actor }}
           branch: ${{ github.ref }}
           outputDirectory: /tmp/artifacts
-          urls: '${{ ENVIRONMENT_URL }}/,${{ ENVIRONMENT_URL }}/resume,${{ ENVIRONMENT_URL }}/blog,${{ ENVIRONMENT_URL }}/blog/adding-themed-color-classes-to-bootstrap,${{ ENVIRONMENT_URL }}/blog/launch-angular-from-vs-project,${{ ENVIRONMENT_URL }}/blog/mdx-custom-fenced-codeblocks'
+          urls: '$ENVIRONMENT_URL/,$ENVIRONMENT_URL/resume,$ENVIRONMENT_URL/blog,$ENVIRONMENT_URL/blog/adding-themed-color-classes-to-bootstrap,$ENVIRONMENT_URL/blog/launch-angular-from-vs-project,$ENVIRONMENT_URL/blog/mdx-custom-fenced-codeblocks'
           sha: ${{ github.sha }}
       - name: Upload artifacts
         uses: actions/upload-artifact@master
