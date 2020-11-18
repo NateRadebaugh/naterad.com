@@ -1,6 +1,6 @@
-const withOffline = require("next-offline");
+const withPWA = require("next-pwa");
 
-module.exports = withOffline({
+module.exports = withPWA({
   reactStrictMode: true,
   i18n: {
     locales: ["en-US"],
@@ -9,29 +9,9 @@ module.exports = withOffline({
   images: {
     domains: ["www.gravatar.com"],
   },
-  workboxOpts: {
-    swDest: process.env.NEXT_EXPORT
-      ? "service-worker.js"
-      : "static/service-worker.js",
-    runtimeCaching: [
-      {
-        urlPattern: /^https?.*/,
-        handler: "NetworkFirst",
-        options: {
-          cacheName: "offlineCache",
-          expiration: {
-            maxEntries: 200,
-          },
-        },
-      },
-    ],
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/service-worker.js",
-        destination: "/_next/static/service-worker.js",
-      },
-    ];
+  pwa: {
+    disable: process.env.NODE_ENV === "development",
+    dest: "public",
+    sw: "service-worker.gen.js",
   },
 });
