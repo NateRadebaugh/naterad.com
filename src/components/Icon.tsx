@@ -1,9 +1,5 @@
-import { config, IconProp } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false;
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import clsx from "clsx";
-import { CSSProperties } from "react";
 
 import styles from "./Icon.module.scss";
 
@@ -11,18 +7,28 @@ export interface IconProps {
   size?: number;
   icon: IconProp;
   className?: string;
-  style?: CSSProperties;
+  style?: any;
 }
 
 function Icon({ size = 1, icon, ...rest }: IconProps) {
   const { style, className } = rest;
 
+  const [height, width, _, fontGlyphKey, path] = (icon as any).icon as [
+    number,
+    number,
+    [number, number],
+    string,
+    string
+  ];
+
   return (
-    <FontAwesomeIcon
+    <svg
       style={{ ...style, fontSize: `${size}rem` }}
-      icon={icon}
       className={clsx(styles.icon, className)}
-    />
+      viewBox={`0 0 ${height} ${width}`}
+    >
+      <path fill="currentColor" d={path} />
+    </svg>
   );
 }
 
