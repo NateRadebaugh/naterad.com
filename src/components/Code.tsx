@@ -1,7 +1,6 @@
 import theme from "prism-react-renderer/themes/nightOwl";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import styles from "./Code.module.scss";
-import Bundlephobia from "bundlephobia-inline";
 
 const RE = /{([\d,-]+)}/;
 
@@ -33,19 +32,6 @@ function Code(props: { [x: string]: any }) {
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const language = className.replace(/language-/, "");
   const showTitle = title || ![""].includes(language);
-
-  if (["bundlephobia"].includes(language)) {
-    const lines: string[] = codeString.trim().split(/[\n\r]+/);
-    return (
-      <>
-        {lines.map((line) => (
-          <div key={line}>
-            <Bundlephobia key={line} packageName={line} />
-          </div>
-        ))}
-      </>
-    );
-  }
 
   return (
     <Highlight
