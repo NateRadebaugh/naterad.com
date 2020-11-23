@@ -11,7 +11,6 @@ import getBlogPostDetails, {
 import Divider from "../../components/Divider";
 import Link from "../../components/Link";
 import mdxConfig from "../../lib/mdxConfig";
-import { motion } from "framer-motion";
 
 const root = process.cwd();
 
@@ -22,6 +21,7 @@ interface FrontMatterProps {
 }
 
 interface BlogPostProps {
+  slug: string;
   mdxSource: string;
   descriptionSource: string;
   frontMatter: FrontMatterProps;
@@ -56,6 +56,7 @@ export default function BlogPost({
 
   return (
     <BlogLayout
+      slug={slug}
       {...frontMatter}
       description={descriptionContent}
       bannerCredit={bannerCredit}
@@ -67,7 +68,7 @@ export default function BlogPost({
 
       <p className="font-weight-bold text-muted">Further reading...</p>
 
-      <div className="row  font-weight-bold">
+      <div className="row font-weight-bold">
         <div className="col">
           {hasPrev && (
             <Link href={`/blog/${prevSlug}`}>
@@ -132,6 +133,7 @@ export async function getStaticProps({ params, locale }) {
   const bannerCreditSource = await renderToString(post.bannerCredit, mdxConfig);
 
   const props: BlogPostProps = {
+    slug,
     mdxSource,
     descriptionSource,
     frontMatter: post,

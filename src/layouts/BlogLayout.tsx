@@ -6,6 +6,17 @@ import Head from "../components/Head";
 import styles from "./BlogLayout.module.scss";
 import { motion } from "framer-motion";
 
+export interface BlogLayoutProps {
+  isPost: boolean;
+  slug: string;
+  title: string;
+  description: string;
+  banner: string;
+  bannerCredit: string;
+  date: string;
+  children: any;
+}
+
 function BlogLayout(props) {
   const {
     isPost,
