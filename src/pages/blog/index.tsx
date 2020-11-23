@@ -9,6 +9,7 @@ import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
 import mdxConfig from "../../lib/mdxConfig";
+import { motion } from "framer-motion";
 
 interface Post extends BlogPostDetails {
   descriptionSource: string;
@@ -44,18 +45,29 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
         return (
           <div key={slug}>
             {banner && (
-              <Image
-                src={banner}
-                width={600}
-                height={300}
-                className="border rounded"
-              />
+              <motion.div layout layoutId={`${slug}-banner-image`}>
+                <Image
+                  src={banner}
+                  width={600}
+                  height={300}
+                  className="border rounded"
+                />
+              </motion.div>
             )}
-            <h2>
+            <motion.h2 layoutId={`${slug}-post-title`}>
               <Link href={`/blog/${slug}`}>{title}</Link>
-            </h2>
-            <p className="font-weight-bold text-muted">{date}</p>
-            {descriptionContent && <div>{descriptionContent}</div>}
+            </motion.h2>
+            <motion.p
+              className="font-weight-bold text-muted"
+              layoutId={`${slug}-post-date`}
+            >
+              {date}
+            </motion.p>
+            {descriptionContent && (
+              <motion.div layoutId={`${slug}-post-description`}>
+                {descriptionContent}
+              </motion.div>
+            )}
 
             <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
               Read more

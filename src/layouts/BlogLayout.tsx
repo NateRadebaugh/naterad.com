@@ -4,10 +4,12 @@ import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
 import Head from "../components/Head";
 import styles from "./BlogLayout.module.scss";
+import { motion } from "framer-motion";
 
 function BlogLayout(props) {
   const {
     isPost,
+    slug,
     title,
     description,
     banner,
@@ -30,29 +32,41 @@ function BlogLayout(props) {
         <SkipNavContent />
 
         <div className={styles.pageContent}>
-          <h1>{title}</h1>
+          <motion.h1 layoutId={`${slug}-post-title`}>{title}</motion.h1>
 
-          {date && <p className="font-weight-bold text-muted">{date}</p>}
+          {date && (
+            <motion.p
+              className="font-weight-bold text-muted"
+              layoutId={`${slug}-post-date`}
+            >
+              {date}
+            </motion.p>
+          )}
 
           <Divider />
 
           {description && (
             <>
-              <div className="text-muted">
+              <motion.div
+                className="text-muted"
+                layoutId={`${slug}-post-description`}
+              >
                 <em>{description}</em>
-              </div>
+              </motion.div>
               <Divider />
             </>
           )}
 
           {banner && (
             <>
-              <Image
-                src={banner}
-                width={600}
-                height={300}
-                className="border rounded"
-              />
+              <motion.div layout layoutId={`${slug}-banner-image`}>
+                <Image
+                  src={banner}
+                  width={600}
+                  height={300}
+                  className="border rounded"
+                />
+              </motion.div>
               <div className="text-muted">
                 <em>{bannerCredit}</em>
               </div>
