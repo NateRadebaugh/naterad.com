@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SkipNavContent, SkipNavLink } from "@reach/skip-nav";
 import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
@@ -5,7 +6,15 @@ import Head from "../components/Head";
 import styles from "./BlogLayout.module.scss";
 
 function BlogLayout(props) {
-  const { isPost, title, description, date = undefined, children } = props;
+  const {
+    isPost,
+    title,
+    description,
+    banner,
+    bannerCredit,
+    date = undefined,
+    children,
+  } = props;
 
   return (
     <>
@@ -33,6 +42,20 @@ function BlogLayout(props) {
                 <em>{description}</em>
               </div>
               <Divider />
+            </>
+          )}
+
+          {banner && (
+            <>
+              <Image
+                src={banner}
+                width={600}
+                height={300}
+                className="border rounded"
+              />
+              <div className="text-muted">
+                <em>{bannerCredit}</em>
+              </div>
             </>
           )}
 

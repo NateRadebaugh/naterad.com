@@ -11,6 +11,8 @@ export interface BlogPostDetails {
   title: string;
   date: string;
   description: string;
+  banner?: string;
+  bannerCredit?: string;
 }
 
 export default function getBlogPostDetails({ locale }) {
@@ -33,6 +35,8 @@ export default function getBlogPostDetails({ locale }) {
         title: data.title,
         date: data.date,
         description: data.description,
+        banner: data.banner || null,
+        bannerCredit: data.bannerCredit || null,
       });
 
       if (stats.size >= 100e3) {
