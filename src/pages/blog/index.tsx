@@ -3,6 +3,7 @@ import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import ButtonLink from "../../components/ButtonLink";
 import Link from "../../components/Link";
+import Image from "next/image";
 import BlogLayout from "../../layouts/BlogLayout";
 import getBlogPostDetails, {
   BlogPostDetails,
@@ -38,10 +39,18 @@ interface BlogIndexPageProps {
 function BlogIndexPage({ posts }: BlogIndexPageProps) {
   return (
     <BlogLayout title="Blog Posts">
-      {posts.map(({ slug, title, date, descriptionSource }) => {
+      {posts.map(({ slug, title, date, descriptionSource, banner }) => {
         const descriptionContent = hydrate(descriptionSource, mdxConfig);
         return (
           <div key={slug}>
+            {banner && (
+              <Image
+                src={banner}
+                width={600}
+                height={300}
+                className="border rounded"
+              />
+            )}
             <h2>
               <Link href={`/blog/${slug}`}>{title}</Link>
             </h2>

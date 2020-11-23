@@ -24,6 +24,7 @@ interface BlogPostProps {
   mdxSource: string;
   descriptionSource: string;
   frontMatter: FrontMatterProps;
+  bannerCreditSource: string;
 
   nextPost: BlogPostDetails;
   prevPost: BlogPostDetails;
@@ -32,12 +33,14 @@ interface BlogPostProps {
 export default function BlogPost({
   mdxSource,
   descriptionSource,
+  bannerCreditSource,
   frontMatter,
   prevPost,
   nextPost,
 }: BlogPostProps) {
   const pageContent = hydrate(mdxSource, mdxConfig);
   const descriptionContent = hydrate(descriptionSource, mdxConfig);
+  const bannerCredit = hydrate(bannerCreditSource, mdxConfig);
 
   const hasPrev = !!prevPost;
   const prevSlug = prevPost?.slug ?? null;
@@ -50,7 +53,12 @@ export default function BlogPost({
   const nextDate = nextPost?.date ?? null;
 
   return (
-    <BlogLayout {...frontMatter} description={descriptionContent} isPost>
+    <BlogLayout
+      {...frontMatter}
+      description={descriptionContent}
+      bannerCredit={bannerCredit}
+      isPost
+    >
       <div className={syntaxStyles.syntax}>{pageContent}</div>
 
       <Divider />
@@ -119,11 +127,13 @@ export async function getStaticProps({ params, locale }) {
 
   const post = pageInfo[postIndex] || null;
   const descriptionSource = await renderToString(post.description, mdxConfig);
+  const bannerCreditSource = await renderToString(post.bannerCredit, mdxConfig);
 
   const props: BlogPostProps = {
     mdxSource,
     descriptionSource,
     frontMatter: post,
+    bannerCreditSource,
 
     nextPost,
     prevPost,
