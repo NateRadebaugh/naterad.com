@@ -43,6 +43,22 @@ function BlogLayout(props) {
             </motion.p>
           )}
 
+          {banner && (
+            <>
+              <motion.div layoutId={`${slug}-banner-image`}>
+                <Image
+                  src={banner}
+                  width={600}
+                  height={300}
+                  className="border rounded"
+                />
+              </motion.div>
+              <div className="text-muted">
+                <em>{bannerCredit}</em>
+              </div>
+            </>
+          )}
+
           <Divider />
 
           {description && (
@@ -54,22 +70,6 @@ function BlogLayout(props) {
                 <em>{description}</em>
               </motion.div>
               <Divider />
-            </>
-          )}
-
-          {banner && (
-            <>
-              <motion.div layout layoutId={`${slug}-banner-image`}>
-                <Image
-                  src={banner}
-                  width={600}
-                  height={300}
-                  className="border rounded"
-                />
-              </motion.div>
-              <div className="text-muted">
-                <em>{bannerCredit}</em>
-              </div>
             </>
           )}
 

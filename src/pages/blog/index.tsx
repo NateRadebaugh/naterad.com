@@ -44,25 +44,32 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
         const descriptionContent = hydrate(descriptionSource, mdxConfig);
         return (
           <div key={slug}>
-            {banner && (
-              <motion.div layout layoutId={`${slug}-banner-image`}>
-                <Image
-                  src={banner}
-                  width={600}
-                  height={300}
-                  className="border rounded"
-                />
-              </motion.div>
-            )}
-            <motion.h2 layoutId={`${slug}-post-title`}>
-              <Link href={`/blog/${slug}`}>{title}</Link>
-            </motion.h2>
-            <motion.p
-              className="font-weight-bold text-muted"
-              layoutId={`${slug}-post-date`}
-            >
-              {date}
-            </motion.p>
+            <div className="row">
+              {banner && (
+                <motion.div
+                  className="col-4 pr-0"
+                  layoutId={`${slug}-banner-image`}
+                >
+                  <Image
+                    src={banner}
+                    width={600}
+                    height={300}
+                    className="border rounded"
+                  />
+                </motion.div>
+              )}
+              <div className="col-8">
+                <motion.h2 layoutId={`${slug}-post-title`}>
+                  <Link href={`/blog/${slug}`}>{title}</Link>
+                </motion.h2>
+                <motion.p
+                  className="font-weight-bold text-muted"
+                  layoutId={`${slug}-post-date`}
+                >
+                  {date}
+                </motion.p>
+              </div>
+            </div>
             {descriptionContent && (
               <motion.div layoutId={`${slug}-post-description`}>
                 {descriptionContent}

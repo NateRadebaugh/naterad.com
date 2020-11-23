@@ -11,6 +11,7 @@ import getBlogPostDetails, {
 import Divider from "../../components/Divider";
 import Link from "../../components/Link";
 import mdxConfig from "../../lib/mdxConfig";
+import { motion } from "framer-motion";
 
 const root = process.cwd();
 
@@ -31,6 +32,7 @@ interface BlogPostProps {
 }
 
 export default function BlogPost({
+  slug,
   mdxSource,
   descriptionSource,
   bannerCreditSource,
