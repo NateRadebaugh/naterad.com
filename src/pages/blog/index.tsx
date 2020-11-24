@@ -43,23 +43,52 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
         const descriptionContent = hydrate(descriptionSource, mdxConfig);
         return (
           <div key={slug}>
-            {banner && (
-              <Image
-                src={banner}
-                width={600}
-                height={300}
-                className="border rounded"
-              />
-            )}
-            <h2>
-              <Link href={`/blog/${slug}`}>{title}</Link>
-            </h2>
-            <p className="font-weight-bold text-muted">{date}</p>
-            {descriptionContent && <div>{descriptionContent}</div>}
+            <div className="position-relative" style={{ height: 300 }}>
+              {banner && (
+                <>
+                  <div
+                    className="position-absolute"
+                    style={{ top: 0, left: 0 }}
+                  >
+                    <Image
+                      src={banner}
+                      width={600}
+                      height={300}
+                      className="border rounded"
+                    />
+                  </div>
+                  <div
+                    style={{
+                      top: 0,
+                      left: 0,
+                      backgroundColor: "black",
+                      opacity: 0.85,
+                    }}
+                    className="position-absolute w-100 h-100"
+                  ></div>
+                </>
+              )}
+              <div
+                className="position-absolute p-3 d-flex flex-column"
+                style={{ minHeight: 300 }}
+              >
+                <h2>
+                  <Link href={`/blog/${slug}`} className="text-white">
+                    {title}
+                  </Link>
+                </h2>
+                <p className="font-weight-bold text-muted">{date}</p>
 
-            <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
-              Read more
-            </ButtonLink>
+                {descriptionContent && <div>{descriptionContent}</div>}
+
+                <ButtonLink
+                  href={`/blog/${slug}`}
+                  className="btn btn-primary align-self-start mt-auto"
+                >
+                  Read more
+                </ButtonLink>
+              </div>
+            </div>
 
             <Divider />
           </div>

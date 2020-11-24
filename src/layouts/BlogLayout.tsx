@@ -30,32 +30,52 @@ function BlogLayout(props) {
         <SkipNavContent />
 
         <div className={styles.pageContent}>
-          <h1>{title}</h1>
-
-          {date && <p className="font-weight-bold text-muted">{date}</p>}
-
-          <Divider />
-
-          {description && (
+          {banner ? (
             <>
-              <div className="text-muted">
-                <em>{description}</em>
+              <div className="position-relative mb-3" style={{ height: 300 }}>
+                <>
+                  <div
+                    className="position-absolute"
+                    style={{ top: 0, left: 0 }}
+                  >
+                    <Image
+                      src={banner}
+                      width={600}
+                      height={300}
+                      className="border rounded"
+                    />
+                  </div>
+                  <div
+                    style={{
+                      top: 0,
+                      left: 0,
+                      backgroundColor: "black",
+                      opacity: 0.85,
+                    }}
+                    className="position-absolute w-100 h-100"
+                  ></div>
+                </>
+                <div
+                  className="position-absolute px-3 pt-3 d-flex flex-column"
+                  style={{ minHeight: 300 }}
+                >
+                  <h2 className="text-white">{title}</h2>
+                  <p className="font-weight-bold text-muted">{date}</p>
+
+                  {description && <div>{description}</div>}
+
+                  <div className="text-muted align-self-start mt-auto">
+                    <em>{bannerCredit}</em>
+                  </div>
+                </div>
               </div>
+
               <Divider />
             </>
-          )}
-
-          {banner && (
+          ) : (
             <>
-              <Image
-                src={banner}
-                width={600}
-                height={300}
-                className="border rounded"
-              />
-              <div className="text-muted">
-                <em>{bannerCredit}</em>
-              </div>
+              <h2 className="text-white">{title}</h2>
+              <Divider />
             </>
           )}
 
