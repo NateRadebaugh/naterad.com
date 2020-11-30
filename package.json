@@ -9,7 +9,8 @@
     "dev": "next",
     "build": "next build",
     "start": "set NODE_ENV=production&&next start",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -22,7 +23,7 @@
     "bootstrap": "^4.5.3",
     "clsx": "^1.1.1",
     "gray-matter": "^4.0.2",
-    "next": "^10.0.2",
+    "next": "^10.0.3",
     "next-compose-plugins": "^2.2.1",
     "next-mdx-remote": "^1.0.0",
     "next-pwa": "^3.1.5",
@@ -40,6 +41,7 @@
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "4.8.2",
     "@typescript-eslint/parser": "4.8.2",
+    "cross-env": "^7.0.2",
     "eslint": "7.14.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "5.2.0",
