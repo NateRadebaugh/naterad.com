@@ -111,7 +111,7 @@ Let's take a look at how `<Code />` works, and what props get passed.
 
 With a little trickery, we can overload the `language-` value being passed in to short-circuit the `Code` return value for the unique scenarios:
 
-```jsx
+```jsx {3}
 function Code(props) {
   const { children: codeString = "", metastring = "", className = "" } = props;
   const language = className.replace(/language-/, "");

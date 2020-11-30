@@ -30,7 +30,7 @@ function BlogLayout(props) {
           {description && (
             <>
               <div className="text-muted">
-                <em>{description}</em>
+                <em dangerouslySetInnerHTML={{ __html: description }}></em>
               </div>
               <Divider />
             </>

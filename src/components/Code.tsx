@@ -1,6 +1,5 @@
 import theme from "prism-react-renderer/themes/nightOwl";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import styles from "./Code.module.scss";
 
 const RE = /{([\d,-]+)}/;
 
@@ -53,10 +52,10 @@ function Code(props: { [x: string]: any }) {
               !["", "txt", "text", "shell", "bash", "dir"].includes(language);
 
         return (
-          <div className={styles.wrapper}>
+          <div className="code">
             <pre className={className} style={style}>
               {showTitle && (
-                <div className={styles.title}>{title || language}</div>
+                <div className="code-title">{title || language}</div>
               )}
 
               {lines.map((line, i) => (
@@ -66,12 +65,12 @@ function Code(props: { [x: string]: any }) {
                     line,
                     key: i,
                     className: shouldHighlightLine(i)
-                      ? styles.highlightLine
+                      ? "code-highlightLine"
                       : "",
                   })}
                 >
                   {showLineNumbers && (
-                    <span className={styles.lineNumber}>{i + 1}</span>
+                    <span className="code-lineNumber">{i + 1}</span>
                   )}
 
                   {line.map((token, key) => (
