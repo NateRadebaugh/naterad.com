@@ -1,4 +1,4 @@
-import { SkipNavContent, SkipNavLink } from "@reach/skip-nav";
+import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
 import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
 import Head from "../components/Head";

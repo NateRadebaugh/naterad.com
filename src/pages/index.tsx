@@ -8,7 +8,7 @@ import LinkedInIcon from "../components/LinkedInIcon";
 import GitHubIcon from "../components/GitHubIcon";
 import TwitterIcon from "../components/TwitterIcon";
 import BlogIcon from "../components/BlogIcon";
-import { SkipNavLink, SkipNavContent } from "@reach/skip-nav";
+import { SkipNavLink, SkipNavContent } from "../components/SkipNav";
 import { forwardRef } from "react";
 import clsx from "clsx";
 

@@ -7,11 +7,7 @@ $gray-600: rgba(255, 255, 255, 0.6);
 $link-color: rgb(102, 184, 255);
 $code-color: rgb(173, 219, 103);
 
-:root {
-  --reach-skip-nav: 1;
-}
-
-[data-reach-skip-nav-link] {
+[data-skip-nav-link] {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -22,7 +18,7 @@ $code-color: rgb(173, 219, 103);
   position: absolute;
 }
 
-[data-reach-skip-nav-link]:focus {
+[data-skip-nav-link]:focus {
   padding: 1rem;
   position: fixed;
   top: 10px;
