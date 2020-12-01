@@ -49,7 +49,7 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
             <h2>
               <Link href={`/blog/${slug}`}>{title}</Link>
             </h2>
-            <p className="font-weight-bold text-muted">{date}</p>
+            <p className="font-bold text-gray-400">{date}</p>
             {descriptionContent && (
               <div
                 dangerouslySetInnerHTML={{ __html: descriptionContent }}
