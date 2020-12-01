@@ -23,13 +23,13 @@ function BlogLayout(props) {
         <div className={styles.pageContent}>
           <h1>{title}</h1>
 
-          {date && <p className="font-weight-bold text-muted">{date}</p>}
+          {date && <p className="font-bold text-gray-400">{date}</p>}
 
           <Divider />
 
           {description && (
             <>
-              <div className="text-muted">
+              <div className="text-gray-400">
                 <em dangerouslySetInnerHTML={{ __html: description }}></em>
               </div>
               <Divider />
