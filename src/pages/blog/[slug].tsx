@@ -11,7 +11,6 @@ import Divider from "../../components/Divider";
 import Link from "../../components/Link";
 import Code from "../../components/Code";
 import clsx from "clsx";
-import blockquoteStyles from "../../components/BlockQuote.module.scss";
 import Image from "next/image";
 import RenderToStringResult from "../../lib/RenderToStringResult";
 
@@ -23,7 +22,7 @@ const mdxConfig = {
     img: Image,
     blockquote: ({ style, ...props }) => (
       <blockquote
-        className={clsx("pl-3 pt-1", blockquoteStyles.blockquote)}
+        className={clsx("pl-3 pt-1 border-l-4 border-gray-500")}
         {...props}
       />
     ),
@@ -70,7 +69,7 @@ export default function BlogPost({
   return (
     <BlogLayout {...frontMatter} description={descriptionContent} isPost>
       <div
-        className={syntaxStyles.syntax}
+        className={clsx(syntaxStyles.syntax, "dark:prose")}
         dangerouslySetInnerHTML={{ __html: pageContent }}
       ></div>
 
