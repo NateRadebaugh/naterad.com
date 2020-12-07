@@ -1,3 +1,4 @@
+import "twin.macro";
 import renderToString from "next-mdx-remote/render-to-string";
 import matter from "gray-matter";
 import fs from "fs";
@@ -22,14 +23,15 @@ const mdxConfig = {
     img: Image,
     p: (props) => <p className="mb-3" {...props} />,
     ol: (props) => (
-      <ul className="list-decimal list-outside pl-3 mb-3" {...props} />
+      <ul className="pl-3 mb-3" tw="list-decimal list-outside" {...props} />
     ),
     ul: (props) => (
-      <ul className="list-disc list-outside pl-3 mb-3" {...props} />
+      <ul className="pl-3 mb-2" tw="list-disc list-outside" {...props} />
     ),
     blockquote: ({ style, ...props }) => (
       <blockquote
-        className={clsx("pl-3 pt-1 border-l-4 border-gray-500")}
+        className="pl-3 pt-1"
+        tw="border-l-4 border-gray-500"
         {...props}
       />
     ),
@@ -82,16 +84,16 @@ export default function BlogPost({
 
       <Divider />
 
-      <p className="font-bold text-gray-400">Further reading...</p>
+      <p tw="font-bold text-gray-400">Further reading...</p>
 
-      <div className="row font-bold">
+      <div className="row" tw="font-bold">
         <div className="col">
           {hasPrev && (
             <Link href={`/blog/${prevSlug}`}>
               <div>
                 &laquo; {prevTitle}
                 <br />
-                <small className="font-bold text-gray-400">{prevDate}</small>
+                <small tw="font-bold text-gray-400">{prevDate}</small>
               </div>
             </Link>
           )}
@@ -103,7 +105,7 @@ export default function BlogPost({
               <div>
                 {nextTitle} &raquo;
                 <br />
-                <small className="font-bold text-gray-400">{nextDate}</small>
+                <small tw="font-bold text-gray-400">{nextDate}</small>
               </div>
             </Link>
           )}

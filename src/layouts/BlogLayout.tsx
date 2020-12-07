@@ -1,3 +1,4 @@
+import "twin.macro";
 import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
 import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
@@ -23,13 +24,13 @@ function BlogLayout(props) {
         <div className={styles.pageContent}>
           <h1>{title}</h1>
 
-          {date && <p className="font-bold text-gray-400">{date}</p>}
+          {date && <p tw="font-bold text-gray-400">{date}</p>}
 
           <Divider />
 
           {description && (
             <>
-              <div className="text-gray-400">
+              <div tw="text-gray-400">
                 <em dangerouslySetInnerHTML={{ __html: description }}></em>
               </div>
               <Divider />

@@ -66,39 +66,37 @@ function BlogHeader({ isPost, title }) {
       </div>
       <div className="d-flex align-items-stretch">
         <ButtonLink
+          variant="default"
           href="/"
-          className="btn btn-dark ml-1 d-none d-lg-inline-block"
+          className="ml-1 d-none d-lg-inline-block"
         >
           Home
         </ButtonLink>
         <ButtonLink
+          variant="default"
           href="https://github.com/NateRadebaugh"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-dark ml-1 d-none d-md-inline-block"
+          className="ml-1 d-none d-md-inline-block"
         >
           <GitHubIcon className="mr-1" />
           GitHub
         </ButtonLink>
         <ButtonLink
+          variant="default"
           href="https://twitter.com/nateradebaugh"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-dark ml-1 d-none d-md-inline-block"
+          className="ml-1 d-none d-md-inline-block"
         >
           <TwitterIcon className="mr-1" />
           Twitter
         </ButtonLink>
         <ButtonLink
+          variant="default"
           href="https://www.linkedin.com/in/nateradebaugh/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-dark ml-1 d-none d-sm-inline-block"
+          className="ml-1 d-none d-sm-inline-block"
         >
           <LinkedInIcon className="mr-1" />
           LinkedIn
         </ButtonLink>
-        <ButtonLink href="/resume" className="btn btn-dark ml-1">
+        <ButtonLink variant="default" href="/resume" className="ml-1">
           <ResumeIcon className="mr-1" />
           Resume
         </ButtonLink>

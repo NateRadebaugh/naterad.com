@@ -1,20 +1,36 @@
+import tw from "twin.macro";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import { forwardRef } from "react";
 
-export type LinkProps = NextLinkProps & {
+export interface LinkProps extends Omit<NextLinkProps, "href"> {
   children: React.ReactNode;
-} & any;
+  variant: "primary" | "default";
+  href: string;
+  className?: string;
+}
 
-const ButtonLink = forwardRef(function ButtonLink(
-  { children, href, ...rest }: LinkProps,
+const ButtonLink = forwardRef<HTMLAnchorElement, LinkProps>(function ButtonLink(
+  { children, variant = "default", href, className, ...rest },
   ref
 ) {
   const isExternal = href?.startsWith("http");
 
   const component = (
-    <button type="button" ref={ref} href={href} {...rest}>
+    <a
+      ref={ref}
+      className={className}
+      tw="py-2 px-3 rounded-md no-underline hover:no-underline text-white hover:text-white transition ease-out duration-200"
+      css={[
+        variant === "primary" && tw`bg-green-700 hover:bg-green-800`,
+        variant === "default" && tw`bg-gray-700 hover:bg-gray-800`,
+      ]}
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      {...rest}
+    >
       {children}
-    </button>
+    </a>
   );
 
   if (isExternal) {

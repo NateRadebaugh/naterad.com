@@ -1,18 +1,29 @@
+import "twin.macro";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import { forwardRef } from "react";
 
-export type LinkProps = NextLinkProps & {
+export interface LinkProps extends Omit<NextLinkProps, "href"> {
   children: React.ReactNode;
-} & any;
+  href: string;
+  className?: string;
+}
 
-const Link = forwardRef(function Link(
-  { children, href, ...rest }: LinkProps,
+const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+  { children, href, className, ...rest }: LinkProps,
   ref
 ) {
   const isExternal = href?.startsWith("http");
 
   const component = (
-    <a ref={ref} href={href} {...rest}>
+    <a
+      ref={ref}
+      className={className}
+      tw="text-blue-400 hover:text-blue-500 transition ease-out duration-200"
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      {...rest}
+    >
       {children}
     </a>
   );

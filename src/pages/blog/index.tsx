@@ -1,3 +1,4 @@
+import "twin.macro";
 import Divider from "components/Divider";
 import RenderToStringResult from "../../lib/RenderToStringResult";
 import renderToString from "next-mdx-remote/render-to-string";
@@ -49,14 +50,14 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
             <h2>
               <Link href={`/blog/${slug}`}>{title}</Link>
             </h2>
-            <p className="font-bold text-gray-400">{date}</p>
+            <p tw="font-bold text-gray-400">{date}</p>
             {descriptionContent && (
               <div
                 dangerouslySetInnerHTML={{ __html: descriptionContent }}
               ></div>
             )}
 
-            <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
+            <ButtonLink href={`/blog/${slug}`} variant="primary">
               Read more
             </ButtonLink>
 
