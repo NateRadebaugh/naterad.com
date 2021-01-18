@@ -19,7 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@next/bundle-analyzer": "^10.0.5",
     "@reach/skip-nav": "^0.12.1",
-    "@tailwindcss/typography": "^0.3.1",
+    "@tailwindcss/typography": "^0.4.0",
     "@zeit/next-typescript": "^1.1.1",
     "autoprefixer": "^10.2.1",
     "bootstrap": "^4.5.3",
