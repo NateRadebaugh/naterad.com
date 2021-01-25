@@ -12,7 +12,7 @@ import Link from "../../components/Link";
 import Code from "../../components/Code";
 import clsx from "clsx";
 import Image from "next/image";
-import RenderToStringResult from "../../lib/RenderToStringResult";
+import { MdxRemote } from "next-mdx-remote/types";
 
 const mdxConfig = {
   components: {
@@ -45,8 +45,8 @@ interface FrontMatterProps {
 }
 
 interface BlogPostProps {
-  mdxSource: RenderToStringResult;
-  descriptionSource: RenderToStringResult;
+  mdxSource: MdxRemote.Source;
+  descriptionSource: MdxRemote.Source;
   frontMatter: FrontMatterProps;
 
   nextPost: BlogPostDetails;
