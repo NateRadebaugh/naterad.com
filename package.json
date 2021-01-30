@@ -2,7 +2,7 @@
   "name": "naterad.com",
   "version": "1.0.0",
   "engines": {
-    "node": "14.x"
+    "node": "12.x"
   },
   "scripts": {
     "now-build": "next build",
@@ -39,7 +39,7 @@
     "tailwindcss": "^2.0.2",
     "totalist": "^2.0.0",
     "typescript": "^4.1.3",
-    "webpack": "4"
+    "webpack": "4.46.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
