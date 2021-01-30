@@ -15,6 +15,9 @@ module.exports = withPlugins([withPWA, withBundleAnalyzer], {
   experimental: {
     reactMode: "concurrent",
   },
+  future: {
+    webpack5: true
+  },
   i18n: {
     locales: ["en-US"],
     defaultLocale: "en-US",
