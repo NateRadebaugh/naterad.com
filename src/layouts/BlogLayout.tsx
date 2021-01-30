@@ -1,4 +1,4 @@
-import { SkipNavContent, SkipNavLink } from "@reach/skip-nav";
+import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
 import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
 import Head from "../components/Head";
@@ -23,14 +23,14 @@ function BlogLayout(props) {
         <div className={styles.pageContent}>
           <h1>{title}</h1>
 
-          {date && <p className="font-weight-bold text-muted">{date}</p>}
+          {date && <p className="font-bold text-gray-400">{date}</p>}
 
           <Divider />
 
           {description && (
             <>
-              <div className="text-muted">
-                <em>{description}</em>
+              <div className="text-gray-400">
+                <em dangerouslySetInnerHTML={{ __html: description }}></em>
               </div>
               <Divider />
             </>

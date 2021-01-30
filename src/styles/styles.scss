@@ -7,11 +7,7 @@ $gray-600: rgba(255, 255, 255, 0.6);
 $link-color: rgb(102, 184, 255);
 $code-color: rgb(173, 219, 103);
 
-:root {
-  --reach-skip-nav: 1;
-}
-
-[data-reach-skip-nav-link] {
+[data-skip-nav-link] {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -22,7 +18,7 @@ $code-color: rgb(173, 219, 103);
   position: absolute;
 }
 
-[data-reach-skip-nav-link]:focus {
+[data-skip-nav-link]:focus {
   padding: 1rem;
   position: fixed;
   top: 10px;
@@ -50,5 +46,41 @@ body {
   :root {
     color: $body-bg;
     background-color: $body-color;
+  }
+}
+
+.code {
+  overflow: auto;
+  margin-left: -20px;
+  margin-right: -20px;
+
+  .code-title {
+    display: inline-block;
+    color: #011627;
+    background-color: #d6deeb;
+    font-size: 0.75rem;
+    letter-spacing: 0.075em;
+    line-height: 1;
+    left: 1.5rem;
+    text-transform: uppercase;
+    top: 0px;
+    border-radius: 0px 0px 4px 4px;
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0.25rem;
+    user-select: none;
+  }
+
+  .code-lineNumber {
+    display: inline-block;
+    width: 1.5rem;
+    user-select: none;
+    opacity: 0.8;
+  }
+
+  .code-highlightLine {
+    background-color: rgba(201, 167, 255, 0.2);
+    margin: 0 -10px;
+    padding: 0 5px;
+    border-left: 5px solid #c9a7ff;
   }
 }

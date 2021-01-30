@@ -1,5 +1,5 @@
 import Divider from "components/Divider";
-import hydrate from "next-mdx-remote/hydrate";
+import { MdxRemote } from "next-mdx-remote/types";
 import renderToString from "next-mdx-remote/render-to-string";
 import ButtonLink from "../../components/ButtonLink";
 import Link from "../../components/Link";
@@ -7,10 +7,14 @@ import BlogLayout from "../../layouts/BlogLayout";
 import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
-import mdxConfig from "../../lib/mdxConfig";
+
+// No special markdown supported here
+const mdxConfig = {
+  components: {},
+};
 
 interface Post extends BlogPostDetails {
-  descriptionSource: string;
+  descriptionSource: MdxRemote.Source;
 }
 
 export async function getStaticProps({ locale }) {
@@ -39,14 +43,18 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
   return (
     <BlogLayout title="Blog Posts">
       {posts.map(({ slug, title, date, descriptionSource }) => {
-        const descriptionContent = hydrate(descriptionSource, mdxConfig);
+        const { renderedOutput: descriptionContent } = descriptionSource || {};
         return (
           <div key={slug}>
             <h2>
               <Link href={`/blog/${slug}`}>{title}</Link>
             </h2>
-            <p className="font-weight-bold text-muted">{date}</p>
-            {descriptionContent && <div>{descriptionContent}</div>}
+            <p className="font-bold text-gray-400">{date}</p>
+            {descriptionContent && (
+              <div
+                dangerouslySetInnerHTML={{ __html: descriptionContent }}
+              ></div>
+            )}
 
             <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
               Read more

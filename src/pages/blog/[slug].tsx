@@ -1,5 +1,4 @@
 import renderToString from "next-mdx-remote/render-to-string";
-import hydrate from "next-mdx-remote/hydrate";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
@@ -10,7 +9,32 @@ import getBlogPostDetails, {
 } from "../../lib/getBlogPostDetails";
 import Divider from "../../components/Divider";
 import Link from "../../components/Link";
-import mdxConfig from "../../lib/mdxConfig";
+import Code from "../../components/Code";
+import clsx from "clsx";
+import Image from "next/image";
+import { MdxRemote } from "next-mdx-remote/types";
+
+const mdxConfig = {
+  components: {
+    pre: (props) => <div {...props} />,
+    code: Code,
+    a: Link,
+    img: Image,
+    p: (props) => <p className="mb-3" {...props} />,
+    ol: (props) => (
+      <ul className="list-decimal list-outside pl-3 mb-3" {...props} />
+    ),
+    ul: (props) => (
+      <ul className="list-disc list-outside pl-3 mb-3" {...props} />
+    ),
+    blockquote: ({ style, ...props }) => (
+      <blockquote
+        className={clsx("pl-3 pt-1 border-l-4 border-gray-500")}
+        {...props}
+      />
+    ),
+  },
+};
 
 const root = process.cwd();
 
@@ -21,8 +45,8 @@ interface FrontMatterProps {
 }
 
 interface BlogPostProps {
-  mdxSource: string;
-  descriptionSource: string;
+  mdxSource: MdxRemote.Source;
+  descriptionSource: MdxRemote.Source;
   frontMatter: FrontMatterProps;
 
   nextPost: BlogPostDetails;
@@ -36,8 +60,8 @@ export default function BlogPost({
   prevPost,
   nextPost,
 }: BlogPostProps) {
-  const pageContent = hydrate(mdxSource, mdxConfig);
-  const descriptionContent = hydrate(descriptionSource, mdxConfig);
+  const { renderedOutput: pageContent } = mdxSource;
+  const { renderedOutput: descriptionContent } = descriptionSource;
 
   const hasPrev = !!prevPost;
   const prevSlug = prevPost?.slug ?? null;
@@ -51,22 +75,23 @@ export default function BlogPost({
 
   return (
     <BlogLayout {...frontMatter} description={descriptionContent} isPost>
-      <div className={syntaxStyles.syntax}>{pageContent}</div>
+      <div
+        className={clsx(syntaxStyles.syntax, "dark:prose")}
+        dangerouslySetInnerHTML={{ __html: pageContent }}
+      ></div>
 
       <Divider />
 
-      <p className="font-weight-bold text-muted">Further reading...</p>
+      <p className="font-bold text-gray-400">Further reading...</p>
 
-      <div className="row  font-weight-bold">
+      <div className="row font-bold">
         <div className="col">
           {hasPrev && (
             <Link href={`/blog/${prevSlug}`}>
               <div>
                 &laquo; {prevTitle}
                 <br />
-                <small className="font-weight-bold text-muted">
-                  {prevDate}
-                </small>
+                <small className="font-bold text-gray-400">{prevDate}</small>
               </div>
             </Link>
           )}
@@ -78,9 +103,7 @@ export default function BlogPost({
               <div>
                 {nextTitle} &raquo;
                 <br />
-                <small className="font-weight-bold text-muted">
-                  {nextDate}
-                </small>
+                <small className="font-bold text-gray-400">{nextDate}</small>
               </div>
             </Link>
           )}
