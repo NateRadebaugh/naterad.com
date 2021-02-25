@@ -52,7 +52,7 @@ export default function getBlogPostDetails({ locale }) {
   });
 
   // format dates
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
