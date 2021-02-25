@@ -52,13 +52,12 @@ export default function getBlogPostDetails({ locale }) {
   });
 
   // format dates
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
   detailsList.forEach((x) => {
-    x.date = new Intl.DateTimeFormat(locale, options).format(new Date(x.date));
+    x.date = new Intl.DateTimeFormat(locale, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(new Date(x.date));
   });
 
   return detailsList;
