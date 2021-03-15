@@ -56,7 +56,7 @@ export default function getBlogPostDetails({ locale }) {
     year: "numeric",
     month: "long",
     day: "numeric",
-  };
+  } as const;
   detailsList.forEach((x) => {
     x.date = new Intl.DateTimeFormat(locale, options).format(new Date(x.date));
   });
