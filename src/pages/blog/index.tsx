@@ -1,6 +1,6 @@
 import "twin.macro";
 import Divider from "components/Divider";
-import RenderToStringResult from "../../lib/RenderToStringResult";
+import { MdxRemote } from "next-mdx-remote/types";
 import renderToString from "next-mdx-remote/render-to-string";
 import ButtonLink from "../../components/ButtonLink";
 import Link from "../../components/Link";
@@ -15,7 +15,7 @@ const mdxConfig = {
 };
 
 interface Post extends BlogPostDetails {
-  descriptionSource: RenderToStringResult;
+  descriptionSource: MdxRemote.Source;
 }
 
 export async function getStaticProps({ locale }) {

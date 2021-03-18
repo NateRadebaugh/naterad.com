@@ -1,0 +1,61 @@
+---
+title: Visual Studio Database Projects for automatic database deployments
+description: Working with multiple environments can make it hard to keep databases in sync with code. Use a database project to make it managable.
+date: "2021-01-28T13:32:12.392Z"
+---
+
+To avoid one-off scripts or manual steps in deploying database schema changes, a database project can be helpful.
+
+For code-first solutions, migrations are helpful for making sure your local database matches your code.
+
+A manual schema-compare step keeps the database project in sync with your local database.
+
+We then compile the database project to a format the Azure Pipelines understand, and automatically update DBs as part of deployments to keep data in sync.
+
+If a database migration can't happen automatically, the deployment fails and is blocked.
+
+## Code-first database updates
+
+> Option a. Making DB updates (Code-first Migrations using .net core)
+
+1. Update DB entity in C#
+2. Run `add-migration asfasdf` to create a migration to get your DB to match your local C# entities
+3. Run `update-database` to update your DB
+4. Perform schema compare to update your database project's `.sql` files to match your local env
+5. Do not check in your migration file, but do check in the DB snapshot file to ensure future migrations work correctly.
+
+## DB-first database updates
+
+> **or** Option b. Making DB updates (DB-first using .net core)
+
+1. Manually update your DB
+2. Perform schema compare to update your database project's `.sql` files to match your local env
+3. Do not check in your migration file, but do check in the DB snapshot file to ensure future migrations work correctly.
+
+## Initial Setup
+
+1. Create a database project in VS
+   - Note: configure your database project to use "Microsoft Azure SQL Database"
+2. Perform an initial schema compare - `LocalToProject` or `DevelopmentToProject`
+   - Note: do not include user or roles in the schema compare or you may impact security/access as you deploy to various environments.
+3. Check in your changes to git
+4. Add a build step to your `azure-pipelines.yml` file after your other build steps
+
+   ```yml
+   - task: VSBuild@1
+   displayName: "Build database project"
+   inputs:
+      solution: "**/ProjectName.Database.sqlproj"
+      msbuildArgs: '/p:OutputPath="$(Build.ArtifactStagingDirectory)\drop-dacpac"'
+      configuration: "$(BuildConfiguration)"
+   ```
+
+5. Add a deployment step to your release (before deploying your app)
+
+   **Azure SQL Database deployment**
+
+   - Azure Service Connection Type: `Azure Resource Manager`
+   - Azure Subscription: `$(AzureSubscription)`
+   - Authentication Type: `Connection String`
+   - Connection String: `$(ConnectionString)`
+   - DACPAC File: `$(System.DefaultWorkingDirectory)\**\*Database.dacpac`
