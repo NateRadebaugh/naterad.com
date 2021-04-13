@@ -39,7 +39,7 @@ module.exports = withPlugins([withPWA, withBundleAnalyzer], {
 // https://securityheaders.com
 const ContentSecurityPolicy = `
   default-src 'self';
-  worker-src naterad.com '*-nateradebaugh.vercel.app';
+  worker-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com;
   child-src *.youtube.com *.google.com *.twitter.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
