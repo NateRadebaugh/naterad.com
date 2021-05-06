@@ -40,7 +40,7 @@ function BlogLayout(props: BlogLayoutProps) {
           {description && (
             <>
               <div className="my-2 italic text-gray-400">
-                <MDXRemote {...description} {...mdxConfig} />
+                <MDXRemote {...description} {...mdxConfig} lazy />
               </div>
               <Divider />
             </>

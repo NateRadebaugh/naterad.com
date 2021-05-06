@@ -47,7 +47,7 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
             </h2>
             <p className="my-2 font-bold text-gray-400">{date}</p>
             {descriptionContent && (
-              <MDXRemote {...descriptionSource} {...mdxConfig} />
+              <MDXRemote {...descriptionSource} {...mdxConfig} lazy />
             )}
 
             <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
