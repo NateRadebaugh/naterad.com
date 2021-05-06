@@ -31,15 +31,15 @@ function BlogLayout(props: BlogLayoutProps) {
         <SkipNavContent />
 
         <div className={styles.pageContent}>
-          <h1>{title}</h1>
+          <h1 className="mb-4 text-4xl font-semibold">{title}</h1>
 
-          {date && <p className="font-bold text-gray-400">{date}</p>}
+          {date && <p className="my-2 font-bold text-gray-400">{date}</p>}
 
           <Divider />
 
           {description && (
             <>
-              <div className="italic text-gray-400">
+              <div className="my-2 italic text-gray-400">
                 <MDXRemote {...description} {...mdxConfig} />
               </div>
               <Divider />

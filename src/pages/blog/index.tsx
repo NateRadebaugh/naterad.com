@@ -42,10 +42,10 @@ function BlogIndexPage({ posts }: BlogIndexPageProps) {
         const { compiledSource: descriptionContent } = descriptionSource || {};
         return (
           <div key={slug}>
-            <h2>
+            <h2 className="mb-2 text-3xl font-semibold">
               <Link href={`/blog/${slug}`}>{title}</Link>
             </h2>
-            <p className="font-bold text-gray-400">{date}</p>
+            <p className="my-2 font-bold text-gray-400">{date}</p>
             {descriptionContent && (
               <MDXRemote {...descriptionSource} {...mdxConfig} />
             )}

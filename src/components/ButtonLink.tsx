@@ -18,7 +18,7 @@ const ButtonLink = forwardRef(function ButtonLink(
   );
 
   if (isExternal) {
-    return <a href={href} target="_blank" rel="noreferrer noopener">{component}</a>;
+    return <a href={href} target="_blank" rel="noreferrer noopener" {...rest}>{children}</a>;
   }
 
   return <NextLink href={href}>{component}</NextLink>;
