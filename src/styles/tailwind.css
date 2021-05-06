@@ -3,38 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    @apply mb-4 text-4xl font-semibold;
-  }
-
-  h2 {
-    @apply mb-2 text-3xl font-semibold;
-  }
-
-  h3 {
-    @apply text-2xl;
-  }
-
-  h4 {
-    @apply text-xl;
-  }
-
-  h5 {
-    @apply text-lg font-bold;
-  }
-
-  h6 {
-    @apply text-lg;
-  }
-
-  p {
-    @apply my-2;
-  }
-
-  hr {
-    @apply my-4;
-  }
-
   a {
     @apply text-blue-400 hover:text-blue-500 hover:underline;
   }
@@ -44,15 +12,15 @@
   }
 
   .btn {
-    @apply px-3 py-1.5 transition-all duration-150 rounded text-center;
+    @apply px-3 py-1.5 transition-all duration-150 rounded text-center hover:no-underline no-underline;
   }
 
   .btn-primary {
-    @apply text-white bg-green-800 hover:bg-green-900;
+    @apply text-white bg-green-800 hover:bg-green-900 hover:text-white;
   }
 
   .btn-dark {
-    @apply text-white bg-gray-700 hover:bg-gray-800;
+    @apply text-white bg-gray-700 hover:bg-gray-800 hover:text-white;
   }
 
   .breadcrumb {

@@ -29,7 +29,7 @@ const Tile = forwardRef(function Tile(
     <a
       ref={ref}
       href={href}
-      className={clsx(className, "text-light text-decoration-none")}
+      className={clsx(className, "btn text-white hover:text-white")}
       {...rest}
     >
       {icon}

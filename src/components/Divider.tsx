@@ -1,5 +1,5 @@
 function Divider() {
-  return <hr className="bg-light" />;
+  return <hr className="my-4" />;
 }
 
 export default Divider;
