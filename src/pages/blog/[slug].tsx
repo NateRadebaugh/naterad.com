@@ -49,10 +49,8 @@ export default function BlogPost({
 
   return (
     <BlogLayout {...frontMatter} description={descriptionSource} isPost>
-      <div
-        className={clsx(syntaxStyles.syntax, "dark:prose")}
-      >
-        <MDXRemote {...mdxSource} {...mdxConfig} />
+      <div className={clsx(syntaxStyles.syntax, "dark:prose")}>
+        <MDXRemote {...mdxSource} {...mdxConfig} lazy />
       </div>
 
       <Divider />
