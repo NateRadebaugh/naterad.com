@@ -12,35 +12,37 @@ function BlogHeader({ isPost, title }) {
   return (
     <header
       className={clsx(
-        "d-flex justify-content-between align-items-center overflow-auto px-1 pt-1 mb-3",
+        "flex justify-between items-center overflow-auto px-2 pt-2 mb-4",
         styles.header
       )}
     >
-      <div className="d-flex align-items-center">
+      <div className="flex items-center">
         <Link href="/" className="mr-2">
           <Image
             src="https://www.gravatar.com/avatar/80d317a74bc928d8520879fdeefc6303"
             alt="Nate Radebaugh"
             height={60}
             width={60}
-            className="rounded-circle border"
+            className="rounded-full"
           />
         </Link>
         <div>
-          <Link href="/" className="text-light">
+          <Link href="/" className="text-white">
             Nate Radebaugh
           </Link>
           {isPost ? (
             <nav aria-label="breadcrumb">
-              <ol className="breadcrumb bg-transparent p-0 m-0">
+              <ol className="p-0 m-0 bg-transparent breadcrumb">
                 <li className="breadcrumb-item">
                   <Link href="/">Home</Link>
                 </li>
+                <li className="breadcrumb-item">/</li>
                 <li className="breadcrumb-item">
                   <Link href="/blog">Blog</Link>
                 </li>
+                <li className="breadcrumb-item">/</li>
                 <li
-                  className="breadcrumb-item active d-none d-sm-inline"
+                  className="breadcrumb-item active none sm:inline"
                   aria-current="page"
                 >
                   {title}
@@ -49,12 +51,13 @@ function BlogHeader({ isPost, title }) {
             </nav>
           ) : (
             <nav aria-label="breadcrumb">
-              <ol className="breadcrumb bg-transparent p-0 m-0">
+              <ol className="p-0 m-0 bg-transparent breadcrumb">
                 <li className="breadcrumb-item">
                   <Link href="/">Home</Link>
                 </li>
+                <li className="breadcrumb-item">/</li>
                 <li
-                  className="breadcrumb-item active d-none d-sm-inline"
+                  className="breadcrumb-item active none sm:inline"
                   aria-current="page"
                 >
                   Blog
@@ -64,10 +67,10 @@ function BlogHeader({ isPost, title }) {
           )}
         </div>
       </div>
-      <div className="d-flex align-items-stretch">
+      <div className="flex items-stretch">
         <ButtonLink
           href="/"
-          className="btn btn-dark ml-1 d-none d-lg-inline-block"
+          className="ml-2 btn btn-dark none lg:inline-block"
         >
           Home
         </ButtonLink>
@@ -75,31 +78,31 @@ function BlogHeader({ isPost, title }) {
           href="https://github.com/NateRadebaugh"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-dark ml-1 d-none d-md-inline-block"
+          className="ml-2 btn btn-dark none md:inline-block"
         >
-          <GitHubIcon className="mr-1" />
+          <GitHubIcon className="mr-2" />
           GitHub
         </ButtonLink>
         <ButtonLink
           href="https://twitter.com/nateradebaugh"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-dark ml-1 d-none d-md-inline-block"
+          className="ml-2 btn btn-dark none md:inline-block"
         >
-          <TwitterIcon className="mr-1" />
+          <TwitterIcon className="mr-2" />
           Twitter
         </ButtonLink>
         <ButtonLink
           href="https://www.linkedin.com/in/nateradebaugh/"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-dark ml-1 d-none d-sm-inline-block"
+          className="ml-2 btn btn-dark none sm:inline-block"
         >
-          <LinkedInIcon className="mr-1" />
+          <LinkedInIcon className="mr-2" />
           LinkedIn
         </ButtonLink>
-        <ButtonLink href="/resume" className="btn btn-dark ml-1">
-          <ResumeIcon className="mr-1" />
+        <ButtonLink href="/resume" className="ml-2 btn btn-dark">
+          <ResumeIcon className="mr-2" />
           Resume
         </ButtonLink>
       </div>

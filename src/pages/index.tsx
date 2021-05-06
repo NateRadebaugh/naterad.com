@@ -73,7 +73,7 @@ export default function Index() {
         <SkipNavContent />
 
         <div className="row align-items-stretch">
-          <div className="col-6 col-sm-4 col-md-3 mb-3">
+          <div className="mb-4 col-6 sm:col-4 md:col-3">
             <Tile
               className={styles.blogTile}
               href="/blog"
@@ -81,7 +81,7 @@ export default function Index() {
               text="blog"
             />
           </div>
-          <div className="col-6 col-sm-4 col-md-3 mb-3">
+          <div className="mb-4 col-6 sm:col-4 md:col-3">
             <Tile
               className={styles.resumeTile}
               href="/resume"
@@ -89,7 +89,7 @@ export default function Index() {
               text="my resume"
             />
           </div>
-          <div className="col-6 col-sm-4 col-md-3 mb-3">
+          <div className="mb-4 col-6 sm:col-4 md:col-3">
             <Tile
               className={styles.linkedinTile}
               href="https://www.linkedin.com/in/nateradebaugh/"
@@ -97,7 +97,7 @@ export default function Index() {
               text="linkedin"
             />
           </div>
-          <div className="col-6 col-sm-4 col-md-3 mb-3">
+          <div className="mb-4 col-6 sm:col-4 md:col-3">
             <Tile
               className={styles.githubTile}
               href="https://github.com/NateRadebaugh"
@@ -105,7 +105,7 @@ export default function Index() {
               text="github"
             />
           </div>
-          <div className="col-12 col-sm-8 col-md-6 mb-3">
+          <div className="mb-4 col-12 sm:col-8 md:col-6">
             <Tile
               className={styles.datetimeTile}
               href="https://react-datetime.naterad.com"
@@ -115,7 +115,7 @@ export default function Index() {
               text="@nateradebaugh/react-datetime"
             />
           </div>
-          <div className="col-6 col-sm-4 col-md-3 mb-3">
+          <div className="mb-4 col-6 sm:col-4 md:col-3">
             <Tile
               className={styles.twitterTile}
               href="https://twitter.com/nateradebaugh"
@@ -123,7 +123,7 @@ export default function Index() {
               text="twitter"
             />
           </div>
-          <div className="col-12 col-sm-8 col-md-6 mb-3">
+          <div className="mb-4 col-12 sm:col-8 md:col-6">
             <Tile
               className={styles.bundlephobiaTile}
               href="https://bundlephobia-inline.naterad.com"

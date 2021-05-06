@@ -1,11 +1,7 @@
 $body-bg: #121212;
 $body-color: rgba(255, 255, 255, 0.87);
-$primary: #124316;
-
-$gray-600: rgba(255, 255, 255, 0.6);
 
 $link-color: rgb(102, 184, 255);
-$code-color: rgb(173, 219, 103);
 
 [data-skip-nav-link] {
   border: 0;
@@ -30,8 +26,6 @@ $code-color: rgb(173, 219, 103);
   height: auto;
   clip: auto;
 }
-
-@import "_bootstrap.scss";
 
 :root {
   color: $body-color;
