@@ -1,4 +1,4 @@
-import renderToString from "next-mdx-remote/render-to-string";
+import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
@@ -9,32 +9,9 @@ import getBlogPostDetails, {
 } from "../../lib/getBlogPostDetails";
 import Divider from "../../components/Divider";
 import Link from "../../components/Link";
-import Code from "../../components/Code";
 import clsx from "clsx";
-import Image from "next/image";
-import { MdxRemote } from "next-mdx-remote/types";
-
-const mdxConfig = {
-  components: {
-    pre: (props) => <div {...props} />,
-    code: Code,
-    a: Link,
-    img: Image,
-    p: (props) => <p className="mb-3" {...props} />,
-    ol: (props) => (
-      <ul className="list-decimal list-outside pl-3 mb-3" {...props} />
-    ),
-    ul: (props) => (
-      <ul className="list-disc list-outside pl-3 mb-3" {...props} />
-    ),
-    blockquote: ({ style, ...props }) => (
-      <blockquote
-        className={clsx("pl-3 pt-1 border-l-4 border-gray-500")}
-        {...props}
-      />
-    ),
-  },
-};
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import mdxConfig from "lib/mdxConfig";
 
 const root = process.cwd();
 
@@ -45,8 +22,8 @@ interface FrontMatterProps {
 }
 
 interface BlogPostProps {
-  mdxSource: MdxRemote.Source;
-  descriptionSource: MdxRemote.Source;
+  mdxSource: MDXRemoteSerializeResult;
+  descriptionSource: MDXRemoteSerializeResult;
   frontMatter: FrontMatterProps;
 
   nextPost: BlogPostDetails;
@@ -60,9 +37,6 @@ export default function BlogPost({
   prevPost,
   nextPost,
 }: BlogPostProps) {
-  const { renderedOutput: pageContent } = mdxSource;
-  const { renderedOutput: descriptionContent } = descriptionSource;
-
   const hasPrev = !!prevPost;
   const prevSlug = prevPost?.slug ?? null;
   const prevTitle = prevPost?.title ?? null;
@@ -74,17 +48,18 @@ export default function BlogPost({
   const nextDate = nextPost?.date ?? null;
 
   return (
-    <BlogLayout {...frontMatter} description={descriptionContent} isPost>
+    <BlogLayout {...frontMatter} description={descriptionSource} isPost>
       <div
         className={clsx(syntaxStyles.syntax, "dark:prose")}
-        dangerouslySetInnerHTML={{ __html: pageContent }}
-      ></div>
+      >
+        <MDXRemote {...mdxSource} {...mdxConfig} />
+      </div>
 
       <Divider />
 
       <p className="font-bold text-gray-400">Further reading...</p>
 
-      <div className="row font-bold">
+      <div className="font-bold row">
         <div className="col">
           {hasPrev && (
             <Link href={`/blog/${prevSlug}`}>
@@ -97,7 +72,7 @@ export default function BlogPost({
           )}
         </div>
 
-        <div className="col text-right">
+        <div className="text-right col">
           {hasNext && (
             <Link href={`/blog/${nextSlug}`}>
               <div>
@@ -132,7 +107,7 @@ export async function getStaticProps({ params, locale }) {
     "utf8"
   );
   const { content } = matter(source);
-  const mdxSource = await renderToString(content, mdxConfig);
+  const mdxSource = await serialize(content);
 
   const pageInfo = getBlogPostDetails({ locale });
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
@@ -141,7 +116,7 @@ export async function getStaticProps({ params, locale }) {
   const nextPost = pageInfo[postIndex + 1] || null;
 
   const post = pageInfo[postIndex] || null;
-  const descriptionSource = await renderToString(post.description, mdxConfig);
+  const descriptionSource = await serialize(post.description);
 
   const props: BlogPostProps = {
     mdxSource,
