@@ -3,19 +3,29 @@ import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
 import Head from "../components/Head";
 import styles from "./BlogLayout.module.scss";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import mdxConfig from "lib/mdxConfig";
 
-function BlogLayout(props) {
+export interface BlogLayoutProps {
+  isPost?: boolean;
+  title: string;
+  description?: MDXRemoteSerializeResult;
+  date?: string;
+  children?: any;
+}
+
+function BlogLayout(props: BlogLayoutProps) {
   const { isPost, title, description, date = undefined, children } = props;
 
   return (
     <>
       <Head>
         <title>{title} - Nate Radebaugh's Blog</title>
-        <meta name="Description" content={description || title} />
+        <meta name="Description" content={title} />
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <SkipNavLink />
-      <div className="container-fluid p-0">
+      <div className="p-0 container-fluid">
         <BlogHeader isPost={isPost} title={title} />
 
         <SkipNavContent />
@@ -29,8 +39,8 @@ function BlogLayout(props) {
 
           {description && (
             <>
-              <div className="text-gray-400">
-                <em dangerouslySetInnerHTML={{ __html: description }}></em>
+              <div className="italic text-gray-400">
+                <MDXRemote {...description} {...mdxConfig} />
               </div>
               <Divider />
             </>
