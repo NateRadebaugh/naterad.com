@@ -31,6 +31,10 @@ function Code(props: { [x: string]: any }) {
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const language = className.replace(/language-/, "");
   const showTitle = title || ![""].includes(language);
+  const numLines = codeString.split("\n").length;
+  if (numLines === 1) {
+    return <code>{codeString}</code>;
+  }
 
   return (
     <Highlight

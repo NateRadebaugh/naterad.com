@@ -1,4 +1,3 @@
-import { serialize } from "next-mdx-remote/serialize";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
@@ -10,8 +9,11 @@ import getBlogPostDetails, {
 import Divider from "../../components/Divider";
 import Link from "../../components/Link";
 import clsx from "clsx";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import mdxConfig from "lib/mdxConfig";
+import { getMDXComponent } from "mdx-bundler/client";
+import { bundleMDX } from "mdx-bundler";
+import { useMemo } from "react";
+import bundleMdxConfig from "lib/bundleMdxConfig";
 
 const root = process.cwd();
 
@@ -22,8 +24,8 @@ interface FrontMatterProps {
 }
 
 interface BlogPostProps {
-  mdxSource: MDXRemoteSerializeResult;
-  descriptionSource: MDXRemoteSerializeResult;
+  mdxSource: string;
+  descriptionSource: string;
   frontMatter: FrontMatterProps;
 
   nextPost: BlogPostDetails;
@@ -47,10 +49,20 @@ export default function BlogPost({
   const nextTitle = nextPost?.title ?? null;
   const nextDate = nextPost?.date ?? null;
 
+  const MainContentComponent = useMemo(() => {
+    if (!mdxSource) {
+      return null;
+    }
+
+    return getMDXComponent(mdxSource);
+  }, [mdxSource]);
+
   return (
-    <BlogLayout {...frontMatter} description={descriptionSource} isPost>
+    <BlogLayout {...frontMatter} descriptionSource={descriptionSource} isPost>
       <div className={clsx(syntaxStyles.syntax, "dark:prose")}>
-        <MDXRemote {...mdxSource} {...mdxConfig} lazy />
+        {MainContentComponent && (
+          <MainContentComponent components={mdxConfig.components as any} />
+        )}
       </div>
 
       <Divider />
@@ -105,7 +117,7 @@ export async function getStaticProps({ params, locale }) {
     "utf8"
   );
   const { content } = matter(source);
-  const mdxSource = await serialize(content);
+  const { code: mdxSource } = await bundleMDX(content, bundleMdxConfig);
 
   const pageInfo = getBlogPostDetails({ locale });
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
@@ -114,7 +126,10 @@ export async function getStaticProps({ params, locale }) {
   const nextPost = pageInfo[postIndex + 1] || null;
 
   const post = pageInfo[postIndex] || null;
-  const descriptionSource = await serialize(post.description);
+  const { code: descriptionSource } = await bundleMDX(
+    post.description,
+    bundleMdxConfig
+  );
 
   const props: BlogPostProps = {
     mdxSource,

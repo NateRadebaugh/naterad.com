@@ -1,21 +1,36 @@
+import { useMemo } from "react";
 import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
 import BlogHeader from "../components/BlogHeader";
 import Divider from "../components/Divider";
 import Head from "../components/Head";
 import styles from "./BlogLayout.module.scss";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { getMDXComponent } from "mdx-bundler/client";
 import mdxConfig from "lib/mdxConfig";
 
 export interface BlogLayoutProps {
   isPost?: boolean;
   title: string;
-  description?: MDXRemoteSerializeResult;
+  descriptionSource?: string;
   date?: string;
   children?: any;
 }
 
 function BlogLayout(props: BlogLayoutProps) {
-  const { isPost, title, description, date = undefined, children } = props;
+  const {
+    isPost,
+    title,
+    descriptionSource,
+    date = undefined,
+    children,
+  } = props;
+
+  const DescriptionComponent = useMemo(() => {
+    if (!descriptionSource) {
+      return null;
+    }
+
+    return getMDXComponent(descriptionSource);
+  }, [descriptionSource]);
 
   return (
     <>
@@ -37,10 +52,12 @@ function BlogLayout(props: BlogLayoutProps) {
 
           <Divider />
 
-          {description && (
+          {DescriptionComponent && (
             <>
               <div className="my-2 italic text-gray-400">
-                <MDXRemote {...description} {...mdxConfig} lazy />
+                <DescriptionComponent
+                  components={mdxConfig.components as any}
+                />
               </div>
               <Divider />
             </>
