@@ -1,23 +1,28 @@
 import Divider from "components/Divider";
 import mdxConfig from "lib/mdxConfig";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
+import { getMDXComponent } from "mdx-bundler/client";
+import { bundleMDX } from "mdx-bundler";
+import { useMemo } from "react";
 import ButtonLink from "../../components/ButtonLink";
 import Link from "../../components/Link";
 import BlogLayout from "../../layouts/BlogLayout";
 import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
+import bundleMdxConfig from "lib/bundleMdxConfig";
 
 interface Post extends BlogPostDetails {
-  descriptionSource: MDXRemoteSerializeResult;
+  descriptionSource: string;
 }
 
 export async function getStaticProps({ locale }) {
   const posts: Post[] = [];
   const blogPostDetailsList = getBlogPostDetails({ locale });
   for (const post of blogPostDetailsList) {
-    const descriptionSource = await serialize(post.description);
+    const { code: descriptionSource } = await bundleMDX(
+      post.description,
+      bundleMdxConfig
+    );
     posts.push({
       ...post,
       descriptionSource,
@@ -35,29 +40,46 @@ interface BlogIndexPageProps {
   posts: Post[];
 }
 
+function BlogPostPreview({ slug, title, date, descriptionSource }) {
+  const DescriptionComponent = useMemo(() => {
+    if (!descriptionSource) {
+      return null;
+    }
+
+    return getMDXComponent(descriptionSource);
+  }, [descriptionSource]);
+
+  return (
+    <div key={slug}>
+      <h2 className="mb-2 text-3xl font-semibold">
+        <Link href={`/blog/${slug}`}>{title}</Link>
+      </h2>
+      <p className="my-2 font-bold text-gray-400">{date}</p>
+      {DescriptionComponent && (
+        <DescriptionComponent components={mdxConfig.components as any} />
+      )}
+
+      <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
+        Read more
+      </ButtonLink>
+
+      <Divider />
+    </div>
+  );
+}
+
 function BlogIndexPage({ posts }: BlogIndexPageProps) {
   return (
     <BlogLayout title="Blog Posts">
-      {posts.map(({ slug, title, date, descriptionSource }) => {
-        const { compiledSource: descriptionContent } = descriptionSource || {};
-        return (
-          <div key={slug}>
-            <h2 className="mb-2 text-3xl font-semibold">
-              <Link href={`/blog/${slug}`}>{title}</Link>
-            </h2>
-            <p className="my-2 font-bold text-gray-400">{date}</p>
-            {descriptionContent && (
-              <MDXRemote {...descriptionSource} {...mdxConfig} lazy />
-            )}
-
-            <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
-              Read more
-            </ButtonLink>
-
-            <Divider />
-          </div>
-        );
-      })}
+      {posts.map(({ slug, title, date, descriptionSource }) => (
+        <BlogPostPreview
+          key={slug}
+          slug={slug}
+          title={title}
+          date={date}
+          descriptionSource={descriptionSource}
+        />
+      ))}
     </BlogLayout>
   );
 }
