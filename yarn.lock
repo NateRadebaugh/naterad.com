@@ -806,14 +806,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.8.4":
-  version "7.13.10"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
-  integrity sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.14.0":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.14.0", "@babel/runtime@^7.8.4":
   version "7.14.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
   integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
@@ -2650,7 +2643,7 @@ es6-object-assign@^1.1.0:
   resolved "https://registry.yarnpkg.com/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
   integrity sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw=
 
-esbuild@^0.11.16:
+esbuild@^0.11.20:
   version "0.11.20"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.11.20.tgz#7cefa1aee8b372c184e42457885f7ce5d3e62a1e"
   integrity sha512-QOZrVpN/Yz74xfat0H6euSgn3RnwLevY1mJTEXneukz1ln9qB+ieaerRMzSeETpz/UJWsBMzRVR/andBht5WKw==
@@ -4194,21 +4187,21 @@ mdurl@^1.0.0:
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
-mdx-bundler@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/mdx-bundler/-/mdx-bundler-3.4.1.tgz#1b51d01d87cc7e6a872ce3b63b9031d5e9fc6f62"
-  integrity sha512-QOhbSKN2fXZGXJ6YOMPjnPQiC9o4H8WVyTc/sOeEqVHqGjfqBSK0udQioV0JgG/FThGi8em9Z0go90RjqdKItA==
+mdx-bundler@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/mdx-bundler/-/mdx-bundler-4.0.0.tgz#b572a5a07b6b7d3ff85aa357ecfbc425b4c69428"
+  integrity sha512-jI2L9bptoeoV6BVe04RRjq88pMedDJmEVTK09cu2W2F4ZrVQZwcndoXMWy5YzX3pMW2RWWbYTMm9Z/mkHRLtJw==
   dependencies:
     "@babel/runtime" "^7.14.0"
     "@esbuild-plugins/node-resolve" "^0.1.4"
     "@fal-works/esbuild-plugin-global-externals" "^2.1.1"
-    esbuild "^0.11.16"
+    esbuild "^0.11.20"
     gray-matter "^4.0.3"
     jsdom "^16.5.3"
     remark-frontmatter "^3.0.0"
     remark-mdx-frontmatter "^1.0.1"
     uvu "^0.5.1"
-    xdm "^1.9.0"
+    xdm "^1.11.0"
 
 merge-stream@^2.0.0:
   version "2.0.0"
@@ -6802,10 +6795,10 @@ ws@^7.4.4:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.5.tgz#a484dd851e9beb6fdb420027e3885e8ce48986c1"
   integrity sha512-xzyu3hFvomRfXKH8vOFMU3OguG6oOvhXMo3xsGy3xWExqaM2dxBbVxuD99O7m3ZUFMvvscsZDqxfgMaRr/Nr1g==
 
-xdm@^1.9.0:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/xdm/-/xdm-1.9.1.tgz#61dc2998a875003bc2c9edbf2bc7cef8fd57c4d0"
-  integrity sha512-/6/vQUIzO/MgQp4vcYcjsuLgiV2UUsgDsbRslWflAzB3ZYQBX/K0c6nrpI2x2eE/UvVXH+hEBOd8nYykKIFmlA==
+xdm@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/xdm/-/xdm-1.11.0.tgz#a8307c9f94385b43d5dba1902a5a077c81cd0884"
+  integrity sha512-gWPvH5VfO6Tg6SiMQ23EJIh6Hr0ZIrkAo90dl+tW3wS/X053daN91tKhrOkd6CNm9yHdV9esuSCq3Gf5ghXWmg==
   dependencies:
     "@rollup/pluginutils" "^4.0.0"
     "@types/estree-jsx" "^0.0.1"
