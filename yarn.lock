@@ -2017,10 +2017,10 @@ chalk@4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
-  integrity sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
+  integrity sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -3783,7 +3783,7 @@ jest-worker@^26.2.1, jest-worker@^26.6.2:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-joi@^17.3.0:
+joi@^17.4.0:
   version "17.4.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-17.4.0.tgz#b5c2277c8519e016316e49ababd41a1908d9ef20"
   integrity sha512-F4WiW2xaV6wc1jxete70Rw4V/VuMd6IN+a5ilZsxG4uYtUXWu2kq9W5P2dz30e7Gmw8RCbY/u/uk+dMPma9tAg==
@@ -5248,7 +5248,7 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
-reduce-css-calc@^2.1.6, reduce-css-calc@^2.1.8:
+reduce-css-calc@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/reduce-css-calc/-/reduce-css-calc-2.1.8.tgz#7ef8761a28d614980dc0c982f772c93f7a99de03"
   integrity sha512-8liAVezDmUcH+tdzoEGrhfbGcP7nOV4NkGE3a74+qqvE7nt9i4sKLGBuZNOnpI4WiGksiNPklZxva80061QiPg==
@@ -6002,14 +6002,13 @@ table@^6.0.4:
     slice-ansi "^4.0.0"
     string-width "^4.2.0"
 
-tailwind-bootstrap-grid@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/tailwind-bootstrap-grid/-/tailwind-bootstrap-grid-3.3.0.tgz#efc993560d6b36b2d7732f8726ab4780cefadd2f"
-  integrity sha512-Dut7J3eIufHy5zEzfV3yAyc9Y5TEXScB31PAVTh20sl8a8ny/O988TsWhGRipOErlavm2imAVLlog3frg8E4AA==
+tailwind-bootstrap-grid@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/tailwind-bootstrap-grid/-/tailwind-bootstrap-grid-4.0.0.tgz#37481216682d623d2ab76317897c9a6a599da4f6"
+  integrity sha512-NfmH7WszS3JMyArtp0JyZC9tBt85zNCtZM5womZRNVeo8iscX8akaLr25WfhA8Mo0JkY8ok0xlQ9ZcrWt4/Sjw==
   dependencies:
-    joi "^17.3.0"
-    lodash "^4.17.15"
-    reduce-css-calc "^2.1.6"
+    chalk "^4.1.1"
+    joi "^17.4.0"
 
 tailwindcss@^2.1.2:
   version "2.1.2"
