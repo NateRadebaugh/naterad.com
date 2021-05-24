@@ -120,7 +120,8 @@ export default function Resume() {
           company="BDO Digital, BDO USA"
           location="Oak Brook, IL"
           details={[
-            "Estimating, release planning, and delegation for multiple concurrent large-scale enterprise web applications for clients. Work with clients, BAs, and PMs to set expectations and meet budgets and deadlines.",
+            "Scope and budget estimating, release planning and scheduling, and delegation for multiple concurrent custom large-scale enterprise web applications for clients.",
+            "Work with clients, BAs, and PMs to set expectations and meet budgets and deadlines.",
             "Shaping firm-wide best practices for front-end development and solutions architecture for scalability and product confidence.",
           ]}
         />
@@ -130,8 +131,8 @@ export default function Resume() {
           company="BDO Digital, BDO USA"
           location="Oak Brook, IL"
           details={[
-            "Technical lead on multiple client projects at a time, mentoring and teaching junior team members. This includes project planning, delegation, technical oversight, and code reviews.",
-            "Project planning, delegation of tasks, and code reviews for teams with smooth handoff for a variety of enterprise web products and technologies using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle.",
+            "Technical lead on multiple client projects at a time, mentoring and teaching junior team members, including project planning, delegation, and technical oversight.",
+            "Project planning, task delegation, and code reviews while creating custom web applications using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle.",
           ]}
         />
         <Employment
@@ -149,7 +150,7 @@ export default function Resume() {
           company="SWC Technology Partners"
           location="Oak Brook, IL"
           details={[
-            'Individual contributor on multiple large scale enterprise "full stack" web projects at a time using .NET MVC, Spring Boot, SQL, JQuery, and React.',
+            'Developer on multiple large scale enterprise "full stack" web projects at a time using .NET MVC, Spring Boot, SQL, JQuery, and React.',
           ]}
         />
         <Employment
@@ -158,7 +159,7 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            'Work on Windows "Shell" team building system UI for windows phone, desktop, and surface UIs.',
+            'Worked on Windows system UI team for windows phone, desktop, and other devices.',
             "Mentored new team members.",
           ]}
         />
