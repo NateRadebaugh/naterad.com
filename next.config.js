@@ -31,9 +31,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withPlugins([withPWA, withBundleAnalyzer], {
   reactStrictMode: true,
-  experimental: {
-    reactRoot: true,
-  },
   i18n: {
     locales: ["en-US"],
     defaultLocale: "en-US",
