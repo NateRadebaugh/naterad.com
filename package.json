@@ -39,7 +39,7 @@
     "typescript": "^4.3.3"
   },
   "devDependencies": {
-    "@types/node": "^15.12.2",
+    "@types/node": "^15.12.3",
     "@types/react": "^17.0.11",
     "cross-env": "^7.0.3",
     "eslint": "^7.28.0",
