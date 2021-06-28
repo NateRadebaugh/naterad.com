@@ -30,7 +30,7 @@
     "postcss": "^8.3.5",
     "prism-react-renderer": "^1.2.1",
     "prism-themes": "^1.7.0",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.24.0",
     "react": "^18.0.0-alpha-43f4cc160",
     "react-dom": "^18.0.0-alpha-43f4cc160",
     "sass": "^1.35.1",
