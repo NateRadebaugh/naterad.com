@@ -4816,10 +4816,10 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react@^18.0.0-alpha-43f4cc160:
-  version "18.0.0-alpha-43f4cc160"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.0.0-alpha-43f4cc160.tgz#c6fdc456f5527b6a9d9b1c9a670ffe11b0e4679f"
-  integrity sha512-5UoapXdpPYVqCHAS+bpyq6ZxRAV1aNXNWr377YM3r5wjtdsTjXeLbMR87MOio3GyMZ5MEkT3zAngJ+L6t6/5sA==
+react@^18.0.0-alpha-9212d994b:
+  version "18.0.0-alpha-9212d994b"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.0.0-alpha-9212d994b.tgz#17ad945f2b211d0c57b1ec616df5e904b893ca41"
+  integrity sha512-kH+RmijvPK0EqyS+j9heroNSTXt7fxz5QBZZKZAtt4ySGKI6bUzHGNCBRRQO6PLodKh8l87T1qR0+g5RgXE/zA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
