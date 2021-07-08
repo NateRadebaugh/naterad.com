@@ -33,7 +33,7 @@
     "prismjs": "^1.24.1",
     "react": "^18.0.0-alpha-ed6c091fe-20210701",
     "react-dom": "^18.0.0-alpha-ed6c091fe-20210701",
-    "sass": "^1.35.1",
+    "sass": "^1.35.2",
     "tailwindcss": "^2.2.4",
     "totalist": "^2.0.0",
     "typescript": "^4.3.5"
