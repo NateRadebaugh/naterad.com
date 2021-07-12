@@ -1057,25 +1057,25 @@
   dependencies:
     webpack-bundle-analyzer "4.3.0"
 
-"@next/env@11.0.2-canary.9":
-  version "11.0.2-canary.9"
-  resolved "https://registry.yarnpkg.com/@next/env/-/env-11.0.2-canary.9.tgz#0b58766d6831843e7d14ddfa6a27cb74ac5ddf73"
-  integrity sha512-jTLZA0l+CJ/fNJOOm3AH+COpEW8q6RJBbPFJLOztSHufgWgCLprjrHjGMD/iKQ7DU0WCj8ww2abGdnOksct78w==
+"@next/env@11.0.2-canary.11":
+  version "11.0.2-canary.11"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-11.0.2-canary.11.tgz#44eb3ad3465eb9512a60fd0c63f9079cd19682d2"
+  integrity sha512-2hX/kkF5QBN3N69iSnqsVcn7MAWRG/KPaPs36fmRmW48zJD/IeETaLT4EUgOmH8rzoI4FEWculsPCY3JLYi+Uw==
 
 "@next/eslint-plugin-next@11.0.1":
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-11.0.1.tgz#5dd3264a40fadcf28eba00d914d69103422bb7e6"
   integrity sha512-UzdX3y6XSrj9YuASUb/p4sRvfjP2klj2YgIOfMwrWoLTTPJQMh00hREB9Ftr7m7RIxjVSAaaLXIRLdxvq948GA==
 
-"@next/polyfill-module@11.0.2-canary.9":
-  version "11.0.2-canary.9"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-11.0.2-canary.9.tgz#59fd687165708ccecd9e350accd1579a014f1f85"
-  integrity sha512-TFyOpPw/H+h1L6gsUrEBifwp+zTvylLehSSt8Xi+0cGt9cE4+NQNf4DS6hBtZ9nXv9moTrBhhaZu7XzaNapvQw==
+"@next/polyfill-module@11.0.2-canary.11":
+  version "11.0.2-canary.11"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-11.0.2-canary.11.tgz#8a86ff3193959e31deccaaf0a5450d591c46692f"
+  integrity sha512-Ds9GbOvwTsCZnUaDI0veZn6wSDGeUTWEHOdkIBQ/fspwXherq4Q5PBmmXLQbfK7ujkRoYGDCFl0RZgY19s5Fhw==
 
-"@next/react-dev-overlay@11.0.2-canary.9":
-  version "11.0.2-canary.9"
-  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-11.0.2-canary.9.tgz#ce9eed9ea282c157bed012ceff391c1bdb015b3a"
-  integrity sha512-00yKVIuEv6agBmYrbUu2uKYGH3hBVJaCN5kTKmkmBxf+Rsfa5XnDj45kr1Y70fI0Izkl7/3btEOr3tQiWsG49w==
+"@next/react-dev-overlay@11.0.2-canary.11":
+  version "11.0.2-canary.11"
+  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-11.0.2-canary.11.tgz#9332641192b65ef7dbf366d3e10564bd04bc7d95"
+  integrity sha512-tPVYBCuPpEL7X3MSZR3DDx6K2sZV/W28GClTagSN+KSGJDsR0vCQK/f/5LuVWvOMLydHy9FZFz/bVb40j3iTIw==
   dependencies:
     "@babel/code-frame" "7.12.11"
     anser "1.4.9"
@@ -1089,10 +1089,10 @@
     stacktrace-parser "0.1.10"
     strip-ansi "6.0.0"
 
-"@next/react-refresh-utils@11.0.2-canary.9":
-  version "11.0.2-canary.9"
-  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-11.0.2-canary.9.tgz#de8ff57bf86986f57bf8859a9fe9a6f33f3d2aa1"
-  integrity sha512-fJ80PZ6sOyqrKgJRUPcxMuREKeq0al+KCKS5VzoWJGd9coTmrvIZksLoFh4AieyiFqlvd/soFNPX5yRIyFcQGA==
+"@next/react-refresh-utils@11.0.2-canary.11":
+  version "11.0.2-canary.11"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-11.0.2-canary.11.tgz#36774a01b39f5080efc807ef8c3e95fe11581137"
+  integrity sha512-W4zTs9jcdnG1eUyARXg6o1Ec75vCPWzDz9nT8voXHR/sn7UOmOChMhb4KmRQm9wB+3kI9nj9jrz2SituyMvBmQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -4106,17 +4106,17 @@ next-pwa@^5.2.23:
     workbox-webpack-plugin "^6.1.5"
     workbox-window "^6.1.5"
 
-next@^11.0.2-canary.9:
-  version "11.0.2-canary.9"
-  resolved "https://registry.yarnpkg.com/next/-/next-11.0.2-canary.9.tgz#b040e2c9dfd996e9c2891bb00378d637da63565c"
-  integrity sha512-Y2UOjxxJb6chzDDfdeaNsO/1LCLvDSDmWpe9/sFXQoHYSgp0KtMw1rF1KHwGsHBnIajEFoZH29E4Dp+AvdzW2w==
+next@^11.0.2-canary.11:
+  version "11.0.2-canary.11"
+  resolved "https://registry.yarnpkg.com/next/-/next-11.0.2-canary.11.tgz#d3eccaeb40ff2510ff7e219ceff80b23bee8fed0"
+  integrity sha512-PDYk9wU/Q7WYW0ofFcq5gFXwwqLDbS3q7/l39+RgQx0GEXoin5T6Df4655XvDvfVruVaQEz4AWUbw+jnaG2nuQ==
   dependencies:
     "@babel/runtime" "7.12.5"
     "@hapi/accept" "5.0.2"
-    "@next/env" "11.0.2-canary.9"
-    "@next/polyfill-module" "11.0.2-canary.9"
-    "@next/react-dev-overlay" "11.0.2-canary.9"
-    "@next/react-refresh-utils" "11.0.2-canary.9"
+    "@next/env" "11.0.2-canary.11"
+    "@next/polyfill-module" "11.0.2-canary.11"
+    "@next/react-dev-overlay" "11.0.2-canary.11"
+    "@next/react-refresh-utils" "11.0.2-canary.11"
     assert "2.0.0"
     ast-types "0.13.2"
     browserify-zlib "0.2.0"
