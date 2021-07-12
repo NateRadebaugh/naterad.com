@@ -2492,10 +2492,10 @@ es6-object-assign@^1.1.0:
   resolved "https://registry.yarnpkg.com/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
   integrity sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw=
 
-esbuild@^0.12.11:
-  version "0.12.12"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.12.tgz#2c3815c508e20f771cf6b2ffb03aa7349e651657"
-  integrity sha512-fdB/8HRg9u95Zi4/qV+osrfzpvLzubFKUr8SkZf/kUKImLiX61Y7qBzV14FCKphFk7YoXWY85nbPGkI6pq+Zeg==
+esbuild@^0.12.15:
+  version "0.12.15"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.15.tgz#9d99cf39aeb2188265c5983e983e236829f08af0"
+  integrity sha512-72V4JNd2+48eOVCXx49xoSWHgC3/cCy96e7mbXKY+WOWghN00cCmlGnwVLRhRHorvv0dgCyuMYBZlM2xDM5OQw==
 
 esbuild@^0.8.40:
   version "0.8.57"
@@ -3920,15 +3920,14 @@ mdurl@^1.0.0:
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
-mdx-bundler@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/mdx-bundler/-/mdx-bundler-4.1.1.tgz#b6ee88330e57edc999a94344516acc7a34a49f15"
-  integrity sha512-+IN0LxAwxY3L/4q3FW722A+TLSuX7Dl1k75nnPXr5JlmEii5nBvjky3Cag8c8ouVo8txjQzF8lhD0OVEoPQ37w==
+mdx-bundler@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/mdx-bundler/-/mdx-bundler-5.1.0.tgz#76ba17845c932c237a8d19ad5acacdb069c343d1"
+  integrity sha512-GyZYjKQmGSVOSWaF1mC0zcZUPTFfHzQwqPwMomv9ouDYeBQIn9BSb1BjVV8dROAnZx9LQfdTugdCOT5Og94BjQ==
   dependencies:
     "@babel/runtime" "^7.14.6"
     "@esbuild-plugins/node-resolve" "^0.1.4"
     "@fal-works/esbuild-plugin-global-externals" "^2.1.1"
-    esbuild "^0.12.11"
     gray-matter "^4.0.3"
     remark-frontmatter "^3.0.0"
     remark-mdx-frontmatter "^1.0.1"
@@ -4792,14 +4791,14 @@ raw-body@2.4.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dom@^18.0.0-alpha-241485a2c-20210708:
-  version "18.0.0-alpha-241485a2c-20210708"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-alpha-241485a2c-20210708.tgz#1c3bd0df601374eeccc26b54bbacee8da8cb92a6"
-  integrity sha512-abjnqkdRQ0FI2DGGzy/y1vu8kw7lathLQdFgudM1oo+qKOPihkZtPpPVI4TiMSTdeoWnENlALnkIG+qw2MjEWw==
+react-dom@^18.0.0-alpha-cb8afda18-20210708:
+  version "18.0.0-alpha-cb8afda18-20210708"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-alpha-cb8afda18-20210708.tgz#31b62b4afc805144b4ba989d74b2170cd3d0ba5c"
+  integrity sha512-J+8NglaCetnB84CA5YTUVel+2PUyKmsDf0nmzB0wlVEVeZkoP9MUG4baCBfHLDSSrCQ8QPSp5iBac1FolJc+oQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    scheduler "0.21.0-alpha-241485a2c-20210708"
+    scheduler "0.21.0-alpha-cb8afda18-20210708"
 
 react-is@17.0.2:
   version "17.0.2"
@@ -4816,10 +4815,10 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react@^18.0.0-alpha-241485a2c-20210708:
-  version "18.0.0-alpha-241485a2c-20210708"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.0.0-alpha-241485a2c-20210708.tgz#29f306e5fe3e0ccee043c75d0bb2c6579d86c737"
-  integrity sha512-b5CHMBYpULwtgkkXL2GA93IPJIk9ZoJfxKG50hnyK1Ri93FxPQxbRHQGvxa6CZkqlCtP1imUDqD15Zac8W7ljg==
+react@^18.0.0-alpha-cb8afda18-20210708:
+  version "18.0.0-alpha-cb8afda18-20210708"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.0.0-alpha-cb8afda18-20210708.tgz#9001938e66618e3e0f8a457b37c6abdab3f9536b"
+  integrity sha512-RG2EmvK5BvMbX/IDh0ubDJW0gxVQVmXpk2hry5W/Sx6DNtkUg3QJ3zySeLzoATAmvahDa/Qq7cxat3rVpSQEEQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -5088,10 +5087,10 @@ sass@^1.35.2:
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
-scheduler@0.21.0-alpha-241485a2c-20210708:
-  version "0.21.0-alpha-241485a2c-20210708"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-alpha-241485a2c-20210708.tgz#fe124de66bddba0acb4b8662d4c8a7e3c3454b39"
-  integrity sha512-0k/azQjCok+Xtk1pSyHGPN4WIexbZZKwgqpbQUdFndsMCxibOz3pM0EdHcbtavpOwK2GRbSAtXXVE1THKzX73Q==
+scheduler@0.21.0-alpha-cb8afda18-20210708:
+  version "0.21.0-alpha-cb8afda18-20210708"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-alpha-cb8afda18-20210708.tgz#0d0188d66bcca1fd946c7f32eaa732c43e1aa922"
+  integrity sha512-+3Z8HqJkwZxXkTOM2VQH1pM2GaOhQnODpMAJUXV20SC5uoW2dZm+mr/ym9INe3zI9cpo6/Hx4fg+qiifo1FGfQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
