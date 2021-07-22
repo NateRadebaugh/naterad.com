@@ -27,7 +27,7 @@
     "next": "^11.0.2-canary.18",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.2.24",
-    "postcss": "^8.3.5",
+    "postcss": "^8.3.6",
     "prism-react-renderer": "^1.2.1",
     "prism-themes": "^1.8.0",
     "prismjs": "^1.24.1",
