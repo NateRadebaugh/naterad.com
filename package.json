@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.4.13",
-    "@types/react": "^17.0.16",
+    "@types/react": "^17.0.17",
     "cross-env": "^7.0.3",
     "esbuild": "^0.12.19",
     "eslint": "^7.32.0",
