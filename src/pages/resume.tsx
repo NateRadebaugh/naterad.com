@@ -115,8 +115,18 @@ export default function Resume() {
 
       <ContentGroup label="Work Experience:">
         <Employment
+          position="Manager, Software Solutions"
+          dates="August 2021 - Present"
+          company="BDO Digital, BDO USA"
+          location="Oak Brook, IL"
+          details={[
+            "Focus Area Leader for App Frameworks at BDO Digital.",
+            "Technical Lead on multiple concurrent client projects across a variety of technologies and environments.",
+          ]}
+        />
+        <Employment
           position="Experienced Senior Associate, Software Solutions"
-          dates="November 2020 - Present"
+          dates="November 2020 - August 2021"
           company="BDO Digital, BDO USA"
           location="Oak Brook, IL"
           details={[
