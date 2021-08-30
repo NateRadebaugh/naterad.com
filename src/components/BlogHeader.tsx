@@ -68,10 +68,7 @@ function BlogHeader({ isPost, title }) {
         </div>
       </div>
       <div className="flex items-stretch">
-        <ButtonLink
-          href="/"
-          className="ml-2 btn btn-dark none lg:inline-block"
-        >
+        <ButtonLink href="/" className="ml-2 btn btn-dark none lg:inline-block">
           Home
         </ButtonLink>
         <ButtonLink
