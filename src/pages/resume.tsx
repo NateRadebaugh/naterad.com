@@ -132,7 +132,6 @@ export default function Resume() {
           details={[
             "Scope and budget estimating, release planning and scheduling, and delegation for multiple concurrent custom large-scale enterprise web applications for clients.",
             "Work with clients, BAs, and PMs to set expectations and meet budgets and deadlines.",
-            "Shaping firm-wide best practices for front-end development and solutions architecture for scalability and product confidence.",
           ]}
         />
         <Employment
@@ -140,9 +139,6 @@ export default function Resume() {
           dates="January 2020 - November 2020"
           company="BDO Digital, BDO USA"
           location="Oak Brook, IL"
-          details={[
-            "Technical lead on multiple client projects at a time, including project planning, delegation, technical oversight, and code reviews for teams using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle.",
-          ]}
         />
         <Employment
           position="Senior Consultant"
