@@ -159,7 +159,7 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            'Worked on Windows system UI team for windows phone, desktop, and other devices.',
+            "Worked on Windows system UI team for windows phone, desktop, and other devices.",
             "Mentored new team members.",
           ]}
         />
