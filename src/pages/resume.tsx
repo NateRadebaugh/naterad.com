@@ -141,8 +141,7 @@ export default function Resume() {
           company="BDO Digital, BDO USA"
           location="Oak Brook, IL"
           details={[
-            "Technical lead on multiple client projects at a time, mentoring and teaching junior team members, including project planning, delegation, and technical oversight.",
-            "Project planning, task delegation, and code reviews while creating custom web applications using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle.",
+            "Technical lead on multiple client projects at a time, including project planning, delegation, technical oversight, and code reviews for teams using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle.",
           ]}
         />
         <Employment
@@ -150,18 +149,12 @@ export default function Resume() {
           dates="December 2018 - January 2020"
           company="SWC Technology Partners (Aquired by BDO USA)"
           location="Oak Brook, IL"
-          details={[
-            "Technical lead on multiple client projects at a time, including project planning, delegation, technical oversight, and code reviews for teams creating a variety of enterprise products using React, Angular, .NET MVC, Java Spring, and MSSQL/Oracle.",
-          ]}
         />
         <Employment
           position="Staff Consultant"
           dates="May 2017 - December 2018"
           company="SWC Technology Partners"
           location="Oak Brook, IL"
-          details={[
-            'Developer on multiple large scale enterprise "full stack" web projects at a time using .NET MVC, Spring Boot, SQL, JQuery, and React.',
-          ]}
         />
         <Employment
           position="Software Development Engineer 2"
@@ -169,8 +162,7 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            "Worked on Windows system UI team for windows phone, desktop, and other devices.",
-            "Mentored new team members.",
+            "Windows system UI team for windows phone, desktop, and others.",
           ]}
         />
         <Employment
@@ -179,7 +171,7 @@ export default function Resume() {
           company="Microsoft"
           location="Redmond, WA"
           details={[
-            "Work on Windows Phone including Cortana, Wallet, and Continuum apps using C++. Collaboration with designers, PMs, and senior developers.",
+            "Windows Phone developer including Cortana, Wallet, and Continuum apps using C++.",
           ]}
         />
         <Employment
