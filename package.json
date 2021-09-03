@@ -20,7 +20,7 @@
     "@next/bundle-analyzer": "^11.1.2",
     "@reach/skip-nav": "^0.16.0",
     "@tailwindcss/typography": "^0.4.1",
-    "autoprefixer": "^10.3.3",
+    "autoprefixer": "^10.3.4",
     "clsx": "^1.1.1",
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^6.0.1",
