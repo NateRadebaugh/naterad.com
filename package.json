@@ -34,7 +34,7 @@
     "react": "^18.0.0-alpha-310187264-20210716",
     "react-dom": "^18.0.0-alpha-310187264-20210716",
     "sass": "^1.39.0",
-    "tailwindcss": "^2.2.12",
+    "tailwindcss": "^2.2.14",
     "totalist": "^2.0.0",
     "typescript": "^4.4.2"
   },
