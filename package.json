@@ -29,7 +29,7 @@
     "next-pwa": "^5.3.1",
     "postcss": "^8.3.6",
     "prism-react-renderer": "^1.2.1",
-    "prism-themes": "^1.8.0",
+    "prism-themes": "^1.9.0",
     "prismjs": "^1.25.0",
     "react": "^18.0.0-alpha-310187264-20210716",
     "react-dom": "^18.0.0-alpha-310187264-20210716",
