@@ -42,7 +42,7 @@
     "@types/node": "^16.10.2",
     "@types/react": "^17.0.26",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.12.29",
+    "esbuild": "^0.13.3",
     "eslint": "^7.32.0",
     "eslint-config-next": "11.1.2",
     "prettier": "^2.4.1",
