@@ -27,7 +27,7 @@
     "next": "^11.1.2",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.4.0",
-    "postcss": "^8.3.10",
+    "postcss": "^8.3.11",
     "prism-react-renderer": "^1.2.1",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.25.0",
