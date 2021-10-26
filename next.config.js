@@ -31,12 +31,18 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withPlugins([withPWA, withBundleAnalyzer], {
   reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    concurrentFeatures: true,
+    serverComponents: true,
+  },
   i18n: {
     locales: ["en-US"],
     defaultLocale: "en-US",
   },
   images: {
     domains: ["www.gravatar.com"],
+    formats: ['image/avif', 'image/webp'],
   },
   async headers() {
     return [
