@@ -1,22 +1,5 @@
 const path = require("path");
 
-if (process.platform === "win32") {
-  process.env.ESBUILD_BINARY_PATH = path.join(
-    process.cwd(),
-    "node_modules",
-    "esbuild",
-    "esbuild.exe"
-  );
-} else {
-  process.env.ESBUILD_BINARY_PATH = path.join(
-    process.cwd(),
-    "node_modules",
-    "esbuild",
-    "bin",
-    "esbuild"
-  );
-}
-
 const withPlugins = require("next-compose-plugins");
 const withPWA = require("next-pwa")({
   pwa: {
@@ -31,6 +14,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withPlugins([withPWA, withBundleAnalyzer], {
   reactStrictMode: true,
+  swcMinify: true,
   i18n: {
     locales: ["en-US"],
     defaultLocale: "en-US",
