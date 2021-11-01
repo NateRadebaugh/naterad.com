@@ -4,6 +4,24 @@ import Image from "next/image";
 
 const mdxConfig = {
   components: {
+    h1: ({ className, ...props }) => (
+      <h1
+        className={clsx("text-xl font-extrabold mt-4 mb-2", className)}
+        {...props}
+      />
+    ),
+    h2: ({ className, ...props }) => (
+      <h2
+        className={clsx("text-xl font-bold mt-4 mb-2", className)}
+        {...props}
+      />
+    ),
+    h3: ({ className, ...props }) => (
+      <h3 className={clsx("text-xl mt-4 mb-2", className)} {...props} />
+    ),
+    h4: ({ className, ...props }) => (
+      <h4 className={clsx("text-lg mt-4 mb-2", className)} {...props} />
+    ),
     a: Link,
     img: Image,
     p: function PTag(props) {
