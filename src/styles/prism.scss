@@ -1,0 +1,56 @@
+@import "./prism-night-owl.css";
+
+pre {
+  overflow-x: auto;
+}
+
+/**
+ * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .code-highlight.
+ */
+.code-highlight {
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.code-line {
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left-width: 4px;
+  border-left-color: rgb(31, 41, 55); /* Set code block color */
+}
+
+.highlight-line {
+  margin-left: -16px;
+  margin-right: -16px;
+  background-color: rgba(55, 65, 81, 0.5); /* Set highlight bg color */
+  border-left-width: 4px;
+  border-left-color: rgb(59, 130, 246); /* Set highlight accent border color */
+}
+
+.line-number::before {
+  padding-right: 16px;
+  margin-left: -8px;
+  color: rgb(156, 163, 175); /* Line number color */
+  content: attr(line);
+}
+
+.rehype-code-title {
+  display: inline-block;
+  color: #011627;
+  background-color: #d6deeb;
+  font-size: 0.75rem;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  left: 1.5rem;
+  text-transform: uppercase;
+  top: 0px;
+  border-radius: 4px 4px 0px 0px;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.25rem;
+  user-select: none;
+}

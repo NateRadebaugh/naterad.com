@@ -16,7 +16,7 @@ Read more here background here:
 
 1. Add reference to your T4 templates in your `.csproj` file:
 
-   ```xml title=BackEnd.csproj
+   ```xml:BackEnd.csproj
    <ItemGroup>
         <Content Include="Models\Model.tt">
             <Generator>TextTemplatingFileGenerator</Generator>
@@ -43,7 +43,7 @@ This is great, but requiring manual intervention for code generation is so 2019.
 
    - Add the following `PostBuildEvent` `BackEnd.csproj`:
 
-   ```xml title=BackEnd.csproj
+   ```xml:BackEnd.csproj
    <PropertyGroup>
        <PostBuildEvent>"$(SolutionDir)packages\Mono.TextTransform.1.0.0\tools\TextTransform.exe" "$(ProjectDir)Models\Model.tt" -a=outDir!"$(TargetDir)$(ConfigurationName)\"</PostBuildEvent>
    </PropertyGroup>

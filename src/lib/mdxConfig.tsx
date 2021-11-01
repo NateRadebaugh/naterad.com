@@ -1,14 +1,9 @@
 import clsx from "clsx";
-import Code from "components/Code";
 import Link from "components/Link";
 import Image from "next/image";
 
 const mdxConfig = {
   components: {
-    pre: function PreTag(props) {
-      return <div {...props} />;
-    },
-    code: Code,
     a: Link,
     img: Image,
     p: function PTag(props) {

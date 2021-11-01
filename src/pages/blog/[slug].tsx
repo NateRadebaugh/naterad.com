@@ -2,13 +2,11 @@ import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
 import BlogLayout from "../../layouts/BlogLayout";
-import syntaxStyles from "../../styles/syntax.module.scss";
 import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
 import Divider from "../../components/Divider";
 import Link from "../../components/Link";
-import clsx from "clsx";
 import mdxConfig from "lib/mdxConfig";
 import { getMDXComponent } from "mdx-bundler/client";
 import { bundleMDX } from "mdx-bundler";
@@ -59,7 +57,7 @@ export default function BlogPost({
 
   return (
     <BlogLayout {...frontMatter} descriptionSource={descriptionSource} isPost>
-      <div className={clsx(syntaxStyles.syntax, "dark:prose")}>
+      <div className="dark:prose">
         {MainContentComponent && (
           <MainContentComponent components={mdxConfig.components as any} />
         )}
