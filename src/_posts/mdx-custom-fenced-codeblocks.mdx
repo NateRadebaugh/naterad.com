@@ -1,0 +1,188 @@
+---
+title: How to use custom MDX Fenced Code Blocks to supercharge your documentation
+description: MDX lets us use React Components in Markdown files using next-generation tooling. Fenced Code Blocks have some unique extensibility points for exposing new functionality from our `.mdx` files.
+date: "2020-05-11T18:38:05.978Z"
+---
+
+From the [MDX site](https://mdxjs.com/),
+
+> MDX is an authorable format that lets you seamlessly write JSX in your Markdown documents. You can import components, such as interactive charts or alerts, and embed them within your content. This makes writing long-form content with components a blast 🚀.
+
+---
+
+## What is Markdown?
+
+Markdown lets us write documentation in human-readable and computer-readable formats. Simple formatting is converted to HTML.
+
+A simple Markdown (`.md`) file may look like this:
+
+```md
+#### Hello, _world_!
+
+This is an example of text in Markdown.
+
+- Red
+- Green
+- Blue
+```
+
+#### Hello, _world_!
+
+This is an example of text in Markdown.
+
+- Red
+- Green
+- Blue
+
+---
+
+## What is MDX?
+
+A simple MDX (`.mdx`) file may look like this:
+
+```md:mdx
+#### Hello, _world_!
+
+Below is an example of JSX embedded in Markdown.
+
+<div style={{ padding: "20px", backgroundColor: "#B71C1C" }}>
+  <h3>This is JSX</h3>
+</div>
+```
+
+#### Hello, _world_!
+
+Below is an example of JSX embedded in Markdown.
+
+<div style={{ padding: "20px", backgroundColor: "#B71C1C" }}>
+  <h3>This is JSX</h3>
+</div>
+
+---
+
+MDX can be great, but as you can see, we can lose some of the flexibility and readability markdown has made us believe.
+
+Take the following `.mdx`:
+
+```md:mdx
+import BundlephobiaInline from "bundlephobia-inline";
+
+<BundlephobiaInline packageName="react-query" />
+<BundlephobiaInline packageName="react-table" />
+<BundlephobiaInline packageName="react" />
+<BundlephobiaInline packageName="react-dom" />
+<BundlephobiaInline packageName="dayjs" />
+<BundlephobiaInline packageName="styled-components" />
+```
+
+This has turned a simple list of packages into an overly verbose list of code. I'd much rather use something like this
+
+````txt
+    ```bundlephobia
+    react-query
+    react-table
+    react
+    react-dom
+    dayjs
+    styled-components
+    ```
+````
+
+Using the `<MDXProvider components={components} />`, we can customize any `code` blocks with a custom React component.
+
+```jsx
+import { MDXProvider } from "@mdx-js/react";
+
+const components = {
+  pre: (props) => <div {...props} />,
+  code: Code,
+};
+```
+
+Let's take a look at how `<Code />` works, and what props get passed.
+
+````txt
+    ```bundlephobia include-links=true
+    react-query
+    ```
+````
+
+1. `children` as the content
+   - `react-query`
+2. `className` with `language-*`
+   - `language-bundlephobia`
+3. `metastring` with
+
+With a little trickery, we can overload the `language-` value being passed in to short-circuit the `Code` return value for the unique scenarios:
+
+```jsx {3}
+function Code(props) {
+  const { children: codeString = "", metastring = "", className = "" } = props;
+  const language = className.replace(/language-/, "");
+
+  //
+  // If we see "bundlephobia" fenced code block
+  //
+  if (["bundlephobia"].includes(language)) {
+    const lines = codeString.trim().split(/[\n\r]+/);
+    return (
+      <>
+        {lines.map((line) => (
+          <div>
+            <Bundlephobia key={line} packageName={line} />
+          </div>
+        ))}
+      </>
+    );
+  }
+
+  // ...
+}
+```
+
+Here's it running in action:
+
+`````txt
+    ```bundlephobia
+    react-query
+    react-table
+    react
+    react-dom
+    dayjs
+    styled-components
+    ````
+`````
+
+## Consider some other ways to exploit this functionality:
+
+### Inline Charts
+
+````txt:chart
+// ```chart type=bar
+Green Team=[1,2,3]
+Blue Team=[3,4,2]
+````
+
+vs
+
+```jsx
+<Chart
+  records={[
+    { label: "Green Team", data: [1, 2, 3] },
+    { label: "Blue Team", data: [3, 4, 2] },
+  ]}
+/>
+```
+
+### Inline Maps
+
+````txt:map
+// ```map
+Groom Lake, Nevada
+````
+
+vs
+
+```jsx
+<Map address="Groom Lake, Nevada" />
+```
