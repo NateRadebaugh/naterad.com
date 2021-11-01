@@ -1,5 +1,4 @@
-const path = require("path");
-
+const withPreact = require("next-plugin-preact");
 const withPlugins = require("next-compose-plugins");
 const withPWA = require("next-pwa")({
   pwa: {
@@ -12,7 +11,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-module.exports = withPlugins([withPWA, withBundleAnalyzer], {
+module.exports = withPlugins([withPWA, withBundleAnalyzer, withPreact], {
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
