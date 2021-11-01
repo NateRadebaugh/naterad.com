@@ -35,7 +35,7 @@ function BlogLayout(props: BlogLayoutProps) {
   return (
     <>
       <Head>
-        <title>{title} - Nate Radebaugh's Blog</title>
+        <title>{title} - Nate Radebaugh&apos;s Blog</title>
         <meta name="Description" content={title} />
         <meta name="theme-color" content="#317EFB" />
       </Head>
