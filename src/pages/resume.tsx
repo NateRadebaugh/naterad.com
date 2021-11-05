@@ -105,12 +105,11 @@ export default function Resume() {
       </div>
 
       <ContentGroup label="Software Skills:">
-        <strong>Front</strong> React, Angular, JQuery, HTML, CSS. Bootstrap.
+        <strong>Front End</strong> &ndash; React, Angular, JQuery, HTML, CSS. Bootstrap.
         <br />
-        <strong>Back</strong> C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
+        <strong>Back End</strong> &ndash; C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
         <br />
-        <strong>Cloud</strong> Azure (DevOps, App Service, DB, Functions), AWS
-        (Lambda, Connect, Lex), Atlassin Suite, Vercel Now.
+        <strong>Cloud Solutions</strong> &ndash; Azure, AWS, Atlassin, Vercel.
       </ContentGroup>
 
       <ContentGroup label="Work Experience:">
