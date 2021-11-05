@@ -88,7 +88,7 @@ export default function Resume() {
         <title>Resume for Nate Radebaugh</title>
         <meta
           name="Description"
-          content="Hi I'm Nate Radebaugh. Experienced Senior Associate at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University. Past employee at Microsoft."
+          content="Hi I'm Nate Radebaugh. Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
         />
         <meta name="theme-color" content="#e15227" />
       </Head>

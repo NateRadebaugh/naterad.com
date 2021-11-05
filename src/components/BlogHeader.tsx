@@ -1,5 +1,4 @@
 import Link from "../components/Link";
-import TwitterIcon from "./TwitterIcon";
 import LinkedInIcon from "./LinkedInIcon";
 import ResumeIcon from "./ResumeIcon";
 import GitHubIcon from "./GitHubIcon";
@@ -79,15 +78,6 @@ function BlogHeader({ isPost, title }) {
         >
           <GitHubIcon className="mr-2" />
           GitHub
-        </ButtonLink>
-        <ButtonLink
-          href="https://twitter.com/nateradebaugh"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ml-2 btn btn-dark none md:inline-block"
-        >
-          <TwitterIcon className="mr-2" />
-          Twitter
         </ButtonLink>
         <ButtonLink
           href="https://www.linkedin.com/in/nateradebaugh/"

@@ -111,15 +111,3 @@
 .githubTile {
   @include tile(#4183c4);
 }
-
-.datetimeTile {
-  @include tile(teal);
-}
-
-.twitterTile {
-  @include tile(#00a0d1);
-}
-
-.bundlephobiaTile {
-  @include tile(#880000);
-}
