@@ -1,12 +1,9 @@
 import Head from "next/head";
 import NextLink from "next/link";
 import styles from "./index.module.scss";
-import ReactDateTimeIcon from "../components/ReactDateTimeIcon";
-import BundlephobiaInlineIcon from "../components/BundlephobiaInlineIcon";
 import ResumeIcon from "../components/ResumeIcon";
 import LinkedInIcon from "../components/LinkedInIcon";
 import GitHubIcon from "../components/GitHubIcon";
-import TwitterIcon from "../components/TwitterIcon";
 import BlogIcon from "../components/BlogIcon";
 import { SkipNavLink, SkipNavContent } from "../components/SkipNav";
 import { forwardRef } from "react";
@@ -103,34 +100,6 @@ export default function Index() {
               href="https://github.com/NateRadebaugh"
               icon={<GitHubIcon size={6} />}
               text="github"
-            />
-          </div>
-          <div className="mb-4 col-12 sm:col-8 md:col-6">
-            <Tile
-              className={styles.datetimeTile}
-              href="https://react-datetime.naterad.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              icon={<ReactDateTimeIcon size={6} />}
-              text="@nateradebaugh/react-datetime"
-            />
-          </div>
-          <div className="mb-4 col-6 sm:col-4 md:col-3">
-            <Tile
-              className={styles.twitterTile}
-              href="https://twitter.com/nateradebaugh"
-              icon={<TwitterIcon size={6} />}
-              text="twitter"
-            />
-          </div>
-          <div className="mb-4 col-12 sm:col-8 md:col-6">
-            <Tile
-              className={styles.bundlephobiaTile}
-              href="https://bundlephobia-inline.naterad.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              icon={<BundlephobiaInlineIcon size={6} />}
-              text="bundlephobia-inline"
             />
           </div>
         </div>
