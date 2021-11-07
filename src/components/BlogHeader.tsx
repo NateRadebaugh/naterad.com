@@ -29,6 +29,7 @@ function BlogHeader({ isPost, title }) {
           <Link href="/" className="text-white">
             Nate Radebaugh
           </Link>
+
           {isPost ? (
             <nav aria-label="breadcrumb">
               <ol className="p-0 m-0 bg-transparent breadcrumb">
@@ -36,15 +37,8 @@ function BlogHeader({ isPost, title }) {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item">/</li>
-                <li className="breadcrumb-item">
+                <li className="breadcrumb-item" aria-current="page">
                   <Link href="/blog">Blog</Link>
-                </li>
-                <li className="breadcrumb-item">/</li>
-                <li
-                  className="breadcrumb-item active none sm:inline"
-                  aria-current="page"
-                >
-                  {title}
                 </li>
               </ol>
             </nav>
@@ -55,10 +49,7 @@ function BlogHeader({ isPost, title }) {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item">/</li>
-                <li
-                  className="breadcrumb-item active none sm:inline"
-                  aria-current="page"
-                >
+                <li className="breadcrumb-item active" aria-current="page">
                   Blog
                 </li>
               </ol>
@@ -67,30 +58,36 @@ function BlogHeader({ isPost, title }) {
         </div>
       </div>
       <div className="flex items-stretch">
-        <ButtonLink href="/" className="ml-2 btn btn-dark none lg:inline-block">
+        <ButtonLink
+          href="/"
+          className="hidden ml-2 btn btn-dark lg:inline-block"
+        >
           Home
         </ButtonLink>
         <ButtonLink
           href="https://github.com/NateRadebaugh"
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-2 btn btn-dark none md:inline-block"
+          className="ml-2 btn btn-dark"
         >
-          <GitHubIcon className="mr-2" />
-          GitHub
+          <GitHubIcon />
+          <span className="hidden mr-2 sm:inline-block" />
+          <span className="hidden sm:inline-block">GitHub</span>
         </ButtonLink>
         <ButtonLink
           href="https://www.linkedin.com/in/nateradebaugh/"
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-2 btn btn-dark none sm:inline-block"
+          className="ml-2 btn btn-dark"
         >
-          <LinkedInIcon className="mr-2" />
-          LinkedIn
+          <LinkedInIcon />
+          <span className="hidden mr-2 sm:inline-block" />
+          <span className="hidden sm:inline-block">LinkedIn</span>
         </ButtonLink>
         <ButtonLink href="/resume" className="ml-2 btn btn-dark">
-          <ResumeIcon className="mr-2" />
-          Resume
+          <ResumeIcon />
+          <span className="hidden mr-2 sm:inline-block" />
+          <span className="hidden sm:inline-block">Resume</span>
         </ButtonLink>
       </div>
     </header>
