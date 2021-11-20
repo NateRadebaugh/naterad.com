@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "set NODE_ENV=production&&next start",
     "format": "dprint fmt",
-    "analyze": "cross-env ANALYZE=true next build"
+    "analyze": "cross-env ANALYZE=true next build",
+    "prepare": "npx simple-git-hooks"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
