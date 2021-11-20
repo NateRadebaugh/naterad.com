@@ -9,7 +9,7 @@
     "dev": "next",
     "build": "next build",
     "start": "set NODE_ENV=production&&next start",
-    "format": "prettier --write .",
+    "format": "dprint fmt",
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
@@ -22,7 +22,6 @@
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.4.0",
     "clsx": "^1.1.1",
-    "gray-matter": "^4.0.3",
     "mdx-bundler": "^8.0.0",
     "next": "^12.0.5-canary.5",
     "next-compose-plugins": "^2.2.1",
@@ -42,10 +41,18 @@
     "@types/node": "^16.11.9",
     "@types/react": "^17.0.35",
     "cross-env": "^7.0.3",
+    "dprint": "^0.18.2",
     "esbuild": "^0.13.14",
     "eslint": "^8.2.0",
     "eslint-config-next": "^12.0.5-canary.5",
-    "prettier": "^2.4.1",
+    "nano-staged": "^0.1.2",
+    "simple-git-hooks": "^2.7.0",
     "tailwind-bootstrap-grid": "^4.0.0"
+  },
+  "nano-staged": {
+    "*": "dprint fmt"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx nano-staged"
   }
 }
