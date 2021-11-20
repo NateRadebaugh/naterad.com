@@ -19,10 +19,10 @@ export async function getStaticProps({ locale }) {
   const posts: Post[] = [];
   const blogPostDetailsList = getBlogPostDetails({ locale });
   for (const post of blogPostDetailsList) {
-    const { code: descriptionSource } = await bundleMDX(
-      post.description,
-      bundleMdxConfig
-    );
+    const { code: descriptionSource } = await bundleMDX({
+      source: post.description,
+      ...bundleMdxConfig,
+    });
     posts.push({
       ...post,
       descriptionSource,
