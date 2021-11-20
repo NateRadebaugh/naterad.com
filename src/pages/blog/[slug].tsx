@@ -115,7 +115,10 @@ export async function getStaticProps({ params, locale }) {
     "utf8"
   );
   const { content } = matter(source);
-  const { code: mdxSource } = await bundleMDX(content, bundleMdxConfig);
+  const { code: mdxSource } = await bundleMDX({
+    source: content,
+    ...bundleMdxConfig,
+  });
 
   const pageInfo = getBlogPostDetails({ locale });
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
@@ -124,10 +127,10 @@ export async function getStaticProps({ params, locale }) {
   const nextPost = pageInfo[postIndex + 1] || null;
 
   const post = pageInfo[postIndex] || null;
-  const { code: descriptionSource } = await bundleMDX(
-    post.description,
-    bundleMdxConfig
-  );
+  const { code: descriptionSource } = await bundleMDX({
+    source: post.description,
+    ...bundleMdxConfig,
+  });
 
   const props: BlogPostProps = {
     mdxSource,
