@@ -97,7 +97,7 @@ export default function BlogPost({
 }
 
 export async function getStaticPaths({ locale }) {
-  const pageInfo = await getBlogPostDetails({ locale });
+  const pageInfo = getBlogPostDetails({ locale });
   const paths = pageInfo.map((x) => x.path);
 
   return {
@@ -115,7 +115,7 @@ export async function getStaticProps({ params, locale }) {
     ...bundleMdxConfig,
   });
 
-  const pageInfo = await getBlogPostDetails({ locale });
+  const pageInfo = getBlogPostDetails({ locale });
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
   const prevPost = pageInfo[postIndex - 1] || null;

@@ -1,9 +1,7 @@
 import matter from "gray-matter";
-import { totalist } from "totalist";
+import { totalist } from "totalist/sync";
 import fs from "fs";
 import path from "path";
-import { bundleMDX } from "mdx-bundler";
-import bundleMdxConfig from "./bundleMdxConfig";
 
 const root = process.cwd();
 
@@ -15,18 +13,19 @@ export interface BlogPostDetails {
   description: string;
 }
 
-export default async function getBlogPostDetails({ locale }) {
+export default function getBlogPostDetails({ locale }) {
   const detailsList: BlogPostDetails[] = [];
 
-  await totalist("src/_posts", async (name, abs, stats) => {
+  totalist("src/_posts", (name, abs, stats) => {
     if (/\.mdx?$/.test(name)) {
       const slug = name.replace(/\.mdx?$/, "");
 
-      const sourceFilePath = path.join(root, "src", "_posts", `${slug}.mdx`);
-      const { frontmatter: data } = await bundleMDX({
-        file: sourceFilePath,
-        ...bundleMdxConfig,
-      });
+      const source = fs.readFileSync(
+        path.join(root, "src", "_posts", `${slug}.mdx`),
+        "utf8"
+      );
+
+      const { data } = matter(source);
 
       detailsList.push({
         slug: slug,
