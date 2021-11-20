@@ -1,6 +1,7 @@
 {
   "incremental": true,
   "typescript": {
+    "indentWidth": 2
   },
   "json": {
   },

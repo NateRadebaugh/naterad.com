@@ -105,11 +105,9 @@ export default function Resume() {
       </div>
 
       <ContentGroup label="Software Skills:">
-        <strong>Front End</strong> &ndash; React, Angular, JQuery, HTML, CSS.
-        Bootstrap.
+        <strong>Front End</strong> &ndash; React, Angular, JQuery, HTML, CSS. Bootstrap.
         <br />
-        <strong>Back End</strong> &ndash; C# (MVC), Java (Spring Boot), SQL,
-        PHP, C/C++.
+        <strong>Back End</strong> &ndash; C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
         <br />
         <strong>Cloud Solutions</strong> &ndash; Azure, AWS, Atlassin, Vercel.
       </ContentGroup>
@@ -196,8 +194,7 @@ export default function Resume() {
           degree="B.S."
           major={
             <>
-              <strong>Computer Science</strong>, focus on Software Engineering
-              and Programming Languages
+              <strong>Computer Science</strong>, focus on Software Engineering and Programming Languages
             </>
           }
           dates="May 2013"
