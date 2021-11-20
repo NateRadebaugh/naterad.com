@@ -1,5 +1,3 @@
-import matter from "gray-matter";
-import fs from "fs";
 import path from "path";
 import BlogLayout from "../../layouts/BlogLayout";
 import getBlogPostDetails, {
@@ -99,7 +97,8 @@ export default function BlogPost({
 }
 
 export async function getStaticPaths({ locale }) {
-  const paths = getBlogPostDetails({ locale }).map((x) => x.path);
+  const pageInfo = await getBlogPostDetails({ locale });
+  const paths = pageInfo.map((x) => x.path);
 
   return {
     fallback: false,
@@ -110,17 +109,13 @@ export async function getStaticPaths({ locale }) {
 export async function getStaticProps({ params, locale }) {
   const slug = params.slug;
 
-  const source = fs.readFileSync(
-    path.join(root, "src", "_posts", `${slug}.mdx`),
-    "utf8"
-  );
-  const { content } = matter(source);
+  const sourceFilePath = path.join(root, "src", "_posts", `${slug}.mdx`);
   const { code: mdxSource } = await bundleMDX({
-    source: content,
+    file: sourceFilePath,
     ...bundleMdxConfig,
   });
 
-  const pageInfo = getBlogPostDetails({ locale });
+  const pageInfo = await getBlogPostDetails({ locale });
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
   const prevPost = pageInfo[postIndex - 1] || null;
