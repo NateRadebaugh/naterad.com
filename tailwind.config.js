@@ -2,8 +2,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   mode: "jit",
-  purge: ["./src/**/*.tsx", "./src/**/*.jsx"],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./src/**/*.tsx", "./src/**/*.jsx"],
   theme: {
     // Expose ALL colors to app
     colors: {
