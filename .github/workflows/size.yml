@@ -5,6 +5,8 @@ on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    with:
+      node-version: '14'
 
     steps:
       - uses: actions/checkout@v2
@@ -12,6 +14,5 @@ jobs:
           fetch-depth: 1
       - uses: preactjs/compressed-size-action@v2
         with:
-          node-version: '14'
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           pattern: "./.next/**/*.{js,css,html,json}"
