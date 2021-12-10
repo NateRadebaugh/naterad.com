@@ -1,49 +1,14 @@
 import Head from "next/head";
 import NextLink from "next/link";
-import styles from "./index.module.scss";
 import ResumeIcon from "../components/ResumeIcon";
 import LinkedInIcon from "../components/LinkedInIcon";
 import GitHubIcon from "../components/GitHubIcon";
 import BlogIcon from "../components/BlogIcon";
 import { SkipNavLink, SkipNavContent } from "../components/SkipNav";
-import { forwardRef } from "react";
-import clsx from "clsx";
-
-interface TileProps {
-  icon: any;
-  text: string;
-  href: string;
-  [x: string]: any;
-}
-
-const Tile = forwardRef(function Tile(
-  { icon, text, colspan, color, href, className, ...rest }: TileProps,
-  ref: any
-) {
-  const isExternal = href?.startsWith("http");
-
-  const component = (
-    <a
-      ref={ref}
-      href={href}
-      className={clsx(className, "btn text-white hover:text-white")}
-      {...rest}
-    >
-      {icon}
-      <span className={styles.tileText}>{text}</span>
-    </a>
-  );
-
-  if (isExternal) {
-    return component;
-  }
-
-  return <NextLink href={href}>{component}</NextLink>;
-});
 
 export default function Index() {
   return (
-    <div className={styles.wrapper}>
+    <div className="max-w-[800px] mx-auto">
       <Head>
         <title>Nate Radebaugh</title>
         <meta
@@ -57,10 +22,8 @@ export default function Index() {
 
       <div className="container-fluid">
         <header>
-          <div className={styles.headerRow}>
-            <h1 className={styles.title}>Nate Radebaugh</h1>
-          </div>
-          <p className={styles.introText}>
+          <h1 className="mt-3 text-5xl">Nate Radebaugh</h1>
+          <p className="my-3">
             <strong>Manager, Software Solutions</strong> at{" "}
             <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
             Graduate of Purdue University.
@@ -71,36 +34,36 @@ export default function Index() {
 
         <div className="row align-items-stretch">
           <div className="mb-4 col-6 sm:col-4 md:col-3">
-            <Tile
-              className={styles.blogTile}
-              href="/blog"
-              icon={<BlogIcon size={6} />}
-              text="blog"
-            />
+            <NextLink href="/blog">
+              <a className="flex flex-col items-center py-4 bg-[#570057] hover:bg-[#480048] rounded-lg no-underline text-white hover:no-underline hover:text-white transition-all print:text-black print:border-4">
+                <BlogIcon size={6} />
+                <span className="mt-2 text-2xl font-extralight">Blog</span>
+              </a>
+            </NextLink>
           </div>
           <div className="mb-4 col-6 sm:col-4 md:col-3">
-            <Tile
-              className={styles.resumeTile}
-              href="/resume"
-              icon={<ResumeIcon size={6} />}
-              text="my resume"
-            />
+            <NextLink href="/resume">
+              <a className="flex flex-col items-center py-4 bg-[#c4421b] hover:bg-[#b73e19] rounded-lg no-underline text-white hover:no-underline hover:text-white transition-all print:text-black print:border-4">
+                <ResumeIcon size={6} />
+                <span className="mt-2 text-2xl font-extralight">My Resume</span>
+              </a>
+            </NextLink>
           </div>
           <div className="mb-4 col-6 sm:col-4 md:col-3">
-            <Tile
-              className={styles.linkedinTile}
-              href="https://www.linkedin.com/in/nateradebaugh/"
-              icon={<LinkedInIcon size={6} />}
-              text="linkedin"
-            />
+            <NextLink href="/resume">
+              <a className="flex flex-col items-center py-4 bg-[#0b5c82] hover:bg-[#0a5274] rounded-lg no-underline text-white hover:no-underline hover:text-white transition-all print:text-black print:border-4">
+                <LinkedInIcon size={6} />
+                <span className="mt-2 text-2xl font-extralight">LinkedIn</span>
+              </a>
+            </NextLink>
           </div>
           <div className="mb-4 col-6 sm:col-4 md:col-3">
-            <Tile
-              className={styles.githubTile}
-              href="https://github.com/NateRadebaugh"
-              icon={<GitHubIcon size={6} />}
-              text="github"
-            />
+            <NextLink href="/resume">
+              <a className="flex flex-col items-center py-4 bg-[#346fa8] hover:bg-[#31679c] rounded-lg no-underline text-white hover:no-underline hover:text-white transition-all print:text-black print:border-4">
+                <GitHubIcon size={6} />
+                <span className="mt-2 text-2xl font-extralight">GitHub</span>
+              </a>
+            </NextLink>
           </div>
         </div>
       </div>
