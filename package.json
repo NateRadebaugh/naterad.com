@@ -1,53 +1,47 @@
 {
   "name": "naterad.com",
   "version": "1.0.0",
-  "engines": {
-    "node": "14.x"
-  },
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "now-build": "next build",
-    "dev": "next",
-    "build": "next build",
-    "start": "set NODE_ENV=production&&next start",
-    "format": "prettier --write .",
-    "analyze": "cross-env ANALYZE=true next build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16",
-    "@next/bundle-analyzer": "^12.0.7",
-    "@reach/skip-nav": "^0.16.0",
-    "clsx": "^1.1.1",
-    "mdx-bundler": "^8.0.0",
-    "next": "^12.0.8-canary.3",
-    "next-compose-plugins": "^2.2.1",
-    "next-pwa": "^5.4.4",
-    "react": "^18.0.0-rc.0-next-f2a59df48-20211208",
-    "react-dom": "^18.0.0-rc.0",
-    "rehype-code-titles": "^1.0.3",
-    "rehype-prism-plus": "^1.1.3",
-    "remark-gfm": "^3.0.1",
-    "totalist": "^2.0.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NateRadebaugh/naterad.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NateRadebaugh/naterad.com/issues"
+  },
+  "homepage": "https://github.com/NateRadebaugh/naterad.com#readme",
+  "turbo": {
+    "baseBranch": "origin/main",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          ".next/**"
+        ]
+      },
+      "test": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "lint": {
+        "outputs": []
+      },
+      "dev": {
+        "cache": false
+      }
+    }
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.0",
-    "@types/node": "^16.11.12",
-    "@types/react": "^17.0.37",
-    "autoprefixer": "^10.4.0",
-    "cross-env": "^7.0.3",
-    "esbuild": "^0.14.2",
-    "eslint": "^8.4.1",
-    "eslint-config-next": "^12.0.8-canary.3",
-    "postcss": "^8.4.4",
-    "prettier": "^2.5.1",
-    "sass": "^1.44.0",
-    "tailwind-bootstrap-grid": "^4.0.0",
-    "tailwindcss": "^3.0.0",
-    "typescript": "^4.5.3"
-  },
-  "peerDependencies": {
-    "postcss": "^8.0.0"
+    "turbo": "^1.0.6"
   }
 }
