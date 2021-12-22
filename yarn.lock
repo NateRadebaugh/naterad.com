@@ -1046,10 +1046,10 @@
     dotenv "10.0.0"
     dotenv-expand "5.1.0"
 
-"@next/eslint-plugin-next@12.0.8-canary.11":
-  version "12.0.8-canary.11"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-12.0.8-canary.11.tgz#c22e65269327d90d526efe2b9d3c348982e2539a"
-  integrity sha512-IzsuV/Ss1CWuvOTArjQGinRCOXMIpIPnrjWGa9Sw0928clPYPqspM3R4LYaf7AUE0+5M2Xu7RoGlx9guzoaong==
+"@next/eslint-plugin-next@12.0.8-canary.12":
+  version "12.0.8-canary.12"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-12.0.8-canary.12.tgz#5229551a58cc7f62b4dea12ec39f2a2caaa6e4fb"
+  integrity sha512-Qx13T0UdozDBxCTpQLdKMKQAuZw2gdavSPQS9kwZ7ajq01snm1HsOmAXS6CGCRaUyGbZNBukhCYf2EArTd7C/g==
   dependencies:
     glob "7.1.7"
 
@@ -2706,12 +2706,12 @@ escape-string-regexp@^5.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz#4683126b500b61762f2dbebace1806e8be31b1c8"
   integrity sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==
 
-eslint-config-next@^12.0.8-canary.11:
-  version "12.0.8-canary.11"
-  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-12.0.8-canary.11.tgz#449bac5ea03c5217b367f33400f4d99622c1fbe5"
-  integrity sha512-yB0Uy+p8BovmeXCw/Hi5PHeE87itybSIPRgPMvsVlQkL02LseCMX5CK0LOa92S7++zLkXqehOoCa4f63rf2Pkg==
+eslint-config-next@^12.0.8-canary.12:
+  version "12.0.8-canary.12"
+  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-12.0.8-canary.12.tgz#f6e3a52148ae300566ebb1b481ecbab9f6b5cb32"
+  integrity sha512-wqBUMEPTBLfov6WhyBa94K/SE6gEVbielGWnQpzpoYPWr5sJDZRKn871KsxS7uuKRz2AndFKzcCaMIxPl8hE1Q==
   dependencies:
-    "@next/eslint-plugin-next" "12.0.8-canary.11"
+    "@next/eslint-plugin-next" "12.0.8-canary.12"
     "@rushstack/eslint-patch" "^1.0.8"
     "@typescript-eslint/parser" "^5.0.0"
     eslint-import-resolver-node "^0.3.4"
