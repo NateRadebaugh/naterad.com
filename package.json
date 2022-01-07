@@ -24,7 +24,7 @@
     "next": "^12.0.8-canary.18",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.4.4",
-    "react": "^18.0.0-rc.0-next-42c30e8b1-20220104",
+    "react": "^18.0.0-rc.0",
     "react-dom": "^18.0.0-rc.0",
     "rehype-code-titles": "^1.0.3",
     "rehype-prism-plus": "^1.1.3",
