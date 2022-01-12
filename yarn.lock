@@ -1021,10 +1021,10 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.0.8-canary.20.tgz#165d9c5b014bb624b9b8a39616f4897a733e2922"
   integrity sha512-cOVE9ISM3yksOYqoj7SiQ7Et2dF2OMaT3mZDUm6vzNldtfwEKHKZq9xN8WVCYk6qA5NYwUcRdGmc9ZKiZZ776w==
 
-"@next/eslint-plugin-next@12.0.8-canary.20":
-  version "12.0.8-canary.20"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-12.0.8-canary.20.tgz#0631f9fab843956b2c746e7e64cbe37f6ec8360d"
-  integrity sha512-ipaaMdUWAHOI+e88dGQaTyXBX+uhg8icvDBYrEXfbyRlVzELZOG5M4W3GiCrjbgYPtENBwgzWz+xWizuiv9bZw==
+"@next/eslint-plugin-next@12.0.8":
+  version "12.0.8"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-12.0.8.tgz#8bb026891dd3b61053e13289efcb163f66ea3dac"
+  integrity sha512-bf7O0Mvs1h3vIdbbi0hijG+6YG3ED/ebQfmUltrQSgGtHVKGADDoE2qQhwE+mrvxuz9BD8y3mJDOSy0PBLKGBA==
   dependencies:
     glob "7.1.7"
 
@@ -2352,12 +2352,12 @@ escape-string-regexp@^5.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-5.0.0.tgz#4683126b500b61762f2dbebace1806e8be31b1c8"
   integrity sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==
 
-eslint-config-next@^12.0.8-canary.20:
-  version "12.0.8-canary.20"
-  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-12.0.8-canary.20.tgz#5830635319fb4c9b50b6a39a0db3083452054e2d"
-  integrity sha512-bqz/+4M3PC0ELvYgnvHrtB4/lbm+hq0wrYgT8/Q4x7L/IVsARGtiWRnWlZUE54P4iqC99uB1Po7tL2LqLcPXhA==
+eslint-config-next@^12.0.8:
+  version "12.0.8"
+  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-12.0.8.tgz#7a15114230db97d1bc727fc5db2f469416b62e0f"
+  integrity sha512-H40jvqy/yeku3r9D556ALLaM3ZmS55hj9/MTK59fWbzsqTaYlybSkUmIBG0ZFEnBazr0NnBGwrYA5cnsFYR7RQ==
   dependencies:
-    "@next/eslint-plugin-next" "12.0.8-canary.20"
+    "@next/eslint-plugin-next" "12.0.8"
     "@rushstack/eslint-patch" "^1.0.8"
     "@typescript-eslint/parser" "^5.0.0"
     eslint-import-resolver-node "^0.3.4"
