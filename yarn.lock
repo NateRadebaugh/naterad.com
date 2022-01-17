@@ -4656,14 +4656,14 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-react-dom@^18.0.0-rc.0-next-51947a14b-20220113:
-  version "18.0.0-rc.0-next-51947a14b-20220113"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0-next-51947a14b-20220113.tgz#de1b4ae3913d1bdf615444d99aafc0d743b42357"
-  integrity sha512-4YRhVHF2wJT6QF2ztedFEs3wf3umWLeq860SHHjniMZIP7NwS6SCDp4THi+4UQoR+vu73Gr+ygmz89pqJEr+uA==
+react-dom@^18.0.0-rc.0:
+  version "18.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0.tgz#aa07044bdd6399ff94c664b2985e2e25948fbf3e"
+  integrity sha512-tdD1n0svTndHBQvVAq/f2Kx7FgQ30CpSLp87/neQKAHPW5WtdgW1sBSwmFAcMQOrmstTuP0M+zRlH86f9kMX/A==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    scheduler "0.21.0-rc.0-next-51947a14b-20220113"
+    scheduler "^0.21.0-rc.0"
 
 react-is@17.0.2:
   version "17.0.2"
@@ -4962,10 +4962,10 @@ sass@^1.48.0:
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
 
-scheduler@0.21.0-rc.0-next-51947a14b-20220113:
-  version "0.21.0-rc.0-next-51947a14b-20220113"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-rc.0-next-51947a14b-20220113.tgz#a8782bd067e2e6e0f58bed7c8e12b31f52c65b13"
-  integrity sha512-tigIbWXYGZLjJKRh6VOZMPahUBcr3DmHEtCpWKvY02UGOEQ8Wd5PiTnj6lVf3gK5d/Wt8dq+ObmbkFN2QXpyQA==
+scheduler@^0.21.0-rc.0:
+  version "0.21.0-rc.0-next-fe905f152-20220107"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-rc.0-next-fe905f152-20220107.tgz#410f6df2f39d5543b00f98fbad7de6c9b374df89"
+  integrity sha512-+sY0WajWdMjoxbmHM8P6P1FKGw8sSVKKG/HthqTFQFPxVGbKLmV1BiFPaVF9gOyQWqmnLYSXJMN+4Bs5ZygsTw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
