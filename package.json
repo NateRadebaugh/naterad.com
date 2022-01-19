@@ -17,7 +17,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
-    "@next/bundle-analyzer": "^12.0.9-canary.0",
+    "@next/bundle-analyzer": "^12.0.9-canary.2",
     "@reach/skip-nav": "^0.16.0",
     "clsx": "^1.1.1",
     "mdx-bundler": "^8.0.1",
