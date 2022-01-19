@@ -21,7 +21,7 @@
     "@reach/skip-nav": "^0.16.0",
     "clsx": "^1.1.1",
     "mdx-bundler": "^8.0.1",
-    "next": "^12.0.9-canary.0",
+    "next": "^12.0.9-canary.2",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.4.4",
     "react": "^18.0.0-rc.0",
