@@ -1,20 +1,14 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  mode: "jit",
-  darkMode: "class",
   content: ["./src/**/*.tsx", "./src/**/*.jsx"],
   theme: {
-    // Expose ALL colors to app
-    colors: {
-      transparent: "transparent",
-      current: "currentColor",
-      ...colors,
+    extend: {
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+      }
     },
-    extend: {},
-  },
-  variants: {
-    extend: {},
   },
   plugins: [
     // Enable bootstrap-like grid system with row and col-*

@@ -55,7 +55,7 @@ export default function BlogPost({
 
   return (
     <BlogLayout {...frontMatter} descriptionSource={descriptionSource} isPost>
-      <div className="dark:prose">
+      <div className="prose-invert">
         {MainContentComponent && (
           <MainContentComponent components={mdxConfig.components as any} />
         )}
