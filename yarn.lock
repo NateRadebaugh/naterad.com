@@ -994,10 +994,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@next/bundle-analyzer@^12.0.9-canary.9":
-  version "12.0.9-canary.9"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-12.0.9-canary.9.tgz#b3f9125dd68f12cb47e92c446169354e080b29d5"
-  integrity sha512-MUofvXIr2IXh/o1HjwgaZBmSmfFHG8F5dKy1g1BhznG03GbrdLit1iEgbZr+GxoAtwRXYFVvPFj55k5sRXFwGw==
+"@next/bundle-analyzer@^12.0.9":
+  version "12.0.9"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-12.0.9.tgz#6fbfbb39b5306da58d9f3f70cc1fb8f85111d959"
+  integrity sha512-IXr1gUqnp48PEP6ej7mJzYJbU6P6ricdUVO6pkkzXU3xjzhDGTTz/CNMEC9+Iga8IynbIKg/c4vFy8ragY+eYA==
   dependencies:
     webpack-bundle-analyzer "4.3.0"
 
