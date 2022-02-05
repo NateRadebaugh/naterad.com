@@ -46,20 +46,20 @@ For example, if you want to add a new "tertiary" color to the generated CSS clas
 
 1. Set up a `.scss` file that will contain all of your SCSS and bootstrap overrides.
 
-```scss:styles.scss
-@import "_variables";
-@import "~bootstrap/scss/bootstrap.scss";
-```
+   ```scss:styles.scss
+   @import "_variables";
+   @import "~bootstrap/scss/bootstrap.scss";
+   ```
 
 2. Create your `_variables.scss` file for your bootstrap variable configurations/overrides:
 
-```scss:_variables.scss
-$tertiary: #218f8b;
+   ```scss:_variables.scss
+   $tertiary: #218f8b;
 
-// Add "tertiary" styles to the generated classes
-$theme-colors: (
-  "tertiary": $tertiary,
-);
-```
+   // Add "tertiary" styles to the generated classes
+   $theme-colors: (
+     "tertiary": $tertiary,
+   );
+   ```
 
 **Further reading:** See the official bootstrap documentation for more on theming: [https://getbootstrap.com/docs/4.5/getting-started/theming/#add-to-map](https://getbootstrap.com/docs/4.5/getting-started/theming/#add-to-map)
