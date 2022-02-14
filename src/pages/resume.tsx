@@ -104,87 +104,125 @@ export default function Resume() {
         </div>
       </div>
 
-      <ContentGroup label="Software Skills:">
-        <strong>Front End</strong> &ndash; React, Angular, JQuery, HTML, CSS. Bootstrap.
+      <ContentGroup label="Skills:">
+        <strong>Front Ends</strong> &ndash; React, Angular, JQuery, HTML, CSS.
+        Bootstrap.
         <br />
-        <strong>Back End</strong> &ndash; C# (MVC), Java (Spring Boot), SQL, PHP, C/C++.
+        <strong>Back Ends</strong> &ndash; C# (MVC, API), Java (Spring Boot),
+        SQL, PHP, C/C++.
         <br />
-        <strong>Cloud Solutions</strong> &ndash; Azure, AWS, Atlassin, Vercel.
+        <strong>Cloud Services</strong> &ndash; Azure, GitHub, AWS, Atlassin,
+        Vercel.
+        <br />
+        <strong>Methodologies</strong> &ndash; Agile, Waterfall, or anywhere
+        between &ndash; I&rsquo;m flexible!
       </ContentGroup>
 
-      <ContentGroup label="Work Experience:">
+      <ContentGroup label="Experience:">
         <Employment
-          position="Manager, Software Solutions"
+          position={
+            <>
+              <strong>Manager</strong>, Software Development
+            </>
+          }
           dates="August 2021 - Present"
-          company="BDO Digital, BDO USA"
-          location="Oak Brook, IL"
+          company="BDO Digital"
+          location="(Remote) Oak Brook, IL"
           details={[
-            "Focus Area Leader for App Frameworks at BDO Digital.",
-            "Technical Lead on multiple concurrent client projects across a variety of technologies and environments.",
+            "App Frameworks focus area leader.",
+            "Front End Technologies community leader.",
+            "Solution architect/lead on multiple projects, writing technical docs, delegating tasks, and solving hard problems in variety of frameworks including Angular, React, .NET Core 3/5/6 and more.",
           ]}
         />
         <Employment
-          position="Experienced Senior Associate, Software Solutions"
+          position={
+            <>
+              <strong>Experienced Senior Associate</strong>, Software
+              Development
+            </>
+          }
           dates="November 2020 - August 2021"
-          company="BDO Digital, BDO USA"
+          company="BDO Digital"
           location="Oak Brook, IL"
           details={[
-            "Scope and budget estimating, release planning and scheduling, and delegation for multiple concurrent custom large-scale enterprise web applications for clients.",
-            "Work with clients, BAs, and PMs to set expectations and meet budgets and deadlines.",
+            "Scope management, budget estimation, release planning and scheduling, and delegation for multiple concurrent custom large-scale enterprise web applications for clients.",
           ]}
         />
         <Employment
-          position="Senior Associate, Software Solutions"
-          dates="January 2020 - November 2020"
-          company="BDO Digital, BDO USA"
+          position={
+            <>
+              <strong>Senior Associate</strong>, Software Development
+            </>
+          }
+          dates="December 2018 - November 2020"
+          company="SWC Technology Partners (Aquired by BDO USA as BDO Digital)"
           location="Oak Brook, IL"
+          details={[
+            "Technical lead on C# .NET projects, coordinating technical implementations with more junior developers to successfully deliver quality applications.",
+          ]}
         />
         <Employment
-          position="Senior Consultant"
-          dates="December 2018 - January 2020"
-          company="SWC Technology Partners (Aquired by BDO USA)"
-          location="Oak Brook, IL"
-        />
-        <Employment
-          position="Staff Consultant"
+          position={
+            <>
+              <strong>Staff Consultant</strong>, Software Development
+            </>
+          }
           dates="May 2017 - December 2018"
           company="SWC Technology Partners"
           location="Oak Brook, IL"
+          details={[
+            "Individual contributor using C#, Java, and JQuery/Bootstrap to create enterprise web applications for clients companies.",
+          ]}
         />
         <Employment
-          position="Software Development Engineer 2"
+          position={
+            <>
+              <strong>Software Development Engineer 2</strong>, Windows System
+              UI
+            </>
+          }
           dates="December 2015 - May 2017"
           company="Microsoft"
           location="Redmond, WA"
-          details={[
-            "Windows system UI team for windows phone, desktop, and others.",
-          ]}
         />
         <Employment
-          position="Software Development Engineer"
+          position={
+            <>
+              <strong>Software Development Engineer</strong>, Windows Phone
+            </>
+          }
           dates="August 2013 - December 2015"
           company="Microsoft"
           location="Redmond, WA"
-          details={[
-            "Windows Phone developer including Cortana, Wallet, and Continuum apps using C++.",
-          ]}
         />
         <Employment
-          position="Intern, Windows Phone"
+          position={
+            <>
+              <strong>Intern</strong>, Windows Phone
+            </>
+          }
           dates="Summer 2012"
           company="Microsoft"
           location="Redmond, WA"
         />
         <Employment
-          position="Intern"
+          position={
+            <>
+              <strong>Intern</strong>
+            </>
+          }
           dates="Summer 2011"
           company="Qualcomm"
           location="San Diego, CA"
         />
         <Employment
-          position="Senior Software Developer"
+          position={
+            <>
+              <strong>Senior Software Developer</strong>
+            </>
+          }
           dates="Fall 2010 - Spring 2013"
-          company="Purdue University ResNet (ISP)"
+          company="Purdue University ResNet (Internet Provider)"
           location="West Lafayette, IN"
         />
       </ContentGroup>

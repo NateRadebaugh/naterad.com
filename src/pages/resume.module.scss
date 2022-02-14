@@ -87,7 +87,7 @@ h2.contentGroupLabel {
     margin-top: 10px;
     font-size: 1em;
     font-weight: bold;
-    width: 1.4in;
+    width: 1in;
   }
 }
 
@@ -102,7 +102,7 @@ div.contentGroupContent {
   }
 
   @media print, (min-width: 800px) {
-    width: 6.6in;
+    width: 7in;
     float: left;
     clear: right;
   }
@@ -200,4 +200,5 @@ ul.details {
 li.detail {
   margin: 0;
   padding: 0;
+  list-style-type: disc;
 }
