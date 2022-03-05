@@ -1,0 +1,62 @@
+---
+title: Optimizing Your Angular Apps
+description: Angular is huge, don't make it worse.
+date: "2022-03-05T20:13:32Z"
+---
+
+Optimizing your applications is critical for gaining and keeping your users.
+
+I recommend the following for keeping your angular apps in check:
+
+> 1. Analyze
+> 
+> 2. Code Split
+> 
+> 3. Tree Shake
+> 
+> 4. Configure
+
+# 1. Analyze
+
+Before starting to address any issues with the size of your app bundles, analyze your production builds and pinpoint where to spend your effort. Aim for the lowest hanging fruits first, and then repeat the "optimization cycle" until your goals are met.
+
+> _A note on deminishing returns:_ it is important to be pragmatic, as shedding size off of an existing application can be time consuming and difficult to really make progress after all the easy misses are resolved. That is OK. As long as you are avoiding major pitfalls, you are doing good.
+
+# 2. Code Split
+
+## Code split using routes
+Angular allows applications to be code split by their modules. For example a URL such as `/dashboard` may be contained within `DashboardModule` and `/admin` may be contained within `AdminModule`. By configuring these components properly using angular's recommended mechanism, the compiler will create separate bundles, splitting your code apart.
+
+## Tips
+Do not use shared modules. Always use a separate module per route section, and allow the compiler to generate more granular chunks.
+
+# 3. Tree-Shake
+
+Proper imports can improve code splitting.
+
+For instance, while it can be convenvient to expose exports as an object, compilers such as webpack cannot properly tree-shake unused values from that shared model.
+
+* [Bad]
+
+   ```ts
+   import { ClientModel } from "./backend/models";
+   import { ClientModel } from "./backend/models/index.ts";
+   ```
+
+* [Good]
+
+   ```ts
+   import { ClientModel } from "./backend/models/client";
+   import { ClientModel } from "./backend/models/client.ts";
+   ```
+
+# 4. Configure
+
+Server and build configurations can make all the difference. These include:
+
+* Enable HTTP/2
+* Enable minification, optimizations, and uglification of code
+* Enable gzip and brotli compression
+* Enable proper Cache Control headers
+* Configure pre-fetching of resources, including fonts and critical styles
+* Configure CDN or other distributed services
