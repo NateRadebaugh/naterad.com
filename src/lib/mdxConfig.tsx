@@ -23,7 +23,10 @@ const mdxConfig = {
       <h4 className={clsx("text-lg mt-4 mb-2", className)} {...props} />
     ),
     a: Link,
-    img: Image,
+    img: function ImgTag(props) {
+      // eslint-disable-next-line jsx-a11y/alt-text
+      return <Image layout="fill" {...props} />
+    },
     p: function PTag(props) {
       return <p className="mb-3" {...props} />;
     },

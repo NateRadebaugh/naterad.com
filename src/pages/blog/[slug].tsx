@@ -109,12 +109,6 @@ export async function getStaticPaths({ locale }) {
 export async function getStaticProps({ params, locale }) {
   const slug = params.slug;
 
-  const sourceFilePath = path.join(root, "src", "_posts", `${slug}.mdx`);
-  const { code: mdxSource } = await bundleMDX({
-    file: sourceFilePath,
-    ...bundleMdxConfig,
-  });
-
   const pageInfo = getBlogPostDetails({ locale });
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
@@ -124,6 +118,11 @@ export async function getStaticProps({ params, locale }) {
   const post = pageInfo[postIndex] || null;
   const { code: descriptionSource } = await bundleMDX({
     source: post.description,
+    ...bundleMdxConfig,
+  });
+  
+  const { code: mdxSource } = await bundleMDX({
+    file: path.join(root, "src", "_posts", post.sourcePath),
     ...bundleMdxConfig,
   });
 

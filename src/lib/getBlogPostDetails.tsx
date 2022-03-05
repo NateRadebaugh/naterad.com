@@ -6,6 +6,7 @@ import path from "path";
 const root = process.cwd();
 
 export interface BlogPostDetails {
+  sourcePath: string;
   path: string;
   slug: string;
   title: string;
@@ -18,10 +19,10 @@ export default function getBlogPostDetails({ locale }) {
 
   totalist("src/_posts", (name, abs, stats) => {
     if (/\.mdx?$/.test(name)) {
-      const slug = name.replace(/\.mdx?$/, "");
+      const slug = name.replace(/\.mdx?$/, "").replace(/\/index$/, "");
 
       const source = fs.readFileSync(
-        path.join(root, "src", "_posts", `${slug}.mdx`),
+        path.join(root, "src", "_posts", name),
         "utf8"
       );
 
@@ -29,6 +30,7 @@ export default function getBlogPostDetails({ locale }) {
 
       detailsList.push({
         slug: slug,
+        sourcePath: name,
         path: `/blog/${slug}`,
         title: data.title,
         date: data.date,
