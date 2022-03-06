@@ -22,10 +22,42 @@ Before starting to address any issues with the size of your app bundles, analyze
 
 > _A note on deminishing returns:_ it is important to be pragmatic, as shedding size off of an existing application can be time consuming and difficult to really make progress after all the easy misses are resolved. That is OK. As long as you are avoiding major pitfalls, you are doing good.
 
+Run your build with `--sourceMap=true` to generate the appropriate data for analysis.
+
+```bash
+npm run build -- --configuration=pipeline --sourceMap=true
+```
+
+You can then analyze your bundles using `source-map-explorer`
+
+Windows:
+
+```bash
+npx source-map-explorer .\dist\my-app\main.*.js
+```
+
+Mac:
+
+```bash
+npx source-map-explorer dist/my-app/main.*.js
+```
+
+> **Note:** Webpack bundle analyzer is no longer the recommended way to analyze your angular bundles.
+> https://angular.io/guide/deployment#inspect-the-bundles
+
 # 2. Code Split
 
 ## Code split using routes
 Angular allows applications to be code split by their modules. For example a URL such as `/dashboard` may be contained within `DashboardModule` and `/admin` may be contained within `AdminModule`. By configuring these components properly using angular's recommended mechanism, the compiler will create separate bundles, splitting your code apart.
+
+```ts
+const routes: Routes = [
+  {
+    path: 'items',
+    loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
+  }
+];
+```
 
 ## Tips
 Do not use shared modules. Always use a separate module per route section, and allow the compiler to generate more granular chunks.
