@@ -6,14 +6,16 @@ date: "2022-03-05T20:13:32Z"
 
 Optimizing your applications is critical for gaining and keeping your users.
 
+> https://wpostats.com/
+
 I recommend the following for keeping your angular apps in check:
 
 > 1. Analyze
-> 
+>
 > 2. Code Split
-> 
+>
 > 3. Tree Shake
-> 
+>
 > 4. Configure
 
 # 1. Analyze
@@ -42,53 +44,97 @@ Mac:
 npx source-map-explorer dist/my-app/main.*.js
 ```
 
-> **Note:** Webpack bundle analyzer is no longer the recommended way to analyze your angular bundles.
+> **Note:** Webpack bundle analyzer is no longer the recommended way to analyze your angular bundles. Instead, `source-map-explorer` provides more accurate analysis.
 > https://angular.io/guide/deployment#inspect-the-bundles
 
 # 2. Code Split
 
 ## Code split using routes
+
 Angular allows applications to be code split by their modules. For example a URL such as `/dashboard` may be contained within `DashboardModule` and `/admin` may be contained within `AdminModule`. By configuring these components properly using angular's recommended mechanism, the compiler will create separate bundles, splitting your code apart.
 
 ```ts
 const routes: Routes = [
   {
-    path: 'items',
-    loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
-  }
+    path: "items",
+    loadChildren: () =>
+      import("./items/items.module").then((m) => m.ItemsModule),
+  },
 ];
 ```
 
+> https://angular.io/guide/lazy-loading-ngmodules
+
 ## Tips
+
 Do not use shared modules. Always use a separate module per route section, and allow the compiler to generate more granular chunks.
 
-# 3. Tree-Shake
+A future angular release will make this easier and lighter-weight:
 
-Proper imports can improve code splitting.
+- **[Complete] RFC: Standalone components, directives and pipes - making Angular's NgModules optional #43784**
+  > https://github.com/angular/angular/discussions/43784
+
+# 3. Tree-Shake unused dependencies from your bundles
+
+Proper imports can improve code splitting. Improper imports can bloat your bundles.
 
 For instance, while it can be convenvient to expose exports as an object, compilers such as webpack cannot properly tree-shake unused values from that shared model.
 
-* [Bad]
+- [Bad]
 
-   ```ts
-   import { ClientModel } from "./backend/models";
-   import { ClientModel } from "./backend/models/index.ts";
-   ```
+  ```ts
+  import { ClientModel } from "./backend/models";
+  import { ClientModel } from "./backend/models/index.ts";
+  ```
 
-* [Good]
+- [Good]
 
-   ```ts
-   import { ClientModel } from "./backend/models/client";
-   import { ClientModel } from "./backend/models/client.ts";
-   ```
+  ```ts
+  import { ClientModel } from "./backend/models/client";
+  import { ClientModel } from "./backend/models/client.ts";
+  ```
+
+## Tips
+
+Do not export objects or classes if you can help it. Instead, export simple variables and standalone functions. This way, the compiler can properly detect used vs unused code.
 
 # 4. Configure
 
 Server and build configurations can make all the difference. These include:
 
-* Enable HTTP/2
-* Enable minification, optimizations, and uglification of code
-* Enable gzip and brotli compression
-* Enable proper Cache Control headers
-* Configure pre-fetching of resources, including fonts and critical styles
-* Configure CDN or other distributed services
+## Enable HTTP/2
+
+HTTP/2 will make our applications faster, simpler, and more robust — a rare combination — by allowing us to undo many of the HTTP/1.1 workarounds previously done within our applications and address these concerns within the transport layer itself. Even better, it also opens up a number of entirely new opportunities to optimize our applications and improve performance!
+
+> https://developers.google.com/web/fundamentals/performance/http2
+
+## Enable minification, optimizations, and uglification of code
+
+`enableProdMode()` improves application performance by disabling development-only safety checks and debugging utilities, such as the expression-changed-after-checked detection. Building your application with the production configuration automatically enables Angular's runtime production mode.
+
+> https://angular.io/guide/deployment#enable-prod-mode
+
+## Enable gzip and brotli compression
+
+Text-based resources should be served with compression to minimize total network bytes.
+
+> https://web.dev/uses-text-compression/
+
+## Enable proper Cache Control headers
+
+The server can return a `Cache-Control` directive to specify how, and for how long, the browser and other intermediate caches should cache the individual response.
+
+> https://web.dev/http-cache/
+
+## Configure pre-fetching of resources, including fonts and critical styles
+
+Adding `<link rel=prefetch>` to a web page tells the browser to download entire pages, or some of the resources (like scripts or CSS files), that the user might need in the future. This can improve metrics like [First Contentful Paint](https://web.dev/fcp/) and [Time to Interactive](https://web.dev/tti/) and can often make subsequent navigations appear to load instantly.
+
+> https://web.dev/link-prefetch/
+
+## Configure CDN or other distributed services
+
+- Vercel https://vercel.com/
+- Cloudflare CDN https://www.cloudflare.com/cdn/
+- Azure CDN https://azure.microsoft.com/en-us/services/cdn/
+- Amazon CloudFront https://aws.amazon.com/cloudfront/
