@@ -5131,10 +5131,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-tailwind-bootstrap-grid@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/tailwind-bootstrap-grid/-/tailwind-bootstrap-grid-5.0.0.tgz#51815b95ffc26b3c60971d4c4d2797c7896da3c1"
-  integrity sha512-ne3IdD+CPL9jqKyrMjCQY3f3NGtib6Cauy0WOpWxCgxrfXwl0/uujaaByRgG9L3jlwb0piIGuzIP0mmpUd3IVg==
+tailwind-bootstrap-grid@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/tailwind-bootstrap-grid/-/tailwind-bootstrap-grid-5.0.1.tgz#aaff94eb425570e93132be7ef0e603a072d9eb5f"
+  integrity sha512-E0ykAhMUIZxXEx3B+5OriGYQzLLjRxmrYc3mSV6UOp1J6b93gKlmUGvlsR7A6QciRcKsORGfC69rXBX3x+3JhQ==
   dependencies:
     joi "^17.5.0"
     picocolors "^1.0.0"
