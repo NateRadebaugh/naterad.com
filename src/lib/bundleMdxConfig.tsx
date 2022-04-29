@@ -4,7 +4,7 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
 
 const bundleMdxConfig: BundleMDXOptions<Record<string, any>> = {
-  xdmOptions: (options) => {
+  mdxOptions: (options) => {
     // this is the recommended way to add custom remark/rehype plugins:
     // The syntax might look weird, but it protects you in case we add/remove
     // plugins in the future.
