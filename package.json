@@ -25,7 +25,7 @@
     "next": "^12.2.0",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.5.4",
-    "react": "^18.1.0",
+    "react": "^18.2.0",
     "react-dom": "^18.1.0",
     "rehype-code-titles": "^1.0.3",
     "rehype-prism-plus": "^1.4.2",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.2",
     "@types/node": "^18.0.3",
-    "@types/react": "^18.0.10",
+    "@types/react": "^18.0.15",
     "autoprefixer": "^10.4.7",
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.48",
