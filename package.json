@@ -28,7 +28,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rehype-code-titles": "^1.0.3",
-    "rehype-prism-plus": "^1.4.0",
+    "rehype-prism-plus": "^1.4.2",
     "remark-gfm": "^3.0.1",
     "totalist": "^3.0.0"
   },
