@@ -20,7 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/bundle-analyzer": "^12.2.0",
     "@reach/skip-nav": "^0.17.0",
-    "clsx": "^1.2.0",
+    "clsx": "^1.2.1",
     "mdx-bundler": "^9.0.1",
     "next": "^12.2.0",
     "next-compose-plugins": "^2.2.1",
