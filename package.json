@@ -40,7 +40,7 @@
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.54",
     "eslint": "^8.23.0",
-    "eslint-config-next": "^12.2.5",
+    "eslint-config-next": "^12.3.0",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
     "sass": "^1.54.9",
