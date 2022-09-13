@@ -36,7 +36,7 @@
     "@tailwindcss/typography": "^0.5.7",
     "@types/node": "^18.7.17",
     "@types/react": "^18.0.19",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.4.9",
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.54",
     "eslint": "^8.23.1",
