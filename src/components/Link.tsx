@@ -11,17 +11,19 @@ const Link = forwardRef(function Link(
 ) {
   const isExternal = href?.startsWith("http");
 
-  const component = (
-    <a ref={ref} href={href} {...rest}>
-      {children}
-    </a>
-  );
-
   if (isExternal) {
-    return component;
+    return (
+      <a ref={ref} href={href} {...rest}>
+        {children}
+      </a>
+    );
   }
 
-  return <NextLink href={href}>{component}</NextLink>;
+  return (
+    <NextLink ref={ref} href={href} {...rest}>
+      {children}
+    </NextLink>
+  );
 });
 
 export default Link;

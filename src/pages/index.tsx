@@ -22,23 +22,36 @@ const Tile = forwardRef(function Tile(
 ) {
   const isExternal = href?.startsWith("http");
 
-  const component = (
-    <a
+  const content = (
+    <>
+      {icon}
+      <span className={styles.tileText}>{text}</span>
+    </>
+  );
+
+  if (isExternal) {
+    return (
+      <a
+        ref={ref}
+        href={href}
+        className={clsx(className, "btn text-white hover:text-white")}
+        {...rest}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <NextLink
       ref={ref}
       href={href}
       className={clsx(className, "btn text-white hover:text-white")}
       {...rest}
     >
-      {icon}
-      <span className={styles.tileText}>{text}</span>
-    </a>
+      {content}
+    </NextLink>
   );
-
-  if (isExternal) {
-    return component;
-  }
-
-  return <NextLink href={href}>{component}</NextLink>;
 });
 
 export default function Index() {

@@ -5,12 +5,7 @@ import styles from "./resume.module.scss";
 function Link(props: any) {
   const { href, ...rest } = props;
 
-  return (
-    <NextLink href={href}>
-      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-      <a className={styles.link} {...rest} />
-    </NextLink>
-  );
+  return <NextLink href={href} className={styles.link} {...rest} />;
 }
 
 function ContentGroup({ label, children }) {
