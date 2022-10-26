@@ -8,6 +8,7 @@ import { forwardRef } from "react";
 import clsx from "clsx";
 
 import styles from "./index.module.scss";
+import WorkaroundTitle from "components/WorkaroundTitle";
 
 interface TileProps {
   icon: any;
@@ -57,6 +58,7 @@ const Tile = forwardRef(function Tile(
 export default function Index() {
   return (
     <div className={styles.wrapper}>
+      <WorkaroundTitle>Nate Radebaugh</WorkaroundTitle>
       <div className="container-fluid">
         <header>
           <div className={styles.headerRow}>

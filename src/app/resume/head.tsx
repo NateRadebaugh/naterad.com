@@ -1,3 +1,5 @@
+import WorkaroundTitle from "components/WorkaroundTitle";
+
 export default async function Head() {
   return (
     <>

@@ -6,6 +6,7 @@ module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   experimental: {
     appDir: true,
+    serverComponentsExternalPackages: ["mdx-bundler"],
   },
   i18n: {
     locales: ["en-US"],

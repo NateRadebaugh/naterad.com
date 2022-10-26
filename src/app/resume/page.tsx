@@ -1,3 +1,4 @@
+import WorkaroundTitle from "components/WorkaroundTitle";
 import NextLink from "next/link";
 import styles from "./resume.module.scss";
 
@@ -78,6 +79,8 @@ function Employment({
 export default function Resume() {
   return (
     <div className={styles.resume}>
+      <WorkaroundTitle>Resume for Nate Radebaugh</WorkaroundTitle>
+
       <div>
         <div className={styles.name}>Nate Radebaugh</div>
         <div className={styles.contact}>

@@ -7,7 +7,7 @@ import Image from "next/image";
 import styles from "./BlogHeader.module.scss";
 import clsx from "clsx";
 
-function BlogHeader({ isPost, title }) {
+function BlogHeader({ isPost = false }) {
   return (
     <header
       className={clsx(
