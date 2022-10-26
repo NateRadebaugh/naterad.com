@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
-import BlogHeader from "../components/BlogHeader";
-import Divider from "../components/Divider";
-import Head from "../components/Head";
+import { SkipNavContent, SkipNavLink } from "../../components/SkipNav";
+import BlogHeader from "./components/BlogHeader";
+import Divider from "../../components/Divider";
+import Head from "../../components/Head";
 import styles from "./BlogLayout.module.scss";
 import { getMDXComponent } from "mdx-bundler/client";
 import mdxConfig from "lib/mdxConfig";

@@ -1,5 +1,5 @@
 import path from "path";
-import BlogLayout from "../../layouts/BlogLayout";
+import BlogLayout from "./BlogLayout";
 import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";

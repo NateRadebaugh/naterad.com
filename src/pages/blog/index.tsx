@@ -5,7 +5,7 @@ import { bundleMDX } from "mdx-bundler";
 import { useMemo } from "react";
 import ButtonLink from "../../components/ButtonLink";
 import Link from "../../components/Link";
-import BlogLayout from "../../layouts/BlogLayout";
+import BlogLayout from "./BlogLayout";
 import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
