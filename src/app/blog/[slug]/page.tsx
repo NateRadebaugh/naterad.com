@@ -18,12 +18,6 @@ interface FrontMatterProps {
   date: string;
 }
 
-interface BlogPostProps {
-  children: React.ReactNode;
-  params: { slug: string };
-  locale: string;
-}
-
 interface PostDetails {
   mdxSource: string;
   descriptionSource: string;
@@ -33,8 +27,8 @@ interface PostDetails {
   prevPost: BlogPostDetails;
 }
 
-async function getData(slug: string, locale: string): Promise<PostDetails> {
-  const pageInfo = getBlogPostDetails({ locale });
+async function getData(slug: string): Promise<PostDetails> {
+  const pageInfo = getBlogPostDetails();
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
   const prevPost = pageInfo[postIndex - 1] || null;
@@ -117,11 +111,9 @@ function BlogLayoutFooter({
   );
 }
 
-export default async function BlogPost({ params, locale }: BlogPostProps) {
-  const { mdxSource, descriptionSource, frontMatter, prevPost, nextPost } = await getData(
-    params.slug,
-    locale
-  );
+export default async function BlogPost({ params }: any) {
+  const { mdxSource, descriptionSource, frontMatter, prevPost, nextPost } =
+    await getData(params.slug);
   const { title, date } = frontMatter;
 
   return (
@@ -155,7 +147,7 @@ export default async function BlogPost({ params, locale }: BlogPostProps) {
 }
 
 export async function generateStaticParams() {
-  const pageInfo = getBlogPostDetails({ locale: "en-US" });
+  const pageInfo = getBlogPostDetails();
   return pageInfo.map((post) => ({
     slug: post.slug,
   }));

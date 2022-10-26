@@ -1,21 +1,15 @@
 import getBlogPostDetails from "lib/getBlogPostDetails";
 
-async function getData(slug: string, locale: string) {
-  const pageInfo = getBlogPostDetails({ locale });
+async function getData(slug: string) {
+  const pageInfo = getBlogPostDetails();
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
   const post = pageInfo[postIndex] || null;
   return { title: post.title };
 }
 
-export default async function Head({
-  params,
-  locale,
-}: {
-  locale: string;
-  params: { slug: string };
-}) {
-  const { title } = await getData(params.slug, locale);
+export default async function Head({ params }: { params: { slug: string } }) {
+  const { title } = await getData(params.slug);
 
   return (
     <>

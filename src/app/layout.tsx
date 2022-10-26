@@ -11,8 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <head>
-      </head>
+      <head></head>
 
       <body>
         <SkipNavLink />

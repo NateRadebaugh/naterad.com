@@ -16,9 +16,9 @@ interface Post extends BlogPostDetails {
   descriptionSource: string;
 }
 
-async function getData(locale: string): Promise<BlogIndexPageProps> {
+async function getData(): Promise<BlogIndexPageProps> {
   const posts: Post[] = [];
-  const blogPostDetailsList = getBlogPostDetails({ locale });
+  const blogPostDetailsList = getBlogPostDetails();
   for (const post of blogPostDetailsList) {
     const { code: descriptionSource } = await bundleMDX({
       source: post.description,
@@ -39,8 +39,8 @@ interface BlogIndexPageProps {
   posts: Post[] | undefined;
 }
 
-export default async function BlogIndexPage({ locale }) {
-  const { posts } = await getData(locale);
+export default async function BlogIndexPage() {
+  const { posts } = await getData();
 
   return (
     <div className="p-0 container-fluid">

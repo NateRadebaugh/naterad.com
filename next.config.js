@@ -8,10 +8,6 @@ module.exports = withBundleAnalyzer({
     appDir: true,
     serverComponentsExternalPackages: ["mdx-bundler"],
   },
-  i18n: {
-    locales: ["en-US"],
-    defaultLocale: "en-US",
-  },
   images: {
     domains: ["www.gravatar.com"],
   },
