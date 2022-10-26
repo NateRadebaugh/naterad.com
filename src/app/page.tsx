@@ -1,13 +1,14 @@
-import Head from "next/head";
 import NextLink from "next/link";
-import styles from "./index.module.scss";
 import ResumeIcon from "../components/ResumeIcon";
 import LinkedInIcon from "../components/LinkedInIcon";
 import GitHubIcon from "../components/GitHubIcon";
 import BlogIcon from "../components/BlogIcon";
-import { SkipNavLink, SkipNavContent } from "../components/SkipNav";
+import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
 import { forwardRef } from "react";
 import clsx from "clsx";
+
+import styles from "./index.module.scss";
+import WorkaroundTitle from "components/WorkaroundTitle";
 
 interface TileProps {
   icon: any;
@@ -22,39 +23,42 @@ const Tile = forwardRef(function Tile(
 ) {
   const isExternal = href?.startsWith("http");
 
-  const component = (
-    <a
+  const content = (
+    <>
+      {icon}
+      <span className={styles.tileText}>{text}</span>
+    </>
+  );
+
+  if (isExternal) {
+    return (
+      <a
+        ref={ref}
+        href={href}
+        className={clsx(className, "btn text-white hover:text-white")}
+        {...rest}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <NextLink
       ref={ref}
       href={href}
       className={clsx(className, "btn text-white hover:text-white")}
       {...rest}
     >
-      {icon}
-      <span className={styles.tileText}>{text}</span>
-    </a>
+      {content}
+    </NextLink>
   );
-
-  if (isExternal) {
-    return component;
-  }
-
-  return <NextLink href={href}>{component}</NextLink>;
 });
 
 export default function Index() {
   return (
     <div className={styles.wrapper}>
-      <Head>
-        <title>Nate Radebaugh</title>
-        <meta
-          name="Description"
-          content="Hi I'm Nate Radebaugh. Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
-        />
-        <meta name="theme-color" content="#317EFB" />
-      </Head>
-
-      <SkipNavLink />
-
+      <WorkaroundTitle>Nate Radebaugh</WorkaroundTitle>
       <div className="container-fluid">
         <header>
           <div className={styles.headerRow}>

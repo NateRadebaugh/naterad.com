@@ -14,7 +14,7 @@ export interface BlogPostDetails {
   description: string;
 }
 
-export default function getBlogPostDetails({ locale }) {
+export default function getBlogPostDetails() {
   const detailsList: BlogPostDetails[] = [];
 
   totalist("src/_posts", (name, abs, stats) => {
@@ -55,7 +55,7 @@ export default function getBlogPostDetails({ locale }) {
 
   // format dates
   detailsList.forEach((x) => {
-    x.date = new Intl.DateTimeFormat(locale, {
+    x.date = new Intl.DateTimeFormat("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",

@@ -1,16 +1,11 @@
-import Head from "next/head";
+import WorkaroundTitle from "components/WorkaroundTitle";
 import NextLink from "next/link";
 import styles from "./resume.module.scss";
 
 function Link(props: any) {
   const { href, ...rest } = props;
 
-  return (
-    <NextLink href={href}>
-      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-      <a className={styles.link} {...rest} />
-    </NextLink>
-  );
+  return <NextLink href={href} className={styles.link} {...rest} />;
 }
 
 function ContentGroup({ label, children }) {
@@ -84,14 +79,7 @@ function Employment({
 export default function Resume() {
   return (
     <div className={styles.resume}>
-      <Head>
-        <title>Resume for Nate Radebaugh</title>
-        <meta
-          name="Description"
-          content="Hi I'm Nate Radebaugh. Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
-        />
-        <meta name="theme-color" content="#e15227" />
-      </Head>
+      <WorkaroundTitle>Resume for Nate Radebaugh</WorkaroundTitle>
 
       <div>
         <div className={styles.name}>Nate Radebaugh</div>

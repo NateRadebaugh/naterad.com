@@ -25,7 +25,7 @@ const mdxConfig = {
     a: Link,
     img: function ImgTag(props) {
       // eslint-disable-next-line jsx-a11y/alt-text
-      return <Image layout="fill" {...props} />
+      return <Image layout="fill" {...props} />;
     },
     p: function PTag(props) {
       return <p className="mb-3" {...props} />;

@@ -7,7 +7,7 @@ module.exports = {
       colors: {
         transparent: "transparent",
         current: "currentColor",
-      }
+      },
     },
   },
   plugins: [

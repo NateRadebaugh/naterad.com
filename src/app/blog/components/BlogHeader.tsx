@@ -1,17 +1,17 @@
-import Link from "../components/Link";
-import LinkedInIcon from "./LinkedInIcon";
-import ResumeIcon from "./ResumeIcon";
-import GitHubIcon from "./GitHubIcon";
-import ButtonLink from "./ButtonLink";
+import Link from "../../../components/Link";
+import LinkedInIcon from "../../../components/LinkedInIcon";
+import ResumeIcon from "../../../components/ResumeIcon";
+import GitHubIcon from "../../../components/GitHubIcon";
+import ButtonLink from "../../../components/ButtonLink";
 import Image from "next/image";
 import styles from "./BlogHeader.module.scss";
 import clsx from "clsx";
 
-function BlogHeader({ isPost, title }) {
+function BlogHeader({ isPost = false }) {
   return (
     <header
       className={clsx(
-        "flex justify-between items-center overflow-auto px-2 pt-2 mb-4",
+        "flex justify-between items-center overflow-auto px-2 py-1 mb-4",
         styles.header
       )}
     >
