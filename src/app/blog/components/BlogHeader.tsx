@@ -72,7 +72,7 @@ function BlogHeader({ isPost = false }) {
         >
           <GitHubIcon />
           <span className="hidden mr-2 sm:inline-block" />
-          <span className="hidden sm:inline-block">GitHub</span>
+          <span className="sr-only sm:not-sr-only">GitHub</span>
         </ButtonLink>
         <ButtonLink
           href="https://www.linkedin.com/in/nateradebaugh/"
@@ -82,12 +82,12 @@ function BlogHeader({ isPost = false }) {
         >
           <LinkedInIcon />
           <span className="hidden mr-2 sm:inline-block" />
-          <span className="hidden sm:inline-block">LinkedIn</span>
+          <span className="sr-only sm:not-sr-only">LinkedIn</span>
         </ButtonLink>
         <ButtonLink href="/resume" className="ml-2 btn btn-dark">
           <ResumeIcon />
           <span className="hidden mr-2 sm:inline-block" />
-          <span className="hidden sm:inline-block">Resume</span>
+          <span className="sr-only sm:not-sr-only">Resume</span>
         </ButtonLink>
       </div>
     </header>

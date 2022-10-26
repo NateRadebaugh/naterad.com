@@ -64,7 +64,7 @@ export default async function BlogIndexPage() {
             <MDXComponent code={descriptionSource} />
 
             <ButtonLink href={`/blog/${slug}`} className="btn btn-primary">
-              Read more
+              Read more <span className="sr-only">about {title}</span>
             </ButtonLink>
 
             <Divider />
