@@ -4,6 +4,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
   i18n: {
     locales: ["en-US"],
     defaultLocale: "en-US",

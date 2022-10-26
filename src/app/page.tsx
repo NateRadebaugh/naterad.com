@@ -1,13 +1,13 @@
-import Head from "next/head";
 import NextLink from "next/link";
-import styles from "./index.module.scss";
 import ResumeIcon from "../components/ResumeIcon";
 import LinkedInIcon from "../components/LinkedInIcon";
 import GitHubIcon from "../components/GitHubIcon";
 import BlogIcon from "../components/BlogIcon";
-import { SkipNavLink, SkipNavContent } from "../components/SkipNav";
+import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
 import { forwardRef } from "react";
 import clsx from "clsx";
+
+import styles from "./index.module.scss";
 
 interface TileProps {
   icon: any;
@@ -57,17 +57,6 @@ const Tile = forwardRef(function Tile(
 export default function Index() {
   return (
     <div className={styles.wrapper}>
-      <Head>
-        <title>Nate Radebaugh</title>
-        <meta
-          name="Description"
-          content="Hi I'm Nate Radebaugh. Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University."
-        />
-        <meta name="theme-color" content="#317EFB" />
-      </Head>
-
-      <SkipNavLink />
-
       <div className="container-fluid">
         <header>
           <div className={styles.headerRow}>
