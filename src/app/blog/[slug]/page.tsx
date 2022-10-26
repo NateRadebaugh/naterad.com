@@ -153,3 +153,10 @@ export default async function BlogPost({ params, locale }: BlogPostProps) {
     </>
   );
 }
+
+export async function generateStaticParams() {
+  const pageInfo = getBlogPostDetails({ locale: "en-US" });
+  return pageInfo.map((post) => ({
+    slug: post.slug,
+  }));
+}
