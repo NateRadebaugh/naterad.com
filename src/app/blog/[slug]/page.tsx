@@ -8,6 +8,7 @@ import React from "react";
 import bundleMdxConfig from "lib/bundleMdxConfig";
 import path from "path";
 import MDXComponent from "components/MdxComponent";
+import WorkaroundTitle from "components/WorkaroundTitle";
 
 const root = process.cwd();
 
@@ -125,6 +126,8 @@ export default async function BlogPost({ params, locale }: BlogPostProps) {
 
   return (
     <>
+      <WorkaroundTitle>{`${title} - Nate Radebaugh&apos;s Blog`}</WorkaroundTitle>
+
       <h1 className="mb-4 text-4xl font-semibold">{title}</h1>
 
       {date && <p className="my-2 font-bold text-gray-400">{date}</p>}

@@ -20,5 +20,5 @@ export default function WorkaroundTitle({ children: title }: { children: string 
     };
   }, [originalTitle, title]);
 
-  return <title>{title}</title>;
+  return null;
 }

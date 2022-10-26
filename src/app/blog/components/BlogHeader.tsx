@@ -11,7 +11,7 @@ function BlogHeader({ isPost = false }) {
   return (
     <header
       className={clsx(
-        "flex justify-between items-center overflow-auto px-2 pt-2 mb-4",
+        "flex justify-between items-center overflow-auto px-2 py-1 mb-4",
         styles.header
       )}
     >
