@@ -96,3 +96,4 @@ out
 # Generate service-worker stuff
 public/service-worker.gen.js
 public/workbox-*.js
+public/fallback-*.js
