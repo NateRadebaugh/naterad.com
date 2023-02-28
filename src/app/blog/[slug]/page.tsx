@@ -9,8 +9,18 @@ import bundleMdxConfig from "lib/bundleMdxConfig";
 import path from "path";
 import MDXComponent from "components/MdxComponent";
 import WorkaroundTitle from "components/WorkaroundTitle";
+import { Metadata } from "next";
 
 const root = process.cwd();
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const { title } = await getTitleData(params.slug);
+  return { title: `${title} - Nate Radebaugh&apos;s Blog`, description: title };
+}
 
 interface FrontMatterProps {
   title: string;
@@ -25,6 +35,14 @@ interface PostDetails {
 
   nextPost: BlogPostDetails;
   prevPost: BlogPostDetails;
+}
+
+async function getTitleData(slug: string) {
+  const pageInfo = getBlogPostDetails();
+  const postIndex = pageInfo.findIndex((p) => p.slug === slug);
+
+  const post = pageInfo[postIndex] || null;
+  return { title: post.title };
 }
 
 async function getData(slug: string): Promise<PostDetails> {
