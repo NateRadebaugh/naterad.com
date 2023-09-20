@@ -29,7 +29,7 @@ module.exports = withPWA(
         },
       ];
     },
-  })
+  }),
 );
 
 // https://securityheaders.com
