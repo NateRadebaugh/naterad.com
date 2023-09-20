@@ -12,7 +12,6 @@ module.exports = withPWA(
   withBundleAnalyzer({
     reactStrictMode: true,
     experimental: {
-      appDir: true,
       serverComponentsExternalPackages: ["mdx-bundler"],
     },
     images: {
