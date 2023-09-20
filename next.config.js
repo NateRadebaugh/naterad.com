@@ -11,9 +11,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 module.exports = withPWA(
   withBundleAnalyzer({
     reactStrictMode: true,
-    experimental: {
-      serverComponentsExternalPackages: ["mdx-bundler"],
-    },
     images: {
       domains: ["www.gravatar.com"],
     },

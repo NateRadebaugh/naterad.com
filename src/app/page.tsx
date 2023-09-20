@@ -6,9 +6,12 @@ import BlogIcon from "../components/BlogIcon";
 import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
 import { forwardRef } from "react";
 import clsx from "clsx";
-
 import styles from "./index.module.scss";
-import WorkaroundTitle from "components/WorkaroundTitle";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Nate Radebaugh',
+}
 
 interface TileProps {
   icon: any;
@@ -58,7 +61,6 @@ const Tile = forwardRef(function Tile(
 export default function Index() {
   return (
     <div className={styles.wrapper}>
-      <WorkaroundTitle>Nate Radebaugh</WorkaroundTitle>
       <div className="container-fluid">
         <header>
           <div className={styles.headerRow}>

@@ -1,15 +1,14 @@
+import fs from "fs/promises";
 import getBlogPostDetails, {
   BlogPostDetails,
 } from "../../../lib/getBlogPostDetails";
 import Divider from "../../../components/Divider";
 import Link from "../../../components/Link";
-import { bundleMDX } from "mdx-bundler";
+import { compileMDX, MDXRemote } from 'next-mdx-remote/rsc'
 import React from "react";
-import bundleMdxConfig from "lib/bundleMdxConfig";
 import path from "path";
-import MDXComponent from "components/MdxComponent";
-import WorkaroundTitle from "components/WorkaroundTitle";
 import { Metadata } from "next";
+import mdxConfig, { mdxOptions } from "lib/mdxConfig";
 
 const root = process.cwd();
 
@@ -29,8 +28,8 @@ interface FrontMatterProps {
 }
 
 interface PostDetails {
-  mdxSource: string;
-  descriptionSource: string;
+  mdx: React.ReactElement;
+  description: string;
   frontMatter: FrontMatterProps;
 
   nextPost: BlogPostDetails;
@@ -53,19 +52,18 @@ async function getData(slug: string): Promise<PostDetails> {
   const nextPost = pageInfo[postIndex + 1] || null;
 
   const post = pageInfo[postIndex] || null;
-  const { code: descriptionSource } = await bundleMDX({
-    source: post.description,
-    ...bundleMdxConfig,
-  });
 
-  const { code: mdxSource } = await bundleMDX({
-    file: path.join(root, "src", "_posts", post.sourcePath),
-    ...bundleMdxConfig,
-  });
+  const filePath = path.join(root, "src", "_posts", post.sourcePath);
+  const fileContent = await fs.readFile(filePath, "utf8");
+
+  const { content: mdx, frontmatter } = await compileMDX({
+    source: fileContent,
+    options: { parseFrontmatter: true },
+  })
 
   const postDetails: PostDetails = {
-    mdxSource,
-    descriptionSource,
+    mdx,
+    description: post.description,
     frontMatter: post,
 
     nextPost,
@@ -130,32 +128,30 @@ function BlogLayoutFooter({
 }
 
 export default async function BlogPost({ params }: any) {
-  const { mdxSource, descriptionSource, frontMatter, prevPost, nextPost } =
+  const { mdx, description, frontMatter, prevPost, nextPost } =
     await getData(params.slug);
   const { title, date } = frontMatter;
 
   return (
     <>
-      <WorkaroundTitle>{`${title} - Nate Radebaugh&apos;s Blog`}</WorkaroundTitle>
-
       <h1 className="mb-4 text-4xl font-semibold">{title}</h1>
 
       {date && <p className="my-2 font-bold text-gray-400">{date}</p>}
 
       <Divider />
 
-      {descriptionSource && (
+      {description && (
         <>
           <div className="my-2 italic text-gray-400">
-            <MDXComponent code={descriptionSource} />
+            <MDXRemote source={description} components={mdxConfig.components} options={{mdxOptions: mdxOptions}} />
           </div>
           <Divider />
         </>
       )}
 
-      {mdxSource && (
+      {mdx && (
         <div className="prose-invert">
-          <MDXComponent code={mdxSource} />
+          {mdx}
         </div>
       )}
 
