@@ -5,7 +5,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   experimental: {
-    appDir: true,
     serverComponentsExternalPackages: ["mdx-bundler"],
   },
   images: {
