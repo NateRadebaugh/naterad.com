@@ -9,8 +9,12 @@ export const metadata: Metadata = {
   title: "Nate Radebaugh",
   description:
     "Hi I'm Nate Radebaugh. Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University.",
-  themeColor: "#317EFB",
 };
+
+const viewport = {
+  themeColor: "#317EFB",
+}
+export { viewport };
 
 export default function RootLayout({
   children,

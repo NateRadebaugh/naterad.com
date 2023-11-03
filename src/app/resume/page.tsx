@@ -7,8 +7,11 @@ export const metadata: Metadata = {
   title: "Resume for Nate Radebaugh",
   description:
     "Hi I'm Nate Radebaugh. Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University.",
-  themeColor: "#e15227",
 };
+const viewport = {
+  themeColor: "#e15227",
+}
+export { viewport };
 
 function Link(props: any) {
   const { href, ...rest } = props;
