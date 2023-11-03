@@ -18,7 +18,7 @@ function BlogHeader({ isPost = false }) {
       <div className="flex items-center">
         <Link href="/" className="mr-2">
           <Image
-            src="https://www.gravatar.com/avatar/80d317a74bc928d8520879fdeefc6303"
+            src="/me.jpeg"
             alt="Nate Radebaugh"
             height={60}
             width={60}
