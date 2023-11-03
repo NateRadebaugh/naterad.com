@@ -1,17 +1,16 @@
 import WorkaroundTitle from "components/WorkaroundTitle";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import NextLink from "next/link";
 import styles from "./resume.module.scss";
 
 export const metadata: Metadata = {
   title: "Resume for Nate Radebaugh",
   description:
-    "Hi I'm Nate Radebaugh. Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University.",
+    "Hi I'm Nate Radebaugh. Experienced Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University.",
 };
-const viewport = {
+export const viewport: Viewport = {
   themeColor: "#e15227",
 };
-export { viewport };
 
 function Link(props: any) {
   const { href, ...rest } = props;
