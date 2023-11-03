@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 const viewport = {
   themeColor: "#e15227",
-}
+};
 export { viewport };
 
 function Link(props: any) {
