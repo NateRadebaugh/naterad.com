@@ -8,7 +8,14 @@ module.exports = withBundleAnalyzer({
     serverComponentsExternalPackages: ["mdx-bundler"],
   },
   images: {
-    domains: ["www.gravatar.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.gravatar.com',
+        port: '',
+        pathname: '/avatar/**',
+      },
+    ],
   },
   async headers() {
     return [
