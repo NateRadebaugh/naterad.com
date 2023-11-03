@@ -19,7 +19,7 @@ interface TileProps {
 
 const Tile = forwardRef(function Tile(
   { icon, text, colspan, color, href, className, ...rest }: TileProps,
-  ref: any
+  ref: any,
 ) {
   const isExternal = href?.startsWith("http");
 

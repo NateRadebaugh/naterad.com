@@ -16,7 +16,7 @@ export default function WorkaroundTitle({
   children: string;
 }) {
   const [originalTitle, setOriginalTitle] = useState(
-    typeof document !== "undefined" ? document.title ?? null : undefined
+    typeof document !== "undefined" ? document.title ?? null : undefined,
   );
 
   // Set original title once we reach the client

@@ -23,7 +23,7 @@ export default function getBlogPostDetails() {
 
       const source = fs.readFileSync(
         path.join(root, "src", "_posts", name),
-        "utf8"
+        "utf8",
       );
 
       const { data } = matter(source);
@@ -39,7 +39,7 @@ export default function getBlogPostDetails() {
 
       if (stats.size >= 100e3) {
         console.warn(
-          `[WARN] "${name}" might cause performance issues (${stats.size})`
+          `[WARN] "${name}" might cause performance issues (${stats.size})`,
         );
       }
     }

@@ -12,7 +12,7 @@ function BlogHeader({ isPost = false }) {
     <header
       className={clsx(
         "flex justify-between items-center overflow-auto px-2 py-1 mb-4",
-        styles.header
+        styles.header,
       )}
     >
       <div className="flex items-center">
