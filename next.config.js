@@ -10,10 +10,10 @@ module.exports = withBundleAnalyzer({
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'www.gravatar.com',
-        port: '',
-        pathname: '/avatar/**',
+        protocol: "https",
+        hostname: "www.gravatar.com",
+        port: "",
+        pathname: "/avatar/**",
       },
     ],
   },
