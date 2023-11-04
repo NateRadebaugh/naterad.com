@@ -1,5 +1,5 @@
 import WorkaroundTitle from "components/WorkaroundTitle";
-import { Metadata, Viewport } from "next";
+import { type Metadata, type Viewport } from "next";
 import NextLink from "next/link";
 import styles from "./resume.module.scss";
 

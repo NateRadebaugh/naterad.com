@@ -1,4 +1,4 @@
-import Icon, { IconProps } from "./Icon";
+import Icon, { type IconProps } from "./Icon";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 
 function GitHubIcon(props: Omit<IconProps, "icon">) {

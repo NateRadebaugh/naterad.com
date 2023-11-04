@@ -1,5 +1,5 @@
 import { SkipNavLink } from "components/SkipNav";
-import { Metadata, Viewport } from "next";
+import { type Metadata, type Viewport } from "next";
 
 import "../styles/tailwind.css";
 import "../styles/styles.scss";

@@ -1,4 +1,4 @@
-import { BundleMDXOptions } from "mdx-bundler/dist/types";
+import { type BundleMDXOptions } from "mdx-bundler/dist/types";
 import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
