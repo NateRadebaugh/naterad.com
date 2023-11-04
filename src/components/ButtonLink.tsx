@@ -1,4 +1,4 @@
-import NextLink, { LinkProps as NextLinkProps } from "next/link";
+import NextLink, { type LinkProps as NextLinkProps } from "next/link";
 import { forwardRef } from "react";
 
 export type LinkProps = NextLinkProps & {

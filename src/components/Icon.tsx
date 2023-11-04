@@ -1,4 +1,4 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { type IconProp } from "@fortawesome/fontawesome-svg-core";
 import clsx from "clsx";
 
 import styles from "./Icon.module.scss";

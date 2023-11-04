@@ -1,5 +1,5 @@
 import getBlogPostDetails, {
-  BlogPostDetails,
+  type BlogPostDetails,
 } from "../../../lib/getBlogPostDetails";
 import Divider from "../../../components/Divider";
 import Link from "../../../components/Link";
@@ -9,7 +9,7 @@ import bundleMdxConfig from "lib/bundleMdxConfig";
 import path from "path";
 import MDXComponent from "components/MdxComponent";
 import WorkaroundTitle from "components/WorkaroundTitle";
-import { Metadata } from "next";
+import { type Metadata } from "next";
 
 const root = process.cwd();
 

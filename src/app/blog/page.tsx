@@ -4,7 +4,7 @@ import { bundleMDX } from "mdx-bundler";
 import ButtonLink from "../../components/ButtonLink";
 import Link from "../../components/Link";
 import getBlogPostDetails, {
-  BlogPostDetails,
+  type BlogPostDetails,
 } from "../../lib/getBlogPostDetails";
 import bundleMdxConfig from "lib/bundleMdxConfig";
 import BlogHeader from "./components/BlogHeader";
