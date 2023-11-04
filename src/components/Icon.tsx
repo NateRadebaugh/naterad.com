@@ -18,7 +18,7 @@ function Icon({ size = 1, icon, ...rest }: IconProps) {
     number,
     [number, number],
     string,
-    string
+    string,
   ];
 
   return (

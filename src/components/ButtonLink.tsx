@@ -7,7 +7,7 @@ export type LinkProps = NextLinkProps & {
 
 const ButtonLink = forwardRef(function ButtonLink(
   { children, href, ...rest }: LinkProps,
-  ref
+  ref,
 ) {
   const isExternal = href?.startsWith("http");
 

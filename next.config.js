@@ -1,37 +1,18 @@
-const withPWA = require("next-pwa")({
-  disable: process.env.NODE_ENV === "development",
-  dest: "public",
-  sw: "service-worker.gen.js",
-});
-
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
-
-module.exports = withPWA(
-  withBundleAnalyzer({
-    reactStrictMode: true,
-    experimental: {
-      appDir: true,
-      serverComponentsExternalPackages: ["mdx-bundler"],
-    },
-    images: {
-      domains: ["www.gravatar.com"],
-    },
-    async headers() {
-      return [
-        {
-          source: "/",
-          headers: securityHeaders,
-        },
-        {
-          source: "/:path*",
-          headers: securityHeaders,
-        },
-      ];
-    },
-  }),
-);
+module.exports = {
+  reactStrictMode: true,
+  async headers() {
+    return [
+      {
+        source: "/",
+        headers: securityHeaders,
+      },
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+    ];
+  },
+};
 
 // https://securityheaders.com
 const ContentSecurityPolicy = `

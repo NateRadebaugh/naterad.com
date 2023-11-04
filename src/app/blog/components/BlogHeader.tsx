@@ -12,13 +12,13 @@ function BlogHeader({ isPost = false }) {
     <header
       className={clsx(
         "flex justify-between items-center overflow-auto px-2 py-1 mb-4",
-        styles.header
+        styles.header,
       )}
     >
       <div className="flex items-center">
         <Link href="/" className="mr-2">
           <Image
-            src="https://www.gravatar.com/avatar/80d317a74bc928d8520879fdeefc6303"
+            src="/me.jpeg"
             alt="Nate Radebaugh"
             height={60}
             width={60}
