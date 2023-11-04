@@ -33,15 +33,15 @@ interface PostDetails {
   descriptionSource: string;
   frontMatter: FrontMatterProps;
 
-  nextPost: BlogPostDetails;
-  prevPost: BlogPostDetails;
+  nextPost: BlogPostDetails | undefined;
+  prevPost: BlogPostDetails | undefined;
 }
 
 async function getTitleData(slug: string) {
   const pageInfo = getBlogPostDetails();
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
-  const post = pageInfo[postIndex] || null;
+  const post = pageInfo[postIndex]!;
   return { title: post.title };
 }
 
@@ -49,10 +49,10 @@ async function getData(slug: string): Promise<PostDetails> {
   const pageInfo = getBlogPostDetails();
   const postIndex = pageInfo.findIndex((p) => p.slug === slug);
 
-  const prevPost = pageInfo[postIndex - 1] || null;
-  const nextPost = pageInfo[postIndex + 1] || null;
+  const prevPost = pageInfo[postIndex - 1];
+  const nextPost = pageInfo[postIndex + 1];
 
-  const post = pageInfo[postIndex] || null;
+  const post = pageInfo[postIndex]!;
   const { code: descriptionSource } = await bundleMDX({
     source: post.description,
     ...bundleMdxConfig,
@@ -79,18 +79,18 @@ function BlogLayoutFooter({
   prevPost,
   nextPost,
 }: {
-  prevPost: BlogPostDetails;
-  nextPost: BlogPostDetails;
+  prevPost: BlogPostDetails | undefined;
+  nextPost: BlogPostDetails | undefined;
 }) {
   const hasPrev = !!prevPost;
-  const prevSlug = prevPost?.slug ?? null;
-  const prevTitle = prevPost?.title ?? null;
-  const prevDate = prevPost?.date ?? null;
+  const prevSlug = prevPost?.slug;
+  const prevTitle = prevPost?.title;
+  const prevDate = prevPost?.date;
 
   const hasNext = !!nextPost;
-  const nextSlug = nextPost?.slug ?? null;
-  const nextTitle = nextPost?.title ?? null;
-  const nextDate = nextPost?.date ?? null;
+  const nextSlug = nextPost?.slug;
+  const nextTitle = nextPost?.title;
+  const nextDate = nextPost?.date;
 
   return (
     <>
