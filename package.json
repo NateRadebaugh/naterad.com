@@ -43,7 +43,7 @@
     "sass": "^1.69.5",
     "tailwind-bootstrap-grid": "^5.0.1",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   },
   "peerDependencies": {
     "postcss": "^8.0.0"
