@@ -38,7 +38,7 @@
     "esbuild": "^0.19.8",
     "eslint": "^8.53.0",
     "eslint-config-next": "^14.0.3",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.32",
     "prettier": "^3.1.0",
     "sass": "^1.69.5",
     "tailwind-bootstrap-grid": "^5.1.0",
