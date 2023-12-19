@@ -35,7 +35,7 @@
     "@types/react": "^18.2.45",
     "autoprefixer": "^10.4.16",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.19.9",
+    "esbuild": "^0.19.10",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "postcss": "^8.4.32",
