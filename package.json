@@ -30,7 +30,7 @@
     "totalist": "^3.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.11",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.71",
     "autoprefixer": "^10.4.19",
