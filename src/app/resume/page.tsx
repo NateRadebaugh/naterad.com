@@ -1,4 +1,3 @@
-import WorkaroundTitle from "components/WorkaroundTitle";
 import { type Metadata, type Viewport } from "next";
 import NextLink from "next/link";
 import styles from "./resume.module.scss";
@@ -6,7 +5,7 @@ import styles from "./resume.module.scss";
 export const metadata: Metadata = {
   title: "Resume for Nate Radebaugh",
   description:
-    "Hi I'm Nate Radebaugh. Experienced Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University.",
+    "Hi I'm Nate Radebaugh. Experienced Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Computer Science graduate of Purdue University.",
 };
 export const viewport: Viewport = {
   themeColor: "#e15227",
@@ -89,7 +88,7 @@ function Employment({
 export default function Resume() {
   return (
     <div className={styles.resume}>
-      <WorkaroundTitle>Resume for Nate Radebaugh</WorkaroundTitle>
+      <title>Resume for Nate Radebaugh</title>
 
       <div>
         <div className={styles.name}>Nate Radebaugh</div>

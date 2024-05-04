@@ -2,13 +2,11 @@ import NextLink from "next/link";
 import ResumeIcon from "../components/ResumeIcon";
 import LinkedInIcon from "../components/LinkedInIcon";
 import GitHubIcon from "../components/GitHubIcon";
-import BlogIcon from "../components/BlogIcon";
-import { SkipNavContent, SkipNavLink } from "../components/SkipNav";
+import { SkipNavContent } from "../components/SkipNav";
 import { forwardRef } from "react";
 import clsx from "clsx";
 
 import styles from "./index.module.scss";
-import WorkaroundTitle from "components/WorkaroundTitle";
 
 interface TileProps {
   icon: any;
@@ -58,7 +56,7 @@ const Tile = forwardRef(function Tile(
 export default function Index() {
   return (
     <div className={styles.wrapper}>
-      <WorkaroundTitle>Nate Radebaugh</WorkaroundTitle>
+      <title>Nate Radebaugh</title>
       <div className="container-fluid">
         <header>
           <div className={styles.headerRow}>
@@ -66,22 +64,14 @@ export default function Index() {
           </div>
           <p className={styles.introText}>
             <strong>Experienced Manager, Software Solutions</strong> at{" "}
-            <strong>BDO Digital</strong> in the western Chicago Suburbs. CS
-            Graduate of Purdue University.
+            <strong>BDO Digital</strong> in the western Chicago Suburbs. Computer Science
+            graduate of Purdue University.
           </p>
         </header>
 
         <SkipNavContent />
 
         <div className="row align-items-stretch">
-          <div className="mb-4 col-6 sm:col-4 md:col-3">
-            <Tile
-              className={styles.blogTile}
-              href="/blog"
-              icon={<BlogIcon size={6} />}
-              text="blog"
-            />
-          </div>
           <div className="mb-4 col-6 sm:col-4 md:col-3">
             <Tile
               className={styles.resumeTile}

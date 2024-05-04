@@ -3,12 +3,11 @@ import { type Metadata, type Viewport } from "next";
 
 import "../styles/tailwind.css";
 import "../styles/styles.scss";
-import "../styles/prism.scss";
 
 export const metadata: Metadata = {
   title: "Nate Radebaugh",
   description:
-    "Hi I'm Nate Radebaugh. Experienced Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Graduate of Purdue University.",
+    "Hi I'm Nate Radebaugh. Experienced Manager, Software Solutions at BDO Digital in the western Chicago Suburbs. Computer Science graduate of Purdue University.",
 };
 
 export const viewport: Viewport = {
