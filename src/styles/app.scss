@@ -3,18 +3,13 @@
 
 @import "./helpers/bootstrap";
 
-:root {
-  color: var(--bs-body-color);
-  background-color: var(--bs-body-bg);
-}
-
 body {
   margin: 0;
 }
 
 @media print {
-  :root {
-    color: black;
-    background-color: white;
+  :root, body {
+    color: black !important;
+    background-color: white !important;
   }
 }
