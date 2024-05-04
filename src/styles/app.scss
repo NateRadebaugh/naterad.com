@@ -1,0 +1,15 @@
+//helpers
+@import "./helpers/variables";
+
+@import "./helpers/bootstrap";
+
+body {
+  margin: 0;
+}
+
+@media print {
+  :root, body {
+    color: black !important;
+    background-color: white !important;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="container-fluid">
+    <header>
+      <div class="headerRow">
+        <h1 class="title">Nate Radebaugh</h1>
+      </div>
+      <p class="introText">
+        <strong>Experienced Manager, Software Solutions</strong> at
+        <strong>BDO Digital</strong> in the western Chicago Suburbs. Computer
+        Science graduate of Purdue University.
+      </p>
+    </header>
+
+    <div class="row align-items-stretch">
+      <div class="mb-4 col-6 col-sm-4 col-md-3">
+        <app-tile
+          class="resumeTile"
+          to="/resume"
+          [icon]="faFileAlt"
+          text="my resume"
+        />
+      </div>
+      <div class="mb-4 col-6 col-sm-4 col-md-3">
+        <app-tile
+          class="linkedinTile"
+          href="https://www.linkedin.com/in/nateradebaugh/"
+          [icon]="faLinkedin"
+          text="linkedin"
+        />
+      </div>
+      <div class="mb-4 col-6 col-sm-4 col-md-3">
+        <app-tile
+          class="githubTile"
+          href="https://github.com/NateRadebaugh"
+          [icon]="faGithub"
+          text="github"
+        />
+      </div>
+    </div>
+  </div>
+</div>

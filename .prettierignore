@@ -1,6 +1,0 @@
-yarn.lock
-.github
-.next
-.now
-service-worker.gen.js
-workbox-*.js 
