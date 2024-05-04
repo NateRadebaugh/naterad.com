@@ -1,0 +1,17 @@
+<div class="employment">
+  <h3 class="companyName">{{ company() }}</h3>
+  <span class="location">{{ location() }}</span>
+  <br />
+  <h3 class="position">
+    <strong>{{ position() }}</strong> @if (group(); as group) {, {{ group }} }
+  </h3>
+  <span class="dates">{{ dates() }}</span>
+</div>
+
+<ul class="details">
+  @for (detail of details(); track detail) {
+  <li class="detail">
+    {{ detail }}
+  </li>
+  }
+</ul>

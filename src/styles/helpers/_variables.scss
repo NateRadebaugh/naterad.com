@@ -1,0 +1,19 @@
+@import "bootstrap/scss/functions";
+
+$body-bg: #121212;
+$body-color: rgba(255, 255, 255, 0.87);
+
+$link-color: rgb(102, 184, 255);
+
+$custom-theme-colors: (
+);
+
+// Configuration
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// Optional Sass map overrides here
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";

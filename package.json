@@ -1,38 +1,36 @@
 {
   "name": "naterad.com",
-  "version": "1.0.0",
-  "engines": {
-    "node": "20.x"
-  },
+  "version": "0.0.0",
   "scripts": {
-    "now-build": "next build",
-    "dev": "next",
-    "build": "next build",
-    "start": "set NODE_ENV=production&&next start",
-    "format": "prettier --write .",
-    "lint": "next lint"
+    "ng": "ng",
+    "start": "ng serve",
+    "dev": "ng serve --watch --configuration local",
+    "build": "ng build",
+    "test": "ng test"
   },
+  "private": true,
   "dependencies": {
+    "@angular/animations": "^18.0.0-rc.0",
+    "@angular/common": "^18.0.0-rc.0",
+    "@angular/compiler": "^18.0.0-rc.0",
+    "@angular/core": "^18.0.0-rc.0",
+    "@angular/forms": "^18.0.0-rc.0",
+    "@angular/platform-browser": "^18.0.0-rc.0",
+    "@angular/platform-browser-dynamic": "^18.0.0-rc.0",
+    "@angular/router": "^18.0.0-rc.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "clsx": "^2.1.1",
-    "next": "^14.2.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.2.0"
+    "bootstrap": "^5.3.3",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
   },
   "devDependencies": {
-    "@types/node": "^20.12.8",
-    "@types/react": "^18.3.1",
-    "autoprefixer": "^10.4.19",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.3",
-    "prettier": "^3.2.5",
-    "sass": "^1.76.0",
-    "tailwind-bootstrap-grid": "^5.1.0",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
+    "@angular-devkit/build-angular": "^18.0.0-rc.1",
+    "@angular/cli": "^18.0.0-rc.1",
+    "@angular/compiler-cli": "^18.0.0-rc.0",
+    "typescript": "~5.4.2"
   }
 }
