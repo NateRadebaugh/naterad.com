@@ -7,7 +7,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "dev": "ng serve --watch --configuration local",
+    "dev": "ng dev --watch --configuration local",
     "build": "ng build"
   },
   "private": true,
