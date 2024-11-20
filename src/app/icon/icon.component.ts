@@ -53,7 +53,7 @@ export class FaIconPipe implements PipeTransform {
     ></svg>
     }
   `,
-  styles: `
+    styles: `
     :host {
       display: inline;
     }
