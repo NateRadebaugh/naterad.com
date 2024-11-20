@@ -1,7 +1,6 @@
 import { Component, input } from "@angular/core";
 
 @Component({
-  standalone: true,
   selector: "app-employment",
   templateUrl: "./employment.component.html",
   styles: [

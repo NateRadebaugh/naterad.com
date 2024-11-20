@@ -1,7 +1,6 @@
 import { Component, input } from "@angular/core";
 
 @Component({
-  standalone: true,
   selector: "app-education",
   templateUrl: "./education.component.html",
   styles: [

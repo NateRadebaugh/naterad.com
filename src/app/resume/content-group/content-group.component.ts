@@ -1,7 +1,6 @@
 import { Component, input } from "@angular/core";
 
 @Component({
-  standalone: true,
   selector: "app-content-group",
   templateUrl: "./content-group.component.html",
   styles: [

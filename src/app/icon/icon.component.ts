@@ -1,15 +1,19 @@
-import { Component, Input } from "@angular/core";
-
-import { Pipe, PipeTransform } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  Pipe,
+  PipeTransform,
+} from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 @Pipe({
-  standalone: true,
   name: "faIcon",
 })
 export class FaIconPipe implements PipeTransform {
-  constructor(private sanitizer: DomSanitizer) {}
+  private sanitizer = inject(DomSanitizer);
 
   transform(def: IconDefinition) {
     if (typeof def === "string") {
@@ -31,23 +35,25 @@ export class FaIconPipe implements PipeTransform {
 }
 
 @Component({
-    selector: "app-icon",
-    template: `
-    @if (icon) {
+  selector: "app-icon",
+  template: `
+    @if (icon()) {
     <svg
-      [attr.aria-label]="ariaLabel"
-      [attr.aria-hidden]="!ariaLabel"
+      [attr.aria-label]="ariaLabel()"
+      [attr.aria-hidden]="!ariaLabel()"
       [class]="
-        'svg-inline--fa ' + (fixedWidth ? 'fa-fw ' : '') + (styleClass || '')
+        'svg-inline--fa ' +
+        (fixedWidth() ? 'fa-fw ' : '') +
+        (styleClass() || '')
       "
-      [attr.viewBox]="'0 0 ' + icon.icon[0] + ' ' + icon.icon[1]"
+      [attr.viewBox]="'0 0 ' + icon()!.icon[0] + ' ' + icon()!.icon[1]"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
-      [innerHTML]="icon | faIcon"
+      [innerHTML]="icon()! | faIcon"
     ></svg>
     }
   `,
-    styles: `
+  styles: `
     :host {
       display: inline;
     }
@@ -74,11 +80,12 @@ export class FaIconPipe implements PipeTransform {
       vertical-align: -0.125em;
     }
   `,
-    imports: [FaIconPipe]
+  imports: [FaIconPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {
-  @Input() styleClass: string | undefined;
-  @Input() fixedWidth: boolean | undefined = true;
-  @Input() ariaLabel: string | undefined;
-  @Input() icon: IconDefinition | undefined;
+  readonly styleClass = input<string>();
+  readonly fixedWidth = input<boolean | undefined>(true);
+  readonly ariaLabel = input<string>();
+  readonly icon = input<IconDefinition>();
 }
