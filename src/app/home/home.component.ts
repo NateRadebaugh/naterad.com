@@ -4,11 +4,10 @@ import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import { TileComponent } from "./tile/tile.component";
 
 @Component({
-  standalone: true,
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styles: [
-    `
+    selector: "app-home",
+    templateUrl: "./home.component.html",
+    styles: [
+        `
       .wrapper {
         margin: 0;
         padding: 0;
@@ -103,8 +102,8 @@ import { TileComponent } from "./tile/tile.component";
         @include tile(#4183c4);
       }
     `,
-  ],
-  imports: [TileComponent],
+    ],
+    imports: [TileComponent]
 })
 export class HomeComponent {
   faFileAlt = faFileAlt;
