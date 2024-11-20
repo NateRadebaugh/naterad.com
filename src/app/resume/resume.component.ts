@@ -1,14 +1,14 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { ContentGroupComponent } from "./content-group/content-group.component";
 import { EmploymentComponent } from "./employment/employment.component";
 import { EducationComponent } from "./education/education.component";
 
 @Component({
-    selector: "app-resume",
-    templateUrl: "./resume.component.html",
-    styles: [
-        `
+  selector: "app-resume",
+  templateUrl: "./resume.component.html",
+  styles: [
+    `
       .resume {
         font-size: 14.4px;
         font-family: "Helvetica Neue", Arial;
@@ -74,13 +74,14 @@ import { EducationComponent } from "./education/education.component";
         }
       }
     `,
-    ],
-    imports: [
-        RouterLink,
-        ContentGroupComponent,
-        EmploymentComponent,
-        EducationComponent,
-    ]
+  ],
+  imports: [
+    RouterLink,
+    ContentGroupComponent,
+    EmploymentComponent,
+    EducationComponent,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumeComponent {}
 

@@ -1,7 +1,6 @@
-import { Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 
 @Component({
-  standalone: true,
   selector: "app-education",
   templateUrl: "./education.component.html",
   styles: [
@@ -67,6 +66,7 @@ import { Component, input } from "@angular/core";
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EducationComponent {
   degree = input.required<string>();
