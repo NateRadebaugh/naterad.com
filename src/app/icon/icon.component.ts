@@ -31,9 +31,8 @@ export class FaIconPipe implements PipeTransform {
 }
 
 @Component({
-  standalone: true,
-  selector: "app-icon",
-  template: `
+    selector: "app-icon",
+    template: `
     @if (icon) {
     <svg
       [attr.aria-label]="ariaLabel"
@@ -48,7 +47,7 @@ export class FaIconPipe implements PipeTransform {
     ></svg>
     }
   `,
-  styles: `
+    styles: `
     :host {
       display: inline;
     }
@@ -75,7 +74,7 @@ export class FaIconPipe implements PipeTransform {
       vertical-align: -0.125em;
     }
   `,
-  imports: [FaIconPipe],
+    imports: [FaIconPipe]
 })
 export class IconComponent {
   @Input() styleClass: string | undefined;

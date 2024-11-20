@@ -5,9 +5,8 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { IconComponent } from "src/app/icon/icon.component";
 
 @Component({
-  standalone: true,
-  selector: "app-tile",
-  template: `
+    selector: "app-tile",
+    template: `
     @if (to()) {
     <a [routerLink]="to()" class="tile">
       <ng-container *ngTemplateOutlet="content" />
@@ -27,8 +26,8 @@ import { IconComponent } from "src/app/icon/icon.component";
       <span class="tileText">{{ text() }}</span>
     </ng-template>
   `,
-  styles: [
-    `
+    styles: [
+        `
       .tile {
         display: flex;
         flex-direction: column;
@@ -63,8 +62,8 @@ import { IconComponent } from "src/app/icon/icon.component";
         text-rendering: optimizelegibility;
       }
     `,
-  ],
-  imports: [NgTemplateOutlet, RouterLink, IconComponent],
+    ],
+    imports: [NgTemplateOutlet, RouterLink, IconComponent]
 })
 export class TileComponent {
   to = input<string>();
