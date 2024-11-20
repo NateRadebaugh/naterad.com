@@ -1,4 +1,4 @@
-import { Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 
 @Component({
   selector: "app-content-group",
@@ -51,6 +51,7 @@ import { Component, input } from "@angular/core";
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContentGroupComponent {
   label = input.required<string>();
