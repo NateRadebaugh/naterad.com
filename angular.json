@@ -57,7 +57,12 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles/app.scss"]
+            "styles": ["src/styles/app.scss"],
+            "server": "src/main.server.ts",
+            "outputMode": "static",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
