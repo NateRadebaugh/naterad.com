@@ -11,9 +11,8 @@
 npm-debug.log
 yarn-error.log
 
-# Ignore non-npm locks
-bun.lock
-bun.lockb
+# Ignore non-bun locks
+package-lock.json
 yarn.lock
 
 # IDEs and editors
