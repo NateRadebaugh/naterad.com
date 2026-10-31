@@ -44,11 +44,22 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
         }
 
         @media print, (min-width: 800px) {
-          width: 7in;
+          width: calc(100% - 1in);
           float: left;
           clear: right;
         }
       }
+
+      @media print {
+        h2.contentGroupLabel {
+          margin-top: 5px;
+        }
+
+        div.contentGroupContent {
+          margin-top: 5px;
+        }
+      }
+
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
