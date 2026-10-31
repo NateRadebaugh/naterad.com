@@ -2,7 +2,7 @@
   "name": "naterad.com",
   "version": "1.1.0",
   "engines": {
-    "node": "20.x"
+    "node": "26.x"
   },
   "scripts": {
     "ng": "ng",
