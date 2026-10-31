@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { RouterLink } from "@angular/router";
 import { ContentGroupComponent } from "./content-group/content-group.component";
 import { EmploymentComponent } from "./employment/employment.component";
 import { EducationComponent } from "./education/education.component";
@@ -36,6 +35,13 @@ import { EducationComponent } from "./education/education.component";
       @media print {
         .resume {
           color: black;
+          width: 100%;
+          font-size: 12px;
+          line-height: 1.25;
+        }
+
+        div.name {
+          font-size: 2.5em;
         }
 
         a.link {
@@ -76,7 +82,6 @@ import { EducationComponent } from "./education/education.component";
     `,
   ],
   imports: [
-    RouterLink,
     ContentGroupComponent,
     EmploymentComponent,
     EducationComponent,

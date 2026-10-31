@@ -9,6 +9,16 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
         padding-bottom: 0.25em;
       }
 
+      @media print {
+        div.employment {
+          padding-bottom: 0.1em;
+        }
+
+        ul.details {
+          margin-bottom: 0.15em;
+        }
+      }
+
       h3.companyName {
         margin: 0;
         padding: 0;
